@@ -888,6 +888,470 @@
         </div>
       </div>
     </div> <!-- /view-planos -->
+
+    <!-- ======================================================================
+         SEÇÃO 3: ABA DE ATIVIDADES FÍSICAS (RÉPLICA PIXEL-A-PIXEL DA IMAGEM ATIVIDADES)
+         ====================================================================== -->
+    <div id="view-atividades" class="view-section">
+      <!-- 1. Header com Mulher Correndo no Parque e Citação -->
+      <section class="atividades-header">
+        <img class="atividades-header-bg" src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=1200&q=80" alt="Treino ao ar livre">
+        <div class="atividades-header-content">
+          <div class="atividades-title-row">
+            <span class="atividades-dumbbell-icon">🏋️</span>
+            <h1 class="atividades-title">Atividades Físicas</h1>
+          </div>
+          <p class="atividades-subtitle">Movimente-se, evolua e alcance seus objetivos!</p>
+        </div>
+        <div class="atividades-quote-box">
+          “Corpo ativo,<br>mente mais forte!”
+        </div>
+      </section>
+
+      <!-- 2. Abas de Navegação Interna -->
+      <div class="planos-tabs-nav">
+        <button class="plan-tab-btn active" onclick="trocarSubTabAtiv('meu-plano', this)">
+          <span>📅</span>
+          <span>Meu Plano</span>
+        </button>
+        <button class="plan-tab-btn" onclick="trocarSubTabAtiv('treinos', this)">
+          <span>🏋️</span>
+          <span>Treinos</span>
+        </button>
+        <button class="plan-tab-btn" onclick="trocarSubTabAtiv('atividades', this)">
+          <span>🎯</span>
+          <span>Atividades</span>
+        </button>
+        <button class="plan-tab-btn" onclick="trocarSubTabAtiv('historico', this)">
+          <span>⏱️</span>
+          <span>Histórico</span>
+        </button>
+        <button class="plan-tab-btn" onclick="trocarSubTabAtiv('conquistas', this)">
+          <span>🏆</span>
+          <span>Suas Conquistas</span>
+        </button>
+      </div>
+
+      <!-- 3. Quatro Cards de Métricas do Topo -->
+      <div class="atividades-metrics-grid">
+        <!-- 1. Gasto Energético Hoje -->
+        <div class="ativ-metric-card">
+          <div class="ativ-metric-top">
+            <span class="ativ-metric-icon" style="color:#FFB020;">⚡</span>
+            <span class="ativ-metric-label">Gasto Energético Hoje</span>
+          </div>
+          <div class="ativ-metric-val">328 kcal</div>
+          <div class="ativ-metric-spark">
+            <span class="ativ-spark-badge">↑ +12%</span>
+            <svg width="60" height="20" viewBox="0 0 60 20">
+              <path d="M 0 16 Q 20 18, 35 10 T 60 4" fill="none" stroke="#00D070" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- 2. Tempo de Atividade -->
+        <div class="ativ-metric-card">
+          <div class="ativ-metric-top">
+            <span class="ativ-metric-icon" style="color:#38BDF8;">⏱️</span>
+            <span class="ativ-metric-label">Tempo de Atividade</span>
+          </div>
+          <div class="ativ-metric-val">45 min</div>
+          <div class="ativ-metric-spark">
+            <span class="ativ-spark-badge">↑ +20%</span>
+            <svg width="60" height="20" viewBox="0 0 60 20">
+              <path d="M 0 18 Q 25 15, 40 8 T 60 3" fill="none" stroke="#00D070" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- 3. Meta Semanal -->
+        <div class="ativ-metric-card">
+          <div class="ativ-metric-top">
+            <span class="ativ-metric-icon" style="color:#FF9F1C;">🔥</span>
+            <span class="ativ-metric-label">Meta Semanal</span>
+          </div>
+          <div class="ativ-metric-val">150 min</div>
+          <div style="display:flex; align-items:center; gap:8px; margin-top:auto;">
+            <div style="flex:1; height:6px; background:#1C2B48; border-radius:4px; overflow:hidden;">
+              <div style="width:67%; height:100%; background:var(--primary-green); border-radius:4px;"></div>
+            </div>
+            <span style="font-size:11px; font-weight:800; color:#FFFFFF;">67%</span>
+          </div>
+        </div>
+
+        <!-- 4. Sequência Atual -->
+        <div class="ativ-metric-card">
+          <div class="ativ-metric-top">
+            <span class="ativ-metric-icon" style="color:#FFD700;">🏆</span>
+            <span class="ativ-metric-label">Sequência Atual</span>
+          </div>
+          <div class="ativ-metric-val">7 dias</div>
+          <div style="display:flex; align-items:center; gap:6px; font-size:11px; color:#FF9F1C; font-weight:700; margin-top:auto;">
+            <span>Continue assim!</span>
+            <span>🔥</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Grade Principal: Plano de Exercícios (7 Dias) + Seu Progresso -->
+      <div class="atividades-main-grid">
+        <!-- Coluna Esquerda: Seu Plano de Exercícios -->
+        <div class="exercicios-schedule-card">
+          <div class="exercicios-schedule-header">
+            <div class="exercicios-schedule-title">
+              <span>📅</span>
+              <span>Seu Plano de Exercícios</span>
+            </div>
+            <select class="exercicios-week-selector" onchange="selecionarSemanaAtiv(this.value)">
+              <option>Semana 1 de 4</option>
+              <option>Semana 2 de 4</option>
+              <option>Semana 3 de 4</option>
+              <option>Semana 4 de 4</option>
+            </select>
+          </div>
+
+          <div class="exercicios-notice-bar">
+            <span>✓</span>
+            <span>Plano personalizado baseado no seu perfil, objetivos e evolução.</span>
+          </div>
+
+          <!-- 1. Segunda-feira: Caminhada Rápida (Concluído) -->
+          <div class="exercicio-day-row">
+            <div class="exercicio-day-pill active">
+              <span class="exercicio-day-name">Seg</span>
+              <span class="exercicio-day-date">03/11</span>
+            </div>
+            <div class="exercicio-info-col">
+              <span class="exercicio-type-icon" style="color:#38BDF8;">🚶</span>
+              <div>
+                <div class="exercicio-title-bold">Caminhada Rápida</div>
+                <div class="exercicio-desc-sub">30 a 40 min • Ritmo moderado</div>
+              </div>
+            </div>
+            <button class="btn-ex-action btn-ex-concluido" onclick="abrirModalConcluido('Caminhada Rápida')">
+              <span>Concluído</span>
+              <span>✓</span>
+            </button>
+          </div>
+
+          <!-- 2. Terça-feira: Treino de Força Inferiores -->
+          <div class="exercicio-day-row">
+            <div class="exercicio-day-pill">
+              <span class="exercicio-day-name">Ter</span>
+              <span class="exercicio-day-date">04/11</span>
+            </div>
+            <div class="exercicio-info-col">
+              <span class="exercicio-type-icon" style="color:#A78BFA;">🏋️</span>
+              <div>
+                <div class="exercicio-title-bold">Treino de Força (Inferiores)</div>
+                <div class="exercicio-desc-sub">3 séries • 12 repetições</div>
+              </div>
+            </div>
+            <button class="btn-ex-action btn-ex-iniciar" onclick="iniciarTreinoModal('Inferiores')">
+              <span>Iniciar Treino</span>
+              <span>►</span>
+            </button>
+          </div>
+
+          <!-- 3. Quarta-feira: Corrida Leve -->
+          <div class="exercicio-day-row">
+            <div class="exercicio-day-pill">
+              <span class="exercicio-day-name">Qua</span>
+              <span class="exercicio-day-date">05/11</span>
+            </div>
+            <div class="exercicio-info-col">
+              <span class="exercicio-type-icon" style="color:#38BDF8;">🏃</span>
+              <div>
+                <div class="exercicio-title-bold">Corrida Leve</div>
+                <div class="exercicio-desc-sub">20 a 30 min • Ritmo confortável</div>
+              </div>
+            </div>
+            <button class="btn-ex-action btn-ex-agendar" onclick="agendarTreinoModal('Corrida Leve')">
+              <span>Agendar</span>
+              <span>⏱️</span>
+            </button>
+          </div>
+
+          <!-- 4. Quinta-feira: Alongamento e Mobilidade -->
+          <div class="exercicio-day-row">
+            <div class="exercicio-day-pill">
+              <span class="exercicio-day-name">Qui</span>
+              <span class="exercicio-day-date">06/11</span>
+            </div>
+            <div class="exercicio-info-col">
+              <span class="exercicio-type-icon" style="color:#A78BFA;">🧘</span>
+              <div>
+                <div class="exercicio-title-bold">Alongamento e Mobilidade</div>
+                <div class="exercicio-desc-sub">15 a 20 min</div>
+              </div>
+            </div>
+            <button class="btn-ex-action btn-ex-agendar" onclick="agendarTreinoModal('Alongamento')">
+              <span>Agendar</span>
+              <span>⏱️</span>
+            </button>
+          </div>
+
+          <!-- 5. Sexta-feira: Treino de Força Superiores -->
+          <div class="exercicio-day-row">
+            <div class="exercicio-day-pill">
+              <span class="exercicio-day-name">Sex</span>
+              <span class="exercicio-day-date">07/11</span>
+            </div>
+            <div class="exercicio-info-col">
+              <span class="exercicio-type-icon" style="color:#A78BFA;">🏋️</span>
+              <div>
+                <div class="exercicio-title-bold">Treino de Força (Superiores)</div>
+                <div class="exercicio-desc-sub">3 séries • 12 repetições</div>
+              </div>
+            </div>
+            <button class="btn-ex-action btn-ex-agendar" onclick="agendarTreinoModal('Superiores')">
+              <span>Agendar</span>
+              <span>⏱️</span>
+            </button>
+          </div>
+
+          <!-- 6. Sábado: Pedalada -->
+          <div class="exercicio-day-row">
+            <div class="exercicio-day-pill">
+              <span class="exercicio-day-name">Sáb</span>
+              <span class="exercicio-day-date">08/11</span>
+            </div>
+            <div class="exercicio-info-col">
+              <span class="exercicio-type-icon" style="color:#38BDF8;">🚴</span>
+              <div>
+                <div class="exercicio-title-bold">Pedalada</div>
+                <div class="exercicio-desc-sub">30 a 45 min • Ritmo moderado</div>
+              </div>
+            </div>
+            <button class="btn-ex-action btn-ex-agendar" onclick="agendarTreinoModal('Pedalada')">
+              <span>Agendar</span>
+              <span>⏱️</span>
+            </button>
+          </div>
+
+          <!-- 7. Domingo: Atividade Livre -->
+          <div class="exercicio-day-row">
+            <div class="exercicio-day-pill">
+              <span class="exercicio-day-name">Dom</span>
+              <span class="exercicio-day-date">09/11</span>
+            </div>
+            <div class="exercicio-info-col">
+              <span class="exercicio-type-icon" style="color:#F43F5E;">❤️</span>
+              <div>
+                <div class="exercicio-title-bold">Atividade Livre</div>
+                <div class="exercicio-desc-sub">Caminhada, dança, esportes...</div>
+              </div>
+            </div>
+            <button class="btn-ex-action btn-ex-registrar" onclick="registrarAtividadeModal()">
+              <span>Registrar</span>
+              <span>+</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Seu Progresso + Tipos de Atividade -->
+        <div class="atividades-right-col">
+          <!-- Card Seu Progresso (Donut 78% + Stats + Histograma) -->
+          <div class="progresso-donut-card">
+            <div class="progresso-donut-header">
+              <div class="progresso-donut-title">
+                <span>🛡️</span>
+                <span>Seu Progresso</span>
+              </div>
+              <select class="exercicios-week-selector" onchange="alterarPeriodoProgresso(this.value)">
+                <option>Últimos 30 dias</option>
+                <option>Últimos 7 dias</option>
+                <option>Este ano</option>
+              </select>
+            </div>
+
+            <div class="progresso-donut-body">
+              <!-- Donut 78% da Meta -->
+              <div style="position:relative; width:110px; height:110px;">
+                <svg viewBox="0 0 36 36" style="width:100%; height:100%; transform: rotate(-90deg);">
+                  <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#162238" stroke-width="3.5" />
+                  <path d="M18 2.0845 a 15.9155 15.9155 0 1 1 -12.4 25.8" fill="none" stroke="#00D070" stroke-width="3.5" stroke-linecap="round" />
+                </svg>
+                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center;">
+                  <span style="font-size:22px; font-weight:800; color:#FFFFFF; display:block; line-height:1;">78%</span>
+                  <span style="font-size:10px; color:#64748B; display:block; margin-top:2px;">da meta</span>
+                </div>
+              </div>
+
+              <!-- Lista de Estatísticas -->
+              <div class="progresso-stats-list">
+                <div class="progresso-stat-item">
+                  <span class="progresso-stat-icon" style="color:#00D070;">🏃</span>
+                  <div>
+                    <div class="progresso-stat-val">4h 32min</div>
+                    <div class="progresso-stat-sub">de atividade</div>
+                  </div>
+                </div>
+                <div class="progresso-stat-item">
+                  <span class="progresso-stat-icon" style="color:#FF9F1C;">🔥</span>
+                  <div>
+                    <div class="progresso-stat-val">2.520 kcal</div>
+                    <div class="progresso-stat-sub">gastas</div>
+                  </div>
+                </div>
+                <div class="progresso-stat-item">
+                  <span class="progresso-stat-icon" style="color:#FFD700;">⭐</span>
+                  <div>
+                    <div class="progresso-stat-val">+2 níveis</div>
+                    <div class="progresso-stat-sub">de condicionamento</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Histograma das Semanas (04/10 a 01/11) -->
+            <div class="atividades-histogram-strip">
+              <div style="height:55px; display:flex; align-items:flex-end; gap:5px; padding:0 4px;">
+                <div style="flex:1; height:35%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:60%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:45%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:75%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:50%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:40%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:65%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:85%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:55%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:90%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:70%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:80%; background:#00D070; border-radius:3px;"></div>
+                <div style="flex:1; height:100%; background:#00D070; border-radius:3px; box-shadow:0 0 10px var(--primary-green-glow);"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:10px; color:#64748B; padding:0 4px;">
+                <span>04/10</span>
+                <span>11/10</span>
+                <span>18/10</span>
+                <span>25/10</span>
+                <span>01/11</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Tipos de Atividade (Donut Multicolor + Legenda) -->
+          <div class="tipos-donut-card">
+            <div class="tipos-donut-title">
+              <span>🎯</span>
+              <span>Tipos de Atividade</span>
+            </div>
+
+            <div class="tipos-donut-body">
+              <div style="position:relative; width:90px; height:90px;">
+                <svg viewBox="0 0 36 36" style="width:100%; height:100%; transform: rotate(-90deg);">
+                  <!-- Caminhada (45% - Verde) -->
+                  <circle cx="18" cy="18" r="14" fill="none" stroke="#00D070" stroke-width="4.5" stroke-dasharray="39.58 87.96" stroke-dashoffset="0" />
+                  <!-- Musculação (30% - Azul) -->
+                  <circle cx="18" cy="18" r="14" fill="none" stroke="#38BDF8" stroke-width="4.5" stroke-dasharray="26.39 87.96" stroke-dashoffset="-39.58" />
+                  <!-- Corrida (15% - Laranja) -->
+                  <circle cx="18" cy="18" r="14" fill="none" stroke="#FF9F1C" stroke-width="4.5" stroke-dasharray="13.19 87.96" stroke-dashoffset="-65.97" />
+                  <!-- Outros (10% - Roxo) -->
+                  <circle cx="18" cy="18" r="14" fill="none" stroke="#A78BFA" stroke-width="4.5" stroke-dasharray="8.8 87.96" stroke-dashoffset="-79.16" />
+                </svg>
+              </div>
+
+              <div class="tipos-legend-list">
+                <div class="tipo-legend-item">
+                  <div class="tipo-dot-label">
+                    <span class="tipo-dot" style="background:#00D070;"></span>
+                    <span>Caminhada</span>
+                  </div>
+                  <span class="tipo-pct">45%</span>
+                </div>
+                <div class="tipo-legend-item">
+                  <div class="tipo-dot-label">
+                    <span class="tipo-dot" style="background:#38BDF8;"></span>
+                    <span>Musculação</span>
+                  </div>
+                  <span class="tipo-pct">30%</span>
+                </div>
+                <div class="tipo-legend-item">
+                  <div class="tipo-dot-label">
+                    <span class="tipo-dot" style="background:#FF9F1C;"></span>
+                    <span>Corrida</span>
+                  </div>
+                  <span class="tipo-pct">15%</span>
+                </div>
+                <div class="tipo-legend-item">
+                  <div class="tipo-dot-label">
+                    <span class="tipo-dot" style="background:#A78BFA;"></span>
+                    <span>Outros</span>
+                  </div>
+                  <span class="tipo-pct">10%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Linha Inferior: Treino em Destaque + Dicas de Atividade -->
+      <div class="atividades-bottom-grid">
+        <!-- Treino em Destaque (HIIT Completo) -->
+        <div class="treino-destaque-card">
+          <div class="treino-destaque-header">
+            <div class="treino-destaque-title">
+              <span>🏋️</span>
+              <span>Treino em Destaque</span>
+            </div>
+            <button class="btn-edit-target" onclick="abrirCatalogoTreinos()">Ver todos ➔</button>
+          </div>
+
+          <div class="treino-destaque-body">
+            <img class="treino-destaque-img" src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=400&q=80" alt="Mulher fazendo flexão na academia">
+            <div class="treino-destaque-details">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span class="treino-destaque-name">Treino HIIT Completo</span>
+                <span class="treino-level-badge">Nível: Iniciante</span>
+              </div>
+              <p class="treino-destaque-desc">
+                Queime calorias em pouco tempo com um treino de alta intensidade.
+              </p>
+              <div class="treino-stats-row">
+                <span>⏱️ 20 min</span>
+                <span>🔥 250 kcal</span>
+                <span>📶 Fácil</span>
+              </div>
+              <button class="btn-primary" style="width:100%; margin-top:8px; padding:10px; background:#00D070; color:#070B14; border:none; border-radius:8px; font-weight:800; cursor:pointer;" onclick="iniciarTreinoModal('HIIT Completo')">
+                Iniciar Treino ►
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dicas de Atividade (Você sabia?) -->
+        <div class="dicas-atividade-card">
+          <div class="dicas-atividade-content">
+            <div class="dicas-atividade-header">
+              <span>💡</span>
+              <span>Dicas de Atividade</span>
+            </div>
+            <h3 class="dicas-atividade-title">Você sabia?</h3>
+            <p class="dicas-atividade-desc">
+              Combinar exercícios aeróbicos com musculação ajuda a acelerar o metabolismo e preservar a massa magra durante o emagrecimento.
+            </p>
+            <button class="btn-edit-target" onclick="abrirModalDicaMetabolismo()">
+              <span>Saiba mais ➔</span>
+            </button>
+          </div>
+
+          <!-- Silhueta Neon Verde Musculosa com Coração -->
+          <div class="dicas-atividade-silhueta">
+            <svg width="100" height="130" viewBox="0 0 100 130" fill="none">
+              <!-- Traçado de silhueta fitness neon com glow -->
+              <path d="M 50 15 C 55 15, 60 20, 60 25 C 60 30, 55 35, 50 35 C 45 35, 40 30, 40 25 C 40 20, 45 15, 50 15 Z" stroke="#00D070" stroke-width="2.5" filter="drop-shadow(0 0 6px #00D070)" />
+              <path d="M 35 45 C 20 45, 10 35, 15 25 C 18 20, 25 35, 35 40 L 40 55" stroke="#00D070" stroke-width="2.5" stroke-linecap="round" filter="drop-shadow(0 0 6px #00D070)" />
+              <path d="M 65 45 C 80 45, 90 35, 85 25 C 82 20, 75 35, 65 40 L 60 55" stroke="#00D070" stroke-width="2.5" stroke-linecap="round" filter="drop-shadow(0 0 6px #00D070)" />
+              <path d="M 40 55 C 38 75, 42 95, 35 125 M 60 55 C 62 75, 58 95, 65 125" stroke="#00D070" stroke-width="2.5" stroke-linecap="round" filter="drop-shadow(0 0 6px #00D070)" />
+              <!-- Ícone de Coração no Peito -->
+              <path d="M 50 62 C 45 55, 38 60, 44 68 L 50 74 L 56 68 C 62 60, 55 55, 50 62 Z" fill="none" stroke="#00D070" stroke-width="2" filter="drop-shadow(0 0 6px #00D070)" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /view-atividades -->
   </main>
 
   <!-- ======================================================================

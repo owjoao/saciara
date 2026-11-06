@@ -167,11 +167,13 @@ function bindSidebarNav() {
 
       const tab = link.dataset.tab;
       
-      // Alternância de Telas Principais (Início vs Planos Alimentares)
+      // Alternância de Telas Principais (Início vs Planos Alimentares vs Atividades Físicas)
       if (tab === 'planos') {
         mostrarAba('planos');
       } else if (tab === 'inicio') {
         mostrarAba('inicio');
+      } else if (tab === 'atividades') {
+        mostrarAba('atividades');
       } else if (tab === 'nutricao') {
         mostrarAba('planos');
       } else if (tab === 'iacoach') {
@@ -570,5 +572,169 @@ function handleSearch(query) {
     abrirModalPlanoCompleto();
   } else if (q.includes('peso') || q.includes('meta')) {
     abrirModalEvolucao();
+  } else if (q.includes('treino') || q.includes('atividade') || q.includes('exercício')) {
+    mostrarAba('atividades');
   }
+}
+
+// ==========================================================================
+// FUNÇÕES DA ABA DE ATIVIDADES FÍSICAS (RÉPLICA PIXEL-A-PIXEL)
+// ==========================================================================
+function trocarSubTabAtiv(subTab, btn) {
+  document.querySelectorAll('#view-atividades .plan-tab-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  if (subTab === 'treinos') {
+    abrirCatalogoTreinos();
+  } else if (subTab === 'atividades') {
+    abrirModal("🎯 Registro de Atividades Diárias", `
+      <div style="color:#CBD5E1; font-size:14px;">
+        <p>Atividades sincronizadas via GPS e acelerômetro:</p>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:12px;">
+          <div style="padding:12px; background:#091220; border:1px solid #1C2B48; border-radius:8px; display:flex; justify-content:space-between;">
+            <span>🚶 Caminhada Rápida no Parque</span>
+            <strong style="color:#00D070;">4,2 km • 328 kcal</strong>
+          </div>
+          <div style="padding:12px; background:#091220; border:1px solid #1C2B48; border-radius:8px; display:flex; justify-content:space-between;">
+            <span>🏋️ Treino de Força Membros Inferiores</span>
+            <strong style="color:#00D070;">45 min • 210 kcal</strong>
+          </div>
+        </div>
+      </div>
+    `);
+  } else if (subTab === 'historico') {
+    abrirModal("⏱️ Histórico de Treinos", `
+      <div style="color:#CBD5E1; font-size:14px;">
+        <p>Sua consistência nas últimas 4 semanas:</p>
+        <div style="font-size:18px; font-weight:800; color:#00D070; margin:14px 0;">22 treinos completados (92% de adesão)</div>
+        <p style="font-size:12px; color:#64748B;">Seu NEAT e gasto por atividade física (AEE) estão acelerando a partição tecidual segundo o modelo Kevin Hall.</p>
+      </div>
+    `);
+  } else if (subTab === 'conquistas') {
+    abrirModalMetas();
+  }
+}
+
+function selecionarSemanaAtiv(val) {
+  abrirModal("📅 Semana de Treinos Selecionada", `
+    <div style="color:#CBD5E1; font-size:14px; text-align:center;">
+      <p>Você selecionou o ciclo: <strong>${val}</strong></p>
+      <div style="margin:16px 0; padding:12px; background:#091220; border:1px solid #00D070; border-radius:8px; color:#00D070; font-weight:800;">
+        Foco: Aumento de Capacidade Aeróbica + Preservação de Massa Magra
+      </div>
+      <button style="background:#00D070; color:#070B14; border:none; padding:10px 20px; border-radius:8px; font-weight:800; cursor:pointer;" onclick="fecharModalGlobal()">Aplicar ao Cronograma</button>
+    </div>
+  `);
+}
+
+function abrirModalConcluido(nomeEx) {
+  abrirModal(`✅ ${nomeEx} Concluído!`, `
+    <div style="color:#CBD5E1; font-size:14px; text-align:center;">
+      <div style="font-size:48px; margin-bottom:10px;">🎉</div>
+      <h3 style="color:#FFFFFF; margin-bottom:6px;">Parabéns, Ana!</h3>
+      <p>Você completou sua meta com <strong>328 kcal gastas</strong> em ritmo moderado.</p>
+      <div style="background:#091220; border:1px solid #1C2B48; padding:12px; border-radius:8px; margin:16px 0; font-size:12px; color:#00D070;">
+        🔥 Sua sequência diária aumentou para 7 dias ininterruptos!
+      </div>
+      <button style="background:#00D070; color:#070B14; border:none; padding:10px 20px; border-radius:8px; font-weight:800; cursor:pointer;" onclick="fecharModalGlobal()">Fechar</button>
+    </div>
+  `);
+}
+
+function iniciarTreinoModal(nomeTreino) {
+  abrirModal(`🏋️ Iniciar: Treino de ${nomeTreino}`, `
+    <div style="color:#CBD5E1; font-size:14px;">
+      <p style="margin-bottom:12px;">Série prescrita pelo seu IA Coach Científico:</p>
+      <ol style="margin-left:20px; line-height:1.8;">
+        <li>Agachamento Livre — 3x 12 repetições</li>
+        <li>Passada com Halteres — 3x 10 repetições cada perna</li>
+        <li>Elevação Pélvica — 3x 15 repetições (isometria 2s)</li>
+        <li>Stiff com Barra — 3x 12 repetições</li>
+      </ol>
+      <div style="background:#091220; padding:12px; border-radius:8px; border:1px solid #1C2B48; margin:16px 0;">
+        🛒 <strong>Acessório recomendado:</strong> <a href="https://s.shopee.com.br/10940561_saciara" target="_blank" style="color:#00D070; font-weight:700;">Kit de Mini Bands Elásticas na Shopee</a> para intensificar ativação de glúteos!
+      </div>
+      <button style="width:100%; background:#00D070; color:#070B14; border:none; padding:12px; border-radius:8px; font-weight:800; cursor:pointer;" onclick="abrirModalConcluido('Treino de ' + '${nomeTreino}')">Marcar Treino como Finalizado ✓</button>
+    </div>
+  `);
+}
+
+function agendarTreinoModal(nomeTreino) {
+  abrirModal(`⏱️ Agendar: ${nomeTreino}`, `
+    <div style="color:#CBD5E1; font-size:14px;">
+      <label style="display:block; margin-bottom:8px; font-weight:700;">Horário ideal para o lembrete:</label>
+      <input type="time" value="07:30" style="width:100%; padding:10px; background:#091220; border:1px solid #1C2B48; color:#FFFFFF; border-radius:8px; margin-bottom:14px;">
+      <label style="display:flex; align-items:center; gap:8px; margin-bottom:14px; font-size:12px;">
+        <input type="checkbox" checked> Enviar notificação push 15 min antes
+      </label>
+      <button style="width:100%; background:#00D070; color:#070B14; border:none; padding:12px; border-radius:8px; font-weight:800; cursor:pointer;" onclick="fecharModalGlobal()">Confirmar Agendamento</button>
+    </div>
+  `);
+}
+
+function registrarAtividadeModal() {
+  abrirModal("❤️ Registrar Atividade Livre", `
+    <div style="color:#CBD5E1; font-size:14px;">
+      <label style="display:block; margin-bottom:6px; font-weight:700;">Modalidade:</label>
+      <select style="width:100%; padding:10px; background:#091220; border:1px solid #1C2B48; color:#FFFFFF; border-radius:8px; margin-bottom:12px;">
+        <option>Dança / Zumba</option>
+        <option>Natação</option>
+        <option>Pilates / Yoga</option>
+        <option>Esportes de Areia (Beach Tennis)</option>
+        <option>Passeio com Pet</option>
+      </select>
+      <label style="display:block; margin-bottom:6px; font-weight:700;">Duração estimada (minutos):</label>
+      <input type="number" value="45" style="width:100%; padding:10px; background:#091220; border:1px solid #1C2B48; color:#FFFFFF; border-radius:8px; margin-bottom:16px;">
+      <button style="width:100%; background:#00D070; color:#070B14; border:none; padding:12px; border-radius:8px; font-weight:800; cursor:pointer;" onclick="abrirModalConcluido('Atividade Livre')">Salvar e Somar aos Gastos Diários</button>
+    </div>
+  `);
+}
+
+function abrirCatalogoTreinos() {
+  abrirModal("🏋️ Catálogo de Treinos HIIT & Força", `
+    <div style="color:#CBD5E1; font-size:14px;">
+      <p style="margin-bottom:12px;">Treinos orientados para queima máxima em casa ou academia:</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="padding:12px; background:#091220; border:1px solid #1C2B48; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-weight:700; color:#FFFFFF;">HIIT Queima Rápida (Tabata)</div>
+            <div style="font-size:11px; color:#64748B;">15 min • 200 kcal • Sem equipamentos</div>
+          </div>
+          <button style="background:#00D070; color:#070B14; border:none; padding:6px 12px; border-radius:6px; font-weight:800; cursor:pointer;" onclick="iniciarTreinoModal('HIIT Tabata')">Iniciar</button>
+        </div>
+        <div style="padding:12px; background:#091220; border:1px solid #1C2B48; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-weight:700; color:#FFFFFF;">GAP (Glúteos, Abdômen e Pernas)</div>
+            <div style="font-size:11px; color:#64748B;">30 min • 280 kcal • Intermediário</div>
+          </div>
+          <button style="background:#00D070; color:#070B14; border:none; padding:6px 12px; border-radius:6px; font-weight:800; cursor:pointer;" onclick="iniciarTreinoModal('GAP')">Iniciar</button>
+        </div>
+      </div>
+    </div>
+  `);
+}
+
+function abrirModalDicaMetabolismo() {
+  abrirModal("💡 Metabolismo e Preservação de Massa Magra", `
+    <div style="color:#CBD5E1; font-size:14px; line-height:1.6;">
+      <p>Estudos clínicos do NIH e o modelo Kevin Hall demonstram que:</p>
+      <ul style="margin:12px 0 16px 20px;">
+        <li>O treino resistido (musculação) sinaliza ao organismo a preservação da massa muscular livre de gordura (FFM), desviando o catabolismo quase 100% para o tecido adiposo.</li>
+        <li>O EPOC (Consumo Excessivo de Oxigênio Pós-Exercício) do treino HIIT mantém seu metabolismo elevado por até 14 horas após o término da sessão.</li>
+      </ul>
+      <div style="background:#091220; padding:12px; border-radius:8px; border:1px solid #1C2B48;">
+        🛒 <strong>Recomendação Oficial:</strong> <a href="https://s.shopee.com.br/10940561_saciara" target="_blank" style="color:#00D070; font-weight:700;">Smartwatch com Medidor Cardíaco na Shopee</a> para calibrar suas zonas de frequência cardíaca!
+      </div>
+    </div>
+  `);
+}
+
+function alterarPeriodoProgresso(periodo) {
+  abrirModal("📊 Progresso Filtrado", `
+    <div style="color:#CBD5E1; font-size:14px; text-align:center;">
+      <p>Visualizando métricas consolidadas para: <strong>${periodo}</strong></p>
+      <div style="font-size:24px; font-weight:800; color:#00D070; margin:14px 0;">78% da Meta Atingida</div>
+      <p style="font-size:12px; color:#64748B;">Seu condicionamento físico progrediu 2 níveis neste ciclo.</p>
+    </div>
+  `);
 }

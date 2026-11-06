@@ -1155,6 +1155,583 @@ body {
   }
 }
 
+/* ==========================================================================
+   ABA DE ATIVIDADES FÍSICAS (RÉPLICA PIXEL-A-PIXEL DA IMAGEM ATIVIDADES)
+   ========================================================================== */
+.atividades-header {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-dark);
+  background: #0B1323;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 140px;
+  padding: 24px 32px;
+}
+
+.atividades-header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.38;
+  filter: brightness(0.65) saturate(1.2);
+  z-index: 1;
+}
+
+.atividades-header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.atividades-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.atividades-dumbbell-icon {
+  font-size: 28px;
+  color: var(--primary-green);
+}
+
+.atividades-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.atividades-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.atividades-quote-box {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-hand);
+  color: #FFFFFF;
+  text-align: right;
+  font-size: 22px;
+  line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* 4 Cards de Métricas do Topo */
+.atividades-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.ativ-metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.ativ-metric-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.ativ-metric-icon {
+  font-size: 20px;
+}
+
+.ativ-metric-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.ativ-metric-val {
+  font-size: 24px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.ativ-metric-spark {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.ativ-spark-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary-green);
+}
+
+/* Grade Principal: Plano de Exercícios (7 Dias) + Progresso e Tipos */
+.atividades-main-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1.2fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.exercicios-schedule-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.exercicios-schedule-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.exercicios-schedule-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.exercicios-week-selector {
+  background: #0B1323;
+  border: 1px solid var(--border-dark);
+  color: #FFFFFF;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.exercicios-notice-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(0, 208, 112, 0.08);
+  border: 1px solid rgba(0, 208, 112, 0.3);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--primary-green);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.exercicio-day-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #091220;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+  transition: var(--transition);
+}
+
+.exercicio-day-row:hover {
+  border-color: rgba(0, 208, 112, 0.4);
+  transform: translateY(-1px);
+}
+
+.exercicio-day-pill {
+  width: 48px;
+  padding: 6px 0;
+  border-radius: var(--radius-sm);
+  background: #121C30;
+  border: 1px solid var(--border-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.exercicio-day-pill.active {
+  background: rgba(0, 208, 112, 0.15);
+  border-color: var(--primary-green);
+}
+
+.exercicio-day-name {
+  font-size: 12px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.exercicio-day-date {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.exercicio-info-col {
+  flex: 1;
+  margin: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exercicio-type-icon {
+  font-size: 22px;
+}
+
+.exercicio-title-bold {
+  font-size: 14px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.exercicio-desc-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.btn-ex-action {
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.btn-ex-concluido {
+  background: var(--primary-green);
+  color: #070B14;
+  border: none;
+}
+
+.btn-ex-iniciar {
+  background: rgba(0, 208, 112, 0.12);
+  border: 1px solid var(--primary-green);
+  color: var(--primary-green);
+}
+
+.btn-ex-iniciar:hover {
+  background: var(--primary-green);
+  color: #070B14;
+}
+
+.btn-ex-agendar {
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  color: var(--text-secondary);
+}
+
+.btn-ex-agendar:hover {
+  border-color: var(--primary-green);
+  color: #FFFFFF;
+}
+
+.btn-ex-registrar {
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  color: var(--primary-green);
+}
+
+.btn-ex-registrar:hover {
+  background: rgba(0, 208, 112, 0.12);
+}
+
+/* Coluna Direita: Seu Progresso + Tipos de Atividade */
+.atividades-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.progresso-donut-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.progresso-donut-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.progresso-donut-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.progresso-donut-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.progresso-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.progresso-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progresso-stat-icon {
+  font-size: 20px;
+}
+
+.progresso-stat-val {
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.progresso-stat-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* Histograma de Horas/Dias */
+.atividades-histogram-strip {
+  border-top: 1px solid var(--border-dark);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tipos-donut-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.tipos-donut-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.tipos-donut-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tipos-legend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.tipo-legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.tipo-dot-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+
+.tipo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.tipo-pct {
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+/* Linha Inferior: Treino em Destaque + Dicas de Atividade */
+.atividades-bottom-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1.2fr;
+  gap: 24px;
+}
+
+.treino-destaque-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.treino-destaque-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.treino-destaque-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.treino-destaque-body {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.treino-destaque-img {
+  width: 180px;
+  height: 120px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 1px solid var(--border-dark);
+}
+
+.treino-destaque-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.treino-level-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 208, 112, 0.15);
+  color: var(--primary-green);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.treino-destaque-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.treino-destaque-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.treino-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.dicas-atividade-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.dicas-atividade-content {
+  flex: 1;
+}
+
+.dicas-atividade-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFB020;
+  margin-bottom: 10px;
+}
+
+.dicas-atividade-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.dicas-atividade-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.dicas-atividade-silhueta {
+  width: 120px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .atividades-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .atividades-main-grid {
+    grid-template-columns: 1fr;
+  }
+  .atividades-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+  .treino-destaque-body {
+    flex-direction: column;
+  }
+  .treino-destaque-img {
+    width: 100%;
+    height: 160px;
+  }
+}
+
 .card-footer-metric {
   margin-top: auto;
   font-size: 13px;
