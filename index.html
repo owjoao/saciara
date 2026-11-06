@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Saciara Nutri — Emagrecimento Científico & Cronograma Diário</title>
+  <meta name="description" content="Plataforma científica e adaptativa de emagrecimento com cronograma diário, calculadora de Mifflin-St Jeor, projeção de Kevin Hall e 156 receitas práticas.">
+  <meta name="theme-color" content="#D96B43">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥑</text></svg>">
+  
+  <!-- Tipografia Editorial Saciara -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header Oficial -->
+    <header class="app-header">
+      <div class="logo-brand">
+        <div class="logo-icon">🌿</div>
+        <div>
+          <span class="logo-text">Saciara</span>
+          <span style="font-size:11px; font-weight:700; color:var(--primary); display:block; letter-spacing:0.04em;">NUTRI CIENTÍFICA</span>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/saciara_/" target="_blank" style="text-decoration:none;" class="logo-badge">
+        @saciara_
+      </a>
+    </header>
+
+    <!-- Telas / Abas -->
+    <main>
+      <!-- 1. ABA: MEU PLANO -->
+      <section id="tab-plano" class="tab-screen active">
+        <!-- Renderizado dinamicamente via app.js -->
+      </section>
+
+      <!-- 2. ABA: CRONOGRAMA -->
+      <section id="tab-cronograma" class="tab-screen">
+        <!-- Renderizado dinamicamente via app.js -->
+      </section>
+
+      <!-- 3. ABA: RECEITAS FIT -->
+      <section id="tab-receitas" class="tab-screen">
+        <!-- Renderizado dinamicamente via app.js -->
+      </section>
+
+      <!-- 4. ABA: LISTA DE COMPRAS -->
+      <section id="tab-compras" class="tab-screen">
+        <!-- Renderizado dinamicamente via app.js -->
+      </section>
+
+      <!-- 5. ABA: CICLO & SAÚDE FEMININA -->
+      <section id="tab-ciclo" class="tab-screen">
+        <!-- Renderizado dinamicamente via app.js -->
+      </section>
+    </main>
+  </div>
+
+  <!-- Barra de Navegação Inferior (Mobile-First) -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-tab="plano">
+      <span class="nav-icon">📊</span>
+      <span>Meu Plano</span>
+    </button>
+    <button class="nav-item" data-tab="cronograma">
+      <span class="nav-icon">📅</span>
+      <span>Cronograma</span>
+    </button>
+    <button class="nav-item" data-tab="receitas">
+      <span class="nav-icon">📖</span>
+      <span>Receitas</span>
+    </button>
+    <button class="nav-item" data-tab="compras">
+      <span class="nav-icon">🛒</span>
+      <span>Compras</span>
+    </button>
+    <button class="nav-item" data-tab="ciclo">
+      <span class="nav-icon">🌸</span>
+      <span>Ciclo</span>
+    </button>
+  </nav>
+
+  <!-- Modal Global de Receitas e Configurações -->
+  <div id="recipeModal" class="modal-overlay">
+    <div class="modal-content" id="modalBody">
+      <!-- Conteúdo dinâmico -->
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "Saciara Nutri — Emagrecimento Científico",
+  "short_name": "Saciara",
+  "description": "Plataforma científica, adaptativa e personalizada de emagrecimento com cronograma diário e livro dinâmico de receitas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#D96B43",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

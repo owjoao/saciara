@@ -1,0 +1,375 @@
+/* Design System Saciara Nutri — Mobile-First PWA */
+:root {
+  --primary: #D96B43;
+  --primary-dark: #B84E28;
+  --primary-light: #FBEFEA;
+  --sage: #4E6E58;
+  --sage-dark: #374F3F;
+  --sage-light: #EBF2ED;
+  --bg: #FDFBF7;
+  --surface: #FFFFFF;
+  --surface-alt: #F7F3EB;
+  --text: #1E2822;
+  --text-muted: #6E7D73;
+  --border: #E8E2D5;
+  --shadow: 0 4px 20px rgba(30, 40, 34, 0.06);
+  --shadow-lg: 0 10px 30px rgba(30, 40, 34, 0.1);
+  --radius: 20px;
+  --radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding-bottom: 90px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, .font-editorial {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.app-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 20px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0 20px 0;
+}
+
+.logo-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(217, 107, 67, 0.3);
+}
+
+.logo-text {
+  font-size: 22px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.logo-badge {
+  font-size: 10px;
+  background: var(--sage-light);
+  color: var(--sage);
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+/* Macros Pill Grid */
+.macro-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.macro-box {
+  background: var(--surface-alt);
+  padding: 10px 6px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.macro-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.macro-lbl {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Inputs & Form */
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--primary);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: 0 4px 15px rgba(217, 107, 67, 0.35);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: var(--surface-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 12px 12px 12px;
+  z-index: 1000;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-icon {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.nav-item.active {
+  color: var(--primary);
+}
+
+/* Recipe Card & Meal Item */
+.meal-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+
+.meal-item:last-child {
+  border-bottom: none;
+}
+
+.meal-time {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sage);
+  background: var(--sage-light);
+  padding: 4px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.meal-info {
+  flex: 1;
+}
+
+.meal-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.meal-kcal {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Utensil Pill Affiliate Box */
+.utensil-box {
+  background: linear-gradient(135deg, #FFF9F5, #FFF2EC);
+  border: 1px dashed var(--primary);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.utensil-text {
+  font-size: 12px;
+  color: var(--text);
+}
+
+.utensil-link {
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  background: var(--primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(217, 107, 67, 0.25);
+}
+
+/* Tab Screens */
+.tab-screen {
+  display: none;
+}
+
+.tab-screen.active {
+  display: block;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--surface);
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  border-radius: 24px 24px 0 0;
+  padding: 24px;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
