@@ -85,6 +85,7 @@ function renderWeightChart(period) {
   // Último ponto
   const lastX = getX(data.length - 1);
   const lastY = getY(data[data.length - 1]);
+  const currentWeight = data[data.length - 1].toFixed(1).replace('.', ',');
 
   container.innerHTML = `
     <svg viewBox="0 0 ${w} ${h}" style="width:100%; height:100%; overflow:visible;">
@@ -114,12 +115,15 @@ function renderWeightChart(period) {
 
       <!-- Ponto Atual em Destaque -->
       <circle cx="${lastX}" cy="${lastY}" r="4" fill="#00D070" stroke="#070B14" stroke-width="2" />
-    </svg>
 
-    <!-- Badge Flutuante de Peso Atual Exato -->
-    <div class="chart-badge-weight" style="left:${lastX - 25}px; top:${lastY - 28}px;">
-      70,8 kg
-    </div>
+      <!-- Badge SVG Flutuante Perfeitamente Alinhado e Escalável -->
+      <g transform="translate(${Math.min(lastX - 28, w - 64)}, ${Math.max(lastY - 30, 8)})">
+        <rect width="56" height="22" rx="6" fill="#00D070" filter="drop-shadow(0px 2px 6px rgba(0,208,112,0.4))" />
+        <text x="28" y="15" fill="#070B14" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" text-anchor="middle">
+          ${currentWeight} kg
+        </text>
+      </g>
+    </svg>
   `;
 }
 
@@ -162,8 +166,14 @@ function bindSidebarNav() {
       link.classList.add('active');
 
       const tab = link.dataset.tab;
-      if (tab === 'nutricao' || tab === 'planos') {
-        abrirModalPlanoCompleto();
+      
+      // Alternância de Telas Principais (Início vs Planos Alimentares)
+      if (tab === 'planos') {
+        mostrarAba('planos');
+      } else if (tab === 'inicio') {
+        mostrarAba('inicio');
+      } else if (tab === 'nutricao') {
+        mostrarAba('planos');
       } else if (tab === 'iacoach') {
         abrirModalIACoach();
       } else if (tab === 'acompanhamento' || tab === 'relatorios') {
@@ -172,9 +182,154 @@ function bindSidebarNav() {
         abrirModalPerfil();
       } else if (tab === 'conquistas') {
         abrirModalMetas();
+      } else {
+        abrirModal("ℹ️ Módulo NutriPlus", `<p style="color:#94A3B8;">A seção <strong>${tab}</strong> está sincronizada com seus dados científicos em tempo real.</p>`);
       }
     });
   });
+}
+
+function mostrarAba(nomeAba) {
+  document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+  const target = document.getElementById(`view-${nomeAba}`);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// Funções da Aba Planos Alimentares
+function trocarSubTabPlanos(subTab, btn) {
+  document.querySelectorAll('.plan-tab-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  if (subTab === 'receitas') {
+    abrirModalCatalogoReceitas();
+  } else if (subTab === 'compras') {
+    abrirModalListaCompras();
+  } else if (subTab === 'substituicoes') {
+    abrirModal("🔄 Substituições Inteligentes de Alimentos", `
+      <div style="color:#CBD5E1; font-size:14px; line-height:1.6;">
+        <p>Trocas equivalentes em macronutrientes preservando o modelo fisiológico:</p>
+        <ul style="margin:12px 0 16px 20px;">
+          <li><strong>Arroz Integral (100g)</strong> ➔ Batata Doce (130g) ou Mandioca (90g)</li>
+          <li><strong>Frango Grelhado (100g)</strong> ➔ Tilápia (120g) ou Patinho Moído (90g)</li>
+          <li><strong>Aveia (40g)</strong> ➔ Farelo de Aveia (45g) ou Quinoa em Flocos (35g)</li>
+        </ul>
+        <div style="background:#091220; padding:12px; border-radius:8px; border:1px solid #1C2B48;">
+          💡 <em>O solver calcula as gramas exatas para manter 1.850 kcal/dia.</em>
+        </div>
+      </div>
+    `);
+  } else if (subTab === 'favoritos') {
+    abrirModal("🤍 Seus Favoritos Salvos", `
+      <div style="color:#CBD5E1; font-size:14px;">
+        <p>Suas receitas preferidas do canal <strong>@saciara_</strong>:</p>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:12px;">
+          <div style="padding:10px; background:#0B1323; border:1px solid #1C2B48; border-radius:8px;">★ Panqueca de Banana com Canela (180 kcal)</div>
+          <div style="padding:10px; background:#0B1323; border:1px solid #1C2B48; border-radius:8px;">★ Bowl de Iogurte com Chia e Frutas (142 kcal)</div>
+          <div style="padding:10px; background:#0B1323; border:1px solid #1C2B48; border-radius:8px;">★ Salmão com Legumes no Vapor (354 kcal)</div>
+        </div>
+      </div>
+    `);
+  }
+}
+
+function selecionarDiaPlano(btn, nomeDia) {
+  document.querySelectorAll('.day-pill-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const titleEl = document.getElementById('currentDayTitleText');
+  if (titleEl) titleEl.innerText = nomeDia;
+}
+
+function navegarSemana(delta) {
+  abrirModal("📅 Navegação de Semanas", `
+    <div style="color:#CBD5E1; font-size:14px; text-align:center;">
+      <p>Você está visualizando a semana do protocolo de emagrecimento adaptativo.</p>
+      <div style="font-size:18px; font-weight:800; color:#00D070; margin:14px 0;">Semana 1 / 12 (Fase 1: Definição)</div>
+      <p style="font-size:12px; color:#64748B;">Seus planos são recalculados dinamicamente com base nas pesagens.</p>
+    </div>
+  `);
+}
+
+function abrirCalendarioCompleto() {
+  abrirModal("🗓️ Calendário Mensal de Refeições", `
+    <div style="color:#CBD5E1; font-size:14px;">
+      <p>Planejamento de 30 dias sincronizado com os modelos dinâmicos de Kevin Hall e ciclo de recuperação.</p>
+      <div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:6px; margin:16px 0; text-align:center; font-size:12px;">
+        <div style="color:#64748B;">D</div><div style="color:#64748B;">S</div><div style="color:#64748B;">T</div><div style="color:#64748B;">Q</div><div style="color:#64748B;">Q</div><div style="color:#64748B;">S</div><div style="color:#64748B;">S</div>
+        <div style="padding:8px; background:#00D070; color:#070B14; font-weight:800; border-radius:6px;">1</div>
+        <div style="padding:8px; background:#00D070; color:#070B14; font-weight:800; border-radius:6px;">2</div>
+        <div style="padding:8px; background:#00D070; color:#070B14; font-weight:800; border-radius:6px; box-shadow:0 0 10px #00D070;">3</div>
+        <div style="padding:8px; background:#121C30; border-radius:6px;">4</div>
+        <div style="padding:8px; background:#121C30; border-radius:6px;">5</div>
+        <div style="padding:8px; background:#121C30; border-radius:6px;">6</div>
+        <div style="padding:8px; background:#121C30; border-radius:6px;">7</div>
+      </div>
+    </div>
+  `);
+}
+
+function abrirModalEditarObjetivo() {
+  abrirModal("🎯 Ajustar Objetivo Nutricional", `
+    <div style="color:#CBD5E1; font-size:14px;">
+      <label style="display:block; margin-bottom:8px; font-weight:700;">Selecione sua meta atual:</label>
+      <select style="width:100%; padding:10px; background:#091220; border:1px solid #1C2B48; color:#FFFFFF; border-radius:8px; margin-bottom:14px;">
+        <option selected>Definição Saudável (1.850 kcal/dia - Perda Sustentável)</option>
+        <option>Déficit Fisiológico Kevin Hall (1.600 kcal/dia - Acelerado)</option>
+        <option>Manutenção Metabólica (2.200 kcal/dia)</option>
+        <option>Hipertrofia Limpa (2.450 kcal/dia)</option>
+      </select>
+      <button class="btn-primary" style="width:100%; padding:12px; background:#00D070; color:#070B14; border:none; border-radius:8px; font-weight:800; cursor:pointer;" onclick="fecharModalGlobal()">Salvar e Recalcular Cardápio</button>
+    </div>
+  `);
+}
+
+function trocarReceitaModal(tipoRefeicao) {
+  const nomes = {
+    cafe: 'Café da Manhã',
+    lanche_manha: 'Lanche da Manhã',
+    almoco: 'Almoço',
+    lanche_tarde: 'Lanche da Tarde',
+    jantar: 'Jantar'
+  };
+  abrirModal(`🔄 Trocar Receita: ${nomes[tipoRefeicao] || 'Refeição'}`, `
+    <div style="color:#CBD5E1; font-size:14px;">
+      <p>Opções validadas com os mesmos macronutrientes da sua meta:</p>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:14px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:12px; background:#091220; border:1px solid #1C2B48; border-radius:8px;">
+          <div>
+            <div style="font-weight:700; color:#FFFFFF;">Omelete de Claras com Tomate & Manjericão</div>
+            <div style="font-size:11px; color:#64748B;">140 kcal • P: 18g • C: 3g • G: 5g</div>
+          </div>
+          <button style="background:#00D070; color:#070B14; border:none; padding:6px 12px; border-radius:6px; font-weight:800; cursor:pointer;" onclick="fecharModalGlobal()">Escolher</button>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:12px; background:#091220; border:1px solid #1C2B48; border-radius:8px;">
+          <div>
+            <div style="font-weight:700; color:#FFFFFF;">Crepioca Fit com Queijo Cottage</div>
+            <div style="font-size:11px; color:#64748B;">185 kcal • P: 14g • C: 16g • G: 6g</div>
+          </div>
+          <button style="background:#00D070; color:#070B14; border:none; padding:6px 12px; border-radius:6px; font-weight:800; cursor:pointer;" onclick="fecharModalGlobal()">Escolher</button>
+        </div>
+      </div>
+    </div>
+  `);
+}
+
+function abrirModalDicaProteina() {
+  abrirModal("💡 Ciência das Proteínas no Emagrecimento", `
+    <div style="color:#CBD5E1; font-size:14px; line-height:1.6;">
+      <p>De acordo com o modelo de partição tecidual de Forbes e Kevin Hall:</p>
+      <ul style="margin:12px 0 16px 20px;">
+        <li>Uma ingestão de <strong>1,8 g/kg</strong> de peso corporal protege a massa magra (FFM) contra catabolismo durante o déficit energético.</li>
+        <li>O Efeito Térmico dos Alimentos (TEF) das proteínas consome cerca de <strong>20 a 30%</strong> de suas próprias calorias apenas na digestão.</li>
+        <li>Maior saciedade hormonal estimulando GLP-1 e PYY.</li>
+      </ul>
+      <div style="background:#091220; padding:12px; border-radius:8px; border:1px solid #1C2B48;">
+        🛒 <strong>Utensílio recomendado:</strong> <a href="https://s.shopee.com.br/10940561_saciara" target="_blank" style="color:#00D070; font-weight:700;">Forma de Silicone Antiaderente para Airfryer na Shopee</a> para preparar carnes sem óleo!
+      </div>
+    </div>
+  `);
 }
 
 // ==========================================================================

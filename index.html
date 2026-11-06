@@ -103,6 +103,10 @@
       </div>
     </header>
 
+    <!-- ======================================================================
+         SEÇÃO 1: ABA DE INÍCIO (DASHBOARD NUTRIPLUS)
+         ====================================================================== -->
+    <div id="view-inicio" class="view-section active">
     <!-- Hero Banner Exato -->
     <section class="hero-banner">
       <div class="hero-content">
@@ -448,6 +452,442 @@
         </a>
       </div>
     </div>
+    </div> <!-- /view-inicio -->
+
+    <!-- ======================================================================
+         SEÇÃO 2: ABA DE PLANOS ALIMENTARES (RÉPLICA PIXEL-A-PIXEL DA IMAGEM 2)
+         ====================================================================== -->
+    <div id="view-planos" class="view-section">
+      <!-- 1. Header com Imagem de Fundo de Pratos Saudáveis e Citação -->
+      <section class="planos-header">
+        <img class="planos-header-bg" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80" alt="Alimentos Saudáveis">
+        <div class="planos-header-content">
+          <div class="planos-title-row">
+            <span class="planos-fork-icon">🍴</span>
+            <h1 class="planos-title">Planos Alimentares</h1>
+          </div>
+          <p class="planos-subtitle">Seu plano personalizado, baseado na ciência e nos seus objetivos.</p>
+        </div>
+        <div class="planos-quote-box">
+          “Comer bem<br>é o primeiro passo<br>para uma vida melhor!”
+        </div>
+      </section>
+
+      <!-- 2. Abas de Navegação Interna -->
+      <div class="planos-tabs-nav">
+        <button class="plan-tab-btn active" onclick="trocarSubTabPlanos('meu-plano', this)">
+          <span>📅</span>
+          <span>Meu Plano</span>
+        </button>
+        <button class="plan-tab-btn" onclick="trocarSubTabPlanos('receitas', this)">
+          <span>📖</span>
+          <span>Receitas</span>
+        </button>
+        <button class="plan-tab-btn" onclick="trocarSubTabPlanos('substituicoes', this)">
+          <span>🔄</span>
+          <span>Substituições</span>
+        </button>
+        <button class="plan-tab-btn" onclick="trocarSubTabPlanos('compras', this)">
+          <span>🛒</span>
+          <span>Lista de Compras</span>
+        </button>
+        <button class="plan-tab-btn" onclick="trocarSubTabPlanos('favoritos', this)">
+          <span>🤍</span>
+          <span>Favoritos</span>
+        </button>
+      </div>
+
+      <!-- 3. Card Seu Plano Atual: Definição Saudável + Donut + Macros -->
+      <div class="current-plan-card">
+        <div class="current-plan-info">
+          <span class="current-plan-target-icon">🎯</span>
+          <div>
+            <div style="font-size:11px; color:#64748B; font-weight:700; text-transform:uppercase;">Seu Plano Atual</div>
+            <h2 class="current-plan-title">Definição Saudável</h2>
+            <div class="current-plan-desc">Perda de gordura de forma sustentável</div>
+            <button class="btn-edit-target" onclick="abrirModalEditarObjetivo()">
+              <span>✏️</span>
+              <span>Editar objetivo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Donut de Calorias da Meta -->
+        <div style="display:flex; justify-content:center; align-items:center;">
+          <div style="position:relative; width:100px; height:100px;">
+            <svg viewBox="0 0 36 36" style="width:100%; height:100%; transform: rotate(-90deg);">
+              <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#162238" stroke-width="3.5" />
+              <path d="M18 2.0845 a 15.9155 15.9155 0 1 1 -15.9 15.9" fill="none" stroke="url(#donutPlanosGrad)" stroke-width="3.5" stroke-linecap="round" />
+              <defs>
+                <linearGradient id="donutPlanosGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#00D070" />
+                  <stop offset="100%" stop-color="#FF9F1C" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center;">
+              <span style="font-size:16px; font-weight:800; color:#FFFFFF; display:block; line-height:1.1;">1.850</span>
+              <span style="font-size:10px; color:#64748B; display:block;">kcal</span>
+              <span style="font-size:9px; color:#64748B; display:block;">por dia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resumo dos 3 Macros com Ícones -->
+        <div class="plan-macros-summary-row">
+          <div class="plan-macro-stat">
+            <span style="font-size:18px;">🏋️‍♂️</span>
+            <span class="plan-macro-val">130 g</span>
+            <span class="plan-macro-label">Proteínas (28%)</span>
+          </div>
+          <div class="plan-macro-stat">
+            <span style="font-size:18px;">🌾</span>
+            <span class="plan-macro-val">185 g</span>
+            <span class="plan-macro-label">Carboidratos (40%)</span>
+          </div>
+          <div class="plan-macro-stat">
+            <span style="font-size:18px;">💧</span>
+            <span class="plan-macro-val">62 g</span>
+            <span class="plan-macro-label">Gorduras (32%)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Seletor de Dias da Semana (Seg 03/11 a Dom 09/11) + Botão Calendário -->
+      <div class="week-calendar-strip">
+        <div class="week-nav-arrows">
+          <button class="week-nav-btn" onclick="navegarSemana(-1)">‹</button>
+        </div>
+
+        <div class="week-days-list" id="weekDaysList">
+          <button class="day-pill-btn active" onclick="selecionarDiaPlano(this, 'Segunda-feira • 03 de Novembro')">
+            <span class="day-pill-name">Seg</span>
+            <span class="day-pill-date">03/11</span>
+          </button>
+          <button class="day-pill-btn" onclick="selecionarDiaPlano(this, 'Terça-feira • 04 de Novembro')">
+            <span class="day-pill-name">Ter</span>
+            <span class="day-pill-date">04/11</span>
+          </button>
+          <button class="day-pill-btn" onclick="selecionarDiaPlano(this, 'Quarta-feira • 05 de Novembro')">
+            <span class="day-pill-name">Qua</span>
+            <span class="day-pill-date">05/11</span>
+          </button>
+          <button class="day-pill-btn" onclick="selecionarDiaPlano(this, 'Quinta-feira • 06 de Novembro')">
+            <span class="day-pill-name">Qui</span>
+            <span class="day-pill-date">06/11</span>
+          </button>
+          <button class="day-pill-btn" onclick="selecionarDiaPlano(this, 'Sexta-feira • 07 de Novembro')">
+            <span class="day-pill-name">Sex</span>
+            <span class="day-pill-date">07/11</span>
+          </button>
+          <button class="day-pill-btn" onclick="selecionarDiaPlano(this, 'Sábado • 08 de Novembro')">
+            <span class="day-pill-name">Sáb</span>
+            <span class="day-pill-date">08/11</span>
+          </button>
+          <button class="day-pill-btn" onclick="selecionarDiaPlano(this, 'Domingo • 09 de Novembro')">
+            <span class="day-pill-name">Dom</span>
+            <span class="day-pill-date">09/11</span>
+          </button>
+        </div>
+
+        <div class="week-nav-arrows">
+          <button class="week-nav-btn" onclick="navegarSemana(1)">›</button>
+        </div>
+
+        <button class="btn-open-calendar" onclick="abrirCalendarioCompleto()">
+          <span>📅</span>
+          <span>Ver calendário completo</span>
+        </button>
+      </div>
+
+      <!-- 5. Conteúdo: Refeições do Dia + Resumo Lateral Direito -->
+      <div class="planos-content-grid">
+        <!-- Coluna Esquerda: As 5 Refeições com Imagens, Gramas e Botões -->
+        <div class="planos-meals-container">
+          <!-- Status Bar do Dia -->
+          <div class="day-meta-status-bar">
+            <span id="currentDayTitleText">Segunda-feira • 03 de Novembro</span>
+            <span class="status-badge-green">
+              <span>✓</span>
+              <span>Plano dentro da meta!</span>
+            </span>
+          </div>
+
+          <!-- 1. Café da Manhã -->
+          <div class="meal-card-row">
+            <div class="meal-timing-col">
+              <span class="meal-icon-tag">☕</span>
+              <div>
+                <div class="meal-name-bold">Café da Manhã</div>
+                <div class="meal-hours-text">07:00 – 08:00</div>
+              </div>
+            </div>
+            <img class="meal-thumb-img" src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=300&q=80" alt="Aveia com Banana e Chia">
+            <div class="meal-details-col">
+              <div class="meal-recipe-title">Aveia com Banana e Chia</div>
+              <ul class="meal-ingredients-checklist">
+                <li>1 xícara de aveia (40 g)</li>
+                <li>1 banana média</li>
+                <li>1 colher de chá de chia (5 g)</li>
+              </ul>
+            </div>
+            <div class="meal-action-col">
+              <span class="meal-calories-badge">326 kcal</span>
+              <span class="meal-macros-inline">P: 12 g • C: 52 g • G: 8 g</span>
+              <button class="btn-swap-recipe" onclick="trocarReceitaModal('cafe')">
+                <span>🔄</span>
+                <span>Trocar receita</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Lanche da Manhã -->
+          <div class="meal-card-row">
+            <div class="meal-timing-col">
+              <span class="meal-icon-tag">🍏</span>
+              <div>
+                <div class="meal-name-bold">Lanche da Manhã</div>
+                <div class="meal-hours-text">10:30 – 11:30</div>
+              </div>
+            </div>
+            <img class="meal-thumb-img" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=300&q=80" alt="Iogurte com Frutas">
+            <div class="meal-details-col">
+              <div class="meal-recipe-title">Iogurte com Frutas</div>
+              <ul class="meal-ingredients-checklist">
+                <li>1 pote de iogurte natural (170 g)</li>
+                <li>Frutas vermelhas (50 g)</li>
+              </ul>
+            </div>
+            <div class="meal-action-col">
+              <span class="meal-calories-badge">142 kcal</span>
+              <span class="meal-macros-inline">P: 10 g • C: 14 g • G: 4 g</span>
+              <button class="btn-swap-recipe" onclick="trocarReceitaModal('lanche_manha')">
+                <span>🔄</span>
+                <span>Trocar receita</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Almoço -->
+          <div class="meal-card-row">
+            <div class="meal-timing-col">
+              <span class="meal-icon-tag">🍴</span>
+              <div>
+                <div class="meal-name-bold">Almoço</div>
+                <div class="meal-hours-text">12:30 – 14:00</div>
+              </div>
+            </div>
+            <img class="meal-thumb-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80" alt="Frango Grelhado com Arroz Integral">
+            <div class="meal-details-col">
+              <div class="meal-recipe-title">Frango Grelhado com Arroz Integral</div>
+              <ul class="meal-ingredients-checklist">
+                <li>100 g de frango grelhado</li>
+                <li>½ xícara de arroz integral (100 g)</li>
+                <li>Salada verde à vontade</li>
+              </ul>
+            </div>
+            <div class="meal-action-col">
+              <span class="meal-calories-badge">436 kcal</span>
+              <span class="meal-macros-inline">P: 38 g • C: 45 g • G: 12 g</span>
+              <button class="btn-swap-recipe" onclick="trocarReceitaModal('almoco')">
+                <span>🔄</span>
+                <span>Trocar receita</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Lanche da Tarde -->
+          <div class="meal-card-row">
+            <div class="meal-timing-col">
+              <span class="meal-icon-tag">🧁</span>
+              <div>
+                <div class="meal-name-bold">Lanche da Tarde</div>
+                <div class="meal-hours-text">16:00 – 17:00</div>
+              </div>
+            </div>
+            <img class="meal-thumb-img" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=300&q=80" alt="Castanhas e Maçã">
+            <div class="meal-details-col">
+              <div class="meal-recipe-title">Castanhas e Maçã</div>
+              <ul class="meal-ingredients-checklist">
+                <li>1 punhado de castanhas (15 g)</li>
+                <li>1 maçã média</li>
+              </ul>
+            </div>
+            <div class="meal-action-col">
+              <span class="meal-calories-badge">198 kcal</span>
+              <span class="meal-macros-inline">P: 3 g • C: 25 g • G: 10 g</span>
+              <button class="btn-swap-recipe" onclick="trocarReceitaModal('lanche_tarde')">
+                <span>🔄</span>
+                <span>Trocar receita</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 5. Jantar -->
+          <div class="meal-card-row">
+            <div class="meal-timing-col">
+              <span class="meal-icon-tag">🌙</span>
+              <div>
+                <div class="meal-name-bold">Jantar</div>
+                <div class="meal-hours-text">19:00 – 20:30</div>
+              </div>
+            </div>
+            <img class="meal-thumb-img" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=300&q=80" alt="Salmão com Legumes">
+            <div class="meal-details-col">
+              <div class="meal-recipe-title">Salmão com Legumes</div>
+              <ul class="meal-ingredients-checklist">
+                <li>120 g de salmão</li>
+                <li>Legumes no vapor (à vontade)</li>
+              </ul>
+            </div>
+            <div class="meal-action-col">
+              <span class="meal-calories-badge">354 kcal</span>
+              <span class="meal-macros-inline">P: 32 g • C: 18 g • G: 16 g</span>
+              <button class="btn-swap-recipe" onclick="trocarReceitaModal('jantar')">
+                <span>🔄</span>
+                <span>Trocar receita</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Resumo do Dia + Gráfico de Evolução -->
+        <div class="planos-sidebar-right">
+          <!-- Card Resumo do Dia -->
+          <div class="right-summary-card">
+            <div class="right-summary-header">
+              <span>📊</span>
+              <span>Resumo do Dia</span>
+            </div>
+
+            <!-- Calorias -->
+            <div class="progress-metric-item">
+              <div class="progress-metric-top">
+                <span style="display:flex; align-items:center; gap:6px; color:#FF9F1C;">🔥 1.850 kcal</span>
+                <span style="font-size:11px; color:#64748B;">Meta: 1.800 – 2.000 kcal</span>
+              </div>
+              <div class="progress-bar-thin">
+                <div class="progress-bar-fill-green" style="width:92%;"></div>
+              </div>
+            </div>
+
+            <!-- Proteínas -->
+            <div class="progress-metric-item">
+              <div class="progress-metric-top">
+                <span style="display:flex; align-items:center; gap:6px; color:#00D070;">🛡️ Proteínas</span>
+                <span style="color:#00D070;">130 g / 130 g ✓</span>
+              </div>
+              <div class="progress-bar-thin">
+                <div class="progress-bar-fill-green" style="width:100%;"></div>
+              </div>
+            </div>
+
+            <!-- Carboidratos -->
+            <div class="progress-metric-item">
+              <div class="progress-metric-top">
+                <span style="display:flex; align-items:center; gap:6px; color:#FFB020;">🌾 Carboidratos</span>
+                <span style="color:#00D070;">185 g / 185 g ✓</span>
+              </div>
+              <div class="progress-bar-thin">
+                <div class="progress-bar-fill-green" style="width:100%;"></div>
+              </div>
+            </div>
+
+            <!-- Gorduras -->
+            <div class="progress-metric-item">
+              <div class="progress-metric-top">
+                <span style="display:flex; align-items:center; gap:6px; color:#A78BFA;">💧 Gorduras</span>
+                <span style="color:#00D070;">62 g / 62 g ✓</span>
+              </div>
+              <div class="progress-bar-thin">
+                <div class="progress-bar-fill-green" style="width:100%;"></div>
+              </div>
+            </div>
+
+            <!-- Hidratação -->
+            <div class="progress-metric-item" style="margin-top:20px; padding-top:14px; border-top:1px solid #1C2B48;">
+              <div class="progress-metric-top">
+                <span style="display:flex; align-items:center; gap:6px; color:#38BDF8;">💧 Hidratação</span>
+                <span style="color:#38BDF8; font-weight:800;">2,1 L / 2,5 L</span>
+              </div>
+              <div class="progress-bar-thin">
+                <div style="height:100%; width:84%; background:#38BDF8; border-radius:4px;"></div>
+              </div>
+            </div>
+
+            <!-- Atividade Física -->
+            <div class="progress-metric-item" style="margin-top:14px;">
+              <div class="progress-metric-top">
+                <span style="display:flex; align-items:center; gap:6px; color:#00D070;">🏃 Atividade Física</span>
+                <span style="color:#00D070;">✓</span>
+              </div>
+              <div style="font-size:16px; font-weight:800; color:#FFFFFF; margin-top:2px;">30 min</div>
+              <div style="font-size:12px; color:#64748B;">Caminhada</div>
+            </div>
+          </div>
+
+          <!-- Card Sua Evolução -->
+          <div class="right-summary-card">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:18px;">📈</span>
+                <div>
+                  <div style="font-size:14px; font-weight:800; color:#FFFFFF;">Sua Evolução</div>
+                  <div style="font-size:11px; color:#64748B;">Veja como seu plano está trazendo resultados!</div>
+                </div>
+              </div>
+              <button class="btn-edit-target" onclick="abrirModalEvolucao()">Ver detalhes ➔</button>
+            </div>
+
+            <div style="position:relative; height:100px; width:100%; margin-top:10px;">
+              <svg viewBox="0 0 300 90" style="width:100%; height:100%; overflow:visible;">
+                <line x1="20" y1="20" x2="280" y2="20" stroke="#1C2B48" stroke-width="1" stroke-dasharray="3,3" />
+                <text x="0" y="24" fill="#64748B" font-size="8">80 kg</text>
+                <line x1="20" y1="50" x2="280" y2="50" stroke="#1C2B48" stroke-width="1" stroke-dasharray="3,3" />
+                <text x="0" y="54" fill="#64748B" font-size="8">75 kg</text>
+                <line x1="20" y1="80" x2="280" y2="80" stroke="#1C2B48" stroke-width="1" stroke-dasharray="3,3" />
+                <text x="0" y="84" fill="#64748B" font-size="8">70 kg</text>
+
+                <!-- Curva Verde com Gradiente e Pontos -->
+                <path d="M 20 48 Q 70 47, 120 46 T 220 52 T 270 56" fill="none" stroke="#00D070" stroke-width="2" />
+                <circle cx="20" cy="48" r="3" fill="#00D070" />
+                <circle cx="70" cy="47" r="3" fill="#00D070" />
+                <circle cx="120" cy="46" r="3" fill="#00D070" />
+                <circle cx="170" cy="49" r="3" fill="#00D070" />
+                <circle cx="220" cy="52" r="3" fill="#00D070" />
+                <circle cx="270" cy="56" r="4" fill="#00D070" stroke="#070B14" stroke-width="1.5" />
+
+                <!-- Badge 72,8 kg -1,2 kg -->
+                <g transform="translate(225, 30)">
+                  <rect width="52" height="24" rx="4" fill="#091322" stroke="#1C2B48" />
+                  <text x="26" y="11" fill="#FFFFFF" font-size="9" font-weight="800" text-anchor="middle">72,8 kg</text>
+                  <text x="26" y="20" fill="#00D070" font-size="8" font-weight="700" text-anchor="middle">-1,2 kg</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Card Dicas da NutriPlus (Banner Inferior) -->
+      <div class="tips-banner-card">
+        <div class="tips-content-col">
+          <div class="tips-badge-tag">
+            <span>💡</span>
+            <span>Dicas da NutriPlus</span>
+          </div>
+          <p class="tips-text">
+            Mantenha uma boa ingestão de proteínas em todas as refeições. Isso ajuda a preservar sua massa magra durante o emagrecimento.
+          </p>
+          <button class="btn-edit-target" onclick="abrirModalDicaProteina()">
+            <span>Saiba mais ➔</span>
+          </button>
+        </div>
+        <div class="tips-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="Prato Rico em Proteínas">
+        </div>
+      </div>
+    </div> <!-- /view-planos -->
   </main>
 
   <!-- ======================================================================
