@@ -1732,6 +1732,476 @@ body {
   }
 }
 
+/* ==========================================================================
+   ABA DE RELATÓRIO DE EVOLUÇÃO MENSAL (RÉPLICA PIXEL-A-PIXEL DA IMAGEM 4)
+   ========================================================================== */
+.relatorio-header {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-dark);
+  background: #0B1323;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 110px;
+  padding: 24px 32px;
+}
+
+.relatorio-header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  filter: brightness(0.6) saturate(1.3);
+  z-index: 1;
+}
+
+.relatorio-header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.relatorio-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.relatorio-chart-icon {
+  font-size: 28px;
+  color: var(--primary-green);
+}
+
+.relatorio-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.relatorio-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.relatorio-month-selector {
+  position: relative;
+  z-index: 2;
+  background: #091220;
+  border: 1px solid var(--border-dark);
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.relatorio-month-selector:hover {
+  border-color: var(--primary-green);
+}
+
+/* 4 Cards do Topo */
+.relatorio-top-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.rel-metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rel-metric-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.rel-metric-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.rel-metric-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.rel-metric-val {
+  font-size: 26px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.rel-metric-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  font-size: 11px;
+}
+
+/* Linha 1 de Análise: Evolução do Peso + Composição Corporal */
+.relatorio-mid-grid-1 {
+  display: grid;
+  grid-template-columns: 1.8fr 1.2fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.rel-peso-chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rel-peso-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.rel-peso-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.rel-peso-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.rel-peso-body {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 20px;
+  align-items: center;
+}
+
+.rel-target-box {
+  background: #091220;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rel-target-down {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary-green);
+  margin-bottom: 2px;
+}
+
+.rel-target-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.rel-target-pill {
+  padding: 6px 12px;
+  background: rgba(0, 208, 112, 0.12);
+  border: 1px solid var(--primary-green);
+  border-radius: var(--radius-sm);
+  color: var(--primary-green);
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rel-composicao-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rel-composicao-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.rel-composicao-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.rel-comp-legend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.rel-comp-legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.rel-badge-status-green {
+  background: rgba(0, 208, 112, 0.08);
+  border: 1px solid rgba(0, 208, 112, 0.3);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+/* Linha 2 de Análise: Alimentação + Atividades + Hábitos (3 Colunas) */
+.relatorio-mid-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.rel-stat-card-3col {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rel-stat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+}
+
+.rel-habits-circles-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.rel-habit-circle-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rel-circle-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid var(--primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+/* Linha 3 de Análise: Insights + Conquistas + Próximos Passos (3 Colunas) */
+.relatorio-bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.rel-insights-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.rel-insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rel-insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.rel-conquistas-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rel-badges-medals-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 16px 0;
+}
+
+.rel-badge-medal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rel-medal-shield {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #FFB020, #B45309);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(255, 176, 32, 0.35);
+  margin-bottom: 6px;
+}
+
+.rel-cheer-banner {
+  text-align: center;
+  padding: 10px;
+  background: rgba(255, 176, 32, 0.1);
+  border: 1px dashed #FFB020;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 800;
+  color: #FFB020;
+  margin-top: auto;
+}
+
+.rel-next-steps-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rel-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.rel-step-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.btn-plan-next-month {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary-green);
+  color: #070B14;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  transition: var(--transition);
+  box-shadow: 0 4px 16px var(--primary-green-glow);
+}
+
+.btn-plan-next-month:hover {
+  background: #00ea7f;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .relatorio-top-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .relatorio-mid-grid-1 {
+    grid-template-columns: 1fr;
+  }
+  .relatorio-mid-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .relatorio-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card-footer-metric {
   margin-top: auto;
   font-size: 13px;

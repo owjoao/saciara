@@ -58,8 +58,8 @@
         <span>IA Coach</span>
       </a>
       <a class="nav-link" data-tab="relatorios">
-        <span class="nav-icon">📊</span>
-        <span>Relatórios</span>
+        <span class="nav-icon">📈</span>
+        <span>Relatório de Evolução</span>
       </a>
       <a class="nav-link" data-tab="conquistas">
         <span class="nav-icon">🏆</span>
@@ -1352,6 +1352,419 @@
         </div>
       </div>
     </div> <!-- /view-atividades -->
+
+    <!-- ======================================================================
+         SEÇÃO 4: ABA DE RELATÓRIO DE EVOLUÇÃO MENSAL (RÉPLICA PIXEL-A-PIXEL DA IMAGEM 4)
+         ====================================================================== -->
+    <div id="view-relatorios" class="view-section">
+      <!-- 1. Header com Floresta/Natureza ao Fundo e Seletor de Mês -->
+      <section class="relatorio-header">
+        <img class="relatorio-header-bg" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80" alt="Natureza e Floresta">
+        <div class="relatorio-header-content">
+          <div class="relatorio-title-row">
+            <span class="relatorio-chart-icon">📈</span>
+            <h1 class="relatorio-title">Relatório de Evolução Mensal</h1>
+          </div>
+          <p class="relatorio-subtitle">Veja seu progresso, entenda os resultados e descubra novas conquistas!</p>
+        </div>
+        <button class="relatorio-month-selector" onclick="abrirSeletorMes()">
+          <span>📅</span>
+          <span>Novembro de 2026</span>
+          <span>▾</span>
+        </button>
+      </section>
+
+      <!-- 2. Quatro Cards de Métricas Principais do Mês -->
+      <div class="relatorio-top-grid">
+        <!-- 1. Peso Atual -->
+        <div class="rel-metric-card">
+          <div class="rel-metric-header">
+            <div class="rel-metric-icon-wrap" style="background:rgba(56,189,248,0.15); color:#38BDF8;">⚖️</div>
+            <span class="rel-metric-label">Peso Atual</span>
+          </div>
+          <div class="rel-metric-val">68,3 kg</div>
+          <div class="rel-metric-footer">
+            <span style="color:#00D070; font-weight:700;">↓ -2,7 kg vs. mês anterior</span>
+            <svg width="45" height="15" viewBox="0 0 45 15">
+              <path d="M 0 4 Q 20 2, 30 10 T 45 13" fill="none" stroke="#00D070" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- 2. Calorias Médias -->
+        <div class="rel-metric-card">
+          <div class="rel-metric-header">
+            <div class="rel-metric-icon-wrap" style="background:rgba(255,159,28,0.15); color:#FF9F1C;">🔥</div>
+            <span class="rel-metric-label">Calorias Médias</span>
+          </div>
+          <div class="rel-metric-val">1.820 kcal/dia</div>
+          <div class="rel-metric-footer">
+            <span style="color:#00D070; font-weight:700;">↓ -120 kcal vs. mês anterior</span>
+            <svg width="45" height="15" viewBox="0 0 45 15">
+              <path d="M 0 5 Q 15 12, 30 6 T 45 12" fill="none" stroke="#FF9F1C" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- 3. Meta do Mês -->
+        <div class="rel-metric-card">
+          <div class="rel-metric-header">
+            <div class="rel-metric-icon-wrap" style="background:rgba(255,215,0,0.15); color:#FFD700;">🏆</div>
+            <span class="rel-metric-label">Meta do Mês</span>
+          </div>
+          <div class="rel-metric-val" style="font-size:22px; color:#00D070;">Concluída!</div>
+          <div class="rel-metric-footer">
+            <span style="color:#64748B;">100% da meta</span>
+            <div style="width:70px; height:6px; background:#1C2B48; border-radius:3px; overflow:hidden;">
+              <div style="width:100%; height:100%; background:#00D070;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Sequência -->
+        <div class="rel-metric-card">
+          <div class="rel-metric-header">
+            <div class="rel-metric-icon-wrap" style="background:rgba(167,139,250,0.15); color:#A78BFA;">💧</div>
+            <span class="rel-metric-label">Sequência</span>
+          </div>
+          <div class="rel-metric-val">28 dias</div>
+          <div class="rel-metric-footer">
+            <span style="color:#64748B;">Sua melhor sequência!</span>
+            <svg width="45" height="15" viewBox="0 0 45 15">
+              <path d="M 0 12 Q 25 10, 35 4 T 45 2" fill="none" stroke="#A78BFA" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Linha 1 de Análise: Evolução do Peso (Previsão vs Real) + Composição Corporal -->
+      <div class="relatorio-mid-grid-1">
+        <!-- Evolução do Peso -->
+        <div class="rel-peso-chart-card">
+          <div class="rel-peso-header">
+            <div class="rel-peso-title">
+              <span>📈</span>
+              <span>Evolução do Peso</span>
+            </div>
+            <div class="rel-peso-legend">
+              <span style="display:flex; align-items:center; gap:6px;"><span style="width:8px; height:8px; border-radius:50%; background:#00D070;"></span> Peso Real</span>
+              <span style="display:flex; align-items:center; gap:6px;"><span style="width:8px; height:2px; background:#38BDF8;"></span> Previsão</span>
+              <span style="display:flex; align-items:center; gap:6px;"><span style="width:8px; height:2px; background:#FF9F1C;"></span> Meta</span>
+            </div>
+          </div>
+
+          <div class="rel-peso-body">
+            <!-- Gráfico SVG com Curva e Pontos e Datas 01/11 a 30/11 -->
+            <div style="height:140px; position:relative;">
+              <svg viewBox="0 0 340 130" style="width:100%; height:100%; overflow:visible;">
+                <!-- Linhas Horizontais de Grade -->
+                <line x1="25" y1="20" x2="330" y2="20" stroke="#162238" stroke-width="1" stroke-dasharray="3,3" />
+                <text x="2" y="24" fill="#64748B" font-size="8">72 kg</text>
+                <line x1="25" y1="50" x2="330" y2="50" stroke="#162238" stroke-width="1" stroke-dasharray="3,3" />
+                <text x="2" y="54" fill="#64748B" font-size="8">70 kg</text>
+                <line x1="25" y1="80" x2="330" y2="80" stroke="#162238" stroke-width="1" stroke-dasharray="3,3" />
+                <text x="2" y="84" fill="#64748B" font-size="8">68 kg</text>
+                <line x1="25" y1="110" x2="330" y2="110" stroke="#162238" stroke-width="1" stroke-dasharray="3,3" />
+                <text x="2" y="114" fill="#64748B" font-size="8">66 kg</text>
+
+                <!-- Linha Tracejada de Meta (68 kg) -->
+                <line x1="25" y1="80" x2="330" y2="80" stroke="#FF9F1C" stroke-width="1" stroke-dasharray="4,4" />
+
+                <!-- Curva Verde com Pontos e Gradiente -->
+                <path d="M 25 25 Q 90 45, 160 58 T 260 76 T 310 92" fill="none" stroke="#00D070" stroke-width="2.5" />
+                <circle cx="25" cy="25" r="3.5" fill="#00D070" />
+                <circle cx="65" cy="38" r="3" fill="#00D070" />
+                <circle cx="105" cy="46" r="3" fill="#00D070" />
+                <circle cx="150" cy="56" r="3" fill="#00D070" />
+                <circle cx="190" cy="64" r="3" fill="#00D070" />
+                <circle cx="230" cy="71" r="3" fill="#00D070" />
+                <circle cx="270" cy="78" r="3" fill="#00D070" />
+                <circle cx="310" cy="92" r="4.5" fill="#00D070" stroke="#070B14" stroke-width="2" />
+
+                <!-- Badge 68,3 kg -->
+                <g transform="translate(280, 52)">
+                  <rect width="48" height="20" rx="4" fill="#091322" stroke="#1C2B48" />
+                  <text x="24" y="14" fill="#FFFFFF" font-size="9" font-weight="800" text-anchor="middle">68,3 kg</text>
+                </g>
+
+                <!-- Eixo X Datas -->
+                <text x="25" y="128" fill="#64748B" font-size="8">01/11</text>
+                <text x="100" y="128" fill="#64748B" font-size="8">07/11</text>
+                <text x="175" y="128" fill="#64748B" font-size="8">14/11</text>
+                <text x="245" y="128" fill="#64748B" font-size="8">21/11</text>
+                <text x="300" y="128" fill="#64748B" font-size="8">30/11</text>
+              </svg>
+            </div>
+
+            <!-- Caixa de Meta do Mês -->
+            <div class="rel-target-box">
+              <span class="rel-target-down">↓ -2,7 kg</span>
+              <span class="rel-target-sub">no mês</span>
+              <div class="rel-target-pill">
+                <span>Meta: <strong>68 kg</strong></span>
+                <span>✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Composição Corporal -->
+        <div class="rel-composicao-card">
+          <div class="rel-composicao-header">
+            <span>🧍</span>
+            <span>Composição Corporal</span>
+          </div>
+
+          <div class="rel-composicao-body">
+            <!-- Donut 24,5% Gordura -->
+            <div style="position:relative; width:110px; height:110px;">
+              <svg viewBox="0 0 36 36" style="width:100%; height:100%; transform: rotate(-90deg);">
+                <circle cx="18" cy="18" r="14" fill="none" stroke="#38BDF8" stroke-width="4.5" stroke-dasharray="62.9 87.96" stroke-dashoffset="0" />
+                <circle cx="18" cy="18" r="14" fill="none" stroke="#FF9F1C" stroke-width="4.5" stroke-dasharray="21.5 87.96" stroke-dashoffset="-62.9" />
+                <circle cx="18" cy="18" r="14" fill="none" stroke="#A78BFA" stroke-width="4.5" stroke-dasharray="3.5 87.96" stroke-dashoffset="-84.4" />
+              </svg>
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center;">
+                <span style="font-size:18px; font-weight:800; color:#FFFFFF; display:block;">24,5%</span>
+                <span style="font-size:9px; color:#64748B; display:block;">Gordura Corporal</span>
+              </div>
+            </div>
+
+            <div class="rel-comp-legend-list">
+              <div class="rel-comp-legend-item">
+                <span style="display:flex; align-items:center; gap:6px; color:#64748B;"><span style="width:8px; height:8px; border-radius:50%; background:#38BDF8;"></span> Massa Magra</span>
+                <strong style="color:#FFFFFF;">71,5%</strong>
+              </div>
+              <div class="rel-comp-legend-item">
+                <span style="display:flex; align-items:center; gap:6px; color:#64748B;"><span style="width:8px; height:8px; border-radius:50%; background:#FF9F1C;"></span> Gordura</span>
+                <strong style="color:#FFFFFF;">24,5%</strong>
+              </div>
+              <div class="rel-comp-legend-item">
+                <span style="display:flex; align-items:center; gap:6px; color:#64748B;"><span style="width:8px; height:8px; border-radius:50%; background:#A78BFA;"></span> Outros</span>
+                <strong style="color:#FFFFFF;">4,0%</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="rel-badge-status-green">
+            <span>✓</span>
+            <div>
+              <strong style="color:#FFFFFF; display:block;">Excelente progresso!</strong>
+              <span style="font-size:11px;">Você reduziu 1,2% de gordura neste mês.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Linha 2 de Análise: Alimentação + Atividades + Hábitos (3 Colunas) -->
+      <div class="relatorio-mid-grid-2">
+        <!-- 1. Sua Alimentação -->
+        <div class="rel-stat-card-3col">
+          <div class="rel-stat-header">
+            <span>🍴</span>
+            <span>Sua Alimentação</span>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:18px;">
+            <div style="position:relative; width:80px; height:80px;">
+              <svg viewBox="0 0 36 36" style="width:100%; height:100%; transform: rotate(-90deg);">
+                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#162238" stroke-width="4" />
+                <path d="M18 2.0845 a 15.9155 15.9155 0 1 1 -2.5 31.6" fill="none" stroke="#00D070" stroke-width="4" stroke-linecap="round" />
+              </svg>
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center;">
+                <span style="font-size:16px; font-weight:800; color:#FFFFFF;">92%</span>
+                <span style="font-size:8px; color:#64748B; display:block;">da meta</span>
+              </div>
+            </div>
+
+            <div style="flex:1;">
+              <div style="font-size:11px; color:#64748B;">Calorias</div>
+              <div style="font-size:14px; font-weight:800; color:#FFFFFF; margin-bottom:8px;">1.820 / 1.950 kcal</div>
+              <div style="font-size:11px; color:#64748B; display:flex; justify-content:space-between;">
+                <span>Proteínas</span> <strong style="color:#FFFFFF;">130 / 120 g</strong>
+              </div>
+              <div style="font-size:11px; color:#64748B; display:flex; justify-content:space-between;">
+                <span>Carboidratos</span> <strong style="color:#FFFFFF;">180 / 190 g</strong>
+              </div>
+              <div style="font-size:11px; color:#64748B; display:flex; justify-content:space-between;">
+                <span>Gorduras</span> <strong style="color:#FFFFFF;">62 / 65 g</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="rel-badge-status-green" style="margin-top:auto; font-size:12px; padding:8px 12px;">
+            <span>✓</span>
+            <span>Ótima consistência alimentar!</span>
+          </div>
+        </div>
+
+        <!-- 2. Atividades Físicas -->
+        <div class="rel-stat-card-3col">
+          <div class="rel-stat-header">
+            <span>🏃</span>
+            <span>Atividades Físicas</span>
+          </div>
+
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px;">
+            <div>
+              <div style="font-size:24px; font-weight:800; color:#FFFFFF;">4h 32min</div>
+              <div style="font-size:11px; color:#64748B;">no mês</div>
+            </div>
+            <span style="font-size:13px; font-weight:800; color:#00D070;">↑ +28%</span>
+          </div>
+
+          <!-- Histograma Verde -->
+          <div style="height:65px; display:flex; align-items:flex-end; gap:5px; margin-bottom:16px;">
+            <div style="flex:1; height:45%; background:#00D070; border-radius:3px;"></div>
+            <div style="flex:1; height:60%; background:#00D070; border-radius:3px;"></div>
+            <div style="flex:1; height:35%; background:#00D070; border-radius:3px;"></div>
+            <div style="flex:1; height:75%; background:#00D070; border-radius:3px;"></div>
+            <div style="flex:1; height:85%; background:#00D070; border-radius:3px;"></div>
+            <div style="flex:1; height:65%; background:#00D070; border-radius:3px;"></div>
+            <div style="flex:1; height:90%; background:#00D070; border-radius:3px;"></div>
+            <div style="flex:1; height:100%; background:#00D070; border-radius:3px; box-shadow:0 0 10px #00D070;"></div>
+            <div style="flex:1; height:70%; background:#00D070; border-radius:3px;"></div>
+          </div>
+
+          <div class="rel-badge-status-green" style="margin-top:auto; font-size:12px; padding:8px 12px;">
+            <span>✓</span>
+            <span>Meta: 150 min/semana</span>
+          </div>
+        </div>
+
+        <!-- 3. Seus Hábitos -->
+        <div class="rel-stat-card-3col">
+          <div class="rel-stat-header">
+            <span>⭐</span>
+            <span>Seus Hábitos</span>
+          </div>
+
+          <div class="rel-habits-circles-row">
+            <!-- Sono -->
+            <div class="rel-habit-circle-stat">
+              <div class="rel-circle-wrap">🛏️</div>
+              <span style="font-size:13px; font-weight:800; color:#FFFFFF;">92%</span>
+              <span style="font-size:10px; color:#64748B;">Sono</span>
+            </div>
+            <!-- Hidratação -->
+            <div class="rel-habit-circle-stat">
+              <div class="rel-circle-wrap">💧</div>
+              <span style="font-size:13px; font-weight:800; color:#FFFFFF;">95%</span>
+              <span style="font-size:10px; color:#64748B;">Hidratação</span>
+            </div>
+            <!-- Registro -->
+            <div class="rel-habit-circle-stat">
+              <div class="rel-circle-wrap">📋</div>
+              <span style="font-size:13px; font-weight:800; color:#FFFFFF;">88%</span>
+              <span style="font-size:10px; color:#64748B;">Registro</span>
+            </div>
+            <!-- Exercícios -->
+            <div class="rel-habit-circle-stat">
+              <div class="rel-circle-wrap">🏋️</div>
+              <span style="font-size:13px; font-weight:800; color:#FFFFFF;">90%</span>
+              <span style="font-size:10px; color:#64748B;">Exercícios</span>
+            </div>
+          </div>
+
+          <div class="rel-badge-status-green" style="margin-top:auto; font-size:12px; padding:8px 12px;">
+            <span>✓</span>
+            <span>Você manteve ótimos hábitos!</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Linha 3 de Análise: Insights + Suas Conquistas + Próximos Passos (3 Colunas) -->
+      <div class="relatorio-bottom-grid">
+        <!-- 1. Insights Personalizados -->
+        <div class="rel-insights-card">
+          <div class="rel-stat-header">
+            <span>💡</span>
+            <span>Insights Personalizados</span>
+          </div>
+
+          <div class="rel-insights-list">
+            <div class="rel-insight-item">
+              <span style="color:#00D070; font-size:16px;">📈</span>
+              <span>Sua perda de peso está dentro do esperado para o seu objetivo.</span>
+            </div>
+            <div class="rel-insight-item">
+              <span style="color:#A78BFA; font-size:16px;">🧁</span>
+              <span>Sua ingestão de proteínas está excelente!</span>
+            </div>
+            <div class="rel-insight-item">
+              <span style="color:#FFB020; font-size:16px;">⚠️</span>
+              <span>Continue bebendo água regularmente.</span>
+            </div>
+            <div class="rel-insight-item">
+              <span style="color:#38BDF8; font-size:16px;">🏆</span>
+              <span>Você completou sua meta mensal. Parabéns por sua dedicação!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Suas Conquistas -->
+        <div class="rel-conquistas-card">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <div class="rel-stat-header" style="margin-bottom:0;">
+              <span>🏆</span>
+              <span>Suas Conquistas</span>
+            </div>
+            <button class="btn-edit-target" onclick="abrirModalMetas()">Ver todas ➔</button>
+          </div>
+
+          <div class="rel-badges-medals-row">
+            <!-- 28 Dias -->
+            <div class="rel-badge-medal">
+              <div class="rel-medal-shield">👑</div>
+              <div style="font-size:14px; font-weight:800; color:#FFFFFF;">28</div>
+              <div style="font-size:10px; color:#64748B;">Dias</div>
+            </div>
+            <!-- -2,7 kg -->
+            <div class="rel-badge-medal">
+              <div class="rel-medal-shield">🔥</div>
+              <div style="font-size:14px; font-weight:800; color:#FFFFFF;">-2,7 kg</div>
+              <div style="font-size:10px; color:#64748B;">no mês</div>
+            </div>
+            <!-- Meta Atingida -->
+            <div class="rel-badge-medal">
+              <div class="rel-medal-shield">⭐</div>
+              <div style="font-size:14px; font-weight:800; color:#FFFFFF;">Meta</div>
+              <div style="font-size:10px; color:#64748B;">Atingida</div>
+            </div>
+          </div>
+
+          <div class="rel-cheer-banner">
+            🎉 Você está indo muito bem! ✨
+          </div>
+        </div>
+
+        <!-- 3. Próximos Passos -->
+        <div class="rel-next-steps-card">
+          <div class="rel-stat-header">
+            <span>🚀</span>
+            <span>Próximos Passos</span>
+          </div>
+
+          <div class="rel-steps-list">
+            <label class="rel-step-item">
+              <input type="checkbox" checked style="accent-color:#00D070; width:16px; height:16px;">
+              <span>Manter o ritmo de exercícios</span>
+            </label>
+            <label class="rel-step-item">
+              <input type="checkbox" checked style="accent-color:#00D070; width:16px; height:16px;">
+              <span>Continuar com a alimentação equilibrada</span>
+            </label>
+            <label class="rel-step-item">
+              <input type="checkbox" style="accent-color:#00D070; width:16px; height:16px;">
+              <span>Reduzir mais 1 kg até o próximo mês</span>
+            </label>
+          </div>
+
+          <button class="btn-plan-next-month" onclick="abrirModalPlanoDezembro()">
+            <span>Ver Plano para Dezembro ➔</span>
+          </button>
+        </div>
+      </div>
+    </div> <!-- /view-relatorios -->
   </main>
 
   <!-- ======================================================================

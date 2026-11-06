@@ -167,19 +167,19 @@ function bindSidebarNav() {
 
       const tab = link.dataset.tab;
       
-      // Alternância de Telas Principais (Início vs Planos Alimentares vs Atividades Físicas)
+      // Alternância de Telas Principais (Início vs Planos vs Atividades vs Relatório Mensal)
       if (tab === 'planos') {
         mostrarAba('planos');
       } else if (tab === 'inicio') {
         mostrarAba('inicio');
       } else if (tab === 'atividades') {
         mostrarAba('atividades');
+      } else if (tab === 'relatorios' || tab === 'acompanhamento') {
+        mostrarAba('relatorios');
       } else if (tab === 'nutricao') {
         mostrarAba('planos');
       } else if (tab === 'iacoach') {
         abrirModalIACoach();
-      } else if (tab === 'acompanhamento' || tab === 'relatorios') {
-        abrirModalEvolucao();
       } else if (tab === 'perfil') {
         abrirModalPerfil();
       } else if (tab === 'conquistas') {
@@ -735,6 +735,53 @@ function alterarPeriodoProgresso(periodo) {
       <p>Visualizando métricas consolidadas para: <strong>${periodo}</strong></p>
       <div style="font-size:24px; font-weight:800; color:#00D070; margin:14px 0;">78% da Meta Atingida</div>
       <p style="font-size:12px; color:#64748B;">Seu condicionamento físico progrediu 2 níveis neste ciclo.</p>
+    </div>
+  `);
+}
+
+// ==========================================================================
+// FUNÇÕES DO RELATÓRIO DE EVOLUÇÃO MENSAL (RÉPLICA PIXEL-A-PIXEL)
+// ==========================================================================
+function abrirSeletorMes() {
+  abrirModal("📅 Selecionar Mês do Relatório", `
+    <div style="color:#CBD5E1; font-size:14px;">
+      <p style="margin-bottom:12px;">Escolha o mês consolidado para auditar sua evolução fisiológica:</p>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <button style="display:flex; justify-content:space-between; padding:12px; background:#091220; border:1px solid #00D070; border-radius:8px; color:#FFFFFF; font-weight:700; cursor:pointer;" onclick="fecharModalGlobal()">
+          <span>Novembro de 2026 (Atual)</span>
+          <span style="color:#00D070;">Ativo ✓</span>
+        </button>
+        <button style="display:flex; justify-content:space-between; padding:12px; background:#091220; border:1px solid #1C2B48; border-radius:8px; color:#94A3B8; font-weight:700; cursor:pointer;" onclick="fecharModalGlobal()">
+          <span>Outubro de 2026</span>
+          <span style="color:#64748B;">71,0 kg (-2,4 kg)</span>
+        </button>
+        <button style="display:flex; justify-content:space-between; padding:12px; background:#091220; border:1px solid #1C2B48; border-radius:8px; color:#94A3B8; font-weight:700; cursor:pointer;" onclick="fecharModalGlobal()">
+          <span>Setembro de 2026</span>
+          <span style="color:#64748B;">73,4 kg (-2,1 kg)</span>
+        </button>
+      </div>
+    </div>
+  `);
+}
+
+function abrirModalPlanoDezembro() {
+  abrirModal("🚀 Planejamento Estratégico para Dezembro", `
+    <div style="color:#CBD5E1; font-size:14px; line-height:1.6;">
+      <div style="text-align:center; margin-bottom:16px;">
+        <div style="font-size:36px;">🎯</div>
+        <h3 style="color:#FFFFFF; margin-top:6px;">Meta para Dezembro: 67,3 kg (-1,0 kg)</h3>
+        <p style="color:#00D070; font-weight:700; font-size:12px;">Estratégia Anti-Estagnação Fisiológica de Kevin Hall</p>
+      </div>
+      <p>Com a redução de peso de 68,3 kg alcançada em novembro, seu metabolismo basal reduziu proporcionalmente. Para manter a perda sem queda do gasto energético (termogênese adaptativa):</p>
+      <ul style="margin:12px 0 16px 20px;">
+        <li>Ajuste calórico suave: <strong>1.780 kcal/dia</strong> (preservando 130g de proteína).</li>
+        <li>Introdução de 2 sessões semanais de HIIT de 15 minutos para elevar o EPOC.</li>
+        <li>Refeição livre estratégica (Refeed de Carboidratos) a cada 14 dias para restabelecer leptina e T3 livre.</li>
+      </ul>
+      <div style="background:#091220; padding:12px; border-radius:8px; border:1px solid #1C2B48; margin-bottom:16px;">
+        🛒 <strong>Kit de apoio:</strong> <a href="https://s.shopee.com.br/10940561_saciara" target="_blank" style="color:#00D070; font-weight:700;">Garrafa Térmica Motivacional 2L com Marcador de Horas na Shopee</a> para bater sua meta hídrica de 95% em dezembro!
+      </div>
+      <button style="width:100%; background:#00D070; color:#070B14; border:none; padding:12px; border-radius:8px; font-weight:800; cursor:pointer;" onclick="fecharModalGlobal()">Ativar Cronograma de Dezembro ✓</button>
     </div>
   `);
 }
