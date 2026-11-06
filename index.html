@@ -104,354 +104,264 @@
     </header>
 
     <!-- ======================================================================
-         SEÇÃO 1: ABA DE INÍCIO (DASHBOARD NUTRIPLUS)
+         SEÇÃO 1: ABA DE INÍCIO OTIMIZADA — ROTINA ESSENCIAL, ÁGUA & PERDA DE PESO
+         (Foco 100% em Qualidade de Vida, Sem Gráficos, Praticidade Diária Máxima)
          ====================================================================== -->
     <div id="view-inicio" class="view-section active">
-    <!-- Hero Banner Exato -->
-    <section class="hero-banner">
-      <div class="hero-content">
-        <h2 class="hero-title">Olá, Ana! 👋</h2>
-        <p class="hero-subtitle">Você está indo muito bem na sua jornada!</p>
-
-        <div class="hero-meta-bar">
-          <span class="meta-trophy-icon">🏆</span>
-          <span class="meta-target-text">Meta: 70 kg</span>
-          <div class="meta-progress-track">
-            <div class="meta-progress-fill"></div>
-          </div>
-          <span class="meta-remaining-text">Faltam: <strong>5 kg</strong></span>
-          <span class="meta-pct">93%</span>
+      <!-- 1. Saudação Calma e Data Atual -->
+      <section class="inicio-hero-compact">
+        <div>
+          <h2 class="inicio-saudacao-title">Olá, Ana! 👋</h2>
+          <p class="inicio-saudacao-sub">Aqui está sua rotina diária essencial para viver bem e atingir sua meta com leveza.</p>
         </div>
-      </div>
-
-      <!-- Imagem Sunset da Mulher Fitness + Cursive Quote -->
-      <div class="hero-image-wrap">
-        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80" alt="Mulher Fitness" class="hero-woman-bg">
-        <div class="hero-cursive-quote">Você consegue! 🤍</div>
-      </div>
-
-      <!-- Card Flutuante de Progresso no Topo Direito -->
-      <div class="hero-progress-pill">
-        <div class="hero-pill-header">
-          <span>📈</span>
-          <span>Seu progresso é real!</span>
+        <div class="inicio-date-pill">
+          <span>📅</span>
+          <span id="inicioDataHoje">Hoje • Segunda-feira, 03/11</span>
         </div>
-        <div class="hero-pill-metric">-3,2 kg</div>
-        <div class="hero-pill-sub">nos últimos 30 dias</div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ====================================================================
-         LINHA 1 DE CARDS (EVOLUÇÃO, ALIMENTAÇÃO, IA COACH)
-         ==================================================================== -->
-    <div class="dashboard-grid">
-      <!-- 1. Evolução do Peso -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title-group">
-            <span class="card-icon">📈</span>
-            <span class="card-title">Evolução do Peso</span>
-          </div>
-
-          <div class="period-pills">
-            <button class="period-btn" onclick="alterarPeriodo('7D', this)">7D</button>
-            <button class="period-btn active" onclick="alterarPeriodo('30D', this)">30D</button>
-            <button class="period-btn" onclick="alterarPeriodo('90D', this)">90D</button>
-            <button class="period-btn" onclick="alterarPeriodo('1A', this)">1A</button>
-          </div>
-        </div>
-
-        <div class="chart-container" id="weightChartContainer">
-          <!-- Renderizado dinamicamente via JS -->
-        </div>
-
-        <div class="card-footer-metric">
-          <span>↓ 3,2 kg</span>
-          <span style="color:var(--text-dim); font-weight:500;">(últimos 30 dias)</span>
-        </div>
-      </div>
-
-      <!-- 2. Sua Alimentação Hoje -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title-group">
-            <span class="card-icon">🍴</span>
-            <span class="card-title">Sua Alimentação Hoje</span>
-          </div>
-        </div>
-
-        <div class="diet-donut-row">
-          <div class="donut-svg-wrap">
-            <svg viewBox="0 0 100 100" style="width:100%; height:100%; transform: rotate(-90deg);">
-              <circle cx="50" cy="50" r="40" fill="transparent" stroke="#162642" stroke-width="12"></circle>
-              <!-- 1450 / 1800 = 80.5% -->
-              <circle cx="50" cy="50" r="40" fill="transparent" stroke="url(#donutGrad)" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="48" stroke-linecap="round"></circle>
-              <defs>
-                <linearGradient id="donutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#00D070" />
-                  <stop offset="100%" stop-color="#38BDF8" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <div class="donut-center-text">
-              <div class="donut-cal-val" id="donutCalVal">1.450</div>
-              <div class="donut-cal-lbl">kcal<br>de 1.800 kcal</div>
+      <!-- 2. Os Três Pilares da Sua Rotina Diária -->
+      <div class="inicio-pilares-grid">
+        <!-- Pilar 1: Alimentação de Hoje -->
+        <div class="pilar-card">
+          <div class="pilar-header">
+            <div class="pilar-title-group">
+              <div class="pilar-icon-wrap" style="background:rgba(0, 208, 112, 0.12); color:#00D070;">🥗</div>
+              <span class="pilar-title-text">Alimentação</span>
             </div>
+            <span class="pilar-badge-status" style="background:rgba(0,208,112,0.15); color:#00D070;">Dentro da meta</span>
+          </div>
+          <div class="pilar-primary-val" id="inicioCaloriasVal">1.450 <span style="font-size:16px; font-weight:600; color:#64748B;">/ 1.800 kcal</span></div>
+          <div class="pilar-sub-desc">Faltam <strong>350 kcal</strong> para completar seu dia com precisão energética.</div>
+          
+          <div class="pilar-progress-bar">
+            <div class="pilar-progress-fill" style="width:80%; background:#00D070;"></div>
           </div>
 
-          <div class="macro-items-list">
-            <div class="macro-legend-pill">
-              <span class="macro-dot blue"></span>
-              <span class="macro-text">Proteínas</span>
-              <span class="macro-qty">95 g <small style="color:var(--text-dim)">21%</small></span>
+          <div class="pilar-footer-note">
+            <span>🥩</span>
+            <span>Proteínas: <strong>95g / 130g</strong> • Foco em saciedade</span>
+          </div>
+        </div>
+
+        <!-- Pilar 2: Hidratação Interativa -->
+        <div class="pilar-card">
+          <div class="pilar-header">
+            <div class="pilar-title-group">
+              <div class="pilar-icon-wrap" style="background:rgba(56, 189, 248, 0.12); color:#38BDF8;">💧</div>
+              <span class="pilar-title-text">Água & Hidratação</span>
             </div>
-            <div class="macro-legend-pill">
-              <span class="macro-dot orange"></span>
-              <span class="macro-text">Carboidratos</span>
-              <span class="macro-qty">160 g <small style="color:var(--text-dim)">35%</small></span>
+            <span class="pilar-badge-status" id="inicioWaterStatus" style="background:rgba(56,189,248,0.15); color:#38BDF8;">84% da meta</span>
+          </div>
+          <div class="pilar-primary-val" id="inicioWaterVal">2,1 <span style="font-size:16px; font-weight:600; color:#64748B;">/ 2,5 L</span></div>
+          <div class="pilar-sub-desc">Faltam apenas <strong>400 ml</strong> (2 copos) para otimizar sua taxa metabólica.</div>
+
+          <div class="pilar-progress-bar">
+            <div class="pilar-progress-fill" id="inicioWaterBar" style="width:84%; background:#38BDF8;"></div>
+          </div>
+
+          <div class="water-quick-buttons">
+            <button class="btn-add-water" onclick="adicionarAguaRapida(200)">+ 200 ml</button>
+            <button class="btn-add-water" onclick="adicionarAguaRapida(300)">+ 300 ml</button>
+            <button class="btn-add-water" onclick="adicionarAguaRapida(500)">+ 500 ml</button>
+          </div>
+        </div>
+
+        <!-- Pilar 3: Perda de Peso Sustentável -->
+        <div class="pilar-card">
+          <div class="pilar-header">
+            <div class="pilar-title-group">
+              <div class="pilar-icon-wrap" style="background:rgba(255, 176, 32, 0.12); color:#FFB020;">⚖️</div>
+              <span class="pilar-title-text">Perda de Peso</span>
             </div>
-            <div class="macro-legend-pill">
-              <span class="macro-dot purple"></span>
-              <span class="macro-text">Gorduras</span>
-              <span class="macro-qty">52 g <small style="color:var(--text-dim)">44%</small></span>
+            <span class="pilar-badge-status" style="background:rgba(255,176,32,0.15); color:#FFB020;">Rumo a 70 kg</span>
+          </div>
+          <div class="pilar-primary-val">70,8 kg</div>
+          <div class="pilar-sub-desc">Você já eliminou <strong>-3,2 kg</strong> de forma sustentável e saudável!</div>
+
+          <div class="pilar-progress-bar">
+            <div class="pilar-progress-fill" style="width:93%; background:#FFB020;"></div>
+          </div>
+
+          <div class="pilar-footer-note" style="color:#00D070; font-weight:700;">
+            <span>✓</span>
+            <span>Faltam apenas 0,8 kg para sua meta inicial!</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Rotina Alimentar Passo a Passo (O que comer hoje, horários e refeições práticas) -->
+      <section class="inicio-rotina-section">
+        <div class="rotina-section-header">
+          <div class="rotina-header-title">
+            <span>🍽️</span>
+            <span>Sua Rotina Alimentar de Hoje</span>
+          </div>
+          <div class="rotina-header-badge">
+            <span>✓</span>
+            <span>Cardápio Científico Saciara • Sem complicações</span>
+          </div>
+        </div>
+
+        <div class="refeicoes-timeline-list">
+          <!-- 1. Café da Manhã -->
+          <div class="refeicao-item-card">
+            <div class="refeicao-timing-box">
+              <span class="refeicao-icon-tag">☕</span>
+              <div>
+                <div class="refeicao-time-label">07:00 – 08:00</div>
+                <div class="refeicao-name-bold">Café da Manhã</div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="status-badge-planned">
-          <span>✔</span>
-          <span>Dentro do planejado!</span>
-        </div>
-      </div>
-
-      <!-- 3. Seu IA Coach -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title-group">
-            <span class="card-icon">🤖</span>
-            <span class="card-title">Seu IA Coach</span>
-          </div>
-        </div>
-
-        <div class="coach-row">
-          <div class="coach-avatar">🤖</div>
-          <div class="coach-speech-bubble" id="coachSpeechBubble">
-            Você teve uma ótima consistência esta semana! Que tal experimentar uma receita leve com frango e legumes?
-          </div>
-        </div>
-
-        <button class="btn-coach-action" onclick="abrirModalIACoach()">
-          <span>Ver sugestão da IA</span>
-          <span>➔</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- ====================================================================
-         LINHA 2 DE CARDS (HÁBITOS, COMPOSIÇÃO, METAS)
-         ==================================================================== -->
-    <div class="grid-3-col">
-      <!-- 1. Hábitos da Semana -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title-group">
-            <span class="card-icon">📋</span>
-            <span class="card-title">Hábitos da Semana</span>
-          </div>
-          <span class="habits-badge-counter" id="habitsCounter">7/7</span>
-        </div>
-
-        <div class="habits-row">
-          <div class="habit-circle-item" onclick="toggleHabit(this)">
-            <div class="habit-check-icon">✓</div>
-            <span class="habit-name">Alimentação</span>
-          </div>
-          <div class="habit-circle-item" onclick="toggleHabit(this)">
-            <div class="habit-check-icon">✓</div>
-            <span class="habit-name">Água</span>
-          </div>
-          <div class="habit-circle-item" onclick="toggleHabit(this)">
-            <div class="habit-check-icon">✓</div>
-            <span class="habit-name">Exercícios</span>
-          </div>
-          <div class="habit-circle-item" onclick="toggleHabit(this)">
-            <div class="habit-check-icon">✓</div>
-            <span class="habit-name">Sono</span>
-          </div>
-          <div class="habit-circle-item" onclick="toggleHabit(this)">
-            <div class="habit-check-icon">✓</div>
-            <span class="habit-name">Registro</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. Composição Corporal -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title-group">
-            <span class="card-icon">🧍</span>
-            <span class="card-title">Composição Corporal</span>
-          </div>
-        </div>
-
-        <div class="body-comp-row">
-          <div class="body-silhouette-wrap">
-            🧍
-          </div>
-
-          <div style="text-align:center;">
-            <div style="font-size:20px; font-weight:800; color:#FFF;">28%</div>
-            <div style="font-size:11px; color:var(--text-dim);">Gordura corporal</div>
-          </div>
-
-          <div class="body-comp-stats">
-            <div class="comp-stat-group">
-              <span>Massa Magra</span>
-              <span>49,7 kg</span>
-            </div>
-            <div class="comp-stat-group">
-              <span>Peso Atual</span>
-              <span>70,8 kg</span>
-            </div>
-          </div>
-        </div>
-
-        <a class="card-link-more" onclick="abrirModalComposicao()">
-          <span>Ver detalhes</span>
-          <span>➔</span>
-        </a>
-      </div>
-
-      <!-- 3. Metas da Semana -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title-group">
-            <span class="card-icon">🎯</span>
-            <span class="card-title">Metas da Semana</span>
-          </div>
-          <span style="font-size:22px;">🏆</span>
-        </div>
-
-        <div class="metas-list">
-          <label class="meta-checkbox-item">
-            <input type="checkbox" checked onchange="atualizarMetasContador()">
-            <span>Consumir pelo menos 1,5L de água</span>
-          </label>
-          <label class="meta-checkbox-item">
-            <input type="checkbox" checked onchange="atualizarMetasContador()">
-            <span>Realizar 3 treinos</span>
-          </label>
-          <label class="meta-checkbox-item">
-            <input type="checkbox" id="metaCalorica" onchange="atualizarMetasContador()">
-            <span>Manter 1.600 kcal/dia</span>
-          </label>
-        </div>
-
-        <a class="card-link-more" onclick="abrirModalMetas()">
-          <span>Ver todas</span>
-          <span>➔</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ====================================================================
-         LINHA 3 DE CARDS (PLANO DE HOJE, ATIVIDADES E SONO, CONQUISTAS)
-         ==================================================================== -->
-    <div class="grid-3-col">
-      <!-- 1. Plano Alimentar de Hoje -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title-group">
-            <span class="card-icon">🥗</span>
-            <span class="card-title">Plano Alimentar de Hoje</span>
-          </div>
-        </div>
-
-        <div class="meal-preview-row">
-          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Prato Saudável" class="meal-plate-thumb">
-
-          <div class="meal-today-items">
-            <div>✔ <strong>Café da manhã:</strong> Iogurte com frutas e granola</div>
-            <div>✔ <strong>Almoço:</strong> Frango grelhado, arroz integral e salada</div>
-            <div>✔ <strong>Jantar:</strong> Sopa de legumes</div>
-          </div>
-        </div>
-
-        <a class="card-link-more" onclick="abrirModalPlanoCompleto()" style="margin-top:16px;">
-          <span>Ver plano completo</span>
-          <span>➔</span>
-        </a>
-      </div>
-
-      <!-- 2. Atividades e Sono -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title-group">
-            <span class="card-icon">🏃</span>
-            <span class="card-title">Atividades e Sono</span>
-          </div>
-        </div>
-
-        <div class="activity-stat-numbers">
-          <div class="activity-metric-box">
-            <span class="metric-icon">👟</span>
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=200&q=80" alt="Aveia com Banana">
             <div>
-              <div class="metric-val">45 min</div>
-              <div class="metric-lbl">Exercício hoje (caminhada)</div>
+              <div class="refeicao-prato-title">Aveia com Banana, Canela e Chia</div>
+              <div class="refeicao-ingredientes-short">1 xícara de aveia (40g) • 1 banana média fatiada • 1 colher de chá de chia</div>
+            </div>
+            <div class="refeicao-actions-box">
+              <div class="refeicao-kcals">326 kcal</div>
+              <div class="refeicao-macros-mini">P: 12g • C: 52g • G: 8g</div>
+              <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
+                <span>✓</span>
+                <span>Consumido</span>
+              </button>
             </div>
           </div>
 
-          <div class="activity-metric-box">
-            <span class="metric-icon">🌙</span>
+          <!-- 2. Lanche da Manhã -->
+          <div class="refeicao-item-card">
+            <div class="refeicao-timing-box">
+              <span class="refeicao-icon-tag">🍏</span>
+              <div>
+                <div class="refeicao-time-label">10:30 – 11:30</div>
+                <div class="refeicao-name-bold">Lanche da Manhã</div>
+              </div>
+            </div>
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=200&q=80" alt="Iogurte com Frutas">
             <div>
-              <div class="metric-val">7h 32min</div>
-              <div class="metric-lbl">Sono da noite passada</div>
+              <div class="refeicao-prato-title">Iogurte Natural com Frutas Vermelhas</div>
+              <div class="refeicao-ingredientes-short">1 pote de iogurte natural (170g) • Frutas vermelhas frescas (50g)</div>
+            </div>
+            <div class="refeicao-actions-box">
+              <div class="refeicao-kcals">142 kcal</div>
+              <div class="refeicao-macros-mini">P: 10g • C: 14g • G: 4g</div>
+              <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
+                <span>✓</span>
+                <span>Consumido</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Almoço -->
+          <div class="refeicao-item-card">
+            <div class="refeicao-timing-box">
+              <span class="refeicao-icon-tag">🍴</span>
+              <div>
+                <div class="refeicao-time-label">12:30 – 14:00</div>
+                <div class="refeicao-name-bold">Almoço</div>
+              </div>
+            </div>
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Frango com Arroz Integral">
+            <div>
+              <div class="refeicao-prato-title">Frango Grelhado, Arroz Integral & Salada Colorida</div>
+              <div class="refeicao-ingredientes-short">100g peito de frango • ½ xícara de arroz integral • Salada verde à vontade com azeite em spray</div>
+            </div>
+            <div class="refeicao-actions-box">
+              <div class="refeicao-kcals">436 kcal</div>
+              <div class="refeicao-macros-mini">P: 38g • C: 45g • G: 12g</div>
+              <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
+                <span>✓</span>
+                <span>Consumido</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Lanche da Tarde -->
+          <div class="refeicao-item-card">
+            <div class="refeicao-timing-box">
+              <span class="refeicao-icon-tag">🧁</span>
+              <div>
+                <div class="refeicao-time-label">16:00 – 17:00</div>
+                <div class="refeicao-name-bold">Lanche da Tarde</div>
+              </div>
+            </div>
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=200&q=80" alt="Castanhas e Maçã">
+            <div>
+              <div class="refeicao-prato-title">Mix de Castanhas & Maçã Crocante</div>
+              <div class="refeicao-ingredientes-short">1 punhado de castanhas do pará/caju (15g) • 1 maçã média</div>
+            </div>
+            <div class="refeicao-actions-box">
+              <div class="refeicao-kcals">198 kcal</div>
+              <div class="refeicao-macros-mini">P: 3g • C: 25g • G: 10g</div>
+              <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
+                <span>✓</span>
+                <span>Consumido</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 5. Jantar -->
+          <div class="refeicao-item-card">
+            <div class="refeicao-timing-box">
+              <span class="refeicao-icon-tag">🌙</span>
+              <div>
+                <div class="refeicao-time-label">19:00 – 20:30</div>
+                <div class="refeicao-name-bold">Jantar</div>
+              </div>
+            </div>
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=200&q=80" alt="Salmão com Legumes">
+            <div>
+              <div class="refeicao-prato-title">Salmão Grelhado com Legumes no Vapor</div>
+              <div class="refeicao-ingredientes-short">120g filé de salmão • Brócolis, cenoura e abobrinha no vapor à vontade</div>
+            </div>
+            <div class="refeicao-actions-box">
+              <div class="refeicao-kcals">354 kcal</div>
+              <div class="refeicao-macros-mini">P: 32g • C: 18g • G: 16g</div>
+              <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
+                <span>✓</span>
+                <span>Consumido</span>
+              </button>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Histograma de Atividade / Sono -->
-        <div class="histogram-bars">
-          <div class="histogram-bar" style="height:35%;"></div>
-          <div class="histogram-bar" style="height:55%;"></div>
-          <div class="histogram-bar" style="height:40%;"></div>
-          <div class="histogram-bar" style="height:75%;"></div>
-          <div class="histogram-bar" style="height:60%;"></div>
-          <div class="histogram-bar" style="height:90%;"></div>
-          <div class="histogram-bar" style="height:50%;"></div>
-          <div class="histogram-bar" style="height:80%;"></div>
-          <div class="histogram-bar" style="height:65%;"></div>
-          <div class="histogram-bar" style="height:95%;"></div>
-          <div class="histogram-bar" style="height:70%;"></div>
-          <div class="histogram-bar" style="height:85%;"></div>
-        </div>
-      </div>
-
-      <!-- 3. Conquista Mensal -->
-      <div class="card">
-        <div class="achievement-box">
-          <div class="trophy-gold-large">🏆</div>
-          <div class="achievement-text-col">
-            <h3>Você já perdeu 3,2 kg este mês!</h3>
-            <p>Continue firme! Seu esforço está trazendo resultados.</p>
+      <!-- 4. Rodapé Focado em Qualidade de Vida e Hidratação -->
+      <div class="inicio-bottom-duo">
+        <!-- Perda de Peso Sem Estresse -->
+        <div class="perda-card-science">
+          <div class="perda-content-left">
+            <div class="perda-title-badge">
+              <span>🎯</span>
+              <span>Ciência da Perda de Peso Sem Estresse</span>
+            </div>
+            <h3 class="perda-main-title">Você não precisa se pesar todo dia</h3>
+            <p class="perda-text-desc">
+              O modelo Kevin Hall comprova que oscilações diárias de até 1,5 kg decorrem de retenção hídrica, sódio e trânsito intestinal, não de ganho de gordura. O segredo da qualidade de vida é seguir sua rotina com tranquilidade: os resultados fisiológicos são inevitáveis.
+            </p>
+            <button class="btn-edit-target" onclick="abrirModalDicaPerdaPeso()">Entenda a Fisiologia ➔</button>
+          </div>
+          <div class="perda-metric-bigbox">
+            <div class="perda-big-num">-3,2 kg</div>
+            <div class="perda-big-label">Gordura Real Perdida</div>
+            <div style="font-size:11px; color:#00D070; margin-top:6px; font-weight:700;">Ritmo Ideal ✓</div>
           </div>
         </div>
 
-        <!-- 3D Bar Ascending Graphic -->
-        <div style="height:45px; display:flex; align-items:flex-end; gap:6px; margin: 10px 0;">
-          <div style="flex:1; height:30%; background:linear-gradient(180deg,#00D070,#065F46); border-radius:4px;"></div>
-          <div style="flex:1; height:45%; background:linear-gradient(180deg,#00D070,#065F46); border-radius:4px;"></div>
-          <div style="flex:1; height:60%; background:linear-gradient(180deg,#00D070,#065F46); border-radius:4px;"></div>
-          <div style="flex:1; height:80%; background:linear-gradient(180deg,#00D070,#065F46); border-radius:4px;"></div>
-          <div style="flex:1; height:100%; background:linear-gradient(180deg,#00D070,#065F46); border-radius:4px; box-shadow:0 0 12px var(--primary-green-glow);"></div>
+        <!-- Lembrete Hídrico Inteligente -->
+        <div class="water-reminder-card">
+          <div class="water-reminder-header">
+            <span>💧</span>
+            <span>Regra de Ouro da Água</span>
+          </div>
+          <p class="water-reminder-text">
+            Beber 500 ml de água cerca de 30 minutos antes das principais refeições aumenta a saciedade e eleva seu gasto energético de repouso em até 24% por 60 minutos.
+          </p>
+          <button class="btn-primary" style="width:100%; padding:10px; background:#38BDF8; color:#070B14; border:none; border-radius:8px; font-weight:800; cursor:pointer; margin-top:auto;" onclick="adicionarAguaRapida(500)">
+            Bebi 500 ml agora! 💧
+          </button>
         </div>
-
-        <a class="card-link-more" onclick="abrirModalEvolucao()">
-          <span>Ver evolução</span>
-          <span>➔</span>
-        </a>
       </div>
-    </div>
     </div> <!-- /view-inicio -->
 
     <!-- ======================================================================

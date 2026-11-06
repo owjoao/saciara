@@ -785,3 +785,77 @@ function abrirModalPlanoDezembro() {
     </div>
   `);
 }
+
+// ==========================================================================
+// FUNÇÕES DA ABA DE INÍCIO OTIMIZADA (ROTINA DIÁRIA, ÁGUA & PERDA DE PESO)
+// ==========================================================================
+let aguaConsumidaMl = 2100;
+const metaAguaMl = 2500;
+
+function adicionarAguaRapida(quantidadeMl) {
+  aguaConsumidaMl = Math.min(aguaConsumidaMl + quantidadeMl, 4000);
+  const litros = (aguaConsumidaMl / 1000).toFixed(1).replace('.', ',');
+  const pct = Math.min(Math.round((aguaConsumidaMl / metaAguaMl) * 100), 100);
+
+  const valEl = document.getElementById('inicioWaterVal');
+  const barEl = document.getElementById('inicioWaterBar');
+  const statusEl = document.getElementById('inicioWaterStatus');
+
+  if (valEl) valEl.innerHTML = `${litros} <span style="font-size:16px; font-weight:600; color:#64748B;">/ 2,5 L</span>`;
+  if (barEl) barEl.style.width = `${pct}%`;
+  if (statusEl) {
+    if (pct >= 100) {
+      statusEl.innerHTML = "Meta batida! 🎉";
+      statusEl.style.color = "#00D070";
+      statusEl.style.background = "rgba(0,208,112,0.15)";
+    } else {
+      statusEl.innerHTML = `${pct}% da meta`;
+    }
+  }
+
+  // Feedback sutil
+  const toast = document.createElement('div');
+  toast.innerText = `+${quantidadeMl} ml registrado com sucesso! 💧`;
+  toast.style.position = 'fixed';
+  toast.style.bottom = '24px';
+  toast.style.right = '24px';
+  toast.style.background = '#00D070';
+  toast.style.color = '#070B14';
+  toast.style.fontWeight = '800';
+  toast.style.padding = '10px 18px';
+  toast.style.borderRadius = '8px';
+  toast.style.boxShadow = '0 4px 14px rgba(0,208,112,0.4)';
+  toast.style.zIndex = '9999';
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2500);
+}
+
+function toggleRefeicaoFeita(btn) {
+  btn.classList.toggle('checked');
+  if (btn.classList.contains('checked')) {
+    btn.innerHTML = '<span>✓</span> <span>Consumido!</span>';
+    btn.style.background = '#00D070';
+    btn.style.color = '#070B14';
+  } else {
+    btn.innerHTML = '<span>✓</span> <span>Consumido</span>';
+    btn.style.background = 'rgba(0, 208, 112, 0.1)';
+    btn.style.color = '#00D070';
+  }
+}
+
+function abrirModalDicaPerdaPeso() {
+  abrirModal("⚖️ Fisiologia da Perda de Peso Sem Estresse", `
+    <div style="color:#CBD5E1; font-size:14px; line-height:1.6;">
+      <h3 style="color:#FFFFFF; margin-bottom:8px;">Por que o peso oscila todos os dias?</h3>
+      <p>Estudos clínicos rigorosos do National Institutes of Health (NIH) conduzidos pelo Dr. Kevin Hall demonstram que:</p>
+      <ul style="margin:12px 0 16px 20px;">
+        <li>Para queimar <strong>1 kg de pura gordura corporal</strong>, é necessário oxidar cerca de 7.700 kcal de déficit acumulado.</li>
+        <li>Oscilações de peso de um dia para o outro refletem 95% de retenção de água, glicogênio muscular (cada 1g de glicogênio retém 3g de água) e bolo digestivo.</li>
+        <li>Seguir sua rotina diária alimentar prescrita e manter sua hidratação garante a queima silenciosa e contínua de gordura.</li>
+      </ul>
+      <div style="background:#091220; padding:12px; border-radius:8px; border:1px solid #1C2B48;">
+        💡 <strong>Recomendação Científica:</strong> Suba na balança apenas uma vez a cada 15 ou 30 dias, sempre pela manhã em jejum. Viva o seu dia a dia com leveza!
+      </div>
+    </div>
+  `);
+}

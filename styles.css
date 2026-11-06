@@ -2202,6 +2202,407 @@ body {
   }
 }
 
+/* ==========================================================================
+   ABA DE INÍCIO OTIMIZADA — ROTINA ESSENCIAL DIÁRIA (QUALIDADE DE VIDA)
+   Foco 100% em Rotina Alimentar + Hidratação Interativa + Perda de Peso Sem Gráficos
+   ========================================================================== */
+.inicio-hero-compact {
+  background: linear-gradient(135deg, #0B1323 0%, #0F1D33 100%);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inicio-saudacao-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.inicio-saudacao-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.inicio-date-pill {
+  padding: 8px 16px;
+  background: rgba(0, 208, 112, 0.1);
+  border: 1px solid var(--primary-green);
+  border-radius: var(--radius-md);
+  color: var(--primary-green);
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Os 3 Pilares da Qualidade de Vida (Alimentação, Água, Perda de Peso) */
+.inicio-pilares-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.pilar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pilar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.pilar-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pilar-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.pilar-title-text {
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.pilar-badge-status {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.pilar-primary-val {
+  font-size: 32px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.pilar-sub-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.pilar-progress-bar {
+  height: 8px;
+  background: #1C2B48;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.pilar-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.pilar-footer-note {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Controles Rápidos de Água */
+.water-quick-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.btn-add-water {
+  flex: 1;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38BDF8;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn-add-water:hover {
+  background: #38BDF8;
+  color: #070B14;
+}
+
+/* Linha Principal: Rotina Alimentar Passo a Passo (Hoje) */
+.inicio-rotina-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.rotina-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.rotina-header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.rotina-header-badge {
+  font-size: 12px;
+  color: var(--primary-green);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.refeicoes-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.refeicao-item-card {
+  display: grid;
+  grid-template-columns: 140px 100px 1fr 140px;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
+  background: #091220;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.refeicao-item-card:hover {
+  border-color: rgba(0, 208, 112, 0.4);
+  transform: translateY(-2px);
+}
+
+.refeicao-timing-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.refeicao-icon-tag {
+  font-size: 24px;
+}
+
+.refeicao-time-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.refeicao-name-bold {
+  font-size: 14px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.refeicao-mini-thumb {
+  width: 90px;
+  height: 65px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid var(--border-dark);
+}
+
+.refeicao-prato-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.refeicao-ingredientes-short {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.refeicao-actions-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.refeicao-kcals {
+  font-size: 14px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.refeicao-macros-mini {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.btn-check-meal {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 208, 112, 0.1);
+  border: 1px solid var(--primary-green);
+  color: var(--primary-green);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-check-meal:hover, .btn-check-meal.checked {
+  background: var(--primary-green);
+  color: #070B14;
+}
+
+/* Card Destaque de Perda de Peso e Ciência Diária */
+.inicio-bottom-duo {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+}
+
+.perda-card-science {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.perda-content-left {
+  flex: 1;
+}
+
+.perda-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #FFB020;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.perda-main-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.perda-text-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.perda-metric-bigbox {
+  background: #091220;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  padding: 18px 24px;
+  text-align: center;
+  min-width: 140px;
+}
+
+.perda-big-num {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary-green);
+}
+
+.perda-big-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.water-reminder-card {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(11, 19, 35, 1) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.water-reminder-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #38BDF8;
+  margin-bottom: 12px;
+}
+
+.water-reminder-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1024px) {
+  .inicio-pilares-grid {
+    grid-template-columns: 1fr;
+  }
+  .inicio-bottom-duo {
+    grid-template-columns: 1fr;
+  }
+  .refeicao-item-card {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .refeicao-actions-box {
+    align-items: flex-start;
+  }
+}
+
 .card-footer-metric {
   margin-top: auto;
   font-size: 13px;
