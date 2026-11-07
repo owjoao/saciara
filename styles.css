@@ -5370,3 +5370,190 @@ label {
   border-radius: 6px !important;
 }
 
+/* ==========================================================================
+   OTIMIZAÇÃO ULTRA REFINADA PARA CELULARES & MOBILE PREVIEW (< 640px)
+   Experiência Nativa (iOS / Android), Thumb Zone e Ergonomia Tátil
+   ========================================================================== */
+@media (max-width: 640px) {
+  /* Previne zoom automático do iOS e garante área de toque de 16px */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="search"],
+  select,
+  .form-field-input,
+  .form-field-select {
+    font-size: 16px !important;
+    min-height: 46px !important;
+    padding: 10px 12px !important;
+  }
+
+  /* Prevenção de rolagem horizontal acidental */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    -webkit-text-size-adjust: 100% !important;
+  }
+
+  /* Área principal com margens otimizadas e margem de segurança para o dock */
+  main.main-wrapper {
+    padding: 12px 12px calc(88px + env(safe-area-inset-bottom)) 12px !important;
+    max-width: 100% !important;
+  }
+
+  /* Topbar compacta e ergonômica */
+  .top-navbar {
+    padding: 10px 14px !important;
+    height: 58px !important;
+  }
+
+  .logo-text {
+    font-size: 18px !important;
+  }
+
+  .logo-tag {
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+  }
+
+  /* Banner do Herói no topo */
+  .heroi-top-banner {
+    padding: 10px 14px !important;
+    border-radius: 12px !important;
+    margin-bottom: 14px !important;
+    gap: 8px !important;
+  }
+
+  .heroi-badge {
+    font-size: 12px !important;
+  }
+
+  .heroi-progress-bar-bg {
+    height: 8px !important;
+  }
+
+  /* Cards e Containers com padding fluido */
+  .pilar-card,
+  .refeicao-item,
+  .jornada-hero-card,
+  .budget-control-card,
+  .categoria-bloco,
+  .dispensa-item,
+  .config-section-card {
+    padding: 14px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Grid dos 3 Pilares em coluna única e ritmo harmônico */
+  .inicio-pilares-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Botões rápidos de hidratação (ergonomia do polegar) */
+  .water-quick-buttons,
+  .botoes-rapidos-agua {
+    display: flex !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .btn-water-quick,
+  .water-btn {
+    flex: 1 !important;
+    min-height: 46px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+
+  .btn-water-quick:active,
+  .water-btn:active {
+    transform: scale(0.95) !important;
+  }
+
+  /* Scroll horizontal suave em pílulas de filtros/categorias sem barra feia */
+  .tabs-scroll-container,
+  .categorias-scroll,
+  .filtros-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 8px !important;
+    padding-bottom: 4px !important;
+  }
+
+  .tabs-scroll-container::-webkit-scrollbar,
+  .categorias-scroll::-webkit-scrollbar,
+  .filtros-scroll::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Botões de Ação Geral (Touch Target de no mínimo 44px) */
+  .btn,
+  button,
+  .btn-primary,
+  .btn-secondary {
+    min-height: 44px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  /* Dock Inferior Mobile (Thumb Zone Premium) */
+  .mobile-bottom-dock {
+    height: calc(64px + env(safe-area-inset-bottom)) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+    background: rgba(10, 16, 28, 0.96) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(59, 130, 246, 0.25) !important;
+  }
+
+  .dock-item {
+    padding: 6px 0 !important;
+  }
+
+  .dock-icon {
+    font-size: 22px !important;
+  }
+
+  .dock-label {
+    font-size: 11px !important;
+    letter-spacing: 0.2px !important;
+    margin-top: 2px !important;
+  }
+
+  .dock-item-highlight .dock-icon-wrapper {
+    width: 44px !important;
+    height: 44px !important;
+    margin-top: -16px !important;
+    box-shadow: 0 4px 14px rgba(0, 229, 117, 0.35) !important;
+  }
+
+  /* Modais no Mobile como Sheet flutuante confortável */
+  .modal-overlay,
+  .modal-backdrop {
+    padding: 12px !important;
+    align-items: flex-end !important;
+  }
+
+  .modal-container,
+  .modal-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 88vh !important;
+    border-radius: 20px 20px 14px 14px !important;
+    padding: 20px 16px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+
