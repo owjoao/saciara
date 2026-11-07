@@ -1,0 +1,105 @@
+{
+  "lider_id": "lider_saciara",
+  "nome_lider": "Líder Soberano Saciara Nutri & Fitness",
+  "projeto": "saciara",
+  "nicho": "Fisiologia Humana, Emagrecimento Científico & Nutrição de Alta Precisão",
+  "versao": "2.0.0",
+  "meta_soberana": "Maximizar a retenção dos usuários no app e converter o engajamento em saúde real e comissões de afiliados Shopee nos utensílios e ingredientes recomendados.",
+  "parametros_auto_calibracao": {
+    "limiar_aprovacao_qualidade": 90,
+    "peso_precisao_matematica": 0.4,
+    "peso_experiencia_mobile": 0.35,
+    "peso_conversao_afiliados": 0.25,
+    "ciclos_executados": 5
+  },
+  "regras_de_ouro_individuais": [
+    "Determinismo Fisiológico: Fórmulas de TMB (Mifflin-St Jeor, Katch-McArdle) e balanço de Kevin Hall rodam de forma determinística em JS e Python.",
+    "Modelo de Forbes Estrito: A partição entre massa magra (FFM) e gordura (FM) varia dinamicamente com o percentual de gordura inicial.",
+    "Mobile-First NutriPlus: Visual sofisticado dark navy com toques esmeralda, tipografia Inter e navegação por abas na base.",
+    "Utensílios 100% Reais: Toda receita do catálogo deve apontar para ingredientes reais e utensílios funcionais com link de afiliado válido.",
+    "Filtro de Kalman para Peso: A balança sofre oscilações de glicogênio e água; o modelo deve suavizar o ruído antes de recalcular déficits."
+  ],
+  "historico_ciclos_melhoria": [
+    {
+      "ciclo": 1,
+      "data": "2026-11-06T23:48:57.715474",
+      "score_atingido": 95.0,
+      "aprovado": true,
+      "metricas_auditadas": {
+        "erros_bloqueantes": 0,
+        "alertas": 0,
+        "score_seo": 75,
+        "mobile_ui_aprovado": true
+      },
+      "acoes_recomendadas": []
+    },
+    {
+      "ciclo": 2,
+      "data": "2026-11-06T23:54:58.559850",
+      "score_atingido": 100,
+      "aprovado": true,
+      "metricas_auditadas": {
+        "erros_bloqueantes": 0,
+        "alertas": 0,
+        "score_seo": 100,
+        "mobile_ui_aprovado": true
+      },
+      "acoes_recomendadas": []
+    },
+    {
+      "ciclo": 3,
+      "data": "2026-11-06T23:59:39.578404",
+      "score_atingido": 100,
+      "aprovado": true,
+      "metricas_auditadas": {
+        "erros_bloqueantes": 0,
+        "alertas": 0,
+        "score_seo": 100,
+        "mobile_ui_aprovado": true
+      },
+      "acoes_recomendadas": []
+    },
+    {
+      "ciclo": 4,
+      "data": "2026-11-07T00:13:37.549449",
+      "score_atingido": 100,
+      "aprovado": true,
+      "metricas_auditadas": {
+        "erros_bloqueantes": 0,
+        "alertas": 0,
+        "score_seo": 100,
+        "mobile_ui_aprovado": true
+      },
+      "acoes_recomendadas": []
+    },
+    {
+      "ciclo": 5,
+      "data": "2026-11-07T00:21:43.191901",
+      "score_atingido": 100,
+      "aprovado": true,
+      "metricas_auditadas": {
+        "erros_bloqueantes": 0,
+        "alertas": 0,
+        "score_seo": 100,
+        "mobile_ui_aprovado": true
+      },
+      "acoes_recomendadas": []
+    }
+  ],
+  "licoes_aprendidas_individuais": [
+    {
+      "id": "SACIARA-001",
+      "data": "2026-11-06",
+      "componente": "core_fisiologico/hall_model.py",
+      "licao": "O gasto energético diário basal (AEE_0) deve descontar a fração TEF_0 (10% de TDEE) no dia zero para garantir conservação exata da termodinâmica humana.",
+      "impacto": "Gasto inicial estabilizado com precisão milimétrica em 2422 kcal."
+    },
+    {
+      "id": "SACIARA-002",
+      "data": "2026-11-06",
+      "componente": "interface/app.js",
+      "licao": "A renderização de listas de compras personalizadas e receitas dinâmicas deve conter fallback para dados offline via localStorage e PWA manifest.",
+      "impacto": "Usuário nunca visualiza tela vazia mesmo se a conexão oscilar no supermercado."
+    }
+  ]
+}

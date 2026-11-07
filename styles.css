@@ -3594,7 +3594,146 @@ body {
   color: #FFF;
 }
 
-/* Responsividade Mobile */
+/* Responsividade Mobile & Hierarquia UI/UX */
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  background: #121B2E;
+  border: 1px solid #1C2B48;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.mobile-menu-toggle:active {
+  transform: scale(0.92);
+  border-color: #00D070;
+}
+
+/* ==========================================================================
+   BARRA DE AÇÕES MAIS RÁPIDAS (HIERARQUIA DE CLIQUES)
+   ========================================================================== */
+.quick-actions-bar {
+  background: #0E1626;
+  border: 1px solid #1C2B48;
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.quick-actions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.quick-actions-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.2px;
+}
+
+.quick-actions-hint {
+  font-size: 11px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.quick-actions-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.quick-actions-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.quick-pill-btn {
+  flex: 0 0 auto;
+  min-width: 135px;
+  background: #121B2E;
+  border: 1px solid #1C2B48;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.15s, border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+
+.quick-pill-btn:hover {
+  background: #162238;
+  border-color: #2D4268;
+}
+
+.quick-pill-btn:active {
+  transform: scale(0.95);
+  border-color: #00D070;
+}
+
+.pill-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pill-icon {
+  font-size: 18px;
+}
+
+.pill-badge-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgba(0, 208, 112, 0.15);
+  color: #00D070;
+}
+
+.pill-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #F8FAFC;
+  margin-top: 2px;
+}
+
+.pill-sub {
+  font-size: 11px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   MOBILE BOTTOM NAVIGATION DOCK (THUMB ZONE)
+   ========================================================================== */
+.mobile-bottom-dock {
+  display: none;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+/* ==========================================================================
+   BREAKPOINT MOBILE (< 1024px)
+   ========================================================================== */
 @media (max-width: 1024px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
@@ -3605,12 +3744,777 @@ body {
   .hero-image-wrap {
     display: none;
   }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
   .sidebar {
     position: fixed;
-    left: -260px;
-    transition: var(--transition);
+    top: 0;
+    bottom: 0;
+    left: -280px;
+    width: 280px;
+    z-index: 1001;
+    background: #0B111E;
+    border-right: 1px solid #1C2B48;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), left 0.25s;
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.7);
   }
+
   .sidebar.open {
     left: 0;
   }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 11, 20, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .sidebar-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Compensa a altura do Dock Inferior para o conteúdo não ficar coberto */
+  main.main-wrapper {
+    padding-bottom: 92px !important;
+  }
+
+  .top-navbar {
+    padding: 12px 16px;
+  }
+
+  /* Ativação do Bottom Dock */
+  .mobile-bottom-dock {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 68px;
+    background: rgba(11, 17, 30, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid #1C2B48;
+    z-index: 999;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: max(6px, env(safe-area-inset-bottom));
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.45);
+  }
+
+  .dock-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex: 1;
+    height: 100%;
+    background: none;
+    border: none;
+    color: #64748B;
+    cursor: pointer;
+    transition: color 0.15s, transform 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .dock-item:active {
+    transform: scale(0.90);
+  }
+
+  .dock-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .dock-label {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .dock-item.active {
+    color: #00D070;
+  }
+
+  .dock-item.active .dock-label {
+    font-weight: 700;
+  }
+
+  /* Botão de Destaque no Dock (Compras/Mercado) */
+  .dock-item-highlight .dock-icon-wrapper {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00D070 0%, #009E54 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 208, 112, 0.45);
+    margin-top: -12px;
+  }
+
+  .dock-item-highlight .dock-icon {
+    font-size: 19px;
+  }
+
+  .dock-item-highlight.active .dock-label {
+    color: #00D070;
+  }
 }
+
+/* ==========================================================================
+   SEÇÃO DUOLINGO DA NUTRIÇÃO (GAMIFICATION, TRILHA DE NÓS & LIGAS)
+   ========================================================================== */
+.duonutri-top-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.duo-stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0E1626;
+  border: 1px solid #1C2B48;
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.duo-stat-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.duo-stat-val {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.duo-stat-lbl {
+  font-size: 11px;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.duo-league-pill {
+  margin-left: auto;
+  cursor: pointer;
+  border-color: rgba(255, 215, 0, 0.4);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, #0E1626 100%);
+  transition: transform 0.15s;
+}
+
+.duo-league-pill:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes fireFlicker {
+  0% { transform: scale(1) rotate(-2deg); }
+  50% { transform: scale(1.15) rotate(3deg); }
+  100% { transform: scale(1) rotate(-2deg); }
+}
+
+.fire-anim {
+  display: inline-block;
+  animation: fireFlicker 1.8s infinite ease-in-out;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.18); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+.heart-anim {
+  display: inline-block;
+  animation: heartBeat 2s infinite ease-in-out;
+}
+
+/* Card Mascote NutriBuddy */
+.nutribuddy-card {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: linear-gradient(135deg, #121E36 0%, #0B111E 100%);
+  border: 1px solid #1C2B48;
+  border-radius: 20px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.nutribuddy-avatar-wrap {
+  flex-shrink: 0;
+}
+
+.nutribuddy-svg {
+  filter: drop-shadow(0 4px 10px rgba(0, 208, 112, 0.4));
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nutribuddy-card:hover .nutribuddy-svg {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.nutribuddy-speech-bubble {
+  flex: 1;
+  background: #0E1626;
+  border: 1px solid #1C2B48;
+  border-radius: 16px;
+  padding: 16px 18px;
+  position: relative;
+}
+
+.nutribuddy-speech-bubble::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 8px 10px 8px 0;
+  border-style: solid;
+  border-color: transparent #1C2B48 transparent transparent;
+}
+
+.speech-tag {
+  font-size: 10px;
+  font-weight: 800;
+  color: #00D070;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.speech-text {
+  font-size: 14px;
+  color: #F1F5F9;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.btn-start-lesson-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #00D070;
+  color: #070B14;
+  font-size: 13px;
+  font-weight: 800;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 208, 112, 0.4);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.btn-start-lesson-bubble:hover {
+  background: #00E57E;
+  transform: translateY(-2px);
+}
+
+/* Layout Principal de 2 Colunas */
+.duonutri-main-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+}
+
+/* Coluna da Trilha de Nós */
+.duonutri-path-column {
+  background: #0E1626;
+  border: 1px solid #1C2B48;
+  border-radius: 20px;
+  padding: 24px 20px;
+}
+
+.path-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1C2B48;
+}
+
+/* A Trilha Sinuosa */
+.duo-nodes-trail {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 10px 0;
+  position: relative;
+}
+
+.duo-node-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.align-center {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.align-right {
+  justify-content: flex-end;
+  padding-right: 40px;
+}
+
+.align-left {
+  justify-content: flex-start;
+  padding-left: 40px;
+}
+
+/* Botão 3D Redondo estilo Duolingo */
+.duo-node-btn {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: transform 0.1s, box-shadow 0.1s;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.node-icon {
+  font-size: 26px;
+}
+
+/* Nó Concluído (Dourado / Esmeralda) */
+.node-completed {
+  background: #00D070;
+  color: #070B14;
+  box-shadow: 0 6px 0 #00934F;
+  border-color: #72F3A8;
+}
+
+.node-completed:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #00934F;
+}
+
+.node-crown {
+  position: absolute;
+  top: -12px;
+  right: -4px;
+  font-size: 16px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+/* Nó Ativo Pulsando (Estrela & Glow) */
+.active-node-ring {
+  position: relative;
+  display: inline-flex;
+}
+
+@keyframes nodeRingPulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 208, 112, 0.7); }
+  70% { box-shadow: 0 0 0 16px rgba(0, 208, 112, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 208, 112, 0); }
+}
+
+.active-node-ring {
+  border-radius: 50%;
+  animation: nodeRingPulse 2s infinite;
+}
+
+.node-current {
+  background: #00E57E;
+  color: #070B14;
+  box-shadow: 0 7px 0 #009E54;
+  border-color: #FFFFFF;
+}
+
+.node-current:active {
+  transform: translateY(5px);
+  box-shadow: 0 2px 0 #009E54;
+}
+
+.node-pulse-star {
+  position: absolute;
+  top: -10px;
+  right: -4px;
+  font-size: 18px;
+  animation: fireFlicker 1.5s infinite;
+}
+
+/* Baú da Trilha */
+.duo-chest-btn {
+  background: #1C2B48;
+  border: 2px solid #FFD700;
+  border-radius: 18px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #0D1626;
+  transition: transform 0.15s;
+}
+
+.duo-chest-btn:hover {
+  transform: scale(1.06);
+}
+
+.duo-chest-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #0D1626;
+}
+
+.chest-icon {
+  font-size: 22px;
+}
+
+.chest-badge {
+  font-size: 12px;
+  font-weight: 800;
+  color: #FFD700;
+}
+
+/* Nó Bloqueado */
+.node-locked {
+  background: #16233B;
+  color: #64748B;
+  box-shadow: 0 6px 0 #0F1726;
+  border-color: #1C2B48;
+  cursor: not-allowed;
+}
+
+.node-boss {
+  background: #231B38;
+  color: #FFD700;
+  box-shadow: 0 6px 0 #140E24;
+  border-color: #A855F7;
+}
+
+/* Caixas de Texto ao Lado dos Nós */
+.node-label-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.node-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.node-status {
+  font-size: 11px;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.current-box {
+  background: rgba(0, 208, 112, 0.1);
+  border: 1px solid rgba(0, 208, 112, 0.3);
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+.node-tag-active {
+  font-size: 9px;
+  font-weight: 800;
+  color: #00D070;
+  letter-spacing: 0.5px;
+}
+
+.node-reward-pill {
+  font-size: 11px;
+  color: #FFD700;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* Coluna Lateral: Painel de Ligas & Quests */
+.duo-card-panel {
+  background: #0E1626;
+  border: 1px solid #1C2B48;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.panel-header-row {
+  margin-bottom: 16px;
+}
+
+.panel-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.panel-sub {
+  font-size: 11px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.duo-leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #121B2E;
+  border: 1px solid transparent;
+  transition: background 0.15s;
+}
+
+.leaderboard-item.active-user {
+  background: rgba(0, 208, 112, 0.12);
+  border-color: #00D070;
+}
+
+.lead-pos {
+  width: 22px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #64748B;
+  text-align: center;
+}
+
+.lead-pos.gold { color: #FFD700; }
+.lead-pos.silver { color: #E2E8F0; }
+.lead-pos.bronze { color: #CD7F32; }
+
+.lead-avatar {
+  font-size: 18px;
+}
+
+.lead-info {
+  flex: 1;
+}
+
+.lead-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.lead-streak {
+  font-size: 11px;
+  color: #94A3B8;
+}
+
+.lead-xp {
+  font-size: 13px;
+  font-weight: 800;
+  color: #E2E8F0;
+}
+
+.text-green {
+  color: #00D070 !important;
+}
+
+.league-promotion-cutoff {
+  text-align: center;
+  padding: 6px 0;
+  font-size: 10px;
+  font-weight: 800;
+  color: #00D070;
+  letter-spacing: 0.5px;
+  border-bottom: 1px dashed rgba(0, 208, 112, 0.4);
+  margin: 4px 0;
+}
+
+.duo-quests-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mini-quest-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px;
+  background: #121B2E;
+  border-radius: 10px;
+}
+
+.mini-quest-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.mini-quest-bar {
+  height: 6px;
+  background: #1C2B48;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.mini-quest-fill {
+  height: 100%;
+  background: #00D070;
+  border-radius: 3px;
+}
+
+.mini-quest-reward {
+  font-size: 12px;
+  font-weight: 800;
+  color: #FFD700;
+}
+
+/* ==========================================================================
+   MODAL DE LIÇÃO DUOLINGO (QUIZ INTERATIVO)
+   ========================================================================== */
+.duo-quiz-progress {
+  height: 10px;
+  background: #1C2B48;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.duo-quiz-fill {
+  height: 100%;
+  background: #00D070;
+  transition: width 0.3s;
+}
+
+.duo-quiz-question {
+  font-size: 17px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.duo-quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.quiz-option-btn {
+  background: #121B2E;
+  border: 2px solid #1C2B48;
+  border-bottom: 5px solid #1C2B48;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.1s, border-color 0.15s;
+}
+
+.quiz-option-btn:hover {
+  border-color: #2D4268;
+}
+
+.quiz-option-btn:active {
+  transform: translateY(3px);
+  border-bottom-width: 2px;
+}
+
+.quiz-opt-icon {
+  font-size: 22px;
+}
+
+.quiz-opt-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.quiz-opt-desc {
+  font-size: 12px;
+  color: #94A3B8;
+  margin-top: 2px;
+}
+
+.quiz-feedback-box {
+  background: rgba(0, 208, 112, 0.15);
+  border: 1px solid #00D070;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.feedback-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #00D070;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.feedback-body {
+  font-size: 13px;
+  color: #E2E8F0;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Responsivo Celular */
+@media (max-width: 1024px) {
+  .duonutri-main-layout {
+    grid-template-columns: 1fr;
+  }
+  .align-right, .align-left {
+    padding: 0;
+    justify-content: center;
+  }
+  .nutribuddy-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .nutribuddy-speech-bubble::before {
+    display: none;
+  }
+}
+
+.highlight-pulse-anim {
+  animation: highlightRefeicaoPulse 2s ease-out;
+}
+
+
+
+.highlight-pulse-anim {
+  animation: highlightRefeicaoPulse 2s ease-out;
+}
+

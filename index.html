@@ -6,6 +6,16 @@
   <title>NutriPlus — Sua jornada, nossa ciência</title>
   <meta name="description" content="Plataforma Inteligente de Emagrecimento Científico, Acompanhamento de Peso e Nutrição Personalizada.">
   <meta name="theme-color" content="#0B111E">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NutriPlus — Sua jornada, nossa ciência">
+  <meta property="og:description" content="Plataforma Inteligente de Emagrecimento Científico, Acompanhamento de Peso e Nutrição Personalizada.">
+  <meta property="og:theme-color" content="#0B111E">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NutriPlus — Sua jornada, nossa ciência">
+  <meta name="twitter:description" content="Plataforma Inteligente de Emagrecimento Científico, Acompanhamento de Peso e Nutrição Personalizada.">
   
   <!-- Fontes Oficiais -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,9 +75,9 @@
         <span class="nav-icon">📈</span>
         <span>Relatório de Evolução</span>
       </a>
-      <a class="nav-link" data-tab="conquistas">
-        <span class="nav-icon">🏆</span>
-        <span>Conquistas</span>
+      <a class="nav-link" data-tab="jornada">
+        <span class="nav-icon">⚔️</span>
+        <span>Jornada do Herói</span>
       </a>
       <a class="nav-link" data-tab="config">
         <span class="nav-icon">⚙️</span>
@@ -90,9 +100,14 @@
   <main class="main-wrapper">
     <!-- Topbar com Busca e Usuário -->
     <header class="top-navbar">
-      <div class="search-box">
-        <span>🔍</span>
-        <input type="text" id="globalSearch" placeholder="Pesquisar..." oninput="handleSearch(this.value)">
+      <div style="display:flex; align-items:center; gap:12px; flex:1;">
+        <button class="mobile-menu-toggle" onclick="toggleSidebarMobile()" aria-label="Abrir Menu Lateral" title="Menu">
+          <span>☰</span>
+        </button>
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="text" id="globalSearch" placeholder="Pesquisar..." oninput="handleSearch(this.value)">
+        </div>
       </div>
 
       <div class="user-nav-actions">
@@ -112,6 +127,72 @@
          (Foco 100% em Qualidade de Vida, Sem Gráficos, Praticidade Diária Máxima)
          ====================================================================== -->
     <div id="view-inicio" class="view-section active">
+      <!-- 0. Atalhos de Ação Mais Clicadas (Hierarquia de Thumb Zone) -->
+      <section class="quick-actions-bar">
+        <div class="quick-actions-header">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="color:#00D070; font-size:16px;">⚡</span>
+            <span class="quick-actions-title">Ações Mais Frequentes</span>
+          </div>
+          <span class="quick-actions-hint">1 toque para registrar</span>
+        </div>
+        <div class="quick-actions-scroll">
+          <button class="quick-pill-btn btn-peso" onclick="abrirModalRegistrarPesoRapido()" title="Registrar peso de hoje">
+            <div class="pill-top-row">
+              <span class="pill-icon">⚖️</span>
+              <span class="pill-badge-tag">Diário</span>
+            </div>
+            <span class="pill-text">Registrar Peso</span>
+            <span class="pill-sub" id="pillPesoSub">Hoje 70,8 kg</span>
+          </button>
+
+          <button class="quick-pill-btn btn-agua" onclick="adicionarAguaRapida(250)" title="Adicionar 250ml de água">
+            <div class="pill-top-row">
+              <span class="pill-icon">💧</span>
+              <span class="pill-badge-tag" style="background:rgba(56,189,248,0.15); color:#38BDF8;">+250ml</span>
+            </div>
+            <span class="pill-text">Beber Água</span>
+            <span class="pill-sub" id="pillAguaSub">2,1 / 2,5 L</span>
+          </button>
+
+          <button class="quick-pill-btn btn-prato" onclick="scrollParaRefeicaoAtual()" title="Ir para a refeição deste horário">
+            <div class="pill-top-row">
+              <span class="pill-icon">🍽️</span>
+              <span class="pill-badge-tag" style="background:rgba(0,208,112,0.15); color:#00D070;">Agora</span>
+            </div>
+            <span class="pill-text">Prato de Agora</span>
+            <span class="pill-sub">Ver Cardápio</span>
+          </button>
+
+          <button class="quick-pill-btn btn-mercado" onclick="mostrarAba('compras'); recalcularPlanoECompras();" title="Ver cotação e lista de mercado">
+            <div class="pill-top-row">
+              <span class="pill-icon">🛒</span>
+              <span class="pill-badge-tag" style="background:rgba(255,176,32,0.15); color:#FFB020;">30 Dias</span>
+            </div>
+            <span class="pill-text">Cesta Mercado</span>
+            <span class="pill-sub">Atacarejo</span>
+          </button>
+
+          <button class="quick-pill-btn btn-coach" onclick="abrirModalIACoach()" title="Tirar dúvida rápida de nutrição">
+            <div class="pill-top-row">
+              <span class="pill-icon">🤖</span>
+              <span class="pill-badge-tag" style="background:rgba(168,85,247,0.15); color:#A855F7;">IA 24h</span>
+            </div>
+            <span class="pill-text">IA Coach</span>
+            <span class="pill-sub">Dúvida Rápida</span>
+          </button>
+
+          <button class="quick-pill-btn btn-jornada" onclick="mostrarAba('jornada')" title="Sua Jornada do Herói e Níveis">
+            <div class="pill-top-row">
+              <span class="pill-icon">⚔️</span>
+              <span class="pill-badge-tag" style="background:rgba(255,215,0,0.18); color:#FFD700;">Nível 3</span>
+            </div>
+            <span class="pill-text">Jornada Heroica</span>
+            <span class="pill-sub">1.840 XP • Elixir</span>
+          </button>
+        </div>
+      </section>
+
       <!-- 1. Saudação Calma e Data Atual -->
       <section class="inicio-hero-compact">
         <div>
@@ -864,11 +945,23 @@
           <span>⏱️</span>
           <span>Histórico</span>
         </button>
-        <button class="plan-tab-btn" onclick="trocarSubTabAtiv('conquistas', this)">
-          <span>🏆</span>
-          <span>Suas Conquistas</span>
+        <button class="plan-tab-btn" onclick="mostrarAba('jornada')">
+          <span>⚔️</span>
+          <span>Jornada do Herói</span>
         </button>
       </div>
+
+      <!-- BANNER HEROICO: O Treino do Guerreiro -->
+      <section class="treino-heroico-banner" style="background:linear-gradient(135deg, rgba(0,208,112,0.12), rgba(18,27,46,0.9)); border:1px solid #1C2B48; border-radius:16px; padding:16px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <span style="font-size:11px; font-weight:800; color:#00D070; text-transform:uppercase; letter-spacing:0.5px;">⚔️ Provação Física de Hoje</span>
+          <h2 style="font-size:17px; color:#FFF; font-weight:800; margin:4px 0;">Treino HIIT & Queima Preservadora de Massa Magra</h2>
+          <p style="font-size:12px; color:#94A3B8; margin:0;">20 minutos calibrados pelo Modelo Kevin Hall: acelera a oxidação lipídica sem canibalizar músculos.</p>
+        </div>
+        <button class="btn-primary" style="padding:10px 18px; background:#00D070; color:#070B14; font-weight:800; border:none; border-radius:10px; cursor:pointer; white-space:nowrap; box-shadow:0 4px 14px rgba(0,208,112,0.35);" onclick="iniciarTreinoModal('HIIT Científico')">
+          Iniciar ► (+150 XP)
+        </button>
+      </section>
 
       <!-- 3. Quatro Cards de Métricas do Topo -->
       <div class="atividades-metrics-grid">
@@ -1290,6 +1383,285 @@
         </div>
       </div>
     </div> <!-- /view-atividades -->
+
+    <!-- ======================================================================
+         SEÇÃO JORNADA DO HERÓI (DUOLINGO DA NUTRIÇÃO • GAMIFICATION & RECOMPENSAS)
+         ====================================================================== -->
+    <div id="view-jornada" class="view-section">
+      <!-- 1. Barra de Status Gamer estilo Duolingo -->
+      <section class="duonutri-top-bar">
+        <div class="duo-stat-pill" title="Dias seguidos registrando hábitos">
+          <span class="duo-stat-icon fire-anim">🔥</span>
+          <span class="duo-stat-val" id="duoStreakVal">14</span>
+          <span class="duo-stat-lbl">dias</span>
+        </div>
+
+        <div class="duo-stat-pill duo-gemas-pill" onclick="abrirLojaGemas()" style="cursor:pointer;" title="Loja de Recompensas: Trocar gemas">
+          <span class="duo-stat-icon">💎</span>
+          <span class="duo-stat-val" id="duoGemasVal">380</span>
+          <span class="duo-stat-lbl">gemas 🛍️</span>
+        </div>
+
+        <div class="duo-stat-pill" title="Vidas de adesão à rotina">
+          <span class="duo-stat-icon heart-anim">❤️</span>
+          <span class="duo-stat-val">5/5</span>
+        </div>
+
+        <div class="duo-stat-pill duo-league-pill" onclick="abrirModalLiga()" title="Sua divisão atual">
+          <span class="duo-stat-icon">🛡️</span>
+          <span class="duo-stat-val" style="color:#FFD700;">Liga Ouro</span>
+          <span class="duo-stat-lbl">(Top 3)</span>
+        </div>
+      </section>
+
+      <!-- 2. Mascote Carismático NutriBuddy com Balão de Fala -->
+      <section class="nutribuddy-card">
+        <div class="nutribuddy-avatar-wrap">
+          <svg class="nutribuddy-svg" width="76" height="76" viewBox="0 0 100 100">
+            <!-- Folhinha / Mascote Verde Esmeralda Carismático -->
+            <defs>
+              <linearGradient id="mascoteGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#00E57E" />
+                <stop offset="100%" stop-color="#00A855" />
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="46" fill="#13233D" stroke="#00D070" stroke-width="3" />
+            <!-- Corpo em formato de folha/semente viva -->
+            <path d="M 50 18 C 68 28, 80 50, 68 74 C 58 84, 42 84, 32 74 C 20 50, 32 28, 50 18 Z" fill="url(#mascoteGrad)" />
+            <!-- Olhinhos Brilhantes -->
+            <ellipse cx="43" cy="50" rx="5" ry="7" fill="#070B14" />
+            <ellipse cx="57" cy="50" rx="5" ry="7" fill="#070B14" />
+            <circle cx="41.5" cy="48" r="2" fill="#FFFFFF" />
+            <circle cx="55.5" cy="48" r="2" fill="#FFFFFF" />
+            <!-- Sorriso largo e feliz -->
+            <path d="M 44 62 Q 50 68, 56 62" stroke="#070B14" stroke-width="3" fill="none" stroke-linecap="round" />
+            <!-- Bochechas rosadas -->
+            <ellipse cx="36" cy="58" rx="4" ry="2.5" fill="#FF85A2" opacity="0.8" />
+            <ellipse cx="64" cy="58" rx="4" ry="2.5" fill="#FF85A2" opacity="0.8" />
+            <!-- Folha brotando no topo -->
+            <path d="M 50 18 Q 54 8, 62 10 Q 56 16, 50 18 Z" fill="#75F09C" />
+          </svg>
+        </div>
+
+        <div class="nutribuddy-speech-bubble">
+          <div class="speech-tag">🌿 NUTRIBUDDY DIZ:</div>
+          <p class="speech-text">
+            “Oi, Ana! Você está no <strong>Nó 4 da Trilha</strong>. Aprenda como as fibras controlam a fome sem calorias e garanta +25 XP para subir de Liga!”
+          </p>
+          <button class="btn-start-lesson-bubble" onclick="iniciarLicaoDuolingo(4)">
+            <span>⚡ Fazer Lição de 1 Minuto</span>
+            <span>➔</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 3. Layout Principal: Trilha Duolingo (Esquerda) + Liga Semanal & Baú (Direita) -->
+      <div class="duonutri-main-layout">
+        <!-- A TRILHA SINUOSA DE NÓS (DUOLINGO PATH) -->
+        <div class="duonutri-path-column">
+          <div class="path-header-title">
+            <span>🗺️</span>
+            <span>Trilha do Metabolismo Científico</span>
+          </div>
+
+          <div class="duo-nodes-trail">
+            <!-- Nó 1: Proteína (Concluído) -->
+            <div class="duo-node-row align-center">
+              <button class="duo-node-btn node-completed" onclick="iniciarLicaoDuolingo(1)" title="Proteína & Saciedade (Completo)">
+                <span class="node-icon">🥚</span>
+                <span class="node-crown">👑</span>
+              </button>
+              <div class="node-label-box">
+                <span class="node-name">1. Proteína & Saciedade</span>
+                <span class="node-status">✓ 3/3 Estrelas</span>
+              </div>
+            </div>
+
+            <!-- Nó 2: Hidratação (Concluído) -->
+            <div class="duo-node-row align-right">
+              <button class="duo-node-btn node-completed" onclick="iniciarLicaoDuolingo(2)" title="Hidratação & Termogênese (Completo)">
+                <span class="node-icon">💧</span>
+                <span class="node-crown">👑</span>
+              </button>
+              <div class="node-label-box">
+                <span class="node-name">2. Hidratação 2.5L</span>
+                <span class="node-status">✓ 3/3 Estrelas</span>
+              </div>
+            </div>
+
+            <!-- Nó 3: Balanço Kevin Hall (Concluído) -->
+            <div class="duo-node-row align-left">
+              <button class="duo-node-btn node-completed" onclick="iniciarLicaoDuolingo(3)" title="Balanço Dinâmico Kevin Hall (Completo)">
+                <span class="node-icon">⚖️</span>
+                <span class="node-crown">👑</span>
+              </button>
+              <div class="node-label-box">
+                <span class="node-name">3. Balanço Dinâmico</span>
+                <span class="node-status">✓ 3/3 Estrelas</span>
+              </div>
+            </div>
+
+            <!-- Baú de Bônus da Trilha -->
+            <div class="duo-node-row align-center">
+              <button class="duo-chest-btn" onclick="abrirBauRecompensa()" title="Baú de Bônus: Abrir">
+                <span class="chest-icon">🎁</span>
+                <span class="chest-badge">+50 💎</span>
+              </button>
+            </div>
+
+            <!-- Nó 4: NÓ ATUAL ATIVO (Pulsando) -->
+            <div class="duo-node-row align-right">
+              <div class="active-node-ring">
+                <button class="duo-node-btn node-current" onclick="iniciarLicaoDuolingo(4)" title="Lição Ativa: Fibras & Fim da Fome">
+                  <span class="node-icon">🥗</span>
+                  <span class="node-pulse-star">⭐</span>
+                </button>
+              </div>
+              <div class="node-label-box current-box">
+                <span class="node-tag-active">LIÇÃO ATUAL</span>
+                <span class="node-name">4. Fibras & Saciedade</span>
+                <span class="node-reward-pill">+25 XP • +5 💎</span>
+              </div>
+            </div>
+
+            <!-- Nó 5: Gorduras & Hormônios (Bloqueado) -->
+            <div class="duo-node-row align-left">
+              <button class="duo-node-btn node-locked" onclick="mostrarToastFeedback('🔒 Conclua a Lição 4 para desbloquear este nó!')" title="Gorduras & Hormônios (Bloqueado)">
+                <span class="node-icon">🔒</span>
+              </button>
+              <div class="node-label-box locked-box">
+                <span class="node-name">5. Gorduras & Hormônios</span>
+                <span class="node-status">Bloqueado</span>
+              </div>
+            </div>
+
+            <!-- Nó 6: Mestre do Mercado (Bloqueado) -->
+            <div class="duo-node-row align-center">
+              <button class="duo-node-btn node-locked" onclick="mostrarToastFeedback('🔒 Conclua a Lição 5 para desbloquear!')" title="O Mestre do Mercado (Bloqueado)">
+                <span class="node-icon">🛒</span>
+              </button>
+              <div class="node-label-box locked-box">
+                <span class="node-name">6. Mestre do Mercado</span>
+                <span class="node-status">Bloqueado</span>
+              </div>
+            </div>
+
+            <!-- Nó 7: Chefe de Fase / Platô Vencido (Bloqueado) -->
+            <div class="duo-node-row align-center">
+              <button class="duo-node-btn node-boss" onclick="mostrarToastFeedback('🔒 Chefão Final da Fase 1!')" title="O Platô Vencido (Chefe de Fase)">
+                <span class="node-icon">👑</span>
+              </button>
+              <div class="node-label-box locked-box">
+                <span class="node-name">Chefão: O Platô Vencido</span>
+                <span class="node-status">Grande Recompensa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUNA LATERAL: LIGA SEMANAL (LEADERBOARD) & DESAFIOS -->
+        <div class="duonutri-side-column">
+          <!-- Ranking da Liga Semanal -->
+          <div class="duo-card-panel">
+            <div class="panel-header-row">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:20px;">🛡️</span>
+                <div>
+                  <h3 class="panel-title">Liga Ouro • Semana 45</h3>
+                  <div class="panel-sub">Termina em 2 dias • Top 3 sobem para Esmeralda</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="duo-leaderboard-list">
+              <!-- 1º Lugar -->
+              <div class="leaderboard-item">
+                <div class="lead-pos gold">1</div>
+                <div class="lead-avatar">👨‍🦰</div>
+                <div class="lead-info">
+                  <div class="lead-name">Carlos M.</div>
+                  <div class="lead-streak">🔥 22 dias</div>
+                </div>
+                <div class="lead-xp">2.140 XP</div>
+              </div>
+
+              <!-- 2º Lugar -->
+              <div class="leaderboard-item">
+                <div class="lead-pos silver">2</div>
+                <div class="lead-avatar">👩</div>
+                <div class="lead-info">
+                  <div class="lead-name">Juliana R.</div>
+                  <div class="lead-streak">🔥 19 dias</div>
+                </div>
+                <div class="lead-xp">1.990 XP</div>
+              </div>
+
+              <!-- 3º Lugar (VOCÊ) -->
+              <div class="leaderboard-item active-user">
+                <div class="lead-pos bronze">3</div>
+                <div class="lead-avatar user-lead-av">🌿</div>
+                <div class="lead-info">
+                  <div class="lead-name">Ana (Você)</div>
+                  <div class="lead-streak">🔥 14 dias</div>
+                </div>
+                <div class="lead-xp text-green" id="userCurrentXpVal">1.840 XP</div>
+              </div>
+
+              <!-- Linha de Corte de Promoção -->
+              <div class="league-promotion-cutoff">
+                <span>▲ ZONA DE PROMOÇÃO PARA A LIGA ESMERALDA</span>
+              </div>
+
+              <!-- 4º Lugar -->
+              <div class="leaderboard-item">
+                <div class="lead-pos">4</div>
+                <div class="lead-avatar">🧔</div>
+                <div class="lead-info">
+                  <div class="lead-name">Marcos V.</div>
+                  <div class="lead-streak">🔥 11 dias</div>
+                </div>
+                <div class="lead-xp">1.620 XP</div>
+              </div>
+
+              <!-- 5º Lugar -->
+              <div class="leaderboard-item">
+                <div class="lead-pos">5</div>
+                <div class="lead-avatar">👱‍♀️</div>
+                <div class="lead-info">
+                  <div class="lead-name">Beatriz S.</div>
+                  <div class="lead-streak">🔥 8 dias</div>
+                </div>
+                <div class="lead-xp">1.450 XP</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card de Missões Diárias estilo Duolingo -->
+          <div class="duo-card-panel" style="margin-top:16px;">
+            <div class="panel-header-row">
+              <span style="font-size:18px;">🎯</span>
+              <h3 class="panel-title">Missões de Hoje</h3>
+            </div>
+            <div class="duo-quests-mini">
+              <div class="mini-quest-item">
+                <div style="flex:1;">
+                  <div class="mini-quest-title">Fazer 1 Lição da Trilha</div>
+                  <div class="mini-quest-bar"><div class="mini-quest-fill" style="width:0%;"></div></div>
+                </div>
+                <span class="mini-quest-reward">+10 💎</span>
+              </div>
+              <div class="mini-quest-item">
+                <div style="flex:1;">
+                  <div class="mini-quest-title">Registrar 2.500ml de Água</div>
+                  <div class="mini-quest-bar"><div class="mini-quest-fill" style="width:84%;"></div></div>
+                </div>
+                <span class="mini-quest-reward">+10 💎</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /view-jornada -->
 
     <!-- ======================================================================
          SEÇÃO 4: ABA DE RELATÓRIO DE EVOLUÇÃO MENSAL (RÉPLICA PIXEL-A-PIXEL DA IMAGEM 4)
@@ -1857,6 +2229,16 @@
             <span class="market-badge">Extra</span>
             <span class="market-badge">Carrefour</span>
           </div>
+
+          <!-- Barra de Ações Rápidas de Mercado Heroico -->
+          <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
+            <button class="btn-primary" style="padding:8px 14px; background:#121B2E; border:1px solid #00D070; color:#00D070; border-radius:8px; font-size:12px; font-weight:700; cursor:pointer;" onclick="copiarListaComprasTexto()">
+              📋 Copiar Lista para WhatsApp
+            </button>
+            <button class="btn-primary" style="padding:8px 14px; background:#121B2E; border:1px solid #1C2B48; color:#94A3B8; border-radius:8px; font-size:12px; font-weight:700; cursor:pointer;" onclick="mostrarToastFeedback('📦 Modo Feira/Supermercado Ativado!')">
+              🛒 Modo Mercado Offline
+            </button>
+          </div>
         </div>
 
         <div class="budget-summary-stats">
@@ -1896,6 +2278,37 @@
       </div>
     </div>
   </div>
+
+  <!-- ======================================================================
+       BOTTOM NAVIGATION DOCK MOBILE (THUMB ZONE NATIVA)
+       ====================================================================== -->
+  <nav class="mobile-bottom-dock" id="mobileBottomDock">
+    <button class="dock-item active" data-dock="inicio" onclick="navegarTabMobile('inicio')">
+      <span class="dock-icon">🏠</span>
+      <span class="dock-label">Início</span>
+    </button>
+    <button class="dock-item" data-dock="planos" onclick="navegarTabMobile('planos')">
+      <span class="dock-icon">📅</span>
+      <span class="dock-label">Planos</span>
+    </button>
+    <button class="dock-item dock-item-highlight" data-dock="compras" onclick="navegarTabMobile('compras')">
+      <div class="dock-icon-wrapper">
+        <span class="dock-icon">🛒</span>
+      </div>
+      <span class="dock-label">Mercado</span>
+    </button>
+    <button class="dock-item" data-dock="atividades" onclick="navegarTabMobile('atividades')">
+      <span class="dock-icon">🏃</span>
+      <span class="dock-label">Treinos</span>
+    </button>
+    <button class="dock-item" data-dock="iacoach" onclick="abrirModalIACoach()">
+      <span class="dock-icon">🤖</span>
+      <span class="dock-label">Coach</span>
+    </button>
+  </nav>
+
+  <!-- Backdrop overlay para Sidebar no Mobile -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="fecharSidebarMobile()"></div>
 
   <script src="app.js"></script>
 </body>

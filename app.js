@@ -185,8 +185,10 @@ function bindSidebarNav() {
         abrirModalIACoach();
       } else if (tab === 'perfil') {
         abrirModalPerfil();
+      } else if (tab === 'jornada') {
+        mostrarAba('jornada');
       } else if (tab === 'conquistas') {
-        abrirModalMetas();
+        mostrarAba('jornada');
       } else {
         abrirModal("ℹ️ Módulo NutriPlus", `<p style="color:#94A3B8;">A seção <strong>${tab}</strong> está sincronizada com seus dados científicos em tempo real.</p>`);
       }
@@ -201,6 +203,168 @@ function mostrarAba(nomeAba) {
     target.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // Sincroniza links da sidebar
+  document.querySelectorAll('.nav-link').forEach(l => {
+    if (l.dataset.tab === nomeAba) {
+      l.classList.add('active');
+    } else {
+      l.classList.remove('active');
+    }
+  });
+
+  // Sincroniza botões do Bottom Dock Mobile
+  document.querySelectorAll('.dock-item').forEach(d => {
+    if (d.dataset.dock === nomeAba) {
+      d.classList.add('active');
+    } else {
+      d.classList.remove('active');
+    }
+  });
+}
+
+// Navegação exclusiva da Thumb Zone Mobile
+function navegarTabMobile(tab) {
+  fecharSidebarMobile();
+  if (tab === 'compras') {
+    mostrarAba('compras');
+    recalcularPlanoECompras();
+  } else if (tab === 'planos') {
+    mostrarAba('planos');
+  } else if (tab === 'inicio') {
+    mostrarAba('inicio');
+  } else if (tab === 'atividades') {
+    mostrarAba('atividades');
+  } else if (tab === 'iacoach') {
+    abrirModalIACoach();
+  }
+}
+
+// Controle da Sidebar no Celular (Menu Hambúrguer & Backdrop)
+function toggleSidebarMobile() {
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.getElementById('sidebarBackdrop');
+  if (!sidebar) return;
+
+  const isOpen = sidebar.classList.contains('open');
+  if (isOpen) {
+    fecharSidebarMobile();
+  } else {
+    sidebar.classList.add('open');
+    if (backdrop) backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function fecharSidebarMobile() {
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.getElementById('sidebarBackdrop');
+  if (sidebar) sidebar.classList.remove('open');
+  if (backdrop) backdrop.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Atalho: Rola suavemente até a Refeição Atual com destaque visual
+function scrollParaRefeicaoAtual() {
+  const box = document.getElementById('refeicaoMomentoBox');
+  if (box) {
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    box.classList.remove('highlight-pulse-anim');
+    void box.offsetWidth; // Força reflow para reiniciar animação
+    box.classList.add('highlight-pulse-anim');
+    mostrarToastFeedback('🍽️ Prato deste horário em destaque!');
+  }
+}
+
+// Modal Rápido de Registro de Peso com Steppers para Celular
+let pesoTempRegistro = 70.8;
+function abrirModalRegistrarPesoRapido() {
+  pesoTempRegistro = AppState.profile.pesoAtual || 70.8;
+  abrirModal("⚖️ Registrar Peso de Hoje", `
+    <div style="text-align:center; padding:10px 0;">
+      <p style="font-size:13px; color:#94A3B8; margin-bottom:16px;">
+        Pese-se sempre em jejum pela manhã. Nosso modelo com <strong>Filtro de Kalman</strong> neutraliza o ruído diário de líquidos.
+      </p>
+
+      <!-- Stepper Grande de Toque Fácil -->
+      <div style="display:flex; justify-content:center; align-items:center; gap:16px; margin:20px 0;">
+        <button style="width:52px; height:52px; border-radius:12px; background:#1C2B48; color:#FFF; font-size:24px; font-weight:800; border:none; cursor:pointer;" onclick="ajustarPesoStepper(-0.1)">-</button>
+        <div style="background:#121B2E; border:2px solid #00D070; border-radius:14px; padding:12px 24px;">
+          <span id="displayPesoInput" style="font-size:32px; font-weight:800; color:#FFFFFF;">${pesoTempRegistro.toFixed(1).replace('.', ',')}</span>
+          <span style="font-size:16px; font-weight:600; color:#00D070; margin-left:4px;">kg</span>
+        </div>
+        <button style="width:52px; height:52px; border-radius:12px; background:#1C2B48; color:#FFF; font-size:24px; font-weight:800; border:none; cursor:pointer;" onclick="ajustarPesoStepper(0.1)">+</button>
+      </div>
+
+      <!-- Pílulas Rápidas de Ajuste com 1 Toque -->
+      <div style="display:flex; justify-content:center; gap:8px; margin-bottom:20px; flex-wrap:wrap;">
+        <button style="padding:6px 12px; border-radius:8px; background:#121B2E; border:1px solid #1C2B48; color:#94A3B8; font-size:12px; cursor:pointer;" onclick="ajustarPesoStepper(-0.5)">-0,5 kg</button>
+        <button style="padding:6px 12px; border-radius:8px; background:#121B2E; border:1px solid #1C2B48; color:#94A3B8; font-size:12px; cursor:pointer;" onclick="ajustarPesoStepper(-0.2)">-0,2 kg</button>
+        <button style="padding:6px 12px; border-radius:8px; background:#121B2E; border:1px solid #1C2B48; color:#38BDF8; font-size:12px; cursor:pointer;" onclick="definirPesoExato(70.8)">Manter 70,8</button>
+        <button style="padding:6px 12px; border-radius:8px; background:#121B2E; border:1px solid #1C2B48; color:#94A3B8; font-size:12px; cursor:pointer;" onclick="ajustarPesoStepper(0.2)">+0,2 kg</button>
+      </div>
+
+      <button style="width:100%; padding:14px; background:#00D070; color:#070B14; font-size:15px; font-weight:800; border:none; border-radius:12px; cursor:pointer; box-shadow:0 4px 14px rgba(0,208,112,0.4);" onclick="confirmarRegistroPeso()">
+        ✓ Salvar e Atualizar Gráfico
+      </button>
+    </div>
+  `);
+}
+
+function ajustarPesoStepper(delta) {
+  pesoTempRegistro = Math.max(40, Math.min(200, Math.round((pesoTempRegistro + delta) * 10) / 10));
+  const el = document.getElementById('displayPesoInput');
+  if (el) el.innerText = pesoTempRegistro.toFixed(1).replace('.', ',');
+}
+
+function definirPesoExato(val) {
+  pesoTempRegistro = val;
+  const el = document.getElementById('displayPesoInput');
+  if (el) el.innerText = pesoTempRegistro.toFixed(1).replace('.', ',');
+}
+
+function confirmarRegistroPeso() {
+  AppState.profile.pesoAtual = pesoTempRegistro;
+  
+  // Atualiza última posição do histórico de 30D
+  if (SeriesPeso['30D']) {
+    SeriesPeso['30D'][SeriesPeso['30D'].length - 1] = pesoTempRegistro;
+  }
+  
+  renderWeightChart(AppState.currentPeriod || '30D');
+
+  // Atualiza pill na tela de início
+  const pillPeso = document.getElementById('pillPesoSub');
+  if (pillPeso) pillPeso.innerText = `Hoje ${pesoTempRegistro.toFixed(1).replace('.', ',')} kg`;
+
+  fecharModalGlobal();
+  mostrarToastFeedback(`⚖️ Peso de ${pesoTempRegistro.toFixed(1).replace('.', ',')} kg salvo com sucesso!`);
+}
+
+// Toast de feedback visual universal
+function mostrarToastFeedback(mensagem) {
+  const toast = document.createElement('div');
+  toast.innerText = mensagem;
+  toast.style.position = 'fixed';
+  toast.style.bottom = '84px'; // Acima do bottom dock no mobile
+  toast.style.left = '50%';
+  toast.style.transform = 'translateX(-50%)';
+  toast.style.background = '#00D070';
+  toast.style.color = '#070B14';
+  toast.style.fontWeight = '800';
+  toast.style.fontSize = '13px';
+  toast.style.padding = '10px 20px';
+  toast.style.borderRadius = '20px';
+  toast.style.boxShadow = '0 6px 20px rgba(0,0,0,0.5)';
+  toast.style.zIndex = '99999';
+  toast.style.pointerEvents = 'none';
+  toast.style.whiteSpace = 'nowrap';
+  document.body.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.3s';
+    setTimeout(() => toast.remove(), 300);
+  }, 2200);
 }
 
 // Funções da Aba Planos Alimentares
@@ -803,8 +967,10 @@ function adicionarAguaRapida(quantidadeMl) {
   const valEl = document.getElementById('inicioWaterVal');
   const barEl = document.getElementById('inicioWaterBar');
   const statusEl = document.getElementById('inicioWaterStatus');
+  const pillAgua = document.getElementById('pillAguaSub');
 
   if (valEl) valEl.innerHTML = `${litros} <span style="font-size:16px; font-weight:600; color:#64748B;">/ 2,5 L</span>`;
+  if (pillAgua) pillAgua.innerText = `${litros} / 2,5 L`;
   if (barEl) barEl.style.width = `${pct}%`;
   if (statusEl) {
     if (pct >= 100) {
@@ -816,21 +982,7 @@ function adicionarAguaRapida(quantidadeMl) {
     }
   }
 
-  // Feedback sutil
-  const toast = document.createElement('div');
-  toast.innerText = `+${quantidadeMl} ml registrado com sucesso! 💧`;
-  toast.style.position = 'fixed';
-  toast.style.bottom = '24px';
-  toast.style.right = '24px';
-  toast.style.background = '#00D070';
-  toast.style.color = '#070B14';
-  toast.style.fontWeight = '800';
-  toast.style.padding = '10px 18px';
-  toast.style.borderRadius = '8px';
-  toast.style.boxShadow = '0 4px 14px rgba(0,208,112,0.4)';
-  toast.style.zIndex = '9999';
-  document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), 2500);
+  mostrarToastFeedback(`💧 +${quantidadeMl} ml adicionados! Total: ${litros}L`);
 }
 
 function toggleRefeicaoFeita(btn) {
@@ -1491,6 +1643,330 @@ function recalcularPlanoECompras() {
       </div>
     </div>
   `).join('');
+}
+
+function copiarListaComprasTexto() {
+  const itens = [
+    "🛒 *LISTA DE COMPRAS DO MÊS — PROTOCOLO SACIARA*",
+    "• Peito de Frango / Tilápia: 7,5 kg",
+    "• Ovos Caipiras / Granja: 90 unidades (3 cartelas)",
+    "• Patinho Moído de Primeira: 3,0 kg",
+    "• Arroz Integral / Parboilizado: 3,0 kg",
+    "• Aveia em Flocos Finos: 1,8 kg",
+    "• Batata Doce / Mandioca: 4,0 kg",
+    "• Brócolis, Cenoura e Abobrinha: 6,0 kg",
+    "• Banana Prata e Frutas da Estação: 8,0 kg",
+    "• Azeite de Oliva Extra Virgem: 2 garrafas (500ml)",
+    "",
+    "⚡ _Valores e quantidades calculadas para 30 dias (150 refeições)._"
+  ];
+  const texto = itens.join('\n');
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(texto).then(() => {
+      mostrarToastFeedback("📋 Lista de compras copiada para a área de transferência!");
+    });
+  } else {
+    mostrarToastFeedback("📋 Lista pronta para copiar!");
+  }
+}
+
+// Sons Sintetizados via Web Audio API (Sem arquivos externos pesados)
+function tocarSomVitoria() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const notas = [261.63, 329.63, 392.00, 523.25]; // C4, E4, G4, C5 (Acorde Feliz Maior)
+    notas.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
+      gain.gain.setValueAtTime(0.15, ctx.currentTime + idx * 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.08 + 0.3);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime + idx * 0.08);
+      osc.stop(ctx.currentTime + idx * 0.08 + 0.32);
+    });
+  } catch (e) {
+    // Fallback silencioso caso áudio esteja desabilitado
+  }
+}
+
+function tocarSomErro() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(150, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.2);
+    gain.gain.setValueAtTime(0.12, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.22);
+  } catch (e) {}
+}
+
+function abrirLojaGemas() {
+  abrirModal("🛍️ Loja de Recompensas DuoNutri", `
+    <div style="color:#CBD5E1; font-size:14px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; background:#121B2E; border:1px solid #1C2B48; padding:12px 16px; border-radius:12px; margin-bottom:18px;">
+        <span>Seu Saldo:</span>
+        <strong style="color:#00D070; font-size:16px;">💎 ${duoUserGemas} Gemas</strong>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <!-- Item 1: Protetor de Ofensiva -->
+        <div style="display:flex; justify-content:space-between; align-items:center; background:#0E1626; border:1px solid #1C2B48; border-radius:12px; padding:14px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:26px;">🧊</span>
+            <div>
+              <div style="color:#FFF; font-weight:700;">Congelamento de Ofensiva</div>
+              <div style="font-size:12px; color:#94A3B8;">Protege seus 14 dias se esquecer de registrar amanhã.</div>
+            </div>
+          </div>
+          <button style="padding:8px 12px; background:#00D070; color:#070B14; font-weight:800; border:none; border-radius:8px; cursor:pointer;" onclick="comprarItemLoja('Congelamento de Ofensiva', 100)">
+            100 💎
+          </button>
+        </div>
+
+        <!-- Item 2: E-book de Doces Fit -->
+        <div style="display:flex; justify-content:space-between; align-items:center; background:#0E1626; border:1px solid #1C2B48; border-radius:12px; padding:14px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:26px;">📖</span>
+            <div>
+              <div style="color:#FFF; font-weight:700;">Guia de Sobremesas Fit Sem Açúcar</div>
+              <div style="font-size:12px; color:#94A3B8;">20 receitas rápidas para matar a vontade de doce.</div>
+            </div>
+          </div>
+          <button style="padding:8px 12px; background:#00D070; color:#070B14; font-weight:800; border:none; border-radius:8px; cursor:pointer;" onclick="comprarItemLoja('Guia de Sobremesas Fit', 150)">
+            150 💎
+          </button>
+        </div>
+
+        <!-- Item 3: Cupom Shopee Balança -->
+        <div style="display:flex; justify-content:space-between; align-items:center; background:#0E1626; border:1px solid #1C2B48; border-radius:12px; padding:14px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:26px;">⚖️</span>
+            <div>
+              <div style="color:#FFF; font-weight:700;">Cupom de Desconto Shopee Utensílios</div>
+              <div style="font-size:12px; color:#94A3B8;">Balança SF-400 e marmitas herméticas com comissão.</div>
+            </div>
+          </div>
+          <a href="https://s.shopee.com.br/9zz6HcfAxu" target="_blank" style="padding:8px 12px; background:#FF9F1C; color:#070B14; font-weight:800; text-decoration:none; border-radius:8px; display:inline-block;">
+            Ver na Shopee ➔
+          </a>
+        </div>
+      </div>
+    </div>
+  `);
+}
+
+function comprarItemLoja(nome, preco) {
+  if (duoUserGemas >= preco) {
+    duoUserGemas -= preco;
+    const gemasEl = document.getElementById('duoGemasVal');
+    if (gemasEl) gemasEl.innerText = duoUserGemas;
+    tocarSomVitoria();
+    fecharModalGlobal();
+    mostrarToastFeedback(`🎉 Parabéns! Você adquiriu: ${nome}`);
+  } else {
+    tocarSomErro();
+    mostrarToastFeedback(`❌ Gemas insuficientes! Faltam ${preco - duoUserGemas} 💎.`);
+  }
+}
+let duoUserGemas = 380;
+let duoUserXp = 1840;
+
+const LicoesDuolingoData = {
+  1: {
+    titulo: "1. O Segredo da Proteína",
+    icone: "🥚",
+    pergunta: "Por que comer proteína acelera seu emagrecimento sem você passar fome?",
+    opcoes: [
+      {
+        texto: "Ela tem o maior Efeito Térmico dos Alimentos (TEF) e libera peptídeos de saciedade no cérebro.",
+        correta: true,
+        explicacao: "Exato! Cerca de 20% a 30% das calorias da proteína são gastas apenas para digeri-la, e ela estimula o GLP-1 e PYY naturais."
+      },
+      {
+        texto: "Porque ela zera o carboidrato do sangue instantaneamente.",
+        correta: false,
+        explicacao: "Incorreto. A proteína não anula outros nutrientes, mas gera saciedade prolongada pela mastigação e digestão gástrica."
+      }
+    ]
+  },
+  2: {
+    titulo: "2. Hidratação & Taxa Metabólica",
+    icone: "💧",
+    pergunta: "O que acontece metabolicamente quando você bebe 500ml de água fria em jejum?",
+    opcoes: [
+      {
+        texto: "O corpo gasta energia termogênica para aquecer a água e acelera a taxa metabólica basal em até 24% por 60 minutos.",
+        correta: true,
+        explicacao: "Cientificamente comprovado! Esse efeito termogênico da água foi demonstrado em estudos clínicos do Journal of Clinical Endocrinology."
+      },
+      {
+        texto: "A água dilui a gordura no estômago e a elimina pelas fezes.",
+        correta: false,
+        explicacao: "Mito comum! A gordura é oxidada nos pulmões (CO2) e na água metabólica, e não eliminada diretamente pela água ingerida."
+      }
+    ]
+  },
+  3: {
+    titulo: "3. O Balanço de Kevin Hall",
+    icone: "⚖️",
+    pergunta: "Por que a regra antiga de '7.700 kcal = 1 kg' falha no mundo real?",
+    opcoes: [
+      {
+        texto: "Porque o corpo adapta o metabolismo (termogênese adaptativa) e a partição de Forbes altera a proporção de gordura vs. músculo.",
+        correta: true,
+        explicacao: "Perfeito! Kevin Hall (Lancet 2011) provou que o metabolismo desacelera conforme o peso cai, exigindo déficits sustentáveis."
+      },
+      {
+        texto: "Porque as calorias não contam nada, apenas o horário da comida.",
+        correta: false,
+        explicacao: "Incorreto. As calorias obedecem à primeira lei da termodinâmica, mas a resposta biológica humana é dinâmica e não estática."
+      }
+    ]
+  },
+  4: {
+    titulo: "4. Fibras & Fim da Fome",
+    icone: "🥗",
+    pergunta: "Qual destes dois pratos sacia mais o cérebro com as mesmas 200 calorias?",
+    opcoes: [
+      {
+        texto: "🥔 250g de Batata Cozida ou Legumes no Vapor com casca (Fibras e alto índice de saciedade de Holt).",
+        correta: true,
+        explicacao: "Sensacional! No Índice de Saciedade de Holt (Universidade de Sydney), a batata cozida alcançou incríveis 323%, o maior escore de todos!"
+      },
+      {
+        texto: "🥐 1 mini croissant amanteigado.",
+        correta: false,
+        explicacao: "O croissant tem alta densidade energética e baixo volume, gerando esvaziamento gástrico rápido e fome 1 hora depois."
+      }
+    ]
+  }
+};
+
+function iniciarLicaoDuolingo(nodeId) {
+  const licao = LicoesDuolingoData[nodeId] || LicoesDuolingoData[4];
+  
+  abrirModal(`${licao.icone} ${licao.titulo}`, `
+    <div class="duo-quiz-container">
+      <!-- Barra de Progresso no Topo estilo Duolingo -->
+      <div class="duo-quiz-progress">
+        <div class="duo-quiz-fill" style="width: 50%;"></div>
+      </div>
+
+      <div class="duo-quiz-question">${licao.pergunta}</div>
+
+      <div class="duo-quiz-options" id="duoQuizOptionsList">
+        ${licao.opcoes.map((opt, idx) => `
+          <button class="quiz-option-btn" onclick="responderQuizDuolingo(${nodeId}, ${idx})">
+            <span class="quiz-opt-icon">${idx === 0 ? '🅰️' : '🅱️'}</span>
+            <div>
+              <div class="quiz-opt-title">${opt.texto}</div>
+            </div>
+          </button>
+        `).join('')}
+      </div>
+
+      <div id="duoFeedbackArea"></div>
+    </div>
+  `);
+}
+
+function responderQuizDuolingo(nodeId, optIdx) {
+  const licao = LicoesDuolingoData[nodeId] || LicoesDuolingoData[4];
+  const escolha = licao.opcoes[optIdx];
+  const area = document.getElementById('duoFeedbackArea');
+  const progFill = document.querySelector('.duo-quiz-fill');
+
+  if (progFill) progFill.style.width = '100%';
+
+  if (escolha.correta) {
+    tocarSomVitoria();
+    // Recompensas
+    duoUserGemas += 5;
+    duoUserXp += 25;
+    
+    // Atualiza elementos
+    const gemasEl = document.getElementById('duoGemasVal');
+    const xpEl = document.getElementById('userCurrentXpVal');
+    if (gemasEl) gemasEl.innerText = duoUserGemas;
+    if (xpEl) xpEl.innerText = `${duoUserXp} XP`;
+
+    area.innerHTML = `
+      <div class="quiz-feedback-box">
+        <div class="feedback-title">
+          <span>🎉</span> <span>Sensacional! Resposta Correta!</span>
+        </div>
+        <div class="feedback-body">${escolha.explicacao}</div>
+      </div>
+      <button class="btn-primary" style="width:100%; padding:14px; background:#00D070; color:#070B14; font-size:15px; font-weight:800; border:none; border-radius:12px; cursor:pointer; box-shadow:0 4px 14px rgba(0,208,112,0.4);" onclick="fecharModalGlobal(); mostrarToastFeedback('💎 +5 Gemas e +25 XP conquistados!');">
+        Continuar (+25 XP & +5 💎)
+      </button>
+    `;
+  } else {
+    area.innerHTML = `
+      <div class="quiz-feedback-box" style="border-color:#EF4444; background:rgba(239,68,68,0.15);">
+        <div class="feedback-title" style="color:#EF4444;">
+          <span>💡</span> <span>Quase lá! Veja a explicação:</span>
+        </div>
+        <div class="feedback-body">${escolha.explicacao}</div>
+      </div>
+      <button class="btn-primary" style="width:100%; padding:14px; background:#1C2B48; color:#FFF; font-size:14px; font-weight:800; border:none; border-radius:12px; cursor:pointer;" onclick="iniciarLicaoDuolingo(${nodeId})">
+        Tentar Novamente
+      </button>
+    `;
+  }
+}
+
+function abrirBauRecompensa() {
+  duoUserGemas += 50;
+  const gemasEl = document.getElementById('duoGemasVal');
+  if (gemasEl) gemasEl.innerText = duoUserGemas;
+
+  abrirModal("🎁 Baú do Tesouro da Trilha Aberto!", `
+    <div style="text-align:center; padding:16px 0;">
+      <div style="font-size:64px; margin-bottom:12px; animation:fireFlicker 1.5s infinite;">💎</div>
+      <h2 style="font-size:20px; font-weight:800; color:#FFD700; margin-bottom:8px;">Você recebeu +50 Gemas Esmeralda!</h2>
+      <p style="font-size:13px; color:#94A3B8; max-width:320px; margin:0 auto 20px auto;">
+        Continue mantendo sua ofensiva de hábitos diários para abrir os próximos baús da Fase 2!
+      </p>
+      <button class="btn-primary" style="width:100%; padding:14px; background:#00D070; color:#070B14; font-weight:800; border:none; border-radius:12px; cursor:pointer;" onclick="fecharModalGlobal(); mostrarToastFeedback('💎 +50 Gemas adicionadas ao seu cofre!');">
+        Coletar Recompensa
+      </button>
+    </div>
+  `);
+}
+
+function abrirModalLiga() {
+  abrirModal("🛡️ Ligas Semanais Saciara", `
+    <div style="color:#E2E8F0; font-size:14px; line-height:1.5;">
+      <p>As <strong>Ligas Semanais</strong> incentivam a disciplina diária. O ranking é atualizado conforme você registra água, treinos e completa lições rápidas.</p>
+      
+      <div style="background:#0E1626; border:1px solid #1C2B48; border-radius:12px; padding:14px; margin:14px 0;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+          <span>Sua Divisão:</span>
+          <strong style="color:#FFD700;">Liga Ouro</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+          <span>Sua Posição:</span>
+          <strong style="color:#00D070;">3º Lugar (Zona de Acesso)</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between;">
+          <span>Próxima Liga:</span>
+          <strong style="color:#38BDF8;">Liga Esmeralda</strong>
+        </div>
+      </div>
+
+      <p style="font-size:12px; color:#64748B;">Os 3 primeiros colocados sobem de divisão todo domingo à meia-noite e ganham 100 Gemas bônus!</p>
+    </div>
+  `);
 }
 
 // Inicializa no carregamento
