@@ -3907,6 +3907,48 @@ window.abrirModalImportarSupermercadoCompras = function() {
   abrirModalImportarPorLink('compras');
 };
 
+// ==========================================================================
+// CONFIGURAÇÃO INDIVIDUAL MOBILE DEDICADA & DETECÇÃO INTELIGENTE
+// ==========================================================================
+window.mobileConfig = JSON.parse(localStorage.getItem('nutriplus_mobile_config') || '{}');
+
+function atualizarBadgeStatusMobile() {
+  const isMobile = window.innerWidth <= 768;
+  const badge = document.getElementById('mobileDetectBadge');
+  if (badge) {
+    if (isMobile) {
+      badge.innerHTML = '● Mobile Ativo (Otimizado)';
+      badge.style.background = 'rgba(0, 229, 117, 0.12)';
+      badge.style.color = '#00E575';
+      badge.style.borderColor = 'rgba(0, 229, 117, 0.3)';
+    } else {
+      badge.innerHTML = '○ Desktop (Layout Amplo)';
+      badge.style.background = 'rgba(148, 163, 184, 0.12)';
+      badge.style.color = '#94A3B8';
+      badge.style.borderColor = 'rgba(148, 163, 184, 0.3)';
+    }
+  }
+
+  // Carrega toggles caso estejam no DOM
+  const tThumb = document.getElementById('prefThumbZone');
+  const tWater = document.getElementById('prefQuickWater');
+  const tEco = document.getElementById('prefEcoData');
+
+  if (tThumb && window.mobileConfig.thumbZone !== undefined) tThumb.checked = window.mobileConfig.thumbZone;
+  if (tWater && window.mobileConfig.quickWater !== undefined) tWater.checked = window.mobileConfig.quickWater;
+  if (tEco && window.mobileConfig.ecoData !== undefined) tEco.checked = window.mobileConfig.ecoData;
+}
+
+window.salvarPreferenciaMobile = function(chave, valor) {
+  window.mobileConfig[chave] = valor;
+  localStorage.setItem('nutriplus_mobile_config', JSON.stringify(window.mobileConfig));
+  mostrarToastFeedback(`📱 Configuração mobile "${chave}" salva!`);
+};
+
+window.addEventListener('resize', atualizarBadgeStatusMobile);
+document.addEventListener('DOMContentLoaded', atualizarBadgeStatusMobile);
+
+
 
 
 

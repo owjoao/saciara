@@ -265,6 +265,10 @@ body {
   gap: 20px;
 }
 
+.mobile-brand-title {
+  display: none;
+}
+
 .search-box {
   flex: 1;
   max-width: 480px;
@@ -5371,11 +5375,11 @@ label {
 }
 
 /* ==========================================================================
-   OTIMIZAÇÃO ULTRA REFINADA PARA CELULARES & MOBILE PREVIEW (< 640px)
-   Experiência Nativa (iOS / Android), Thumb Zone e Ergonomia Tátil
+   OTIMIZAÇÃO ULTRA REFINADA PARA CELULARES & MOBILE PREVIEW (< 768px)
+   Experiência Nativa (iOS / Android), Thumb Zone e Arquitetura Individual
    ========================================================================== */
-@media (max-width: 640px) {
-  /* Previne zoom automático do iOS e garante área de toque de 16px */
+@media (max-width: 768px), (max-device-width: 768px), .is-mobile-view {
+  /* Previne zoom automático do iOS e garante área de toque confortável */
   input[type="text"],
   input[type="number"],
   input[type="email"],
@@ -5397,57 +5401,314 @@ label {
 
   /* Área principal com margens otimizadas e margem de segurança para o dock */
   main.main-wrapper {
-    padding: 12px 12px calc(88px + env(safe-area-inset-bottom)) 12px !important;
+    padding: 10px 12px calc(88px + env(safe-area-inset-bottom)) 12px !important;
     max-width: 100% !important;
   }
 
-  /* Topbar compacta e ergonômica */
+  /* ========================================================================
+     1. TOPBAR MOBILE INDIVIDUAL: Limpa, Sem Busca Esmagada, Marca Nítida
+     ======================================================================== */
   .top-navbar {
-    padding: 10px 14px !important;
-    height: 58px !important;
-  }
-
-  .logo-text {
-    font-size: 18px !important;
-  }
-
-  .logo-tag {
-    font-size: 10px !important;
-    padding: 2px 6px !important;
-  }
-
-  /* Banner do Herói no topo */
-  .heroi-top-banner {
-    padding: 10px 14px !important;
-    border-radius: 12px !important;
-    margin-bottom: 14px !important;
+    padding: 8px 12px !important;
+    height: 54px !important;
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     gap: 8px !important;
   }
 
-  .heroi-badge {
-    font-size: 12px !important;
+  .top-navbar .mobile-menu-toggle {
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #121B2E !important;
+    border: 1px solid #1E293B !important;
+    border-radius: 10px !important;
+    font-size: 18px !important;
+    color: #FFF !important;
+    flex-shrink: 0 !important;
   }
 
-  .heroi-progress-bar-bg {
-    height: 8px !important;
+  .mobile-brand-title {
+    display: inline-flex !important;
+    font-family: 'Cinzel', serif !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    letter-spacing: 0.5px !important;
+    margin-left: 2px !important;
   }
 
-  /* Cards e Containers com padding fluido */
-  .pilar-card,
-  .refeicao-item,
-  .jornada-hero-card,
-  .budget-control-card,
-  .categoria-bloco,
-  .dispensa-item,
-  .config-section-card {
-    padding: 14px !important;
+  /* Oculta a barra de busca no topo para não encavalar com os ícones */
+  .top-navbar .mobile-brand-title {
+  display: none;
+}
+
+.search-box {
+    display: none !important;
+  }
+
+  .top-navbar .user-nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .top-navbar .notification-btn {
+    width: 38px !important;
+    height: 38px !important;
+    background: #121B2E !important;
+    border: 1px solid #1E293B !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    position: relative !important;
+  }
+
+  .top-navbar .user-profile-avatar {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    border: 2px solid #00E575 !important;
+    overflow: hidden !important;
+  }
+
+  .top-navbar .user-profile-avatar img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* ========================================================================
+     2. BANNER DO HERÓI MOBILE INDIVIDUAL (GRID 2 LINHAS HARMONIOSO)
+     Linha 1: [Nv. 2] O Guardião da Saciedade       340 / 600 XP
+              [================ Barra de XP =================]
+     Linha 2: [ 🔥 7 dias Fogo Ativo 💧🥩⚔️ ]      [ 💎 380 ]
+     ======================================================================== */
+  .heroi-top-banner {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 10px 8px !important;
+    padding: 12px 14px !important;
+    background: #0B111E !important;
+    border: 1px solid #1E293B !important;
     border-radius: 14px !important;
+    margin-bottom: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    position: static !important;
   }
 
-  /* Grid dos 3 Pilares em coluna única e ritmo harmônico */
+  /* Transforma o banner-left em container transparente para os filhos virarem grid */
+  .heroi-banner-left {
+    display: contents !important;
+  }
+
+  /* Linha 1: Nível, Título do Herói e XP ocupando 100% da largura */
+  .heroi-level-container {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    order: 1 !important;
+  }
+
+  .heroi-level-container > div:first-child {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 5px !important;
+    width: 100% !important;
+  }
+
+  .heroi-nivel-pill {
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    padding: 2px 7px !important;
+    border-radius: 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .heroi-titulo-nome {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 190px !important;
+  }
+
+  .heroi-xp-val {
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: #38BDF8 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .heroi-xp-track {
+    width: 100% !important;
+    height: 8px !important;
+    background: #162238 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+  }
+
+  .heroi-xp-fill {
+    height: 100% !important;
+    background: linear-gradient(90deg, #00E575 0%, #38BDF8 100%) !important;
+    border-radius: 6px !important;
+  }
+
+  /* Linha 2 Coluna Esquerda: Fogo Vivo do Duolingo com Lenhas */
+  .fogo-duolingo-box {
+    grid-column: 1 / 2 !important;
+    order: 2 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 6px 10px !important;
+    background: #121B2E !important;
+    border: 1px solid #1E293B !important;
+    border-radius: 10px !important;
+    min-height: 40px !important;
+    box-sizing: border-box !important;
+    gap: 6px !important;
+  }
+
+  .fogo-flame-icon {
+    font-size: 18px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .fogo-text-wrap {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 4px !important;
+  }
+
+  .fogo-dias-val {
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    color: #FFF !important;
+  }
+
+  .fogo-label-sub {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    color: #FF8C00 !important;
+  }
+
+  .fogo-lenhas-indicators {
+    margin-left: auto !important;
+    padding: 2px 4px !important;
+    border-radius: 6px !important;
+    background: #0B111E !important;
+    display: flex !important;
+    gap: 2px !important;
+  }
+
+  .lenha-dot {
+    font-size: 11px !important;
+  }
+
+  /* Linha 2 Coluna Direita: Gemas Alinhadas Perfeitamente */
+  .heroi-banner-right {
+    grid-column: 2 / 3 !important;
+    order: 3 !important;
+    display: flex !important;
+    margin: 0 !important;
+  }
+
+  .heroi-gemas-box {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 6px 12px !important;
+    background: #121B2E !important;
+    border: 1px solid #1E293B !important;
+    border-radius: 10px !important;
+    min-height: 40px !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+  }
+
+  /* ========================================================================
+     3. BOAS-VINDAS & DATA MOBILE INDIVIDUAL (EMPILHADO E SEM QUEBRAS)
+     ======================================================================== */
+  .inicio-hero-compact {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 16px 16px !important;
+    border-radius: 14px !important;
+    margin-bottom: 14px !important;
+    gap: 8px !important;
+    background: linear-gradient(135deg, #0B1323 0%, #0F1D33 100%) !important;
+    border: 1px solid #1C2B48 !important;
+  }
+
+  .inicio-hero-compact > div:first-child {
+    width: 100% !important;
+  }
+
+  .inicio-saudacao-title {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    margin: 0 0 4px 0 !important;
+  }
+
+  .inicio-saudacao-sub {
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+    color: #94A3B8 !important;
+    margin: 0 !important;
+  }
+
+  .inicio-date-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    background: rgba(0, 229, 117, 0.12) !important;
+    border: 1px solid rgba(0, 229, 117, 0.3) !important;
+    color: #00E575 !important;
+    margin-top: 4px !important;
+  }
+
+  /* ========================================================================
+     4. OS TRÊS PILARES DA ROTINA DIÁRIA (ALIMENTAÇÃO, ÁGUA, PESO)
+     ======================================================================== */
   .inicio-pilares-grid {
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
     gap: 12px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .pilar-card {
+    padding: 16px !important;
+    border-radius: 14px !important;
+    background: #0E1626 !important;
+    border: 1px solid #1C2B48 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
   }
 
   /* Botões rápidos de hidratação (ergonomia do polegar) */
@@ -5465,16 +5726,21 @@ label {
     font-size: 14px !important;
     font-weight: 700 !important;
     border-radius: 10px !important;
+    background: #121B2E !important;
+    border: 1px solid #1E3A5F !important;
+    color: #38BDF8 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     -webkit-tap-highlight-color: transparent !important;
     touch-action: manipulation !important;
+    transition: transform 0.1s ease, background-color 0.1s ease !important;
   }
 
   .btn-water-quick:active,
   .water-btn:active {
-    transform: scale(0.95) !important;
+    transform: scale(0.94) !important;
+    background-color: #1E3A5F !important;
   }
 
   /* Scroll horizontal suave em pílulas de filtros/categorias sem barra feia */
@@ -5506,7 +5772,9 @@ label {
     -webkit-tap-highlight-color: transparent !important;
   }
 
-  /* Dock Inferior Mobile (Thumb Zone Premium) */
+  /* ========================================================================
+     5. DOCK INFERIOR MOBILE (THUMB ZONE NATIVA)
+     ======================================================================== */
   .mobile-bottom-dock {
     height: calc(64px + env(safe-area-inset-bottom)) !important;
     padding-bottom: env(safe-area-inset-bottom) !important;
@@ -5553,6 +5821,52 @@ label {
     padding: 20px 16px !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Switches de Preferência Mobile */
+  .switch-toggle {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+  }
+
+  .switch-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .switch-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #1E293B;
+    transition: 0.2s;
+    border-radius: 24px;
+    border: 1px solid #334155;
+  }
+
+  .switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.2s;
+    border-radius: 50%;
+  }
+
+  .switch-toggle input:checked + .switch-slider {
+    background-color: #00E575;
+    border-color: #00E575;
+  }
+
+  .switch-toggle input:checked + .switch-slider:before {
+    transform: translateX(20px);
+    background-color: #04150D;
   }
 }
 
