@@ -167,9 +167,12 @@ function bindSidebarNav() {
 
       const tab = link.dataset.tab;
       
-      // Alternância de Telas Principais (Início vs Planos vs Atividades vs Relatório Mensal)
+      // Alternância de Telas Principais (Início vs Planos vs Compras vs Atividades vs Relatório Mensal)
       if (tab === 'planos') {
         mostrarAba('planos');
+      } else if (tab === 'compras') {
+        mostrarAba('compras');
+        calcularListaComprasPorOrcamento(document.getElementById('inputOrcamentoReais')?.value || 450);
       } else if (tab === 'inicio') {
         mostrarAba('inicio');
       } else if (tab === 'atividades') {
@@ -859,3 +862,304 @@ function abrirModalDicaPerdaPeso() {
     </div>
   `);
 }
+
+// ==========================================================================
+// HIERARQUIA POR HORÁRIO: REFEIÇÃO DESTAQUE ATRELADA À HORA DO DIA
+// ==========================================================================
+const CatalogoReceitasDetalhes = {
+  aveia_banana: {
+    titulo: "Aveia com Banana, Canela e Chia",
+    horario: "07:00 – 08:00 (Café da Manhã)",
+    tipo: "Café da Manhã",
+    calorias: "326 kcal",
+    macros: "P: 12g • C: 52g • G: 8g",
+    ingredientes: [
+      "1 xícara de aveia em flocos finos (40g)",
+      "1 banana nanica ou prata média fatiada",
+      "1 colher de chá de sementes de chia (5g)",
+      "Canela em pó a gosto",
+      "150 ml de água quente ou leite desnatado/vegetal"
+    ],
+    passos: [
+      "Coloque a aveia e a chia em um bowl e adicione o líquido quente.",
+      "Misture bem até hidratar e atingir consistência cremosa de mingau (cerca de 2 minutos).",
+      "Disponha as rodelas de banana por cima.",
+      "Salpique canela a gosto para estimular o efeito termogênico natural e saboreie quente."
+    ],
+    imagem: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=600&q=80",
+    utensilio: "Balança Digital de Cozinha de Alta Precisão",
+    utensilioLink: "https://s.shopee.com.br/10940561_saciara"
+  },
+  iogurte_frutas: {
+    titulo: "Iogurte Natural com Frutas Vermelhas",
+    horario: "10:30 – 11:30 (Lanche da Manhã)",
+    tipo: "Lanche da Manhã",
+    calorias: "142 kcal",
+    macros: "P: 10g • C: 14g • G: 4g",
+    ingredientes: [
+      "1 pote de iogurte natural desnatado sem açúcar (170g)",
+      "50g de frutas vermelhas (morangos picados ou mirtilos)",
+      "Folhas de hortelã para decorar (opcional)"
+    ],
+    passos: [
+      "Despeje o iogurte natural em uma taça ou pote de vidro.",
+      "Lave as frutas vermelhas e corte os morangos em lâminas.",
+      "Cubra o iogurte com as frutas frescas para manter a crocância e frescor."
+    ],
+    imagem: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80",
+    utensilio: "Conjunto de Potes Herméticos de Vidro",
+    utensilioLink: "https://s.shopee.com.br/10940561_saciara"
+  },
+  frango_arroz: {
+    titulo: "Frango Grelhado, Arroz Integral & Salada Colorida",
+    horario: "12:30 – 14:00 (Almoço)",
+    tipo: "Almoço",
+    calorias: "436 kcal",
+    macros: "P: 38g • C: 45g • G: 12g",
+    ingredientes: [
+      "100g de peito de frango limpo sem pele",
+      "½ xícara de arroz integral cozido (100g)",
+      "Mix de folhas verdes (alface, rúcula e agrião à vontade)",
+      "½ tomate fatiado e raspas de cenoura",
+      "1 colher de chá de azeite extravirgem (ou 3 borrifadas do spray)",
+      "Sal de ervas, páprica defumada e limão a gosto"
+    ],
+    passos: [
+      "Tempere os filés de frango com limão, sal de ervas e páprica defumada.",
+      "Aqueça uma frigideira antiaderente (borrife suavemente azeite).",
+      "Grelhe o frango por 3 a 4 minutos de cada lado até ficar dourado e suculento.",
+      "Monte o prato dividindo a metade com a salada verde colorida, ¼ com arroz integral e ¼ com o peito de frango grelhado."
+    ],
+    imagem: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80",
+    utensilio: "Borrifador Spray de Azeite Culinário em Inox",
+    utensilioLink: "https://s.shopee.com.br/10940561_saciara"
+  },
+  castanhas_maca: {
+    titulo: "Mix de Castanhas & Maçã Crocante",
+    horario: "16:00 – 17:00 (Lanche da Tarde)",
+    tipo: "Lanche da Tarde",
+    calorias: "198 kcal",
+    macros: "P: 3g • C: 25g • G: 10g",
+    ingredientes: [
+      "1 punhado de castanhas do pará e caju (15g - aprox. 4 a 5 unidades)",
+      "1 maçã gala ou fuji média lavada",
+      "Canela em pó a gosto"
+    ],
+    passos: [
+      "Corte a maçã em fatias finas com casca para preservar fibras pécticas.",
+      "Salpique canela a gosto.",
+      "Consuma junto com as castanhas mastigando lentamente para estimular saciedade prolongada."
+    ],
+    imagem: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=600&q=80",
+    utensilio: "Marmitas Herméticas com Divisória Dupla",
+    utensilioLink: "https://s.shopee.com.br/10940561_saciara"
+  },
+  salmao_legumes: {
+    titulo: "Salmão Grelhado com Legumes no Vapor",
+    horario: "19:00 – 20:30 (Jantar)",
+    tipo: "Jantar",
+    calorias: "354 kcal",
+    macros: "P: 32g • C: 18g • G: 16g",
+    ingredientes: [
+      "120g de filé de salmão fresco",
+      "1 xícara de brócolis ninja em floretes",
+      "½ cenoura em rodelas e ½ abobrinha",
+      "Suco de ½ limão siciliano, alho picado e alecrim",
+      "1 borrifada de azeite"
+    ],
+    passos: [
+      "Cozinhe os legumes no vapor por 6 a 8 minutos até ficarem al dente.",
+      "Aqueça a frigideira, doure o salmão com a pele virada para baixo por 4 minutos.",
+      "Vire delicadamente e finalize por mais 2 minutos, regando com limão e alecrim.",
+      "Sirva o filé acompanhado da cama de legumes fumegantes."
+    ],
+    imagem: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=80",
+    utensilio: "Forma de Silicone Antiaderente para Airfryer",
+    utensilioLink: "https://s.shopee.com.br/10940561_saciara"
+  }
+};
+
+function abrirModalReceitaDetalhada(chave) {
+  const r = CatalogoReceitasDetalhes[chave] || CatalogoReceitasDetalhes.aveia_banana;
+  const listaIngredientes = r.ingredientes.map(i => `<li style="margin-bottom:6px; color:#CBD5E1;">• ${i}</li>`).join('');
+  const listaPassos = r.passos.map((p, idx) => `<li style="margin-bottom:8px; color:#CBD5E1;"><strong style="color:#00D070;">Passo ${idx+1}:</strong> ${p}</li>`).join('');
+
+  abrirModal(`📖 ${r.titulo}`, `
+    <div style="font-size:14px;">
+      <div style="position:relative; width:100%; height:180px; border-radius:10px; overflow:hidden; margin-bottom:16px; border:1px solid #1C2B48;">
+        <img src="${r.imagem}" style="width:100%; height:100%; object-fit:cover;">
+        <div style="position:absolute; bottom:10px; left:10px; background:rgba(7,11,20,0.85); padding:4px 10px; border-radius:6px; font-weight:800; color:#00D070; font-size:12px;">
+          ${r.horario} • ${r.calorias}
+        </div>
+      </div>
+
+      <div style="background:#091220; padding:10px 14px; border-radius:8px; border:1px solid #1C2B48; margin-bottom:16px; font-weight:700; color:#38BDF8;">
+        Macronutrientes da Porção: ${r.macros}
+      </div>
+
+      <h4 style="color:#FFFFFF; margin-bottom:8px;">🛒 Ingredientes Selecionados:</h4>
+      <ul style="list-style:none; padding-left:0; margin-bottom:16px;">
+        ${listaIngredientes}
+      </ul>
+
+      <h4 style="color:#FFFFFF; margin-bottom:8px;">👨‍🍳 Modo de Preparo Rápido:</h4>
+      <ol style="padding-left:18px; margin-bottom:18px; line-height:1.5;">
+        ${listaPassos}
+      </ol>
+
+      <div style="background:#091220; padding:12px; border-radius:8px; border:1px solid #00D070; margin-bottom:14px;">
+        🛒 <strong>Utensílio que facilita:</strong> <a href="${r.utensilioLink}" target="_blank" style="color:#00D070; font-weight:700;">${r.utensilio} na Shopee</a>
+      </div>
+
+      <button style="width:100%; background:#00D070; color:#070B14; border:none; padding:12px; border-radius:8px; font-weight:800; cursor:pointer;" onclick="fecharModalGlobal()">Pronto, já sei como preparar! ✓</button>
+    </div>
+  `);
+}
+
+// Atualiza o card de Refeição de Agora de acordo com o horário real do sistema
+function atualizarRefeicaoMomentoPorHorario() {
+  const agora = new Date();
+  const hora = agora.getHours();
+  let chave = 'aveia_banana';
+  let tagTexto = "Café da Manhã • Horário Ideal";
+
+  if (hora >= 5 && hora < 10) {
+    chave = 'aveia_banana';
+    tagTexto = "Seu Café da Manhã de Agora";
+  } else if (hora >= 10 && hora < 12) {
+    chave = 'iogurte_frutas';
+    tagTexto = "Seu Lanche da Manhã de Agora";
+  } else if (hora >= 12 && hora < 15) {
+    chave = 'frango_arroz';
+    tagTexto = "Seu Almoço de Agora";
+  } else if (hora >= 15 && hora < 18) {
+    chave = 'castanhas_maca';
+    tagTexto = "Seu Lanche da Tarde de Agora";
+  } else {
+    chave = 'salmao_legumes';
+    tagTexto = "Seu Jantar de Agora";
+  }
+
+  const r = CatalogoReceitasDetalhes[chave];
+  const tagEl = document.getElementById('momentoTagText');
+  const titleEl = document.getElementById('momentoPratoTitulo');
+  const subEl = document.getElementById('momentoPratoSub');
+  const kcalsEl = document.getElementById('momentoKcals');
+  const imgEl = document.getElementById('momentoPratoImg');
+  const btnEl = document.getElementById('btnVerReceitaMomento');
+
+  if (tagEl) tagEl.innerText = tagTexto;
+  if (titleEl) titleEl.innerText = r.titulo;
+  if (subEl) subEl.innerText = r.ingredientes.slice(0, 3).join(' • ');
+  if (kcalsEl) kcalsEl.innerText = r.calorias;
+  if (imgEl) imgEl.src = r.imagem;
+  if (btnEl) btnEl.onclick = () => abrirModalReceitaDetalhada(chave);
+}
+
+// ==========================================================================
+// ABA DE COMPRAS DO MÊS: ALGORITMO DE OTIMIZAÇÃO POR ORÇAMENTO
+// Preços médios populares monitorados em Atacarejo, Assaí e Extra (Salvador/SP/RJ)
+// ==========================================================================
+const ItensPrecosSupermercados = [
+  // Proteínas
+  { cat: "Proteínas de Alto Valor", nome: "Peito de Frango Congelado (kg)", precoUnit: 17.90, baseMes: 4.5, unidade: "kg" },
+  { cat: "Proteínas de Alto Valor", nome: "Ovos Brancos Grandes (Cartela c/ 30)", precoUnit: 16.50, baseMes: 2, unidade: "cartelas" },
+  { cat: "Proteínas de Alto Valor", nome: "Filé de Tilápia / Peixe Fresco (kg)", precoUnit: 31.90, baseMes: 1.5, unidade: "kg" },
+  { cat: "Proteínas de Alto Valor", nome: "Patinho Moído Bovino (kg)", precoUnit: 34.90, baseMes: 1.2, unidade: "kg" },
+  
+  // Carboidratos & Grãos
+  { cat: "Carboidratos & Grãos Integrais", nome: "Arroz Integral Tipo 1 (1kg)", precoUnit: 5.90, baseMes: 3, unidade: "pcts" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Aveia em Flocos Finos (500g)", precoUnit: 6.20, baseMes: 3, unidade: "pcts" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Batata Doce Roxa (kg)", precoUnit: 4.50, baseMes: 3.5, unidade: "kg" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Feijão Carioca Tipo 1 (1kg)", precoUnit: 6.80, baseMes: 2, unidade: "pcts" },
+
+  // Hortifrúti & Fibras
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Banana Prata / Nanica (kg)", precoUnit: 4.90, baseMes: 5, unidade: "kg" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Maçã Nacional (kg)", precoUnit: 7.90, baseMes: 2.5, unidade: "kg" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Brócolis Ninja / Couve-Flor", precoUnit: 6.50, baseMes: 4, unidade: "unidades" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Cenoura & Abobrinha (kg)", precoUnit: 4.80, baseMes: 3, unidade: "kg" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Mix de Folhas (Alface/Rúcula)", precoUnit: 3.50, baseMes: 6, unidade: "maços" },
+
+  // Gorduras & Laticínios
+  { cat: "Gorduras Boas & Laticínios", nome: "Iogurte Natural Integral/Desn (Pote 170g)", precoUnit: 3.20, baseMes: 15, unidade: "potes" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Sementes de Chia / Linhaça (200g)", precoUnit: 8.90, baseMes: 1, unidade: "pct" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Azeite de Oliva Extravirgem (500ml)", precoUnit: 36.90, baseMes: 1, unidade: "garrafa" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Mix de Castanhas (200g)", precoUnit: 18.90, baseMes: 1, unidade: "pct" }
+];
+
+function calcularListaComprasPorOrcamento(orcamento) {
+  const budget = parseFloat(orcamento) || 450;
+  
+  // Orçamento base de referência é R$ 450
+  const fatorEscala = Math.max(budget / 450, 0.4);
+
+  const categoriasMap = {};
+  let totalEstimado = 0;
+
+  ItensPrecosSupermercados.forEach(item => {
+    // Quantidade adaptada ao orçamento
+    let qtdCalculada = Math.round((item.baseMes * fatorEscala) * 10) / 10;
+    if (qtdCalculada < 0.5 && item.unidade === 'pct') qtdCalculada = 1;
+    if (qtdCalculada < 1 && (item.unidade === 'unidades' || item.unidade === 'cartelas' || item.unidade === 'garrafa')) qtdCalculada = 1;
+
+    const subtotal = qtdCalculada * item.precoUnit;
+    totalEstimado += subtotal;
+
+    if (!categoriasMap[item.cat]) {
+      categoriasMap[item.cat] = { itens: [], subtotalCat: 0 };
+    }
+    categoriasMap[item.cat].itens.push({
+      nome: item.nome,
+      qtd: qtdCalculada,
+      unidade: item.unidade,
+      subtotal: subtotal
+    });
+    categoriasMap[item.cat].subtotalCat += subtotal;
+  });
+
+  // Atualiza totais na tela
+  const totalEl = document.getElementById('statTotalEstimado');
+  const econEl = document.getElementById('statEconomiaEstimada');
+  const diasEl = document.getElementById('statDiasCobertos');
+
+  if (totalEl) totalEl.innerText = `R$ ${totalEstimado.toFixed(2).replace('.', ',')}`;
+  if (econEl) econEl.innerText = `R$ ${(totalEstimado * 0.20).toFixed(2).replace('.', ',')}`;
+  if (diasEl) {
+    if (budget < 250) diasEl.innerText = "15 dias";
+    else if (budget < 350) diasEl.innerText = "22 dias";
+    else diasEl.innerText = "30 dias";
+  }
+
+  // Renderiza as categorias
+  const gridEl = document.getElementById('comprasCategoriesGrid');
+  if (!gridEl) return;
+
+  gridEl.innerHTML = Object.entries(categoriasMap).map(([nomeCat, dados]) => `
+    <div class="compras-category-card">
+      <div class="compras-category-header">
+        <div class="compras-cat-title">
+          <span>📦</span>
+          <span>${nomeCat}</span>
+        </div>
+        <span class="compras-cat-subtotal">R$ ${dados.subtotalCat.toFixed(2).replace('.', ',')}</span>
+      </div>
+      <div>
+        ${dados.itens.map(it => `
+          <div class="compras-item-row">
+            <div>
+              <div class="compras-item-name">${it.nome}</div>
+              <div class="compras-item-qtd">Quantidade para o mês: <strong>${it.qtd} ${it.unidade}</strong></div>
+            </div>
+            <div class="compras-item-price">R$ ${it.subtotal.toFixed(2).replace('.', ',')}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+// Inicializa no carregamento
+document.addEventListener('DOMContentLoaded', () => {
+  atualizarRefeicaoMomentoPorHorario();
+  setInterval(atualizarRefeicaoMomentoPorHorario, 60000); // Checa a cada minuto
+});

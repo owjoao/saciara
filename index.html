@@ -45,6 +45,10 @@
         <span class="nav-icon">📅</span>
         <span>Planos Alimentares</span>
       </a>
+      <a class="nav-link" data-tab="compras">
+        <span class="nav-icon">🛒</span>
+        <span>Compras do Mês</span>
+      </a>
       <a class="nav-link" data-tab="atividades">
         <span class="nav-icon">🏃</span>
         <span>Atividades Físicas</span>
@@ -120,7 +124,31 @@
         </div>
       </section>
 
-      <!-- 2. Os Três Pilares da Sua Rotina Diária -->
+      <!-- 2. Refeição de Agora (Atrelada ao Horário Atual do Dia) -->
+      <section class="refeicao-momento-card" id="refeicaoMomentoBox">
+        <div style="flex:1;">
+          <div class="refeicao-momento-tag-live">
+            <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#070B14; animation:pulse 1.5s infinite;"></span>
+            <span id="momentoTagText">Sua Próxima Refeição • Horário Ideal</span>
+          </div>
+          <h3 class="refeicao-momento-title" id="momentoPratoTitulo">Aveia com Banana, Canela e Chia</h3>
+          <p class="refeicao-momento-sub" id="momentoPratoSub">
+            1 xícara de aveia (40g) • 1 banana média fatiada • 1 colher de chá de chia (5g) • Canela a gosto
+          </p>
+          <div style="display:flex; align-items:center; gap:16px;">
+            <button class="btn-open-recipe-cta" id="btnVerReceitaMomento" onclick="abrirModalReceitaDetalhada('aveia_banana')">
+              <span>📖</span>
+              <span>Ver Modo de Preparo ➔</span>
+            </button>
+            <span style="font-size:13px; font-weight:800; color:#FFFFFF;" id="momentoKcals">326 kcal</span>
+          </div>
+        </div>
+        <div class="refeicao-momento-img-wrap" onclick="abrirModalReceitaDetalhada('aveia_banana')">
+          <img id="momentoPratoImg" src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=400&q=80" alt="Prato do Momento">
+        </div>
+      </section>
+
+      <!-- 3. Os Três Pilares da Sua Rotina Diária -->
       <div class="inicio-pilares-grid">
         <!-- Pilar 1: Alimentação de Hoje -->
         <div class="pilar-card">
@@ -205,7 +233,7 @@
 
         <div class="refeicoes-timeline-list">
           <!-- 1. Café da Manhã -->
-          <div class="refeicao-item-card">
+          <div class="refeicao-item-card" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">☕</span>
               <div>
@@ -215,10 +243,10 @@
             </div>
             <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=200&q=80" alt="Aveia com Banana">
             <div>
-              <div class="refeicao-prato-title">Aveia com Banana, Canela e Chia</div>
-              <div class="refeicao-ingredientes-short">1 xícara de aveia (40g) • 1 banana média fatiada • 1 colher de chá de chia</div>
+              <div class="refeicao-prato-title">Aveia com Banana, Canela e Chia ↗</div>
+              <div class="refeicao-ingredientes-short">1 xícara de aveia (40g) • 1 banana média fatiada • 1 colher de chá de chia (toque para ver receita completa)</div>
             </div>
-            <div class="refeicao-actions-box">
+            <div class="refeicao-actions-box" onclick="event.stopPropagation()">
               <div class="refeicao-kcals">326 kcal</div>
               <div class="refeicao-macros-mini">P: 12g • C: 52g • G: 8g</div>
               <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
@@ -229,7 +257,7 @@
           </div>
 
           <!-- 2. Lanche da Manhã -->
-          <div class="refeicao-item-card">
+          <div class="refeicao-item-card" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🍏</span>
               <div>
@@ -239,10 +267,10 @@
             </div>
             <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=200&q=80" alt="Iogurte com Frutas">
             <div>
-              <div class="refeicao-prato-title">Iogurte Natural com Frutas Vermelhas</div>
+              <div class="refeicao-prato-title">Iogurte Natural com Frutas Vermelhas ↗</div>
               <div class="refeicao-ingredientes-short">1 pote de iogurte natural (170g) • Frutas vermelhas frescas (50g)</div>
             </div>
-            <div class="refeicao-actions-box">
+            <div class="refeicao-actions-box" onclick="event.stopPropagation()">
               <div class="refeicao-kcals">142 kcal</div>
               <div class="refeicao-macros-mini">P: 10g • C: 14g • G: 4g</div>
               <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
@@ -253,7 +281,7 @@
           </div>
 
           <!-- 3. Almoço -->
-          <div class="refeicao-item-card">
+          <div class="refeicao-item-card" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🍴</span>
               <div>
@@ -263,10 +291,10 @@
             </div>
             <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Frango com Arroz Integral">
             <div>
-              <div class="refeicao-prato-title">Frango Grelhado, Arroz Integral & Salada Colorida</div>
+              <div class="refeicao-prato-title">Frango Grelhado, Arroz Integral & Salada Colorida ↗</div>
               <div class="refeicao-ingredientes-short">100g peito de frango • ½ xícara de arroz integral • Salada verde à vontade com azeite em spray</div>
             </div>
-            <div class="refeicao-actions-box">
+            <div class="refeicao-actions-box" onclick="event.stopPropagation()">
               <div class="refeicao-kcals">436 kcal</div>
               <div class="refeicao-macros-mini">P: 38g • C: 45g • G: 12g</div>
               <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
@@ -277,7 +305,7 @@
           </div>
 
           <!-- 4. Lanche da Tarde -->
-          <div class="refeicao-item-card">
+          <div class="refeicao-item-card" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🧁</span>
               <div>
@@ -287,10 +315,10 @@
             </div>
             <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=200&q=80" alt="Castanhas e Maçã">
             <div>
-              <div class="refeicao-prato-title">Mix de Castanhas & Maçã Crocante</div>
+              <div class="refeicao-prato-title">Mix de Castanhas & Maçã Crocante ↗</div>
               <div class="refeicao-ingredientes-short">1 punhado de castanhas do pará/caju (15g) • 1 maçã média</div>
             </div>
-            <div class="refeicao-actions-box">
+            <div class="refeicao-actions-box" onclick="event.stopPropagation()">
               <div class="refeicao-kcals">198 kcal</div>
               <div class="refeicao-macros-mini">P: 3g • C: 25g • G: 10g</div>
               <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
@@ -301,7 +329,7 @@
           </div>
 
           <!-- 5. Jantar -->
-          <div class="refeicao-item-card">
+          <div class="refeicao-item-card" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🌙</span>
               <div>
@@ -311,10 +339,10 @@
             </div>
             <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=200&q=80" alt="Salmão com Legumes">
             <div>
-              <div class="refeicao-prato-title">Salmão Grelhado com Legumes no Vapor</div>
+              <div class="refeicao-prato-title">Salmão Grelhado com Legumes no Vapor ↗</div>
               <div class="refeicao-ingredientes-short">120g filé de salmão • Brócolis, cenoura e abobrinha no vapor à vontade</div>
             </div>
-            <div class="refeicao-actions-box">
+            <div class="refeicao-actions-box" onclick="event.stopPropagation()">
               <div class="refeicao-kcals">354 kcal</div>
               <div class="refeicao-macros-mini">P: 32g • C: 18g • G: 16g</div>
               <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
@@ -1675,6 +1703,61 @@
         </div>
       </div>
     </div> <!-- /view-relatorios -->
+
+    <!-- ======================================================================
+         SEÇÃO 5: ABA DE COMPRAS DO MÊS (ORÇAMENTO INTELIGENTE & ATACAREJO/EXTRA)
+         ====================================================================== -->
+    <div id="view-compras" class="view-section">
+      <!-- 1. Header com Imagem de Supermercado e Legumes Frescos -->
+      <section class="compras-header">
+        <img class="compras-header-bg" src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80" alt="Supermercado Fresco">
+        <div class="compras-header-content">
+          <div class="compras-title-row">
+            <span class="compras-cart-icon">🛒</span>
+            <h1 class="compras-title">Compras do Mês Inteligente</h1>
+          </div>
+          <p class="compras-subtitle">Defina quanto quer gastar. A ferramenta calcula a lista exata para sua meta calórica pelos melhores preços de Atacarejo, Extra e Assaí.</p>
+        </div>
+      </section>
+
+      <!-- 2. Controle do Orçamento em Reais (Input Interativo) -->
+      <section class="budget-control-card">
+        <div class="budget-input-group">
+          <label class="budget-label">Quanto você pode gastar com alimentação este mês?</label>
+          <div class="budget-input-wrap">
+            <span class="budget-currency-symbol">R$</span>
+            <input type="number" id="inputOrcamentoReais" class="budget-number-input" value="450" min="150" max="2500" step="50" oninput="calcularListaComprasPorOrcamento(this.value)">
+          </div>
+          <div class="budget-supermarket-badges">
+            <span>Base de Preços Monitorada:</span>
+            <span class="market-badge">Atacarejo</span>
+            <span class="market-badge">Extra</span>
+            <span class="market-badge">Assaí</span>
+            <span class="market-badge">Carrefour</span>
+          </div>
+        </div>
+
+        <div class="budget-summary-stats">
+          <div class="budget-stat-box">
+            <div class="budget-stat-num" id="statTotalEstimado">R$ 442,80</div>
+            <div class="budget-stat-label">Total da Cesta</div>
+          </div>
+          <div class="budget-stat-box">
+            <div class="budget-stat-num" id="statEconomiaEstimada" style="color:#38BDF8;">R$ 88,40</div>
+            <div class="budget-stat-label">Economia vs. Varejo</div>
+          </div>
+          <div class="budget-stat-box">
+            <div class="budget-stat-num" id="statDiasCobertos">30 dias</div>
+            <div class="budget-stat-label">Autonomia Total</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Categorias de Alimentos com Quantidades e Preços Calculados -->
+      <div class="compras-categories-grid" id="comprasCategoriesGrid">
+        <!-- Renderizado dinamicamente via JS de acordo com o orçamento -->
+      </div>
+    </div> <!-- /view-compras -->
   </main>
 
   <!-- ======================================================================
