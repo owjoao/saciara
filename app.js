@@ -1062,29 +1062,148 @@ function atualizarRefeicaoMomentoPorHorario() {
 // ==========================================================================
 const ItensPrecosSupermercados = [
   // Proteínas
-  { cat: "Proteínas de Alto Valor", nome: "Peito de Frango Congelado (kg)", precoUnit: 17.90, baseMes: 4.5, unidade: "kg" },
-  { cat: "Proteínas de Alto Valor", nome: "Ovos Brancos Grandes (Cartela c/ 30)", precoUnit: 16.50, baseMes: 2, unidade: "cartelas" },
-  { cat: "Proteínas de Alto Valor", nome: "Filé de Tilápia / Peixe Fresco (kg)", precoUnit: 31.90, baseMes: 1.5, unidade: "kg" },
-  { cat: "Proteínas de Alto Valor", nome: "Patinho Moído Bovino (kg)", precoUnit: 34.90, baseMes: 1.2, unidade: "kg" },
+  { 
+    cat: "Proteínas de Alto Valor", 
+    nome: "Peito de Frango Congelado (kg)", 
+    precoUnit: 17.90, 
+    baseMes: 4.5, 
+    unidade: "kg",
+    imagem: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Proteínas de Alto Valor", 
+    nome: "Ovos Brancos Grandes (Cartela c/ 30)", 
+    precoUnit: 16.50, 
+    baseMes: 2, 
+    unidade: "cartelas",
+    imagem: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Proteínas de Alto Valor", 
+    nome: "Filé de Tilápia / Peixe Fresco (kg)", 
+    precoUnit: 31.90, 
+    baseMes: 1.5, 
+    unidade: "kg",
+    imagem: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Proteínas de Alto Valor", 
+    nome: "Patinho Moído Bovino (kg)", 
+    precoUnit: 34.90, 
+    baseMes: 1.2, 
+    unidade: "kg",
+    imagem: "https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&w=150&q=80"
+  },
   
   // Carboidratos & Grãos
-  { cat: "Carboidratos & Grãos Integrais", nome: "Arroz Integral Tipo 1 (1kg)", precoUnit: 5.90, baseMes: 3, unidade: "pcts" },
-  { cat: "Carboidratos & Grãos Integrais", nome: "Aveia em Flocos Finos (500g)", precoUnit: 6.20, baseMes: 3, unidade: "pcts" },
-  { cat: "Carboidratos & Grãos Integrais", nome: "Batata Doce Roxa (kg)", precoUnit: 4.50, baseMes: 3.5, unidade: "kg" },
-  { cat: "Carboidratos & Grãos Integrais", nome: "Feijão Carioca Tipo 1 (1kg)", precoUnit: 6.80, baseMes: 2, unidade: "pcts" },
+  { 
+    cat: "Carboidratos & Grãos Integrais", 
+    nome: "Arroz Integral Tipo 1 (1kg)", 
+    precoUnit: 5.90, 
+    baseMes: 3, 
+    unidade: "pcts",
+    imagem: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Carboidratos & Grãos Integrais", 
+    nome: "Aveia em Flocos Finos (500g)", 
+    precoUnit: 6.20, 
+    baseMes: 3, 
+    unidade: "pcts",
+    imagem: "https://images.unsplash.com/photo-1614961908595-6b801a6104fa?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Carboidratos & Grãos Integrais", 
+    nome: "Batata Doce Roxa (kg)", 
+    precoUnit: 4.50, 
+    baseMes: 3.5, 
+    unidade: "kg",
+    imagem: "https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Carboidratos & Grãos Integrais", 
+    nome: "Feijão Carioca Tipo 1 (1kg)", 
+    precoUnit: 6.80, 
+    baseMes: 2, 
+    unidade: "pcts",
+    imagem: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=150&q=80"
+  },
 
   // Hortifrúti & Fibras
-  { cat: "Hortifrúti, Legumes & Frutas", nome: "Banana Prata / Nanica (kg)", precoUnit: 4.90, baseMes: 5, unidade: "kg" },
-  { cat: "Hortifrúti, Legumes & Frutas", nome: "Maçã Nacional (kg)", precoUnit: 7.90, baseMes: 2.5, unidade: "kg" },
-  { cat: "Hortifrúti, Legumes & Frutas", nome: "Brócolis Ninja / Couve-Flor", precoUnit: 6.50, baseMes: 4, unidade: "unidades" },
-  { cat: "Hortifrúti, Legumes & Frutas", nome: "Cenoura & Abobrinha (kg)", precoUnit: 4.80, baseMes: 3, unidade: "kg" },
-  { cat: "Hortifrúti, Legumes & Frutas", nome: "Mix de Folhas (Alface/Rúcula)", precoUnit: 3.50, baseMes: 6, unidade: "maços" },
+  { 
+    cat: "Hortifrúti, Legumes & Frutas", 
+    nome: "Banana Prata / Nanica (kg)", 
+    precoUnit: 4.90, 
+    baseMes: 5, 
+    unidade: "kg",
+    imagem: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Hortifrúti, Legumes & Frutas", 
+    nome: "Maçã Nacional (kg)", 
+    precoUnit: 7.90, 
+    baseMes: 2.5, 
+    unidade: "kg",
+    imagem: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Hortifrúti, Legumes & Frutas", 
+    nome: "Brócolis Ninja / Couve-Flor", 
+    precoUnit: 6.50, 
+    baseMes: 4, 
+    unidade: "unidades",
+    imagem: "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Hortifrúti, Legumes & Frutas", 
+    nome: "Cenoura & Abobrinha (kg)", 
+    precoUnit: 4.80, 
+    baseMes: 3, 
+    unidade: "kg",
+    imagem: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Hortifrúti, Legumes & Frutas", 
+    nome: "Mix de Folhas (Alface/Rúcula)", 
+    precoUnit: 3.50, 
+    baseMes: 6, 
+    unidade: "maços",
+    imagem: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=150&q=80"
+  },
 
   // Gorduras & Laticínios
-  { cat: "Gorduras Boas & Laticínios", nome: "Iogurte Natural Integral/Desn (Pote 170g)", precoUnit: 3.20, baseMes: 15, unidade: "potes" },
-  { cat: "Gorduras Boas & Laticínios", nome: "Sementes de Chia / Linhaça (200g)", precoUnit: 8.90, baseMes: 1, unidade: "pct" },
-  { cat: "Gorduras Boas & Laticínios", nome: "Azeite de Oliva Extravirgem (500ml)", precoUnit: 36.90, baseMes: 1, unidade: "garrafa" },
-  { cat: "Gorduras Boas & Laticínios", nome: "Mix de Castanhas (200g)", precoUnit: 18.90, baseMes: 1, unidade: "pct" }
+  { 
+    cat: "Gorduras Boas & Laticínios", 
+    nome: "Iogurte Natural Integral/Desn (Pote 170g)", 
+    precoUnit: 3.20, 
+    baseMes: 15, 
+    unidade: "potes",
+    imagem: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Gorduras Boas & Laticínios", 
+    nome: "Sementes de Chia / Linhaça (200g)", 
+    precoUnit: 8.90, 
+    baseMes: 1, 
+    unidade: "pct",
+    imagem: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Gorduras Boas & Laticínios", 
+    nome: "Azeite de Oliva Extravirgem (500ml)", 
+    precoUnit: 36.90, 
+    baseMes: 1, 
+    unidade: "garrafa",
+    imagem: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=150&q=80"
+  },
+  { 
+    cat: "Gorduras Boas & Laticínios", 
+    nome: "Mix de Castanhas (200g)", 
+    precoUnit: 18.90, 
+    baseMes: 1, 
+    unidade: "pct",
+    imagem: "https://images.unsplash.com/photo-1536591375315-1b838421a153?auto=format&fit=crop&w=150&q=80"
+  }
 ];
 
 function calcularListaComprasPorOrcamento(orcamento) {
@@ -1112,7 +1231,8 @@ function calcularListaComprasPorOrcamento(orcamento) {
       nome: item.nome,
       qtd: qtdCalculada,
       unidade: item.unidade,
-      subtotal: subtotal
+      subtotal: subtotal,
+      imagem: item.imagem
     });
     categoriasMap[item.cat].subtotalCat += subtotal;
   });
@@ -1130,7 +1250,7 @@ function calcularListaComprasPorOrcamento(orcamento) {
     else diasEl.innerText = "30 dias";
   }
 
-  // Renderiza as categorias
+  // Renderiza as categorias com Imagens Reais dos Itens
   const gridEl = document.getElementById('comprasCategoriesGrid');
   if (!gridEl) return;
 
@@ -1146,9 +1266,12 @@ function calcularListaComprasPorOrcamento(orcamento) {
       <div>
         ${dados.itens.map(it => `
           <div class="compras-item-row">
-            <div>
-              <div class="compras-item-name">${it.nome}</div>
-              <div class="compras-item-qtd">Quantidade para o mês: <strong>${it.qtd} ${it.unidade}</strong></div>
+            <div class="compras-item-left">
+              <img src="${it.imagem}" class="compras-item-img-thumb" alt="${it.nome}" loading="lazy">
+              <div>
+                <div class="compras-item-name">${it.nome}</div>
+                <div class="compras-item-qtd">Quantidade para o mês: <strong>${it.qtd} ${it.unidade}</strong></div>
+              </div>
             </div>
             <div class="compras-item-price">R$ ${it.subtotal.toFixed(2).replace('.', ',')}</div>
           </div>

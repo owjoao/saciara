@@ -2890,17 +2890,43 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 12px;
+  padding: 10px 14px;
   background: #091220;
   border: 1px solid var(--border-dark);
-  border-radius: var(--radius-sm);
-  margin-bottom: 8px;
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
   font-size: 13px;
+  gap: 14px;
+  transition: var(--transition);
+}
+
+.compras-item-row:hover {
+  border-color: rgba(0, 208, 112, 0.4);
+  transform: translateY(-1px);
+}
+
+.compras-item-img-thumb {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid var(--border-dark);
+  flex-shrink: 0;
+  background: #121C30;
+}
+
+.compras-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
 }
 
 .compras-item-name {
   color: #FFFFFF;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 2px;
 }
 
 .compras-item-qtd {
@@ -2910,7 +2936,10 @@ body {
 
 .compras-item-price {
   font-weight: 800;
-  color: #FFFFFF;
+  color: var(--primary-green);
+  font-size: 14px;
+  text-align: right;
+  white-space: nowrap;
 }
 
 @media (max-width: 1024px) {
