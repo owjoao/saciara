@@ -1732,61 +1732,85 @@
 
         <div class="perfil-form-grid">
           <div class="form-field-group">
-            <label class="form-field-label">Gênero Biológico</label>
-            <select id="userGenero" class="form-field-select" onchange="recalcularPlanoECompras()">
-              <option value="feminino" selected>Feminino</option>
-              <option value="masculino">Masculino</option>
-            </select>
+            <label class="form-field-label"><span>👤</span> Gênero Biológico</label>
+            <div class="form-field-input-box">
+              <select id="userGenero" class="form-field-select" onchange="recalcularPlanoECompras()">
+                <option value="feminino" selected>Feminino</option>
+                <option value="masculino">Masculino</option>
+              </select>
+              <span class="input-indicator-badge">▾</span>
+            </div>
           </div>
 
           <div class="form-field-group">
-            <label class="form-field-label">Peso Atual (kg)</label>
-            <input type="number" id="userPeso" class="form-field-input" value="70.8" step="0.1" onchange="recalcularPlanoECompras()">
+            <label class="form-field-label"><span>⚖️</span> Peso Atual (kg)</label>
+            <div class="form-field-input-box">
+              <input type="number" id="userPeso" class="form-field-input" value="70.8" step="0.1" onchange="recalcularPlanoECompras()">
+              <span class="input-indicator-badge">kg</span>
+            </div>
           </div>
 
           <div class="form-field-group">
-            <label class="form-field-label">Altura (cm)</label>
-            <input type="number" id="userAltura" class="form-field-input" value="165" onchange="recalcularPlanoECompras()">
+            <label class="form-field-label"><span>📏</span> Altura (cm)</label>
+            <div class="form-field-input-box">
+              <input type="number" id="userAltura" class="form-field-input" value="165" onchange="recalcularPlanoECompras()">
+              <span class="input-indicator-badge">cm</span>
+            </div>
           </div>
 
           <div class="form-field-group">
-            <label class="form-field-label">Idade (anos)</label>
-            <input type="number" id="userIdade" class="form-field-input" value="28" onchange="recalcularPlanoECompras()">
+            <label class="form-field-label"><span>🎂</span> Idade (anos)</label>
+            <div class="form-field-input-box">
+              <input type="number" id="userIdade" class="form-field-input" value="28" onchange="recalcularPlanoECompras()">
+              <span class="input-indicator-badge">anos</span>
+            </div>
           </div>
 
           <div class="form-field-group">
-            <label class="form-field-label">Nível de Atividade Física</label>
-            <select id="userAtividade" class="form-field-select" onchange="recalcularPlanoECompras()">
-              <option value="moderado" selected>Moderado (3 a 5 treinos/sem)</option>
-              <option value="sedentario">Sedentário (pouco ou nenhum)</option>
-              <option value="leve">Leve (1 a 2 treinos/sem)</option>
-              <option value="intenso">Intenso (6 a 7 treinos/sem)</option>
-            </select>
+            <label class="form-field-label"><span>🏃</span> Nível de Atividade</label>
+            <div class="form-field-input-box">
+              <select id="userAtividade" class="form-field-select" onchange="recalcularPlanoECompras()">
+                <option value="moderado" selected>Moderado (3-5 treinos)</option>
+                <option value="sedentario">Sedentário (pouco)</option>
+                <option value="leve">Leve (1-2 treinos)</option>
+                <option value="intenso">Intenso (6-7 treinos)</option>
+              </select>
+              <span class="input-indicator-badge">▾</span>
+            </div>
           </div>
 
           <div class="form-field-group">
-            <label class="form-field-label">Alergias ou Restrições</label>
-            <select id="userRestricoes" class="form-field-select" onchange="recalcularPlanoECompras()">
-              <option value="nenhuma" selected>Nenhuma (Onívoro Saudável)</option>
-              <option value="lactose">Intolerância a Lactose</option>
-              <option value="gluten">Sem Glúten (Celíaco/Sensível)</option>
-              <option value="frutos_mar">Alergia a Frutos do Mar / Peixe</option>
-              <option value="vegetariano">Vegetariano (Ovolacto)</option>
-            </select>
+            <label class="form-field-label"><span>⚠️</span> Alergias ou Restrições</label>
+            <div class="form-field-input-box">
+              <select id="userRestricoes" class="form-field-select" onchange="recalcularPlanoECompras()">
+                <option value="nenhuma" selected>Nenhuma (Onívoro)</option>
+                <option value="lactose">Sem Lactose</option>
+                <option value="gluten">Sem Glúten</option>
+                <option value="frutos_mar">Sem Peixe/Frutos do Mar</option>
+                <option value="vegetariano">Vegetariano</option>
+              </select>
+              <span class="input-indicator-badge">▾</span>
+            </div>
           </div>
 
           <div class="form-field-group">
-            <label class="form-field-label">Meta de Emagrecimento</label>
-            <select id="userMetaKg" class="form-field-select" onchange="recalcularPlanoECompras()">
-              <option value="70" selected>Meta: 70 kg (Definição Sustentável)</option>
-              <option value="65">Meta: 65 kg (Perda Acentuada)</option>
-              <option value="60">Meta: 60 kg (Foco Atlético)</option>
-            </select>
+            <label class="form-field-label"><span>🎯</span> Meta de Emagrecimento</label>
+            <div class="form-field-input-box">
+              <select id="userMetaKg" class="form-field-select" onchange="recalcularPlanoECompras()">
+                <option value="70" selected>Meta: 70 kg (Definição)</option>
+                <option value="65">Meta: 65 kg (Perda Acentuada)</option>
+                <option value="60">Meta: 60 kg (Foco Atlético)</option>
+              </select>
+              <span class="input-indicator-badge">▾</span>
+            </div>
           </div>
 
           <div class="form-field-group">
-            <label class="form-field-label">Orçamento Alvo (Opcional R$)</label>
-            <input type="number" id="inputOrcamentoReais" class="form-field-input" value="480" step="50" oninput="recalcularPlanoECompras()">
+            <label class="form-field-label"><span>💵</span> Orçamento Alvo (R$)</label>
+            <div class="form-field-input-box">
+              <input type="number" id="inputOrcamentoReais" class="form-field-input" value="480" step="50" oninput="recalcularPlanoECompras()">
+              <span class="input-indicator-badge">R$</span>
+            </div>
           </div>
         </div>
 

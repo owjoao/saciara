@@ -2981,27 +2981,90 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  position: relative;
 }
 
 .form-field-label {
   font-size: 12px;
   font-weight: 700;
-  color: var(--text-secondary);
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.form-field-input, .form-field-select {
+.form-field-input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
   background: #091220;
-  border: 1px solid var(--border-dark);
+  border: 1.5px solid #223554;
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-field-input-box:hover {
+  border-color: #38BDF8;
+  background: #0B172A;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+.form-field-input-box:focus-within {
+  border-color: var(--primary-green);
+  background: #0C1A2E;
+  box-shadow: 0 0 16px var(--primary-green-glow);
+}
+
+.form-field-input {
+  width: 100%;
+  background: transparent;
+  border: none;
   color: #FFFFFF;
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
-  font-size: 13px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
   outline: none;
+}
+
+.form-field-select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  padding: 12px 34px 12px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-field-select option {
+  background: #0B1323;
+  color: #FFFFFF;
+  padding: 10px;
+}
+
+/* Ícone de seta e indicador de edição */
+.input-indicator-badge {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  font-size: 11px;
+  color: #64748B;
   transition: var(--transition);
 }
 
-.form-field-input:focus, .form-field-select:focus {
-  border-color: var(--primary-green);
+.form-field-input-box:hover .input-indicator-badge {
+  color: #38BDF8;
+}
+
+.form-field-input-box:focus-within .input-indicator-badge {
+  color: var(--primary-green);
 }
 
 .btn-gerar-plano {
@@ -3022,6 +3085,8 @@ body {
 
 .btn-gerar-plano:hover {
   background: #00ea7f;
+  transform: translateY(-2px);
+}
   transform: translateY(-2px);
 }
 
