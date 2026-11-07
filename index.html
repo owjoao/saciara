@@ -261,7 +261,7 @@
 
         <div class="refeicoes-timeline-list" id="refeicoesTimelineList">
           <!-- 1. Café da Manhã -->
-          <div class="refeicao-item-card" id="cardMeal_cafe_manha" data-meal-id="cafe_manha" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')">
+          <div class="refeicao-item-card" id="cardMeal_cafe_manha" data-meal-id="cafe_manha">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">☕</span>
               <div>
@@ -269,14 +269,15 @@
                 <div class="refeicao-name-bold">Café da Manhã</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80" alt="Aveia com Banana" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80" alt="Aveia com Banana" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
             <div>
-              <div class="refeicao-prato-title">Aveia com Banana, Canela e Chia ↗</div>
-              <div class="refeicao-ingredientes-short">1 xícara de aveia (40g) • 1 banana média fatiada • 1 colher de chá de chia (toque para ver receita completa)</div>
+              <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')">Aveia com Banana, Canela e Chia ↗</div>
+              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')">
+                <span>📖</span>
+                <span>Clique na imagem para ver a receita</span>
+              </div>
             </div>
-            <div class="refeicao-actions-box" onclick="event.stopPropagation()">
-              <div class="refeicao-kcals">326 kcal</div>
-              <div class="refeicao-macros-mini">P: 12g • C: 52g • G: 8g</div>
+            <div class="refeicao-actions-box">
               <button class="btn-check-meal" id="btnMeal_cafe_manha" onclick="consumirRefeicaoRotina('cafe_manha', this)">
                 <span>✓</span>
                 <span>Consumido</span>
@@ -285,7 +286,7 @@
           </div>
 
           <!-- 2. Lanche da Manhã -->
-          <div class="refeicao-item-card" id="cardMeal_lanche_manha" data-meal-id="lanche_manha" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')">
+          <div class="refeicao-item-card" id="cardMeal_lanche_manha" data-meal-id="lanche_manha">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🍏</span>
               <div>
@@ -293,14 +294,15 @@
                 <div class="refeicao-name-bold">Lanche da Manhã</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=200&q=80" alt="Iogurte com Frutas" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=200&q=80" alt="Iogurte com Frutas" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
             <div>
-              <div class="refeicao-prato-title">Iogurte Natural com Frutas Vermelhas ↗</div>
-              <div class="refeicao-ingredientes-short">1 pote de iogurte natural (170g) • Frutas vermelhas frescas (50g)</div>
+              <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')">Iogurte Natural com Frutas Vermelhas ↗</div>
+              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')">
+                <span>📖</span>
+                <span>Clique na imagem para ver a receita</span>
+              </div>
             </div>
-            <div class="refeicao-actions-box" onclick="event.stopPropagation()">
-              <div class="refeicao-kcals">142 kcal</div>
-              <div class="refeicao-macros-mini">P: 10g • C: 14g • G: 4g</div>
+            <div class="refeicao-actions-box">
               <button class="btn-check-meal" id="btnMeal_lanche_manha" onclick="consumirRefeicaoRotina('lanche_manha', this)">
                 <span>✓</span>
                 <span>Consumido</span>
@@ -309,7 +311,7 @@
           </div>
 
           <!-- 3. Almoço -->
-          <div class="refeicao-item-card" id="cardMeal_almoco" data-meal-id="almoco" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')">
+          <div class="refeicao-item-card" id="cardMeal_almoco" data-meal-id="almoco">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🍴</span>
               <div>
@@ -317,14 +319,15 @@
                 <div class="refeicao-name-bold">Almoço</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Frango com Arroz Integral" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Frango com Arroz Integral" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
             <div>
-              <div class="refeicao-prato-title">Frango Grelhado, Arroz Integral & Salada Colorida ↗</div>
-              <div class="refeicao-ingredientes-short">100g peito de frango • ½ xícara de arroz integral • Salada verde à vontade com azeite em spray</div>
+              <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')">Frango Grelhado, Arroz Integral & Salada Colorida ↗</div>
+              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')">
+                <span>📖</span>
+                <span>Clique na imagem para ver a receita</span>
+              </div>
             </div>
-            <div class="refeicao-actions-box" onclick="event.stopPropagation()">
-              <div class="refeicao-kcals">436 kcal</div>
-              <div class="refeicao-macros-mini">P: 38g • C: 45g • G: 12g</div>
+            <div class="refeicao-actions-box">
               <button class="btn-check-meal" id="btnMeal_almoco" onclick="consumirRefeicaoRotina('almoco', this)">
                 <span>✓</span>
                 <span>Consumido</span>
@@ -333,7 +336,7 @@
           </div>
 
           <!-- 4. Lanche da Tarde -->
-          <div class="refeicao-item-card" id="cardMeal_lanche_tarde" data-meal-id="lanche_tarde" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')">
+          <div class="refeicao-item-card" id="cardMeal_lanche_tarde" data-meal-id="lanche_tarde">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🧁</span>
               <div>
@@ -341,14 +344,15 @@
                 <div class="refeicao-name-bold">Lanche da Tarde</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=200&q=80" alt="Castanhas e Maçã" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=200&q=80" alt="Castanhas e Maçã" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
             <div>
-              <div class="refeicao-prato-title">Mix de Castanhas & Maçã Crocante ↗</div>
-              <div class="refeicao-ingredientes-short">1 punhado de castanhas do pará/caju (15g) • 1 maçã média</div>
+              <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')">Mix de Castanhas & Maçã Crocante ↗</div>
+              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')">
+                <span>📖</span>
+                <span>Clique na imagem para ver a receita</span>
+              </div>
             </div>
-            <div class="refeicao-actions-box" onclick="event.stopPropagation()">
-              <div class="refeicao-kcals">198 kcal</div>
-              <div class="refeicao-macros-mini">P: 3g • C: 25g • G: 10g</div>
+            <div class="refeicao-actions-box">
               <button class="btn-check-meal" id="btnMeal_lanche_tarde" onclick="consumirRefeicaoRotina('lanche_tarde', this)">
                 <span>✓</span>
                 <span>Consumido</span>
@@ -357,7 +361,7 @@
           </div>
 
           <!-- 5. Jantar -->
-          <div class="refeicao-item-card" id="cardMeal_jantar" data-meal-id="jantar" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')">
+          <div class="refeicao-item-card" id="cardMeal_jantar" data-meal-id="jantar">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🌙</span>
               <div>
@@ -365,14 +369,15 @@
                 <div class="refeicao-name-bold">Jantar</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=200&q=80" alt="Salmão com Legumes" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=200&q=80" alt="Salmão com Legumes" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
             <div>
-              <div class="refeicao-prato-title">Salmão Grelhado com Legumes no Vapor ↗</div>
-              <div class="refeicao-ingredientes-short">120g filé de salmão • Brócolis, cenoura e abobrinha no vapor à vontade</div>
+              <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')">Salmão Grelhado com Legumes no Vapor ↗</div>
+              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')">
+                <span>📖</span>
+                <span>Clique na imagem para ver a receita</span>
+              </div>
             </div>
-            <div class="refeicao-actions-box" onclick="event.stopPropagation()">
-              <div class="refeicao-kcals">354 kcal</div>
-              <div class="refeicao-macros-mini">P: 32g • C: 18g • G: 16g</div>
+            <div class="refeicao-actions-box">
               <button class="btn-check-meal" id="btnMeal_jantar" onclick="consumirRefeicaoRotina('jantar', this)">
                 <span>✓</span>
                 <span>Consumido</span>
