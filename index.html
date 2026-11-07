@@ -47,7 +47,9 @@
        ====================================================================== -->
   <aside class="sidebar">
     <div class="brand-container">
-      <div class="brand-logo-icon">🌿</div>
+      <div class="brand-logo-icon">
+        <svg class="np-icon np-icon-lg" viewBox="0 0 24 24" style="color:#00E575;"><path d="M12 2a9 9 0 0 1 9 9c0 4.97-4.03 9-9 9a9 9 0 0 1-9-9 9 9 0 0 1 9-9z"/><path d="M12 7c-2.5 0-4 2-4 4.5 0 2.5 2 4.5 4 4.5s4-2 4-4.5c0-2.5-1.5-4.5-4-4.5z"/></svg>
+      </div>
       <div class="brand-text-col">
         <h1>NutriPlus</h1>
         <span>Sua jornada, nossa ciência</span>
@@ -56,30 +58,42 @@
 
     <nav class="nav-menu">
       <a class="nav-link active" data-tab="inicio" title="Rotina Diária">
-        <span class="nav-icon">🌟</span>
+        <span class="nav-icon">
+          <svg class="np-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </span>
         <span>Hoje</span>
       </a>
       <a class="nav-link" data-tab="geladeira" title="Minha Geladeira & Chef IA">
-        <span class="nav-icon">🧊</span>
+        <span class="nav-icon">
+          <svg class="np-icon" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><line x1="5" x2="19" y1="9" y2="9"/><line x1="8" x2="8" y1="5" y2="7"/><line x1="8" x2="8" y1="12" y2="15"/></svg>
+        </span>
         <span>Geladeira IA</span>
       </a>
       <a class="nav-link" data-tab="compras" title="Compras do Mês">
-        <span class="nav-icon">🛒</span>
+        <span class="nav-icon">
+          <svg class="np-icon" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        </span>
         <span>Compras do Mês</span>
       </a>
       <a class="nav-link" data-tab="jornada" title="DuoNutri & Missões">
-        <span class="nav-icon">🧭</span>
+        <span class="nav-icon">
+          <svg class="np-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </span>
         <span>Jornada DuoNutri</span>
       </a>
       <a class="nav-link" data-tab="perfil" title="Dados Corporais & Orçamento">
-        <span class="nav-icon">👤</span>
+        <span class="nav-icon">
+          <svg class="np-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+        </span>
         <span>Meu Perfil</span>
       </a>
     </nav>
 
     <!-- Card de Upgrade Premium -->
     <div class="upgrade-card">
-      <div class="upgrade-crown">👑</div>
+      <div class="upgrade-crown">
+        <svg class="np-icon np-icon-lg" viewBox="0 0 24 24" style="color:#F59E0B;"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+      </div>
       <div class="upgrade-title">Upgrade para Plano Premium</div>
       <div class="upgrade-desc">Acesse recursos exclusivos!</div>
       <button class="btn-upgrade" onclick="abrirModalPremium()">Ver planos</button>
@@ -94,18 +108,18 @@
     <header class="top-navbar">
       <div style="display:flex; align-items:center; gap:12px; flex:1;">
         <button class="mobile-menu-toggle" onclick="toggleSidebarMobile()" aria-label="Abrir Menu Lateral" title="Menu">
-          <span>☰</span>
+          <svg class="np-icon" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
         </button>
         <span class="mobile-brand-title">NutriPlus</span>
         <div class="search-box">
-          <span>🔍</span>
+          <svg class="np-icon" style="color:#64748B;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
           <input type="text" id="globalSearch" placeholder="Pesquisar..." oninput="handleSearch(this.value)">
         </div>
       </div>
 
       <div class="user-nav-actions">
         <button class="notification-btn" onclick="abrirNotificacoes()" title="Notificações">
-          <span>🔔</span>
+          <svg class="np-icon" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
           <span class="notification-badge">2</span>
         </button>
 
@@ -273,13 +287,13 @@
             <div>
               <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')">Aveia com Banana, Canela e Chia ↗</div>
               <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')">
-                <span>📖</span>
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 <span>Clique na imagem para ver a receita</span>
               </div>
             </div>
             <div class="refeicao-actions-box">
               <button class="btn-check-meal" id="btnMeal_cafe_manha" onclick="consumirRefeicaoRotina('cafe_manha', this)">
-                <span>✓</span>
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Consumido</span>
               </button>
             </div>
@@ -298,13 +312,13 @@
             <div>
               <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')">Iogurte Natural com Frutas Vermelhas ↗</div>
               <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')">
-                <span>📖</span>
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 <span>Clique na imagem para ver a receita</span>
               </div>
             </div>
             <div class="refeicao-actions-box">
               <button class="btn-check-meal" id="btnMeal_lanche_manha" onclick="consumirRefeicaoRotina('lanche_manha', this)">
-                <span>✓</span>
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Consumido</span>
               </button>
             </div>
@@ -323,13 +337,13 @@
             <div>
               <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')">Frango Grelhado, Arroz Integral & Salada Colorida ↗</div>
               <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')">
-                <span>📖</span>
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 <span>Clique na imagem para ver a receita</span>
               </div>
             </div>
             <div class="refeicao-actions-box">
               <button class="btn-check-meal" id="btnMeal_almoco" onclick="consumirRefeicaoRotina('almoco', this)">
-                <span>✓</span>
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Consumido</span>
               </button>
             </div>
@@ -348,13 +362,13 @@
             <div>
               <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')">Mix de Castanhas & Maçã Crocante ↗</div>
               <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')">
-                <span>📖</span>
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 <span>Clique na imagem para ver a receita</span>
               </div>
             </div>
             <div class="refeicao-actions-box">
               <button class="btn-check-meal" id="btnMeal_lanche_tarde" onclick="consumirRefeicaoRotina('lanche_tarde', this)">
-                <span>✓</span>
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Consumido</span>
               </button>
             </div>
@@ -373,13 +387,13 @@
             <div>
               <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')">Salmão Grelhado com Legumes no Vapor ↗</div>
               <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')">
-                <span>📖</span>
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 <span>Clique na imagem para ver a receita</span>
               </div>
             </div>
             <div class="refeicao-actions-box">
               <button class="btn-check-meal" id="btnMeal_jantar" onclick="consumirRefeicaoRotina('jantar', this)">
-                <span>✓</span>
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Consumido</span>
               </button>
             </div>
@@ -433,10 +447,11 @@
           <li>Cardio pós-treino (Caminhada rápida em esteira ou rua): 20 min</li>
         </ul>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #1E293B; padding-top:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #1E293B; padding-top:12px; flex-wrap:wrap; gap:10px;">
           <span style="font-size:12px; color:#64748B;">Calibrado pelo seu gasto energético Kevin Hall</span>
-          <button class="btn-primary" id="btnConcluirTreinoHoje" style="background:#00E575; color:#04150D; font-weight:800; border-radius:10px; padding:10px 18px; font-size:13px; cursor:pointer; box-shadow: var(--shadow-md);" onclick="concluirTreinoHoje(this)">
-            ✓ Concluir Treino de Hoje (+120 XP ⭐)
+          <button class="btn-np btn-np-primary" id="btnConcluirTreinoHoje" onclick="concluirTreinoHoje(this)">
+            <svg class="np-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Concluir Treino de Hoje (+120 XP)</span>
           </button>
         </div>
       </section>
@@ -636,12 +651,12 @@
               </h2>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; border-radius:12px; padding:12px 18px; font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; box-shadow: var(--shadow-md);" onclick="acionarScannerCamera('geladeira')">
-                <span style="font-size:18px;">📸</span>
+              <button class="btn-np btn-np-primary" onclick="acionarScannerCamera('geladeira')">
+                <svg class="np-icon" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M4 16v3a1 1 0 0 0 1 1h3M16 4h3a1 1 0 0 1 1 1v3M16 20h3a1 1 0 0 0 1-1v-3"/><circle cx="12" cy="12" r="3.5"/></svg>
                 <span>Escanear Geladeira / Armário</span>
               </button>
-              <button class="btn-primary" style="background:#121B2E; border:1px solid #00E575; color:#00E575; font-weight:800; border-radius:12px; padding:12px 16px; font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer;" onclick="acionarScannerCamera('rotulo')">
-                <span style="font-size:18px;">🏷️</span>
+              <button class="btn-np btn-np-secondary" onclick="acionarScannerCamera('rotulo')">
+                <svg class="np-icon" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r="1.5"/></svg>
                 <span>Ler Tabela de Rótulo</span>
               </button>
             </div>
@@ -659,12 +674,14 @@
               <span id="badgeArmazemContador" style="font-size:12px; color:#00E575; font-weight:700;">8 itens estocados</span>
             </div>
           </div>
-          <div style="display:flex; gap:10px;">
-            <button class="btn-primary" style="background:#121B2E; border:1px solid #1C2B48; color:#94A3B8; font-size:12px; font-weight:700; border-radius:8px; padding:8px 14px; cursor:pointer;" onclick="abrirModalAdicionarItemManual()">
-              ➕ Adicionar Manualmente
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn-np btn-np-secondary" onclick="abrirModalAdicionarItemManual()">
+              <svg class="np-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Adicionar Manualmente</span>
             </button>
-            <button class="btn-primary" style="background:#121B2E; border:1px solid #38BDF8; color:#38BDF8; font-size:12px; font-weight:700; border-radius:8px; padding:8px 14px; cursor:pointer;" onclick="mostrarToastFeedback('🛒 Descontados R$ 85,00 em alimentos já existentes da sua Lista de Compras!')">
-              🛒 Abater da Cesta de Compras
+            <button class="btn-np btn-np-outline-cyan" onclick="mostrarToastFeedback('🛒 Descontados R$ 85,00 em alimentos já existentes da sua Lista de Compras!')">
+              <svg class="np-icon" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              <span>Abater da Cesta de Compras</span>
             </button>
           </div>
         </div>
@@ -739,8 +756,9 @@
               </p>
             </div>
           </div>
-          <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; border-radius:12px; padding:12px 20px; font-size:13px; cursor:pointer; box-shadow: var(--shadow-md);" onclick="salvarPerfilGeralEAutomação()">
-            💾 Salvar Perfil & Recalcular Rotina
+          <button class="btn-np btn-np-primary" onclick="salvarPerfilGeralEAutomação()">
+            <svg class="np-icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Salvar Perfil & Recalcular Rotina</span>
           </button>
         </div>
       </section>
@@ -1056,8 +1074,8 @@
           <div style="font-size:12px; color:#64748B;">
             Ao alterar qualquer dado, as refeições dos 30 dias são recalculadas e os ingredientes são somados automaticamente.
           </div>
-          <button class="btn-gerar-plano" onclick="recalcularPlanoECompras()">
-            <span>⚡</span>
+          <button class="btn-np btn-np-primary" onclick="recalcularPlanoECompras()">
+            <svg class="np-icon" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
             <span>Recalcular Plano & Cesta</span>
           </button>
         </div>
@@ -1108,16 +1126,16 @@
 
           <!-- Barra de Ações Rápidas de Compras & Carrinho -->
           <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; align-items:center;">
-            <button class="btn-primary" style="padding:10px 18px; background:linear-gradient(135deg, #00E575 0%, #00B85E 100%); color:#04150D; border:none; border-radius:10px; font-size:13px; font-weight:800; cursor:pointer; display:flex; align-items:center; gap:8px; box-shadow: var(--shadow-md);" onclick="abrirCarrinhoAutomaticoMontado()">
-              <span style="font-size:16px;">🛒</span>
+            <button class="btn-np btn-np-primary" onclick="abrirCarrinhoAutomaticoMontado()">
+              <svg class="np-icon" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
               <span>Ver Carrinho Montado dos 30 Dias</span>
             </button>
-            <button class="btn-primary" style="padding:10px 16px; background:#121B2E; border:1px solid #38BDF8; color:#38BDF8; border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="abrirModalImportarPorLink('compras')">
-              <span>🔗</span>
+            <button class="btn-np btn-np-secondary" onclick="abrirModalImportarPorLink('compras')">
+              <svg class="np-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
               <span>Importar Produto por Link</span>
             </button>
-            <button class="btn-primary" style="padding:10px 16px; background:#121B2E; border:1px solid #1C2B48; color:#94A3B8; border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="copiarListaComprasTexto()">
-              <span>📋</span>
+            <button class="btn-np btn-np-secondary" onclick="copiarListaComprasTexto()">
+              <svg class="np-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
               <span>Copiar Lista para WhatsApp</span>
             </button>
           </div>
@@ -1170,25 +1188,35 @@
        ====================================================================== -->
   <nav class="mobile-bottom-dock" id="mobileBottomDock">
     <button class="dock-item active" data-dock="inicio" onclick="navegarTabMobile('inicio')">
-      <span class="dock-icon">🌟</span>
+      <span class="dock-icon">
+        <svg class="np-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </span>
       <span class="dock-label">Hoje</span>
     </button>
     <button class="dock-item" data-dock="geladeira" onclick="navegarTabMobile('geladeira')">
-      <span class="dock-icon">🧊</span>
+      <span class="dock-icon">
+        <svg class="np-icon" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><line x1="5" x2="19" y1="9" y2="9"/><line x1="8" x2="8" y1="5" y2="7"/><line x1="8" x2="8" y1="12" y2="15"/></svg>
+      </span>
       <span class="dock-label">Geladeira</span>
     </button>
     <button class="dock-item dock-item-highlight" data-dock="compras" onclick="navegarTabMobile('compras')">
       <div class="dock-icon-wrapper">
-        <span class="dock-icon">🛒</span>
+        <span class="dock-icon">
+          <svg class="np-icon" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        </span>
       </div>
       <span class="dock-label">Mercado</span>
     </button>
     <button class="dock-item" data-dock="jornada" onclick="navegarTabMobile('jornada')">
-      <span class="dock-icon">🧭</span>
+      <span class="dock-icon">
+        <svg class="np-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+      </span>
       <span class="dock-label">Jornada</span>
     </button>
     <button class="dock-item" data-dock="perfil" onclick="navegarTabMobile('perfil')">
-      <span class="dock-icon">👤</span>
+      <span class="dock-icon">
+        <svg class="np-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+      </span>
       <span class="dock-label">Perfil</span>
     </button>
   </nav>

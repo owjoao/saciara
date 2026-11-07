@@ -228,12 +228,147 @@ body {
   margin: 4px 0 14px 0;
 }
 
-.btn-upgrade {
-  background: var(--primary-green);
-  color: #070B14;
-  font-size: 12px;
+/* ==========================================================================
+   SISTEMA CANÔNICO DE BOTÕES ANTI-AI (DESIGN & ENGINEERING METHODOLOGIST)
+   Substitui cores neon e visual genérico por acabamento tátil de alta precisão
+   ========================================================================== */
+.btn-np {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Epilogue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.5px;
   font-weight: 700;
-  padding: 9px 18px;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  padding: 11px 18px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.btn-np:active {
+  transform: scale(0.97);
+}
+
+/* Botão Primário: Esmeralda Nobre com iluminação interna e contraste de autoridade */
+.btn-np-primary,
+.btn-primary {
+  background: linear-gradient(180deg, #00C261 0%, #009E50 100%) !important;
+  color: #03150B !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  font-family: 'Epilogue', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.2px !important;
+  border-radius: 10px !important;
+  transition: all 0.18s ease !important;
+}
+
+.btn-np-primary:hover,
+.btn-primary:hover {
+  background: linear-gradient(180deg, #00D56B 0%, #00AB56 100%) !important;
+  box-shadow: 0 4px 12px rgba(0, 194, 97, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-np-primary:active,
+.btn-primary:active {
+  transform: scale(0.97) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Botão Secundário: Base escura sofisticada, borda de titânio acetinado e texto nítido */
+.btn-np-secondary,
+.btn-secondary {
+  background: #111C2E !important;
+  color: #F1F5F9 !important;
+  border: 1px solid #243552 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  font-family: 'Epilogue', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.2px !important;
+  border-radius: 10px !important;
+  transition: all 0.18s ease !important;
+}
+
+.btn-np-secondary:hover,
+.btn-secondary:hover {
+  background: #16253D !important;
+  border-color: #38BDF8 !important;
+  color: #38BDF8 !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-np-secondary:active,
+.btn-secondary:active {
+  transform: scale(0.97) !important;
+}
+
+/* Botão Outline / Destaque Ciano Técnico */
+.btn-np-outline-cyan {
+  background: rgba(56, 189, 248, 0.08) !important;
+  color: #38BDF8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  font-family: 'Epilogue', sans-serif !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  transition: all 0.18s ease !important;
+}
+
+.btn-np-outline-cyan:hover {
+  background: rgba(56, 189, 248, 0.16) !important;
+  border-color: #38BDF8 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Ícones Vetoriais SVG Padronizados (Substituição de Emojis) */
+.np-icon {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.np-icon-lg {
+  width: 22px;
+  height: 22px;
+}
+
+.np-icon-sm {
+  width: 15px;
+  height: 15px;
+}
+
+.btn-upgrade {
+  background: linear-gradient(180deg, #00C261 0%, #009E50 100%) !important;
+  color: #03150B !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  font-weight: 800 !important;
+  border-radius: 8px !important;
+}
+
+.btn-upgrade:hover {
+  background: linear-gradient(180deg, #00D56B 0%, #00AB56 100%) !important;
+  box-shadow: 0 4px 12px rgba(0, 194, 97, 0.25) !important;
+}
+
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
