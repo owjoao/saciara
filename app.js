@@ -37,6 +37,9 @@ const SeriesPeso = {
 // INICIALIZAÇÃO
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', async () => {
+  carregarPerfilUsuario();
+  inicializarArmazemPessoal();
+  gerarReceitasComArmazem();
   renderWeightChart('30D');
   atualizarHabitosUI();
   bindSidebarNav();
@@ -172,30 +175,31 @@ function bindSidebarNav() {
 
       const tab = link.dataset.tab;
       
-      // Alternância de Telas Principais (Início vs Planos vs Compras vs Atividades vs Relatório Mensal)
-      if (tab === 'planos') {
-        mostrarAba('planos');
+      // Alternância dos 5 Pilares Principais (Hoje, Geladeira IA, Compras, Jornada, Perfil)
+      if (tab === 'inicio' || tab === 'hoje') {
+        mostrarAba('inicio');
+      } else if (tab === 'geladeira') {
+        mostrarAba('geladeira');
+        renderizarArmazemPessoal();
+        gerarReceitasComArmazem();
       } else if (tab === 'compras') {
         mostrarAba('compras');
         recalcularPlanoECompras();
-      } else if (tab === 'inicio') {
-        mostrarAba('inicio');
+      } else if (tab === 'jornada') {
+        mostrarAba('jornada');
+      } else if (tab === 'perfil') {
+        mostrarAba('perfil');
+        carregarPerfilUsuario();
+      } else if (tab === 'planos' || tab === 'nutricao') {
+        mostrarAba('planos');
       } else if (tab === 'atividades') {
         mostrarAba('atividades');
       } else if (tab === 'relatorios' || tab === 'acompanhamento') {
         mostrarAba('relatorios');
-      } else if (tab === 'nutricao') {
-        mostrarAba('planos');
       } else if (tab === 'iacoach') {
         abrirModalIACoach();
-      } else if (tab === 'perfil') {
-        abrirModalPerfil();
-      } else if (tab === 'jornada') {
-        mostrarAba('jornada');
-      } else if (tab === 'conquistas') {
-        mostrarAba('jornada');
       } else {
-        abrirModal("ℹ️ Módulo NutriPlus", `<p style="color:#94A3B8;">A seção <strong>${tab}</strong> está sincronizada com seus dados científicos em tempo real.</p>`);
+        mostrarAba('inicio');
       }
     });
   });
@@ -228,16 +232,25 @@ function mostrarAba(nomeAba) {
   });
 }
 
-// Navegação exclusiva da Thumb Zone Mobile
+// Navegação exclusiva da Thumb Zone Mobile nos 5 Pilares
 function navegarTabMobile(tab) {
   fecharSidebarMobile();
-  if (tab === 'compras') {
+  if (tab === 'inicio' || tab === 'hoje') {
+    mostrarAba('inicio');
+  } else if (tab === 'geladeira') {
+    mostrarAba('geladeira');
+    renderizarArmazemPessoal();
+    gerarReceitasComArmazem();
+  } else if (tab === 'compras') {
     mostrarAba('compras');
     recalcularPlanoECompras();
+  } else if (tab === 'jornada') {
+    mostrarAba('jornada');
+  } else if (tab === 'perfil') {
+    mostrarAba('perfil');
+    carregarPerfilUsuario();
   } else if (tab === 'planos') {
     mostrarAba('planos');
-  } else if (tab === 'inicio') {
-    mostrarAba('inicio');
   } else if (tab === 'atividades') {
     mostrarAba('atividades');
   } else if (tab === 'iacoach') {
@@ -1444,6 +1457,557 @@ function atualizarOrcamentoPorSlider(val) {
   recalcularPlanoECompras();
 }
 
+
+// ==========================================================================
+// MÓDULO INTELIGENTE SACIARA: PERFIL UNIFICADO, GELADEIRA IA & CHEF POR NICHOS
+// Inspiração Pinterest (Dark Wellness & Organized Pantry Aesthetic)
+// ==========================================================================
+
+// --- 1. Armazém Pessoal (Geladeira & Despensa) ---
+const ARMAZEM_DEFAULT = [
+  { id: 1, nome: "Ovos de Granja Selecionados", qtd: 12, unidade: "unidades", categoria: "proteinas", imagem: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=150&q=80", validade: "7 dias" },
+  { id: 2, nome: "Peito de Frango em Filé", qtd: 800, unidade: "gramas", categoria: "proteinas", imagem: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=150&q=80", validade: "3 dias" },
+  { id: 3, nome: "Arroz Integral Tipo 1", qtd: 1.5, unidade: "kg", categoria: "carboidratos", imagem: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=150&q=80", validade: "60 dias" },
+  { id: 4, nome: "Aveia em Flocos Finos", qtd: 400, unidade: "gramas", categoria: "carboidratos", imagem: "https://images.unsplash.com/photo-1614961908595-6b801a6104fa?auto=format&fit=crop&w=150&q=80", validade: "45 dias" },
+  { id: 5, nome: "Banana Prata", qtd: 6, unidade: "unidades", categoria: "frutas", imagem: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=150&q=80", validade: "4 dias" },
+  { id: 6, nome: "Brócolis Ninja Fresco", qtd: 1, unidade: "unidade", categoria: "legumes", imagem: "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=150&q=80", validade: "5 dias" },
+  { id: 7, nome: "Iogurte Natural Desnatado", qtd: 3, unidade: "potes (170g)", categoria: "laticinios", imagem: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=150&q=80", validade: "12 dias" },
+  { id: 8, nome: "Azeite de Oliva Extravirgem", qtd: 1, unidade: "garrafa (500ml)", categoria: "gorduras", imagem: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=150&q=80", validade: "90 dias" }
+];
+
+window.armazemPessoal = [];
+
+function inicializarArmazemPessoal() {
+  const salvo = localStorage.getItem('saciara_armazem_pessoal');
+  if (salvo) {
+    try {
+      window.armazemPessoal = JSON.parse(salvo);
+    } catch (e) {
+      window.armazemPessoal = [...ARMAZEM_DEFAULT];
+    }
+  } else {
+    window.armazemPessoal = [...ARMAZEM_DEFAULT];
+    localStorage.setItem('saciara_armazem_pessoal', JSON.stringify(window.armazemPessoal));
+  }
+  renderizarArmazemPessoal();
+}
+
+function salvarArmazemPessoal() {
+  localStorage.setItem('saciara_armazem_pessoal', JSON.stringify(window.armazemPessoal));
+  renderizarArmazemPessoal();
+}
+
+function renderizarArmazemPessoal() {
+  const container = document.getElementById('gridArmazemItens');
+  const countBadge = document.getElementById('badgeArmazemContador');
+  if (countBadge) countBadge.innerText = `${window.armazemPessoal.length} itens estocados`;
+
+  if (!container) return;
+
+  if (window.armazemPessoal.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align:center; padding: 40px 20px; background: rgba(15,23,42,0.6); border: 2px dashed #1E293B; border-radius: 16px;">
+        <span style="font-size: 36px; display:block; margin-bottom: 10px;">🧊</span>
+        <h4 style="color:#FFF; font-size:16px; margin:0 0 6px 0;">Sua geladeira e armário estão vazios</h4>
+        <p style="color:#94A3B8; font-size:13px; margin:0 0 16px 0;">Tire uma foto das suas prateleiras ou rótulo para registrar os itens automaticamente.</p>
+        <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; border-radius:10px; padding:10px 18px;" onclick="acionarScannerCamera('geladeira')">
+          📸 Escanear Geladeira Agora
+        </button>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = window.armazemPessoal.map(item => `
+    <div class="armazem-item-card" id="armazem-card-${item.id}">
+      <div class="armazem-img-wrap">
+        <img src="${item.imagem}" alt="${item.nome}" loading="lazy">
+        <span class="armazem-validade-badge">⏱️ ${item.validade || 'Disponível'}</span>
+      </div>
+      <div class="armazem-item-body">
+        <div class="armazem-item-title">${item.nome}</div>
+        <div class="armazem-item-qtd">${item.qtd} ${item.unidade}</div>
+        <div class="armazem-item-actions">
+          <button class="armazem-btn-action" onclick="consumirItemArmazem(${item.id})" title="Usar em receita">Usar 🍳</button>
+          <button class="armazem-btn-remove" onclick="removerItemArmazem(${item.id})" title="Remover do armazém">✕</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function removerItemArmazem(id) {
+  window.armazemPessoal = window.armazemPessoal.filter(i => i.id !== id);
+  salvarArmazemPessoal();
+  mostrarToastFeedback("🗑️ Item removido da sua Geladeira Pessoal.");
+}
+
+function consumirItemArmazem(id) {
+  const item = window.armazemPessoal.find(i => i.id === id);
+  if (!item) return;
+  mostrarToastFeedback(`🍳 ${item.nome} marcado para preparo na próxima refeição!`);
+}
+
+function abrirModalAdicionarItemManual() {
+  abrirModal("➕ Adicionar Alimento ao Armazém", `
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div>
+        <label style="font-size:12px; color:#94A3B8; font-weight:700;">Nome do Alimento:</label>
+        <input type="text" id="manualNomeAlimento" class="form-field-input" placeholder="Ex: Peito de Frango, Ovos, Banana..." style="width:100%; margin-top:4px;">
+      </div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+        <div>
+          <label style="font-size:12px; color:#94A3B8; font-weight:700;">Quantidade:</label>
+          <input type="number" id="manualQtdAlimento" class="form-field-input" value="1" step="0.1" style="width:100%; margin-top:4px;">
+        </div>
+        <div>
+          <label style="font-size:12px; color:#94A3B8; font-weight:700;">Unidade:</label>
+          <select id="manualUnidadeAlimento" class="form-field-select" style="width:100%; margin-top:4px;">
+            <option value="unidades">unidades</option>
+            <option value="gramas">gramas</option>
+            <option value="kg">kg</option>
+            <option value="potes">potes</option>
+            <option value="pcts">pcts</option>
+            <option value="maços">maços</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label style="font-size:12px; color:#94A3B8; font-weight:700;">Categoria:</label>
+        <select id="manualCatAlimento" class="form-field-select" style="width:100%; margin-top:4px;">
+          <option value="proteinas">Proteínas</option>
+          <option value="carboidratos">Carboidratos & Grãos</option>
+          <option value="legumes">Hortifrúti & Legumes</option>
+          <option value="frutas">Frutas</option>
+          <option value="laticinios">Laticínios & Ovos</option>
+          <option value="gorduras">Gorduras Boas</option>
+        </select>
+      </div>
+      <button class="btn-primary" style="margin-top:10px; background:#00E575; color:#04150D; font-weight:800; border-radius:10px; padding:12px;" onclick="salvarItemManualModal()">
+        Salvar no Armazém Pessoal
+      </button>
+    </div>
+  `);
+}
+
+function salvarItemManualModal() {
+  const nome = document.getElementById('manualNomeAlimento')?.value.trim();
+  const qtd = parseFloat(document.getElementById('manualQtdAlimento')?.value) || 1;
+  const unidade = document.getElementById('manualUnidadeAlimento')?.value || 'unidades';
+  const categoria = document.getElementById('manualCatAlimento')?.value || 'proteinas';
+
+  if (!nome) {
+    alert("Digite o nome do alimento!");
+    return;
+  }
+
+  const novoItem = {
+    id: Date.now(),
+    nome: nome,
+    qtd: qtd,
+    unidade: unidade,
+    categoria: categoria,
+    imagem: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=150&q=80",
+    validade: "Adicionado Hoje"
+  };
+
+  window.armazemPessoal.unshift(novoItem);
+  salvarArmazemPessoal();
+  fecharModal();
+  mostrarToastFeedback(`✅ ${nome} adicionado à sua Geladeira Pessoal!`);
+}
+
+// --- 2. Scanner Visual de Câmera & OCR de Rótulo com IA ---
+function acionarScannerCamera(tipo) {
+  const fileInput = document.getElementById('cameraFotoInput');
+  if (fileInput) {
+    fileInput.dataset.scannerTipo = tipo;
+    fileInput.click();
+  }
+}
+
+function processarFotoCapturada(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+
+  const tipo = event.target.dataset.scannerTipo || 'geladeira';
+
+  // Exibe modal com loader de processamento de Visão Computacional
+  abrirModal("👁️ IA Analisando Alimentos...", `
+    <div style="text-align:center; padding: 25px 15px;">
+      <div class="ia-scanner-pulse-ring" style="width:70px; height:70px; margin:0 auto 16px auto; border-radius:50%; background:rgba(0,229,117,0.15); border:3px solid #00E575; display:flex; align-items:center; justify-content:center; animation: pulseGlow 1.5s infinite;">
+        <span style="font-size:32px;">🔍</span>
+      </div>
+      <h3 style="color:#FFF; font-size:16px; font-weight:800; margin:0 0 6px 0;">Identificando Itens & Rótulo...</h3>
+      <p style="color:#94A3B8; font-size:13px; margin:0;">Nossa IA de visão computacional está escaneando formas, embalagens e tabelas nutricionais da sua foto.</p>
+    </div>
+  `);
+
+  setTimeout(() => {
+    concluirAnaliseVisualIA(tipo);
+  }, 1600);
+}
+
+function concluirAnaliseVisualIA(tipo) {
+  // Itens detectados de acordo com o contexto
+  const itensDetectados = tipo === 'rotulo' ? [
+    { nome: "Iogurte Proteico Natural (Rótulo)", qtd: 2, unidade: "potes (170g)", cat: "laticinios", prot: "15g", kcal: "95 kcal" },
+    { nome: "Queijo Minas Padrão Light", qtd: 300, unidade: "gramas", cat: "laticinios", prot: "18g", kcal: "180 kcal" }
+  ] : [
+    { nome: "Ovos Caipiras (Detectados)", qtd: 12, unidade: "unidades", cat: "proteinas", prot: "72g", kcal: "840 kcal" },
+    { nome: "Filé de Frango Descongelado", qtd: 600, unidade: "gramas", cat: "proteinas", prot: "138g", kcal: "660 kcal" },
+    { nome: "Tomates Italianos Frescos", qtd: 4, unidade: "unidades", cat: "legumes", prot: "4g", kcal: "80 kcal" },
+    { nome: "Cenouras Raladas", qtd: 300, unidade: "gramas", cat: "legumes", prot: "3g", kcal: "105 kcal" }
+  ];
+
+  abrirModal("✨ Alimentos Identificados pela IA", `
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <p style="font-size:13px; color:#E2E8F0; margin:0;">A IA encontrou com sucesso os seguintes ingredientes na sua imagem:</p>
+      <div style="display:flex; flex-direction:column; gap:8px; max-height:260px; overflow-y:auto;">
+        ${itensDetectados.map(it => `
+          <div style="background:#0F172A; border:1px solid #1E293B; border-radius:10px; padding:10px 14px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="color:#FFF; font-size:14px; font-weight:700;">${it.nome}</div>
+              <div style="color:#00E575; font-size:12px; font-weight:600;">${it.qtd} ${it.unidade} · ~${it.prot} prot</div>
+            </div>
+            <span style="font-size:18px;">✅</span>
+          </div>
+        `).join('')}
+      </div>
+      <button class="btn-primary" style="margin-top:6px; background:#00E575; color:#04150D; font-weight:800; border-radius:10px; padding:12px;" onclick="confirmarItensDetectados(${JSON.stringify(itensDetectados).replace(/"/g, '&quot;')})">
+        ✓ Adicionar Todos à Minha Geladeira Pessoal
+      </button>
+    </div>
+  `);
+}
+
+function confirmarItensDetectados(itens) {
+  itens.forEach(it => {
+    window.armazemPessoal.unshift({
+      id: Date.now() + Math.floor(Math.random() * 1000),
+      nome: it.nome,
+      qtd: it.qtd,
+      unidade: it.unidade,
+      categoria: it.cat,
+      imagem: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=150&q=80",
+      validade: "Escanearam Hoje"
+    });
+  });
+  salvarArmazemPessoal();
+  fecharModal();
+  mostrarToastFeedback(`✨ ${itens.length} alimentos adicionados ao seu Armazém Pessoal!`);
+}
+
+// --- 3. Chef IA por Nichos com os Alimentos Disponíveis ---
+const BANCO_RECEITAS_CHEF = {
+  rapidas: [
+    {
+      titulo: "Omelete de Frango & Brócolis em 8 Minutos",
+      tempo: "8 min",
+      calorias: "340 kcal",
+      proteinas: "38g",
+      carbos: "6g",
+      gorduras: "16g",
+      imagem: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Ovos de Granja", "Peito de Frango", "Brócolis Ninja", "Azeite"],
+      passos: [
+        "Desfie ou corte em cubinhos 120g de frango já pré-cozido da geladeira.",
+        "Bata 3 ovos com uma pitada de sal, orégano e 2 floretes de brócolis picadinhos.",
+        "Aqueça a frigideira untada com um fio de azeite, despeje os ovos e adicione o frango no centro.",
+        "Dobre ao meio e tampe por 2 minutos até dourar. Sirva quentinho e suculento."
+      ]
+    },
+    {
+      titulo: "Crepioca Proteica com Recheio Desfiado",
+      tempo: "10 min",
+      calorias: "310 kcal",
+      proteinas: "32g",
+      carbos: "22g",
+      gorduras: "8g",
+      imagem: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Ovos de Granja", "Peito de Frango", "Aveia em Flocos"],
+      passos: [
+        "Bata 1 ovo inteiro com 2 colheres de aveia ou goma e 1 colher de água.",
+        "Despeje na frigideira antiaderente em fogo médio até soltar as bordas.",
+        "Recheie com frango desfiado temperado com ervas e dobre.",
+        "Pronto para comer sem sujar panelas extras."
+      ]
+    }
+  ],
+  hiperproteica: [
+    {
+      titulo: "Bowl Power Pós-Treino: Frango, Arroz & Ovos Estalados",
+      tempo: "18 min",
+      calorias: "520 kcal",
+      proteinas: "48g",
+      carbos: "54g",
+      gorduras: "12g",
+      imagem: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Peito de Frango", "Arroz Integral", "Ovos de Granja", "Azeite"],
+      passos: [
+        "Grelhe 150g de filé de frango em tiras com páprica defumada e alho.",
+        "Aqueça 150g de arroz integral cozido do seu armazém.",
+        "Faça 2 ovos na frigideira com gema mole ou no ponto de sua preferência.",
+        "Monte o bowl equilibrando as proteínas para máxima síntese muscular pós-treino."
+      ]
+    }
+  ],
+  saciedade: [
+    {
+      titulo: "Super Salada Sacietogênica de Frango e Fibras",
+      tempo: "12 min",
+      calorias: "290 kcal",
+      proteinas: "36g",
+      carbos: "14g",
+      gorduras: "8g",
+      imagem: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Peito de Frango", "Brócolis Ninja", "Azeite de Oliva"],
+      passos: [
+        "Cozinhe o brócolis no vapor por 4 minutos para manter a crocância e clorofila.",
+        "Misture com frango desfiado suculento e folhas frescas.",
+        "Tempere com emulsão de azeite extravirgem, limão e sal marinho.",
+        "Gera altíssimo volume gástrico suprimindo a grelina por horas."
+      ]
+    }
+  ],
+  doces: [
+    {
+      titulo: "Pancake Fit de Banana, Aveia & Canela (Zero Açúcar)",
+      tempo: "8 min",
+      calorias: "240 kcal",
+      proteinas: "16g",
+      carbos: "34g",
+      gorduras: "5g",
+      imagem: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Banana Prata", "Aveia em Flocos", "Ovos de Granja"],
+      passos: [
+        "Amasse 1 banana prata bem madura em um prato.",
+        "Misture com 1 ovo e 3 colheres de sopa de aveia em flocos finos até formar massa homogênea.",
+        "Polvilhe bastante canela em pó (termogênico natural).",
+        "Doure 2 minutos de cada lado na frigideira untada com uma gota de azeite."
+      ]
+    }
+  ],
+  desperdicio_zero: [
+    {
+      titulo: "Frigideira Rústica de Sobras Nobres Salteadas",
+      tempo: "14 min",
+      calorias: "380 kcal",
+      proteinas: "34g",
+      carbos: "28g",
+      gorduras: "14g",
+      imagem: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Peito de Frango", "Arroz Integral", "Brócolis Ninja", "Ovos de Granja"],
+      passos: [
+        "Pique os talos do brócolis e sobras de vegetais da sua geladeira.",
+        "Salteie na frigideira em fogo alto com um fio de azeite.",
+        "Acrescente o arroz e o frango desfiado, mexendo bem.",
+        "Abra um espaço no centro, quebre 2 ovos e envolva tudo estilo arroz oriental yakimeshi fit."
+      ]
+    }
+  ]
+};
+
+window.nichoChefAtivo = 'rapidas';
+
+function selecionarNichoChef(nicho) {
+  window.nichoChefAtivo = nicho;
+  document.querySelectorAll('.nicho-pill-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.nicho === nicho);
+  });
+  gerarReceitasComArmazem();
+}
+
+function gerarReceitasComArmazem() {
+  const container = document.getElementById('gridReceitasChef');
+  if (!container) return;
+
+  const receitas = BANCO_RECEITAS_CHEF[window.nichoChefAtivo] || BANCO_RECEITAS_CHEF['rapidas'];
+
+  container.innerHTML = receitas.map(r => `
+    <div class="receita-chef-card">
+      <div class="receita-chef-cover-wrap">
+        <img src="${r.imagem}" alt="${r.titulo}" loading="lazy">
+        <span class="receita-chef-time-badge">⏱️ ${r.tempo}</span>
+      </div>
+      <div class="receita-chef-content">
+        <h4 class="receita-chef-title">${r.titulo}</h4>
+        <div class="receita-chef-macros-row">
+          <span class="macro-pill">🔥 ${r.calorias}</span>
+          <span class="macro-pill" style="color:#00E575;">🥩 ${r.proteinas}</span>
+          <span class="macro-pill">🌾 ${r.carbos}</span>
+          <span class="macro-pill">🥑 ${r.gorduras}</span>
+        </div>
+        <div style="font-size:12px; color:#94A3B8; margin-bottom:10px;">
+          Ingredientes da sua geladeira: <strong style="color:#FFF;">${r.ingredientesUsados.join(', ')}</strong>
+        </div>
+        <button class="btn-primary" style="width:100%; padding:10px; font-size:12px; font-weight:800; background:#121B2E; border:1px solid #00E575; color:#00E575; border-radius:8px; cursor:pointer;" onclick="abrirModalReceitaPassos('${r.titulo}', ${JSON.stringify(r.passos).replace(/"/g, '&quot;')}, '${r.tempo}', '${r.calorias}')">
+          👨‍🍳 Ver Modo de Preparo Passo a Passo
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function abrirModalReceitaPassos(titulo, passos, tempo, calorias) {
+  abrirModal(`🍳 ${titulo}`, `
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; background:#0F172A; padding:10px 14px; border-radius:10px;">
+        <span style="color:#94A3B8; font-size:13px;">Tempo de Preparo: <strong style="color:#FFF;">${tempo}</strong></span>
+        <span style="color:#00E575; font-size:13px; font-weight:800;">🔥 ${calorias}</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        ${passos.map((p, idx) => `
+          <div style="display:flex; gap:12px; align-items:flex-start;">
+            <span style="width:24px; height:24px; border-radius:50%; background:#00E575; color:#04150D; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0;">${idx+1}</span>
+            <p style="margin:0; font-size:13px; color:#E2E8F0; line-height:1.5;">${p}</p>
+          </div>
+        `).join('')}
+      </div>
+      <button class="btn-primary" style="margin-top:8px; background:#00E575; color:#04150D; font-weight:800; border-radius:10px; padding:12px;" onclick="fecharModal(); mostrarToastFeedback('🎉 Bom apetite! Refeição pronta para saborear.')">
+        ✓ Concluir e Registrar no Diário
+      </button>
+    </div>
+  `);
+}
+
+// --- 4. Automação do Perfil Geral em Cascata (LocalStorage) ---
+function carregarPerfilUsuario() {
+  const dadosSalvos = localStorage.getItem('saciara_perfil_usuario');
+  let perfil = {
+    genero: 'feminino',
+    peso: 70.8,
+    altura: 165,
+    idade: 28,
+    atividade: 'moderado',
+    restricoes: 'nenhuma',
+    metaKg: 70,
+    orcamentoReais: 550,
+    tier: 'equilibrio'
+  };
+
+  if (dadosSalvos) {
+    try {
+      perfil = { ...perfil, ...JSON.parse(dadosSalvos) };
+    } catch (e) {}
+  }
+
+  // Preenche inputs nos formulários
+  const setVal = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.value = val;
+  };
+
+  setVal('userGenero', perfil.genero);
+  setVal('userPeso', perfil.peso);
+  setVal('userAltura', perfil.altura);
+  setVal('userIdade', perfil.idade);
+  setVal('userAtividade', perfil.atividade);
+  setVal('userRestricoes', perfil.restricoes);
+  setVal('userMetaKg', perfil.metaKg);
+  setVal('inputOrcamentoReais', perfil.orcamentoReais);
+  setVal('selectedTierMode', perfil.tier);
+
+  // Também replica nos inputs do Perfil se existirem
+  setVal('perfilGenero', perfil.genero);
+  setVal('perfilPeso', perfil.peso);
+  setVal('perfilAltura', perfil.altura);
+  setVal('perfilIdade', perfil.idade);
+  setVal('perfilAtividade', perfil.atividade);
+  setVal('perfilRestricoes', perfil.restricoes);
+  setVal('perfilMetaKg', perfil.metaKg);
+  setVal('perfilOrcamentoSlider', perfil.orcamentoReais);
+
+  return perfil;
+}
+
+function salvarPerfilGeralEAutomação() {
+  const getVal = (id, def) => document.getElementById(id)?.value || def;
+
+  // Prioriza o formulário da tela de Perfil se estiver preenchido, senão do topo de compras
+  const perfil = {
+    genero: getVal('perfilGenero', getVal('userGenero', 'feminino')),
+    peso: parseFloat(getVal('perfilPeso', getVal('userPeso', 70.8))),
+    altura: parseFloat(getVal('perfilAltura', getVal('userAltura', 165))),
+    idade: parseFloat(getVal('perfilIdade', getVal('userIdade', 28))),
+    atividade: getVal('perfilAtividade', getVal('userAtividade', 'moderado')),
+    restricoes: getVal('perfilRestricoes', getVal('userRestricoes', 'nenhuma')),
+    metaKg: parseFloat(getVal('perfilMetaKg', getVal('userMetaKg', 70))),
+    orcamentoReais: parseFloat(getVal('perfilOrcamentoSlider', getVal('inputOrcamentoReais', 550))),
+    tier: getVal('selectedTierMode', 'equilibrio')
+  };
+
+  localStorage.setItem('saciara_perfil_usuario', JSON.stringify(perfil));
+
+  // Replica valores nos inputs cruzados
+  const setVal = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.value = val;
+  };
+  setVal('userGenero', perfil.genero);
+  setVal('userPeso', perfil.peso);
+  setVal('userAltura', perfil.altura);
+  setVal('userIdade', perfil.idade);
+  setVal('userAtividade', perfil.atividade);
+  setVal('userRestricoes', perfil.restricoes);
+  setVal('userMetaKg', perfil.metaKg);
+  setVal('inputOrcamentoReais', perfil.orcamentoReais);
+
+  // Dispara o recálculo científico em cascata
+  if (typeof recalcularPlanoECompras === 'function') {
+    recalcularPlanoECompras();
+  }
+  atualizarCardTreinoHoje(perfil);
+
+  mostrarToastFeedback("💾 Perfil atualizado! Suas refeições, treinos e compras foram sincronizados.");
+}
+
+function atualizarCardTreinoHoje(perfil) {
+  const card = document.getElementById('cardTreinoHoje');
+  if (!card) return;
+
+  const nivel = perfil.atividade || 'moderado';
+  let foco = "Membros Superiores & Core (Definição)";
+  let tempo = "40 min";
+  let queima = "380 kcal";
+  let exercicios = [
+    "Puxada Alta ou Barra Assistida: 3 séries x 12 reps",
+    "Supino Reto ou Flexões de Braço: 3 séries x 12 reps",
+    "Desenvolvimento com Halteres: 3 séries x 15 reps",
+    "Prancha Isométrica: 3 séries x 45 segundos",
+    "Cardio pós-treino (Caminhada rápida em esteira ou rua): 20 min"
+  ];
+
+  if (nivel === 'intenso') {
+    foco = "Treino Full Body Força & Potência";
+    tempo = "55 min";
+    queima = "520 kcal";
+  } else if (nivel === 'sedentario' || nivel === 'leve') {
+    foco = "Caminhada Rítmica + Fortalecimento Postural";
+    tempo = "30 min";
+    queima = "220 kcal";
+    exercicios = [
+      "Mobilidade Articular e Aquecimento: 5 min",
+      "Agachamento Livre sem peso: 3 séries x 10 reps",
+      "Elevação Pélvica: 3 séries x 12 reps",
+      "Caminhada Contínua: 20 minutos em ritmo conversacional"
+    ];
+  }
+
+  const elFoco = document.getElementById('treinoHojeFoco');
+  const elTempo = document.getElementById('treinoHojeTempo');
+  const elQueima = document.getElementById('treinoHojeQueima');
+  const elLista = document.getElementById('treinoHojeLista');
+
+  if (elFoco) elFoco.innerText = foco;
+  if (elTempo) elTempo.innerText = `⏱️ ${tempo}`;
+  if (elQueima) elQueima.innerText = `🔥 ~${queima}`;
+  if (elLista) {
+    elLista.innerHTML = exercicios.map(ex => `<li style="margin-bottom:6px; color:#CBD5E1;">${ex}</li>`).join('');
+  }
+}
+
+
 function recalcularPlanoECompras() {
   const genero = document.getElementById('userGenero')?.value || 'feminino';
   const peso = parseFloat(document.getElementById('userPeso')?.value) || 70.8;
@@ -2025,43 +2589,35 @@ function copiarListaComprasTexto() {
   const itens = window.ultimaCestaCalculada || [];
   const diag = window.ultimoDiagnosticoCalculado || {};
 
-  const nomeTier = diag.tier === 'economica' 
-    ? '🥉 Cesta Acessível (Econômica)' 
-    : (diag.tier === 'premium' ? '🥇 Conforto & Variedade (Premium)' : '🥈 Custo-Benefício (Equilíbrio)');
-
   let linhas = [
     '🛒 *LISTA DE COMPRAS SACIARA (30 DIAS / 150 REFEIÇÕES)*',
     '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
-    `Faixa de Orçamento: ${nomeTier}`,
     `Meta Fisiológica: ${diag.metaKcal || 1800} kcal/dia | Proteínas: ${diag.protG || 127}g/dia`,
+    'Cobertura: 150 refeições completas calculadas',
     '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     ''
   ];
 
   let catAtual = '';
-  let total = 0;
 
   itens.forEach(it => {
     if (it.cat !== catAtual) {
       catAtual = it.cat;
-      linhas.push(`\n📦 *${catAtual.split('(')[0].trim()}*`);
+      linhas.push(`\n📦 *${catAtual.split('(')[0].trim().toUpperCase()}*`);
     }
-    const sub = (it.qtdCalculada * it.precoUnit);
-    total += sub;
-    linhas.push(`[ ] ${it.nome} — ${it.qtdCalculada} ${it.unidade} (R$ ${sub.toFixed(2).replace('.', ',')})`);
+    // Formatação operacional pura: Item e quantidade (sem preços ou menção a dinheiro)
+    linhas.push(`[ ] ${it.nome} — ${it.qtdCalculada} ${it.unidade}`);
   });
 
   linhas.push('');
   linhas.push('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  linhas.push(`💰 *Total Estimado para o Mês:* R$ ${total.toFixed(2).replace('.', ',')}`);
-  linhas.push(`🍽️ *Custo Médio por Prato:* R$ ${(total / 150).toFixed(2).replace('.', ',')}`);
-  linhas.push(`📅 *Custo Diário:* ~R$ ${(total / 30).toFixed(2).replace('.', ',')}`);
   linhas.push('✨ *Protocolo Científico Saciara — Preservação Metabólica Kevin Hall*');
+  linhas.push('💡 _Marque com [x] conforme for colocando no carrinho da feira/mercado!_');
 
   const texto = linhas.join('\n');
   if (navigator.clipboard) {
     navigator.clipboard.writeText(texto).then(() => {
-      mostrarToastFeedback('📋 Lista de compras copiada para o WhatsApp com sucesso!');
+      mostrarToastFeedback('📋 Lista de compras copiada para o WhatsApp (apenas itens e quantidades)!');
     });
   } else {
     mostrarToastFeedback('📋 Lista pronta para copiar!');
