@@ -2380,11 +2380,11 @@ function recalcularPlanoECompras() {
     : (tier === 'premium' ? '🥇 Modo Conforto & Variedade' : '🥈 Modo Custo-Benefício');
 
   if (diagTitulo) {
-    diagTitulo.innerText = `Plano Científico Saciara: ${metaKcal} kcal/dia (${rotuloTier})`;
+    diagTitulo.innerText = `Plano Fisiológico: ${metaKcal} kcal/dia (${rotuloTier})`;
   }
   if (diagDesc) {
     const perdaMes = (((get - metaKcal) * 30) / 7700).toFixed(1).replace('.', ',');
-    diagDesc.innerHTML = `Metabolismo Basal (TMB) de <strong>${Math.round(tmb)} kcal</strong> e gasto total diário de <strong>${Math.round(get)} kcal</strong>. Déficit fisiológico controlado de ${Math.round(get - metaKcal)} kcal/dia gera <strong>perda real prevista de ${perdaMes} kg de gordura ao mês</strong>. Seus macros foram calibrados para a sua faixa de orçamento (<strong>R$ ${orcamentoDefinido.toFixed(2).replace('.', ',')}</strong>), garantindo <strong>100% de precisão nutricional</strong> sem pesar no bolso.`;
+    diagDesc.innerHTML = `Déficit controlado de ${Math.round(get - metaKcal)} kcal/dia • <strong>Perda prevista: ${perdaMes} kg de gordura/mês</strong> preservando massa magra.`;
   }
   if (badgesRow) {
     badgesRow.innerHTML = `
@@ -2392,7 +2392,6 @@ function recalcularPlanoECompras() {
       <span class="diag-pill">🥩 ${protG}g Proteínas/dia (1,8g/kg)</span>
       <span class="diag-pill">🌾 ${carbG}g Carboidratos/dia</span>
       <span class="diag-pill">🥑 ${gordG}g Gorduras/dia</span>
-      <span class="diag-pill" style="color:#00D070;">✓ 150 Refeições/mês Somadas</span>
     `;
   }
 
@@ -2872,12 +2871,40 @@ function recalcularPlanoECompras() {
   const refCobertasEl = document.getElementById('statRefeicoesCobertas');
   const custoPratoEl = document.getElementById('statCustoPorRefeicao');
 
-  const custoPorPrato = totalEstimado / 150;
-  const economiaDelivery = Math.max(150 * 22.0 - totalEstimado, totalEstimado * 0.4);
+  // 9. Cálculo REAL e Dinâmico de Pratos e Cobertura pelo Orçamento (ZERO NÚMEROS ESTÁTICOS)
+  const refeicoesAoDia = 5; // Padrão Saciara: 5 refeições diárias balanceadas
+  const pratosTotalMes = 30 * refeicoesAoDia; // 150 pratos base para os 30 dias completos
+
+  let diasCobertos = 30;
+  let pratosReaisCobertos = pratosTotalMes;
+
+  if (totalEstimado > 0) {
+    if (orcamentoDefinido < totalEstimado) {
+      // Orçamento alvo menor que a cesta de 30 dias: calcula cobertura real proporcional
+      const proporcao = Math.max(0.05, orcamentoDefinido / totalEstimado);
+      diasCobertos = Math.min(30, Math.max(1, Math.round(30 * proporcao)));
+      pratosReaisCobertos = diasCobertos * refeicoesAoDia;
+    } else {
+      // Orçamento cobre os 30 dias completos
+      diasCobertos = 30;
+      pratosReaisCobertos = pratosTotalMes;
+    }
+  }
+
+  const custoPorPrato = totalEstimado / pratosTotalMes;
+  const economiaDelivery = Math.max(pratosReaisCobertos * 22.0 - (totalEstimado * (diasCobertos / 30)), 350);
 
   if (totalEl) totalEl.innerText = `R$ ${totalEstimado.toFixed(2).replace('.', ',')}`;
   if (econEl) econEl.innerText = `R$ ${economiaDelivery.toFixed(2).replace('.', ',')}`;
-  if (refCobertasEl) refCobertasEl.innerText = `150 pratos`;
+  if (refCobertasEl) {
+    refCobertasEl.innerText = `${pratosReaisCobertos} pratos`;
+  }
+  const labelRefEl = document.getElementById('labelRefeicoesCobertas');
+  if (labelRefEl) {
+    labelRefEl.innerText = diasCobertos >= 30 
+      ? 'Refeições (30 dias)' 
+      : `Refeições (${diasCobertos} dias)`;
+  }
   if (custoPratoEl) custoPratoEl.innerText = `R$ ${custoPorPrato.toFixed(2).replace('.', ',')}`;
 
   // Atualiza label do slider se usuário estiver vendo
