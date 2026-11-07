@@ -20,7 +20,7 @@
   <!-- Fontes Oficiais -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -366,14 +366,14 @@
       </section>
 
             <!-- Card do Treino de Hoje (Focado e Integrado na Rotina Diária) -->
-      <section class="card-treino-hoje" id="cardTreinoHoje" style="background:linear-gradient(135deg, rgba(14,22,38,0.9) 0%, rgba(15,23,42,0.9) 100%); border:1px solid #1E293B; border-radius:18px; padding:20px; margin-top:24px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+      <section class="card-treino-hoje" id="cardTreinoHoje" style="background:linear-gradient(135deg, rgba(14,22,38,0.9) 0%, rgba(15,23,42,0.9) 100%); border:1px solid #1E293B; border-radius:18px; padding:20px; margin-top:24px; box-shadow: var(--shadow-md);">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
           <div style="display:flex; align-items:center; gap:10px;">
             <div style="width:42px; height:42px; border-radius:12px; background:rgba(0,229,117,0.15); border:1px solid rgba(0,229,117,0.3); display:flex; align-items:center; justify-content:center; font-size:22px;">
               🏃
             </div>
             <div>
-              <span style="font-size:11px; font-weight:800; color:#00E575; text-transform:uppercase; letter-spacing:0.5px;">Treino Prescrito de Hoje</span>
+              <span style="font-size: 13px; font-weight:800; color:#00E575;  letter-spacing:0.5px;">Treino Prescrito de Hoje</span>
               <h3 id="treinoHojeFoco" style="color:#FFF; font-size:16px; font-weight:800; margin:2px 0 0 0;">Membros Superiores & Core (Definição)</h3>
             </div>
           </div>
@@ -393,7 +393,7 @@
 
         <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #1E293B; padding-top:12px;">
           <span style="font-size:12px; color:#64748B;">Calibrado pelo seu gasto energético Kevin Hall</span>
-          <button class="btn-primary" id="btnConcluirTreinoHoje" style="background:#00E575; color:#04150D; font-weight:800; border-radius:10px; padding:10px 18px; font-size:13px; cursor:pointer; box-shadow:0 4px 14px rgba(0,229,117,0.3);" onclick="concluirTreinoHoje(this)">
+          <button class="btn-primary" id="btnConcluirTreinoHoje" style="background:#00E575; color:#04150D; font-weight:800; border-radius:10px; padding:10px 18px; font-size:13px; cursor:pointer; box-shadow: var(--shadow-md);" onclick="concluirTreinoHoje(this)">
             ✓ Concluir Treino de Hoje (+120 XP ⭐)
           </button>
         </div>
@@ -415,11 +415,11 @@
     <div id="view-jornada" class="view-section">
       
       <!-- 1. HEADER HERO: A CARTOGRAFIA DA SUA TRANSFORMAÇÃO -->
-      <section class="jornada-hero-card" style="background: linear-gradient(135deg, rgba(7, 12, 22, 0.95) 0%, rgba(13, 22, 41, 0.98) 100%), radial-gradient(circle at top right, rgba(0, 229, 117, 0.15) 0%, transparent 60%); border: 1px solid rgba(0, 229, 117, 0.3); border-radius: var(--radius-xl); padding: 26px; margin-bottom: 24px; position: relative; overflow: hidden; box-shadow: 0 12px 36px rgba(0,0,0,0.45);">
+      <section class="jornada-hero-card" style="background: linear-gradient(135deg, rgba(7, 12, 22, 0.95) 0%, rgba(13, 22, 41, 0.98) 100%), radial-gradient(circle at top right, rgba(0, 229, 117, 0.15) 0%, transparent 60%); border: 1px solid rgba(0, 229, 117, 0.3); border-radius: var(--radius-xl); padding: 26px; margin-bottom: 24px; position: relative; overflow: hidden; box-shadow: var(--shadow-md);">
         
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 20px; flex-wrap:wrap; gap:12px;">
           <div>
-            <div style="display:inline-flex; align-items:center; gap:6px; background: rgba(0, 229, 117, 0.12); border: 1px solid rgba(0, 229, 117, 0.35); color: var(--primary-emerald); font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 4px 12px; border-radius: var(--radius-pill); letter-spacing: 0.8px; margin-bottom: 8px;">
+            <div style="display:inline-flex; align-items:center; gap:6px; background: rgba(0, 229, 117, 0.12); border: 1px solid rgba(0, 229, 117, 0.35); color: var(--primary-emerald); font-size: 13px; font-weight: 800;  padding: 4px 12px; border-radius: var(--radius-pill); letter-spacing: 0.2px; margin-bottom: 8px;">
               <span>🧭</span>
               <span>A Jornada da Transformação • NutriPlus</span>
             </div>
@@ -443,11 +443,11 @@
           <!-- Ato I: O Chamado & O Mentor (Ativo) -->
           <div style="background: rgba(0, 229, 117, 0.06); border: 1px solid rgba(0, 229, 117, 0.4); border-radius: var(--radius-md); padding: 14px; position: relative;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
-              <span style="font-size: 11px; font-weight: 800; color: var(--primary-emerald); text-transform: uppercase;">Ato I • A Partida</span>
+              <span style="font-size: 13px; font-weight: 800; color: var(--primary-emerald); ">Ato I • A Partida</span>
               <span style="font-size: 12px;">🌱</span>
             </div>
             <div style="font-size: 14px; font-weight: 800; color: #FFF; margin-bottom: 4px;">O Despertar do Compromisso</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.3;">Diagnóstico calórico aceito, despensa abastecida e rotina inicial em curso.</div>
+            <div style="font-size: 13px; color: var(--text-muted); line-height: 1.3;">Diagnóstico calórico aceito, despensa abastecida e rotina inicial em curso.</div>
             <div style="margin-top: 10px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
               <div style="width: 70%; height: 100%; background: var(--primary-emerald);"></div>
             </div>
@@ -456,11 +456,11 @@
           <!-- Ato II: A Iniciação & O Platô -->
           <div style="background: rgba(11, 17, 30, 0.6); border: 1px solid var(--card-border); border-radius: var(--radius-md); padding: 14px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
-              <span style="font-size: 11px; font-weight: 800; color: var(--accent-cyan); text-transform: uppercase;">Ato II • A Iniciação</span>
+              <span style="font-size: 13px; font-weight: 800; color: var(--accent-cyan); ">Ato II • A Iniciação</span>
               <span style="font-size: 12px;">⚔️</span>
             </div>
             <div style="font-size: 14px; font-weight: 800; color: var(--text-heading); margin-bottom: 4px;">A Travessia dos Obstáculos</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.3;">Superação do platô de peso, controle do cortisol e vitória sobre o delivery.</div>
+            <div style="font-size: 13px; color: var(--text-muted); line-height: 1.3;">Superação do platô de peso, controle do cortisol e vitória sobre o delivery.</div>
             <div style="margin-top: 10px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
               <div style="width: 25%; height: 100%; background: var(--accent-cyan);"></div>
             </div>
@@ -469,11 +469,11 @@
           <!-- Ato III: O Retorno com o Elixir -->
           <div style="background: rgba(11, 17, 30, 0.6); border: 1px solid var(--card-border); border-radius: var(--radius-md); padding: 14px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
-              <span style="font-size: 11px; font-weight: 800; color: var(--accent-gold); text-transform: uppercase;">Ato III • O Retorno</span>
+              <span style="font-size: 13px; font-weight: 800; color: var(--accent-gold); ">Ato III • O Retorno</span>
               <span style="font-size: 12px;">👑</span>
             </div>
             <div style="font-size: 14px; font-weight: 800; color: var(--text-heading); margin-bottom: 4px;">O Domínio Metabólico</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.3;">Sua nova identidade consolidada: autonomia, vigor físico e liberdade alimentar.</div>
+            <div style="font-size: 13px; color: var(--text-muted); line-height: 1.3;">Sua nova identidade consolidada: autonomia, vigor físico e liberdade alimentar.</div>
             <div style="margin-top: 10px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
               <div style="width: 5%; height: 100%; background: var(--accent-gold);"></div>
             </div>
@@ -514,7 +514,7 @@
                 <span id="progressoMissaoRefTexto" style="color: var(--primary-emerald); font-size: 13px; font-weight: 800;">4 / 5 refeições</span>
               </div>
               <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden;">
-                <div id="progressoMissaoRefBarra" style="width: 80%; height: 100%; background: linear-gradient(90deg, #00E575, #10B981); border-radius: 10px; transition: width 0.3s ease;"></div>
+                <div id="progressoMissaoRefBarra" style="width: 80%; height: 100%; background: linear-gradient(90deg, #00E575, #10B981); border-radius: 10px; transition: opacity 0.25s ease;"></div>
               </div>
             </div>
             <div style="padding: 6px 12px; border-radius: var(--radius-sm); background: rgba(0,229,117,0.1); border: 1px solid rgba(0,229,117,0.25); color: var(--primary-emerald); font-size: 12px; font-weight: 800;">
@@ -533,7 +533,7 @@
                 <span id="progressoMissaoAguaTexto" style="color: var(--accent-cyan); font-size: 13px; font-weight: 800;">2,1 / 2,5 L</span>
               </div>
               <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden;">
-                <div id="progressoMissaoAguaBarra" style="width: 84%; height: 100%; background: linear-gradient(90deg, #38BDF8, #0284C7); border-radius: 10px; transition: width 0.3s ease;"></div>
+                <div id="progressoMissaoAguaBarra" style="width: 84%; height: 100%; background: linear-gradient(90deg, #38BDF8, #0284C7); border-radius: 10px; transition: opacity 0.25s ease;"></div>
               </div>
             </div>
             <div style="padding: 6px 12px; border-radius: var(--radius-sm); background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.25); color: var(--accent-cyan); font-size: 12px; font-weight: 800;">
@@ -552,7 +552,7 @@
                 <span id="progressoMissaoTreinoTexto" style="color: var(--accent-gold); font-size: 13px; font-weight: 800;">Pendente hoje</span>
               </div>
               <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden;">
-                <div id="progressoMissaoTreinoBarra" style="width: 15%; height: 100%; background: linear-gradient(90deg, #F59E0B, #D97706); border-radius: 10px; transition: width 0.3s ease;"></div>
+                <div id="progressoMissaoTreinoBarra" style="width: 15%; height: 100%; background: linear-gradient(90deg, #F59E0B, #D97706); border-radius: 10px; transition: opacity 0.25s ease;"></div>
               </div>
             </div>
             <button class="btn-primary" style="padding: 8px 14px; background: rgba(245,158,11,0.15); border: 1px solid #F59E0B; color: #F59E0B; border-radius: var(--radius-sm); font-size: 12px; font-weight: 800; cursor: pointer;" onclick="concluirTreinoHoje(this)">
@@ -589,16 +589,16 @@
                 <span style="font-size:26px;">🧊</span>
                 <h1 style="color:#FFF; font-size:24px; font-weight:800; margin:0;">Minha Geladeira & Chef IA</h1>
               </div>
-              <p style="color:#CBD5E1; font-size:13px; margin:6px 0 0 0; max-width:650px;">
+              <h2 style="color:#CBD5E1; font-size:13px; font-weight:400; margin:6px 0 0 0; max-width:650px;">
                 Escaneie com a câmera o que você tem em casa. A IA identifica os ingredientes e cria receitas sob medida divididas por nichos, evitando desperdício e economizando seu dinheiro.
-              </p>
+              </h2>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; border-radius:12px; padding:12px 18px; font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; box-shadow:0 4px 18px rgba(0,229,117,0.3);" onclick="acionarScannerCamera('geladeira')">
+              <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; border-radius:12px; padding:12px 18px; font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; box-shadow: var(--shadow-md);" onclick="acionarScannerCamera('geladeira')">
                 <span style="font-size:18px;">📸</span>
                 <span>Escanear Geladeira / Armário</span>
               </button>
-              <button class="btn-primary" style="background:#121B2E; border:1px solid #A855F7; color:#A855F7; font-weight:800; border-radius:12px; padding:12px 16px; font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer;" onclick="acionarScannerCamera('rotulo')">
+              <button class="btn-primary" style="background:#121B2E; border:1px solid #00E575; color:#00E575; font-weight:800; border-radius:12px; padding:12px 16px; font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer;" onclick="acionarScannerCamera('rotulo')">
                 <span style="font-size:18px;">🏷️</span>
                 <span>Ler Tabela de Rótulo</span>
               </button>
@@ -697,7 +697,7 @@
               </p>
             </div>
           </div>
-          <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; border-radius:12px; padding:12px 20px; font-size:13px; cursor:pointer; box-shadow:0 4px 18px rgba(0,229,117,0.3);" onclick="salvarPerfilGeralEAutomação()">
+          <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; border-radius:12px; padding:12px 20px; font-size:13px; cursor:pointer; box-shadow: var(--shadow-md);" onclick="salvarPerfilGeralEAutomação()">
             💾 Salvar Perfil & Recalcular Rotina
           </button>
         </div>
@@ -808,7 +808,7 @@
             <span class="compras-cart-icon">🛒</span>
             <h1 class="compras-title">Compras do Mês para o Seu Plano</h1>
           </div>
-          <p class="compras-subtitle">A lista de compras mensal não é aleatória: ela é a soma exata dos ingredientes de todas as receitas prescritas para o seu perfil fisiológico e meta calórica.</p>
+          <h2 class="compras-subtitle" style="font-size:13px; font-weight:400; color:#94A3B8;">A lista de compras mensal não é aleatória: ela é a soma exata dos ingredientes de todas as receitas prescritas para o seu perfil fisiológico e meta calórica.</h2>
         </div>
       </section>
 
@@ -819,7 +819,7 @@
             <span style="font-size:20px;">🧬</span>
             <h3 style="color:#FFFFFF; font-size:16px; font-weight:800;">Seus Dados Fisiológicos & Alergias</h3>
           </div>
-          <span style="font-size:11px; color:#00D070; font-weight:700;">Modelo Científico Kevin Hall & Mifflin-St Jeor</span>
+          <span style="font-size: 13px; color:#00D070; font-weight:700;">Modelo Científico Kevin Hall & Mifflin-St Jeor</span>
         </div>
 
         <div class="perfil-form-grid">
@@ -951,7 +951,7 @@
             <input type="hidden" id="inputOrcamentoReais" value="550">
             <input type="hidden" id="selectedTierMode" value="equilibrio">
             
-            <div style="display:flex; justify-content:space-between; font-size:11px; color:#64748B; margin-top:4px;">
+            <div style="display:flex; justify-content:space-between; font-size: 13px; color:#64748B; margin-top:4px;">
               <span>R$ 200 (Econômico Máximo)</span>
               <span>R$ 750 (Equilíbrio)</span>
               <span>R$ 1.500+ (Premium)</span>
@@ -1000,22 +1000,22 @@
             <div style="display:flex; align-items:center; gap:10px;">
               <span style="font-size:22px;">⚡</span>
               <div>
-                <div style="font-size:12px; font-weight:800; color:#00E575; text-transform:uppercase; letter-spacing:0.5px;">
+                <div style="font-size:12px; font-weight:800; color:#00E575;  letter-spacing:0.5px;">
                   Cotação Oficial da Rede Líder Nacional Conectada
                 </div>
-                <div style="font-size:11px; color:#94A3B8;">
+                <div style="font-size: 13px; color:#94A3B8;">
                   Base: <strong>Grupo Carrefour / Atacadão</strong> (#1 em clientes no Brasil). Preços de prateleira e fotos 2K sincronizados automaticamente via Web Scraper.
                 </div>
               </div>
             </div>
-            <span style="font-size:11px; background:rgba(0,229,117,0.15); color:#00E575; border:1px solid #00E575; padding:4px 10px; border-radius:20px; font-weight:800; display:inline-flex; align-items:center; gap:4px;">
+            <span style="font-size: 13px; background:rgba(0,229,117,0.15); color:#00E575; border:1px solid #00E575; padding:4px 10px; border-radius:20px; font-weight:800; display:inline-flex; align-items:center; gap:4px;">
               <span>●</span> 100% Automático
             </span>
           </div>
 
           <!-- Barra de Ações Rápidas de Compras & Carrinho -->
           <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; align-items:center;">
-            <button class="btn-primary" style="padding:10px 18px; background:linear-gradient(135deg, #00E575 0%, #00B85E 100%); color:#04150D; border:none; border-radius:10px; font-size:13px; font-weight:800; cursor:pointer; display:flex; align-items:center; gap:8px; box-shadow:0 4px 16px rgba(0,229,117,0.35);" onclick="abrirCarrinhoAutomaticoMontado()">
+            <button class="btn-primary" style="padding:10px 18px; background:linear-gradient(135deg, #00E575 0%, #00B85E 100%); color:#04150D; border:none; border-radius:10px; font-size:13px; font-weight:800; cursor:pointer; display:flex; align-items:center; gap:8px; box-shadow: var(--shadow-md);" onclick="abrirCarrinhoAutomaticoMontado()">
               <span style="font-size:16px;">🛒</span>
               <span>Ver Carrinho Montado dos 30 Dias</span>
             </button>
@@ -1036,7 +1036,7 @@
             <div class="budget-stat-label">Custo dos 30 Dias</div>
           </div>
           <div class="budget-stat-box">
-            <div class="budget-stat-num" id="statCustoPorRefeicao" style="color:#A78BFA;">R$ 3,45</div>
+            <div class="budget-stat-num" id="statCustoPorRefeicao" style="color:#38BDF8;">R$ 3,45</div>
             <div class="budget-stat-label">Custo por Prato</div>
           </div>
           <div class="budget-stat-box">

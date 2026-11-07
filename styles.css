@@ -15,10 +15,10 @@
   /* 2. Cores Semânticas Principais (Clínica & Vitalidade) */
   --primary-emerald: #00E575;
   --primary-emerald-hover: #00C261;
-  --primary-emerald-glow: rgba(0, 229, 117, 0.22);
+  --primary-emerald-glow: rgba(0, 0, 0, 0.3);
   --primary-green: #00E575;
   --primary-green-hover: #00C261;
-  --primary-green-glow: rgba(0, 229, 117, 0.22);
+  --primary-green-glow: rgba(0, 0, 0, 0.3);
 
   /* 3. Acentos de Navegação & Insights */
   --accent-cyan: #38BDF8;
@@ -35,7 +35,11 @@
   --hero-abyss: #F59E0B;     /* A Provação / O Platô */
   --hero-elixir: #10B981;    /* A Transformação & Retorno */
 
-  /* 5. Escala Tipográfica & Contraste WCAG AA */
+  /* 5. Escala Tipográfica Autoral (Anti-AI) */
+  --font-sans: 'Epilogue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
   --text-white: #FFFFFF;
   --text-heading: #F8FAFC;
   --text-body: #E2E8F0;
@@ -43,13 +47,18 @@
   --text-dim: #94A3B8;       /* Elevado de #64748B para conformidade WCAG AA */
 
   /* 6. Formas, Raios e Ritmo Modular (Grade 4px / 8px) */
-  --radius-xl: 24px;
-  --radius-lg: 18px;
-  --radius-md: 12px;
-  --radius-sm: 8px;
+  --radius-xl: 16px;
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --radius-sm: 6px;
   --radius-pill: 9999px;
 
-  /* 7. Transições Orgânicas */
+  /* 7. Elevações Neutras Reais (Zero Dark-Glow Neon) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.65);
+
+  /* 8. Transições Fisiológicas Suaves (Zero Layout Thrash) */
   --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -62,12 +71,12 @@
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   background-color: var(--bg-main);
   color: var(--text-heading);
   min-height: 100vh;
   display: flex;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Scrollbar Customizada */
@@ -120,7 +129,7 @@ body {
   justify-content: center;
   color: #FFF;
   font-size: 20px;
-  box-shadow: 0 4px 14px var(--primary-green-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .brand-text-col h1 {
@@ -132,7 +141,7 @@ body {
 }
 
 .brand-text-col span {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-dim);
   font-weight: 500;
 }
@@ -169,7 +178,7 @@ body {
   background: var(--primary-green);
   color: #070B14;
   font-weight: 700;
-  box-shadow: 0 4px 18px var(--primary-green-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .nav-link .nav-icon {
@@ -214,7 +223,7 @@ body {
 }
 
 .upgrade-desc {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-dim);
   margin: 4px 0 14px 0;
 }
@@ -272,7 +281,7 @@ body {
 
 .search-box:focus-within {
   border-color: var(--primary-green);
-  box-shadow: 0 0 0 3px var(--primary-green-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .search-box input {
@@ -318,9 +327,9 @@ body {
   position: absolute;
   top: 6px;
   right: 6px;
-  background: #EF4444;
-  color: #FFF;
-  font-size: 10px;
+  background: #B91C1C;
+  color: #FFFFFF;
+  font-size: 12px;
   font-weight: 800;
   width: 16px;
   height: 16px;
@@ -505,7 +514,7 @@ body {
 }
 
 .hero-pill-sub {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-dim);
 }
 
@@ -579,7 +588,7 @@ body {
   background: none;
   border: none;
   color: var(--text-dim);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   padding: 4px 10px;
   border-radius: var(--radius-pill);
@@ -608,11 +617,11 @@ body {
   display: inline-block;
   background: var(--primary-green);
   color: #070B14;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   padding: 3px 8px;
   border-radius: 6px;
-  box-shadow: 0 2px 10px var(--primary-green-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
   white-space: nowrap;
 }
 
@@ -728,7 +737,7 @@ body {
   color: #070B14;
   border-color: var(--primary-green);
   font-weight: 800;
-  box-shadow: 0 4px 14px var(--primary-green-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 /* Card Seu Plano Atual (Definição Saudável) */
@@ -811,7 +820,7 @@ body {
 }
 
 .plan-macro-label {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
   font-weight: 600;
 }
@@ -888,7 +897,7 @@ body {
 }
 
 .day-pill-date {
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .btn-open-calendar {
@@ -980,7 +989,7 @@ body {
 }
 
 .meal-hours-text {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
@@ -1023,7 +1032,7 @@ body {
   content: '✓';
   color: var(--primary-green);
   font-weight: 800;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .meal-action-col {
@@ -1040,7 +1049,7 @@ body {
 }
 
 .meal-macros-inline {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
@@ -1053,7 +1062,7 @@ body {
   background: rgba(0, 208, 112, 0.08);
   border: 1px solid var(--primary-green);
   color: var(--primary-green);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition);
@@ -1298,7 +1307,7 @@ body {
 }
 
 .ativ-spark-badge {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--primary-green);
 }
@@ -1400,7 +1409,7 @@ body {
 }
 
 .exercicio-day-date {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--text-secondary);
 }
 
@@ -1423,7 +1432,7 @@ body {
 }
 
 .exercicio-desc-sub {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
@@ -1538,7 +1547,7 @@ body {
 }
 
 .progresso-stat-sub {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
@@ -1664,7 +1673,7 @@ body {
   border-radius: var(--radius-sm);
   background: rgba(0, 208, 112, 0.15);
   color: var(--primary-green);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
 }
 
@@ -1886,7 +1895,7 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 /* Linha 1 de Análise: Evolução do Peso + Composição Corporal */
@@ -1956,7 +1965,7 @@ body {
 }
 
 .rel-target-sub {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
   margin-bottom: 10px;
 }
@@ -1967,7 +1976,7 @@ body {
   border: 1px solid var(--primary-green);
   border-radius: var(--radius-sm);
   color: var(--primary-green);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -2202,7 +2211,7 @@ body {
   gap: 8px;
   margin-top: auto;
   transition: var(--transition);
-  box-shadow: 0 4px 16px var(--primary-green-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .btn-plan-next-month:hover {
@@ -2312,7 +2321,7 @@ body {
 }
 
 .pilar-badge-status {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   padding: 4px 10px;
   border-radius: var(--radius-sm);
@@ -2342,7 +2351,7 @@ body {
 .pilar-progress-fill {
   height: 100%;
   border-radius: 4px;
-  transition: width 0.3s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .pilar-footer-note {
@@ -2450,7 +2459,7 @@ body {
 }
 
 .refeicao-time-label {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
@@ -2494,7 +2503,7 @@ body {
 }
 
 .refeicao-macros-mini {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
@@ -2507,7 +2516,7 @@ body {
   background: rgba(0, 208, 112, 0.1);
   border: 1px solid var(--primary-green);
   color: var(--primary-green);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition);
@@ -2580,7 +2589,7 @@ body {
 }
 
 .perda-big-label {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
@@ -2639,7 +2648,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  box-shadow: 0 4px 20px var(--primary-green-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
   position: relative;
   overflow: hidden;
 }
@@ -2652,7 +2661,7 @@ body {
   border-radius: var(--radius-sm);
   background: var(--primary-green);
   color: #070B14;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -2833,7 +2842,7 @@ body {
   align-items: center;
   gap: 8px;
   margin-top: 8px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 
@@ -2865,7 +2874,7 @@ body {
 }
 
 .budget-stat-label {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
   font-weight: 600;
 }
@@ -2954,7 +2963,7 @@ body {
 
 .compras-item-qtd {
   color: var(--text-secondary);
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .compras-item-price {
@@ -3030,13 +3039,13 @@ body {
 .form-field-input-box:hover {
   border-color: #38BDF8;
   background: #0B172A;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .form-field-input-box:focus-within {
   border-color: var(--primary-green);
   background: #0C1A2E;
-  box-shadow: 0 0 16px var(--primary-green-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .form-field-input {
@@ -3077,7 +3086,7 @@ body {
   position: absolute;
   right: 12px;
   pointer-events: none;
-  font-size: 11px;
+  font-size: 13px;
   color: #64748B;
   transition: var(--transition);
 }
@@ -3103,7 +3112,7 @@ body {
   align-items: center;
   gap: 8px;
   transition: var(--transition);
-  box-shadow: 0 4px 14px var(--primary-green-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .btn-gerar-plano:hover {
@@ -3158,7 +3167,7 @@ body {
   background: #091220;
   border: 1px solid var(--border-dark);
   border-radius: var(--radius-sm);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   color: #38BDF8;
 }
@@ -3220,7 +3229,7 @@ body {
 }
 
 .donut-cal-lbl {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--text-dim);
   margin-top: 2px;
 }
@@ -3363,7 +3372,7 @@ body {
   font-size: 16px;
   font-weight: 800;
   transition: var(--transition);
-  box-shadow: 0 3px 12px var(--primary-green-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .habit-circle-item.unchecked .habit-check-icon {
@@ -3373,7 +3382,7 @@ body {
 }
 
 .habit-name {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-muted);
   font-weight: 600;
 }
@@ -3404,7 +3413,7 @@ body {
 }
 
 .comp-stat-group span:first-child {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-dim);
   display: block;
 }
@@ -3508,7 +3517,7 @@ body {
 }
 
 .activity-metric-box .metric-lbl {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--text-dim);
 }
 
@@ -3666,7 +3675,7 @@ body {
 }
 
 .quick-actions-hint {
-  font-size: 11px;
+  font-size: 13px;
   color: #64748B;
   font-weight: 500;
 }
@@ -3722,7 +3731,7 @@ body {
 }
 
 .pill-badge-tag {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   padding: 2px 6px;
   border-radius: 6px;
@@ -3738,7 +3747,7 @@ body {
 }
 
 .pill-sub {
-  font-size: 11px;
+  font-size: 13px;
   color: #94A3B8;
   font-weight: 500;
 }
@@ -3861,7 +3870,7 @@ body {
   }
 
   .dock-label {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
   }
 
@@ -3882,7 +3891,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 208, 112, 0.45);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
     margin-top: -12px;
   }
 
@@ -3930,7 +3939,7 @@ body {
 }
 
 .duo-stat-lbl {
-  font-size: 11px;
+  font-size: 13px;
   color: #64748B;
   font-weight: 600;
 }
@@ -3990,7 +3999,7 @@ body {
 
 .nutribuddy-svg {
   filter: drop-shadow(0 4px 10px rgba(0, 208, 112, 0.4));
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nutribuddy-card:hover .nutribuddy-svg {
@@ -4018,7 +4027,7 @@ body {
 }
 
 .speech-tag {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   color: #00D070;
   letter-spacing: 0.5px;
@@ -4044,7 +4053,7 @@ body {
   border-radius: 10px;
   padding: 8px 16px;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 208, 112, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
   transition: transform 0.15s, background 0.15s;
 }
 
@@ -4159,9 +4168,9 @@ body {
 }
 
 @keyframes nodeRingPulse {
-  0% { box-shadow: 0 0 0 0 rgba(0, 208, 112, 0.7); }
-  70% { box-shadow: 0 0 0 16px rgba(0, 208, 112, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 208, 112, 0); }
+  0% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45); }
+  70% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45); }
+  100% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45); }
 }
 
 .active-node-ring {
@@ -4251,7 +4260,7 @@ body {
 }
 
 .node-status {
-  font-size: 11px;
+  font-size: 13px;
   color: #64748B;
   font-weight: 600;
 }
@@ -4271,7 +4280,7 @@ body {
 }
 
 .node-reward-pill {
-  font-size: 11px;
+  font-size: 13px;
   color: #FFD700;
   font-weight: 700;
   margin-top: 2px;
@@ -4296,7 +4305,7 @@ body {
 }
 
 .panel-sub {
-  font-size: 11px;
+  font-size: 13px;
   color: #64748B;
   margin-top: 2px;
 }
@@ -4350,7 +4359,7 @@ body {
 }
 
 .lead-streak {
-  font-size: 11px;
+  font-size: 13px;
   color: #94A3B8;
 }
 
@@ -4367,7 +4376,7 @@ body {
 .league-promotion-cutoff {
   text-align: center;
   padding: 6px 0;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   color: #00D070;
   letter-spacing: 0.5px;
@@ -4431,7 +4440,7 @@ body {
 .duo-quiz-fill {
   height: 100%;
   background: #00D070;
-  transition: width 0.3s;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .duo-quiz-question {
@@ -4451,9 +4460,9 @@ body {
 
 .quiz-option-btn {
   background: #121B2E;
-  border: 2px solid #1C2B48;
-  border-bottom: 5px solid #1C2B48;
-  border-radius: 14px;
+  border: 1px solid #1C2B48;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
   padding: 14px 16px;
   display: flex;
   align-items: center;
@@ -4552,7 +4561,7 @@ body {
 }
 
 .democracia-badge {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   color: #00D070;
   background: rgba(0, 208, 112, 0.12);
@@ -4590,12 +4599,12 @@ body {
 .tier-card-btn.active {
   border-color: #00D070;
   background: linear-gradient(180deg, rgba(0, 208, 112, 0.08) 0%, #121B2E 100%);
-  box-shadow: 0 4px 18px rgba(0, 208, 112, 0.18);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .tier-badge-pill {
   display: inline-block;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   padding: 3px 8px;
   border-radius: 6px;
@@ -4610,7 +4619,7 @@ body {
 }
 
 .tier-unit {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   color: #64748B;
 }
@@ -4623,7 +4632,7 @@ body {
 }
 
 .tier-desc {
-  font-size: 11px;
+  font-size: 13px;
   color: #94A3B8;
   line-height: 1.4;
 }
@@ -4654,7 +4663,7 @@ body {
   border-radius: 50%;
   background: #00D070;
   border: 3px solid #070B14;
-  box-shadow: 0 0 10px rgba(0, 208, 112, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
   cursor: pointer;
   transition: transform 0.1s;
 }
@@ -4702,7 +4711,7 @@ body {
 .armazem-item-card:hover {
   transform: translateY(-3px);
   border-color: #00E575;
-  box-shadow: 0 8px 24px rgba(0, 229, 117, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .armazem-img-wrap {
@@ -4732,7 +4741,7 @@ body {
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #38BDF8;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 12px;
@@ -4772,7 +4781,7 @@ body {
   background: rgba(0, 229, 117, 0.12);
   border: 1px solid rgba(0, 229, 117, 0.25);
   color: #00E575;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   padding: 5px 10px;
   border-radius: 8px;
@@ -4846,7 +4855,7 @@ body {
   background: linear-gradient(135deg, rgba(0, 229, 117, 0.18) 0%, #121B2E 100%);
   border-color: #00E575;
   color: #00E575;
-  box-shadow: 0 4px 14px rgba(0, 229, 117, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 /* 3. Grid de Receitas do Chef IA */
@@ -4900,7 +4909,7 @@ body {
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #FFFFFF;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 12px;
@@ -4929,7 +4938,7 @@ body {
 }
 
 .macro-pill {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   background: #0F172A;
   border: 1px solid #1E293B;
@@ -4940,9 +4949,9 @@ body {
 
 /* 4. Animação de Pulso de Scanner IA */
 @keyframes pulseGlow {
-  0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(0, 229, 117, 0.5); }
-  70% { transform: scale(1.04); box-shadow: 0 0 0 14px rgba(0, 229, 117, 0); }
-  100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(0, 229, 117, 0); }
+  0% { transform: scale(0.96); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45); }
+  70% { transform: scale(1.04); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45); }
+  100% { transform: scale(0.96); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45); }
 }
 
 /* 5. Responsividade Mobile */
@@ -4995,7 +5004,7 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
-  box-shadow: 0 4px 12px rgba(255, 69, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .fogo-duolingo-box:hover {
@@ -5019,7 +5028,7 @@ body {
 .fogo-duolingo-box.fogo-chama-azul {
   border-color: #38BDF8;
   background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, #121B2E 100%);
-  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .fogo-duolingo-box.fogo-chama-azul .fogo-flame-icon {
@@ -5039,7 +5048,7 @@ body {
 }
 
 .fogo-label-sub {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   color: #FF8C00;
   text-transform: uppercase;
@@ -5076,7 +5085,7 @@ body {
 }
 
 .heroi-nivel-pill {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   color: #04150D;
   background: #00E575;
@@ -5091,7 +5100,7 @@ body {
 }
 
 .heroi-xp-val {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   color: #94A3B8;
 }
@@ -5109,8 +5118,8 @@ body {
   height: 100%;
   background: linear-gradient(90deg, #00E575 0%, #38BDF8 100%);
   border-radius: 8px;
-  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 0 10px rgba(0, 229, 117, 0.5);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 /* 4. Gemas Box */
@@ -5233,7 +5242,7 @@ body {
   height: 100%;
   background: linear-gradient(90deg, #00E575, #38BDF8);
   border-radius: 10px;
-  transition: width 0.3s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .portal-footer-row {
@@ -5243,7 +5252,7 @@ body {
 }
 
 .portal-status-btn {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 8px;
@@ -5320,7 +5329,7 @@ select:focus,
 .form-field-select:focus {
   border-color: #00E575 !important;
   background-color: #0F1A2E !important;
-  box-shadow: 0 0 0 3px rgba(0, 229, 117, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 /* Placeholder bem legível */
