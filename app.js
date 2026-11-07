@@ -1286,7 +1286,35 @@ function adicionarAguaRapida(quantidadeMl) {
     }
   }
 
-  mostrarToastFeedback(`💧 +${quantidadeMl} ml adicionados! Total: ${litros}L`);
+  // [JORNADA DO HERÓI] Hidratação gera XP e acende a lenha de água no Fogo do Duolingo
+  if (typeof adicionarXpHeroi === 'function') {
+    adicionarXpHeroi(15, `💧 Hidratação (+${quantidadeMl}ml)`);
+    if (typeof alimentarFogoHeroi === 'function') alimentarFogoHeroi('agua');
+  }
+
+  mostrarToastFeedback(`💧 +${quantidadeMl} ml adicionados! Total: ${litros}L (+15 XP ⭐)`);
+}
+
+function concluirTreinoHoje(btn) {
+  if (!btn) btn = document.getElementById('btnConcluirTreinoHoje');
+  if (!btn) return;
+
+  btn.classList.toggle('checked');
+  if (btn.classList.contains('checked')) {
+    btn.innerHTML = '<span>✓</span> <span>Treino Concluído!</span>';
+    btn.style.background = '#00E575';
+    btn.style.color = '#04150D';
+
+    if (typeof adicionarXpHeroi === 'function') {
+      adicionarXpHeroi(120, '⚔️ Treino de Hoje Concluído', btn);
+      if (typeof alimentarFogoHeroi === 'function') alimentarFogoHeroi('treino');
+    }
+    mostrarToastFeedback('⚔️ Treino concluído! +120 XP ⭐ e lenha de treino acesa!');
+  } else {
+    btn.innerHTML = '<span>✓</span> <span>Concluir Treino de Hoje (+120 XP ⭐)</span>';
+    btn.style.background = '#00E575';
+    btn.style.color = '#04150D';
+  }
 }
 
 function toggleRefeicaoFeita(btn) {

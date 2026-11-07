@@ -147,74 +147,8 @@
          (Foco 100% em Qualidade de Vida, Sem Gráficos, Praticidade Diária Máxima)
          ====================================================================== -->
     <div id="view-inicio" class="view-section active">
-      <!-- 0. Atalhos de Ação Mais Clicadas (Hierarquia de Thumb Zone) -->
-      <section class="quick-actions-bar">
-        <div class="quick-actions-header">
-          <div style="display:flex; align-items:center; gap:6px;">
-            <span style="color:#00D070; font-size:16px;">⚡</span>
-            <span class="quick-actions-title">Ações Mais Frequentes</span>
-          </div>
-          <span class="quick-actions-hint">1 toque para registrar</span>
-        </div>
-        <div class="quick-actions-scroll">
-          <button class="quick-pill-btn btn-peso" onclick="abrirModalRegistrarPesoRapido()" title="Registrar peso de hoje">
-            <div class="pill-top-row">
-              <span class="pill-icon">⚖️</span>
-              <span class="pill-badge-tag">Diário</span>
-            </div>
-            <span class="pill-text">Registrar Peso</span>
-            <span class="pill-sub" id="pillPesoSub">Hoje 70,8 kg</span>
-          </button>
-
-          <button class="quick-pill-btn btn-agua" onclick="adicionarAguaRapida(250)" title="Adicionar 250ml de água">
-            <div class="pill-top-row">
-              <span class="pill-icon">💧</span>
-              <span class="pill-badge-tag" style="background:rgba(56,189,248,0.15); color:#38BDF8;">+250ml</span>
-            </div>
-            <span class="pill-text">Beber Água</span>
-            <span class="pill-sub" id="pillAguaSub">2,1 / 2,5 L</span>
-          </button>
-
-          <button class="quick-pill-btn btn-prato" onclick="scrollParaRefeicaoAtual()" title="Ir para a refeição deste horário">
-            <div class="pill-top-row">
-              <span class="pill-icon">🍽️</span>
-              <span class="pill-badge-tag" style="background:rgba(0,208,112,0.15); color:#00D070;">Agora</span>
-            </div>
-            <span class="pill-text">Prato de Agora</span>
-            <span class="pill-sub">Ver Cardápio</span>
-          </button>
-
-          <button class="quick-pill-btn btn-mercado" onclick="mostrarAba('compras'); recalcularPlanoECompras();" title="Ver cotação e lista de mercado">
-            <div class="pill-top-row">
-              <span class="pill-icon">🛒</span>
-              <span class="pill-badge-tag" style="background:rgba(255,176,32,0.15); color:#FFB020;">30 Dias</span>
-            </div>
-            <span class="pill-text">Cesta Mercado</span>
-            <span class="pill-sub">Atacarejo</span>
-          </button>
-
-          <button class="quick-pill-btn btn-coach" onclick="abrirModalIACoach()" title="Tirar dúvida rápida de nutrição">
-            <div class="pill-top-row">
-              <span class="pill-icon">🤖</span>
-              <span class="pill-badge-tag" style="background:rgba(168,85,247,0.15); color:#A855F7;">IA 24h</span>
-            </div>
-            <span class="pill-text">IA Coach</span>
-            <span class="pill-sub">Dúvida Rápida</span>
-          </button>
-
-          <button class="quick-pill-btn btn-jornada" onclick="mostrarAba('jornada')" title="Sua Jornada do Herói e Níveis">
-            <div class="pill-top-row">
-              <span class="pill-icon">⚔️</span>
-              <span class="pill-badge-tag" style="background:rgba(255,215,0,0.18); color:#FFD700;">Nível 3</span>
-            </div>
-            <span class="pill-text">Jornada Heroica</span>
-            <span class="pill-sub">1.840 XP • Elixir</span>
-          </button>
-        </div>
-      </section>
-
       <!-- 1. Saudação Calma e Data Atual -->
-      <section class="inicio-hero-compact">
+      <section class="inicio-hero-compact" style="margin-bottom:20px;">
         <div>
           <h2 class="inicio-saudacao-title">Olá, Ana! 👋</h2>
           <p class="inicio-saudacao-sub">Aqui está sua rotina diária essencial para viver bem e atingir sua meta com leveza.</p>
@@ -222,30 +156,6 @@
         <div class="inicio-date-pill">
           <span>📅</span>
           <span id="inicioDataHoje">Hoje • Segunda-feira, 03/11</span>
-        </div>
-      </section>
-
-      <!-- 2. Refeição de Agora (Atrelada ao Horário Atual do Dia) -->
-      <section class="refeicao-momento-card" id="refeicaoMomentoBox">
-        <div style="flex:1;">
-          <div class="refeicao-momento-tag-live">
-            <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#070B14; animation:pulse 1.5s infinite;"></span>
-            <span id="momentoTagText">Sua Próxima Refeição • Horário Ideal</span>
-          </div>
-          <h3 class="refeicao-momento-title" id="momentoPratoTitulo">Aveia com Banana, Canela e Chia</h3>
-          <p class="refeicao-momento-sub" id="momentoPratoSub">
-            1 xícara de aveia (40g) • 1 banana média fatiada • 1 colher de chá de chia (5g) • Canela a gosto
-          </p>
-          <div style="display:flex; align-items:center; gap:16px;">
-            <button class="btn-open-recipe-cta" id="btnVerReceitaMomento" onclick="abrirModalReceitaDetalhada('aveia_banana')">
-              <span>📖</span>
-              <span>Ver Modo de Preparo ➔</span>
-            </button>
-            <span style="font-size:13px; font-weight:800; color:#FFFFFF;" id="momentoKcals">326 kcal</span>
-          </div>
-        </div>
-        <div class="refeicao-momento-img-wrap" onclick="abrirModalReceitaDetalhada('aveia_banana')">
-          <img id="momentoPratoImg" src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=400&q=80" alt="Prato do Momento">
         </div>
       </section>
 
@@ -342,7 +252,7 @@
                 <div class="refeicao-name-bold">Café da Manhã</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=200&q=80" alt="Aveia com Banana">
+            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80" alt="Aveia com Banana">
             <div>
               <div class="refeicao-prato-title">Aveia com Banana, Canela e Chia ↗</div>
               <div class="refeicao-ingredientes-short">1 xícara de aveia (40g) • 1 banana média fatiada • 1 colher de chá de chia (toque para ver receita completa)</div>
@@ -455,50 +365,8 @@
         </div>
       </section>
 
-      <!-- 4. Rodapé Focado em Qualidade de Vida e Hidratação -->
-      <div class="inicio-bottom-duo">
-        <!-- Perda de Peso Sem Estresse -->
-        <div class="perda-card-science">
-          <div class="perda-content-left">
-            <div class="perda-title-badge">
-              <span>🎯</span>
-              <span>Ciência da Perda de Peso Sem Estresse</span>
-            </div>
-            <h3 class="perda-main-title">Você não precisa se pesar todo dia</h3>
-            <p class="perda-text-desc">
-              O modelo Kevin Hall comprova que oscilações diárias de até 1,5 kg decorrem de retenção hídrica, sódio e trânsito intestinal, não de ganho de gordura. O segredo da qualidade de vida é seguir sua rotina com tranquilidade: os resultados fisiológicos são inevitáveis.
-            </p>
-            <button class="btn-edit-target" onclick="abrirModalDicaPerdaPeso()">Entenda a Fisiologia ➔</button>
-          </div>
-          <div class="perda-metric-bigbox">
-            <div class="perda-big-num">-3,2 kg</div>
-            <div class="perda-big-label">Gordura Real Perdida</div>
-            <div style="font-size:11px; color:#00D070; margin-top:6px; font-weight:700;">Ritmo Ideal ✓</div>
-          </div>
-        </div>
-
-        <!-- Lembrete Hídrico Inteligente -->
-        <div class="water-reminder-card">
-          <div class="water-reminder-header">
-            <span>💧</span>
-            <span>Regra de Ouro da Água</span>
-          </div>
-          <p class="water-reminder-text">
-            Beber 500 ml de água cerca de 30 minutos antes das principais refeições aumenta a saciedade e eleva seu gasto energético de repouso em até 24% por 60 minutos.
-          </p>
-          <button class="btn-primary" style="width:100%; padding:10px; background:#38BDF8; color:#070B14; border:none; border-radius:8px; font-weight:800; cursor:pointer; margin-top:auto;" onclick="adicionarAguaRapida(500)">
-            Bebi 500 ml agora! 💧
-          </button>
-        </div>
-      </div>
-    </div> <!-- /view-inicio -->
-
-    <!-- ======================================================================
-         SEÇÃO 2: ABA DE PLANOS ALIMENTARES (RÉPLICA PIXEL-A-PIXEL DA IMAGEM 2)
-         ====================================================================== -->
-    
-      <!-- Card do Treino de Hoje (Gerado Automaticamente pelo Perfil) -->
-      <section class="card-treino-hoje" id="cardTreinoHoje" style="background:linear-gradient(135deg, rgba(14,22,38,0.9) 0%, rgba(15,23,42,0.9) 100%); border:1px solid #1E293B; border-radius:18px; padding:20px; margin-bottom:24px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+            <!-- Card do Treino de Hoje (Focado e Integrado na Rotina Diária) -->
+      <section class="card-treino-hoje" id="cardTreinoHoje" style="background:linear-gradient(135deg, rgba(14,22,38,0.9) 0%, rgba(15,23,42,0.9) 100%); border:1px solid #1E293B; border-radius:18px; padding:20px; margin-top:24px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
           <div style="display:flex; align-items:center; gap:10px;">
             <div style="width:42px; height:42px; border-radius:12px; background:rgba(0,229,117,0.15); border:1px solid rgba(0,229,117,0.3); display:flex; align-items:center; justify-content:center; font-size:22px;">
@@ -525,14 +393,16 @@
 
         <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #1E293B; padding-top:12px;">
           <span style="font-size:12px; color:#64748B;">Calibrado pelo seu gasto energético Kevin Hall</span>
-          <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; border-radius:10px; padding:10px 18px; font-size:13px; cursor:pointer;" onclick="mostrarToastFeedback('🎉 Treino de hoje concluído! 380 kcal computadas.')">
-            ✓ Concluir Treino de Hoje
+          <button class="btn-primary" id="btnConcluirTreinoHoje" style="background:#00E575; color:#04150D; font-weight:800; border-radius:10px; padding:10px 18px; font-size:13px; cursor:pointer; box-shadow:0 4px 14px rgba(0,229,117,0.3);" onclick="concluirTreinoHoje(this)">
+            ✓ Concluir Treino de Hoje (+120 XP ⭐)
           </button>
         </div>
       </section>
+    </div> <!-- /view-inicio -->
 
-    </div>
-
+    <!-- ======================================================================
+         SEÇÃO 2: ABA DE PLANOS ALIMENTARES
+         ====================================================================== -->
     <div id="view-planos" class="view-section">
       <!-- 1. Header com Imagem de Fundo de Pratos Saudáveis e Citação -->
       <section class="planos-header">
