@@ -33,7 +33,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-09-21 - Taça de banana com cacau/01.png"
+    "imagem_capa": "assets/receitas_flow/taca_banana_cacau.png"
   },
   {
     "id": 2,
@@ -70,7 +70,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-09-23 - Crepioca de ricota/01.png"
+    "imagem_capa": "assets/receitas_flow/crepioca_de_ricota.png"
   },
   {
     "id": 3,
@@ -228,7 +228,7 @@
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-10-02 - Frango assado com cenoura/01.png"
+    "imagem_capa": "assets/receitas_flow/frango_assado_cenoura.png"
   },
   {
     "id": 7,
@@ -301,7 +301,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-10-07 - Omelete de tomate/01.png"
+    "imagem_capa": "assets/receitas_flow/omelete_de_tomate.png"
   },
   {
     "id": 9,
@@ -530,7 +530,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-10-21 - Cuscuz com ovo (revisar artes)/01.png"
+    "imagem_capa": "assets/receitas_flow/cuscuz_com_ovo.png"
   },
   {
     "id": 15,
