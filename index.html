@@ -259,9 +259,9 @@
           </div>
         </div>
 
-        <div class="refeicoes-timeline-list">
+        <div class="refeicoes-timeline-list" id="refeicoesTimelineList">
           <!-- 1. Café da Manhã -->
-          <div class="refeicao-item-card" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')">
+          <div class="refeicao-item-card" id="cardMeal_cafe_manha" data-meal-id="cafe_manha" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">☕</span>
               <div>
@@ -277,7 +277,7 @@
             <div class="refeicao-actions-box" onclick="event.stopPropagation()">
               <div class="refeicao-kcals">326 kcal</div>
               <div class="refeicao-macros-mini">P: 12g • C: 52g • G: 8g</div>
-              <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
+              <button class="btn-check-meal" id="btnMeal_cafe_manha" onclick="consumirRefeicaoRotina('cafe_manha', this)">
                 <span>✓</span>
                 <span>Consumido</span>
               </button>
@@ -285,7 +285,7 @@
           </div>
 
           <!-- 2. Lanche da Manhã -->
-          <div class="refeicao-item-card" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')">
+          <div class="refeicao-item-card" id="cardMeal_lanche_manha" data-meal-id="lanche_manha" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🍏</span>
               <div>
@@ -301,7 +301,7 @@
             <div class="refeicao-actions-box" onclick="event.stopPropagation()">
               <div class="refeicao-kcals">142 kcal</div>
               <div class="refeicao-macros-mini">P: 10g • C: 14g • G: 4g</div>
-              <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
+              <button class="btn-check-meal" id="btnMeal_lanche_manha" onclick="consumirRefeicaoRotina('lanche_manha', this)">
                 <span>✓</span>
                 <span>Consumido</span>
               </button>
@@ -309,7 +309,7 @@
           </div>
 
           <!-- 3. Almoço -->
-          <div class="refeicao-item-card" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')">
+          <div class="refeicao-item-card" id="cardMeal_almoco" data-meal-id="almoco" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🍴</span>
               <div>
@@ -325,7 +325,7 @@
             <div class="refeicao-actions-box" onclick="event.stopPropagation()">
               <div class="refeicao-kcals">436 kcal</div>
               <div class="refeicao-macros-mini">P: 38g • C: 45g • G: 12g</div>
-              <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
+              <button class="btn-check-meal" id="btnMeal_almoco" onclick="consumirRefeicaoRotina('almoco', this)">
                 <span>✓</span>
                 <span>Consumido</span>
               </button>
@@ -333,7 +333,7 @@
           </div>
 
           <!-- 4. Lanche da Tarde -->
-          <div class="refeicao-item-card" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')">
+          <div class="refeicao-item-card" id="cardMeal_lanche_tarde" data-meal-id="lanche_tarde" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🧁</span>
               <div>
@@ -349,7 +349,7 @@
             <div class="refeicao-actions-box" onclick="event.stopPropagation()">
               <div class="refeicao-kcals">198 kcal</div>
               <div class="refeicao-macros-mini">P: 3g • C: 25g • G: 10g</div>
-              <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
+              <button class="btn-check-meal" id="btnMeal_lanche_tarde" onclick="consumirRefeicaoRotina('lanche_tarde', this)">
                 <span>✓</span>
                 <span>Consumido</span>
               </button>
@@ -357,7 +357,7 @@
           </div>
 
           <!-- 5. Jantar -->
-          <div class="refeicao-item-card" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')">
+          <div class="refeicao-item-card" id="cardMeal_jantar" data-meal-id="jantar" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')">
             <div class="refeicao-timing-box">
               <span class="refeicao-icon-tag">🌙</span>
               <div>
@@ -373,13 +373,33 @@
             <div class="refeicao-actions-box" onclick="event.stopPropagation()">
               <div class="refeicao-kcals">354 kcal</div>
               <div class="refeicao-macros-mini">P: 32g • C: 18g • G: 16g</div>
-              <button class="btn-check-meal" onclick="toggleRefeicaoFeita(this)">
+              <button class="btn-check-meal" id="btnMeal_jantar" onclick="consumirRefeicaoRotina('jantar', this)">
                 <span>✓</span>
                 <span>Consumido</span>
               </button>
             </div>
           </div>
         </div>
+
+        <!-- Banner comemorativo de 100% da rotina diária cumprida -->
+        <div id="rotinaConcluidaBanner" class="rotina-concluida-banner" style="display:none;">
+          <div style="font-size:32px; margin-bottom:6px;">🎉</div>
+          <h3 style="color:#FFF; font-size:17px; font-weight:800; margin:0 0 6px 0;">Todas as Refeições de Hoje Foram Cumpridas!</h3>
+          <p style="color:#94A3B8; font-size:13px; line-height:1.5; margin:0 0 14px 0;">Você bateu suas metas de saciedade e nutrição com excelência. A rotina do próximo dia será carregada automaticamente à meia-noite.</p>
+          <button class="btn-secondary" style="background:#16233D; border:1px solid #1E3A5F; color:#38BDF8; font-size:12px; font-weight:700; padding:8px 16px; border-radius:10px; cursor:pointer;" onclick="toggleGavetaConcluidas()">
+            👁️ Ver / Desfazer refeições de hoje
+          </button>
+        </div>
+
+        <!-- Gaveta retrátil de refeições concluídas hoje -->
+        <div id="refeicoesConcluidasGaveta" style="margin-top:14px; display:none;">
+          <button id="btnToggleConcluidas" onclick="toggleGavetaConcluidas()" style="background:none; border:none; color:#94A3B8; font-size:13px; font-weight:700; display:flex; align-items:center; gap:6px; cursor:pointer; padding:6px 0; -webkit-tap-highlight-color:transparent;">
+            <span id="iconeGaveta">▾</span>
+            <span id="textoGaveta">Refeições consumidas hoje (0/5)</span>
+          </button>
+          <div id="listaRefeicoesConcluidas" style="display:none; margin-top:10px; display:flex; flex-direction:column; gap:8px;"></div>
+        </div>
+      </section>
       </section>
 
             <!-- Card do Treino de Hoje (Focado e Integrado na Rotina Diária) -->

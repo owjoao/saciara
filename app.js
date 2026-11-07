@@ -344,6 +344,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (typeof recalcularPlanoECompras === 'function') {
     recalcularPlanoECompras();
   }
+
+  // Inicializa Rotina Alimentar Diária com Virada Automática de Dia
+  if (typeof aplicarEstadoRotinaRefeicoes === 'function') {
+    aplicarEstadoRotinaRefeicoes();
+  }
+  setInterval(verificarViradaDoDia, 30000);
+  window.addEventListener('focus', verificarViradaDoDia);
 });
 
 // ==========================================================================
@@ -1317,24 +1324,217 @@ function concluirTreinoHoje(btn) {
   }
 }
 
-function toggleRefeicaoFeita(btn) {
-  btn.classList.toggle('checked');
-  if (btn.classList.contains('checked')) {
-    
-    // [RPG RECOMPENSA] Consumiu refeição saudável -> Ganha XP e alimenta Fogo!
-    if (typeof adicionarXpHeroi === 'function') {
-      adicionarXpHeroi(50, "🥩 Refeição Saudável Consumida", btn);
-      alimentarFogoHeroi('refeicoes');
-    }
-btn.innerHTML = '<span>✓</span> <span>Consumido!</span>';
-    btn.style.background = '#00D070';
-    btn.style.color = '#070B14';
-  } else {
-    btn.innerHTML = '<span>✓</span> <span>Consumido</span>';
-    btn.style.background = 'rgba(0, 208, 112, 0.1)';
-    btn.style.color = '#00D070';
+// ==========================================================================
+// ROTINA ALIMENTAR DIÁRIA INTELIGENTE & TRANSIÇÃO DE REFEIÇÃO CONSUMIDA
+// - Retira da lista ativa e faz o próximo item subir com animação fluida
+// - Ao virar o dia (meia-noite), reseta automaticamente e traz a nova rotina
+// ==========================================================================
+
+const ROTINA_MEALS_CONFIG = {
+  cafe_manha: { nome: 'Café da Manhã', horario: '07:00 – 08:00', prato: 'Aveia com Banana, Canela e Chia', kcals: 326, icon: '☕' },
+  lanche_manha: { nome: 'Lanche da Manhã', horario: '10:30 – 11:30', prato: 'Iogurte Natural com Frutas Vermelhas', kcals: 142, icon: '🍏' },
+  almoco: { nome: 'Almoço', horario: '12:30 – 14:00', prato: 'Frango Grelhado, Arroz Integral & Salada Colorida', kcals: 436, icon: '🍴' },
+  lanche_tarde: { nome: 'Lanche da Tarde', horario: '16:00 – 17:00', prato: 'Mix de Castanhas & Maçã Crocante', kcals: 198, icon: '🧁' },
+  jantar: { nome: 'Jantar', horario: '19:00 – 20:30', prato: 'Salmão Grelhado com Legumes no Vapor', kcals: 354, icon: '🌙' }
+};
+
+function getHojeDateString() {
+  const d = new Date();
+  const ano = d.getFullYear();
+  const mes = String(d.getMonth() + 1).padStart(2, '0');
+  const dia = String(d.getDate()).padStart(2, '0');
+  return `${ano}-${mes}-${dia}`;
+}
+
+function getRotinaDiariaState() {
+  const hoje = getHojeDateString();
+  let state = {};
+  try {
+    state = JSON.parse(localStorage.getItem('saciara_rotina_diaria') || '{}');
+  } catch (e) {
+    state = {};
+  }
+
+  if (state.data !== hoje) {
+    // Virada do dia detectada! Inicia a rotina fresca do novo dia
+    state = {
+      data: hoje,
+      consumidas: []
+    };
+    localStorage.setItem('saciara_rotina_diaria', JSON.stringify(state));
+  }
+  return state;
+}
+
+function salvarRotinaDiariaState(state) {
+  localStorage.setItem('saciara_rotina_diaria', JSON.stringify(state));
+}
+
+function formatarDataHojeVisual() {
+  const agora = new Date();
+  const diasSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+  const diaSemana = diasSemana[agora.getDay()];
+  const diaMes = String(agora.getDate()).padStart(2, '0');
+  const mes = String(agora.getMonth() + 1).padStart(2, '0');
+  const el = document.getElementById('inicioDataHoje');
+  if (el) {
+    el.textContent = `Hoje • ${diaSemana}, ${diaMes}/${mes}`;
   }
 }
+
+function aplicarEstadoRotinaRefeicoes() {
+  formatarDataHojeVisual();
+  const state = getRotinaDiariaState();
+  const consumidas = state.consumidas || [];
+  const mealIds = ['cafe_manha', 'lanche_manha', 'almoco', 'lanche_tarde', 'jantar'];
+
+  let pendentesCount = 0;
+  const listaConcluidasEl = document.getElementById('listaRefeicoesConcluidas');
+  if (listaConcluidasEl) listaConcluidasEl.innerHTML = '';
+
+  mealIds.forEach(id => {
+    const card = document.getElementById('cardMeal_' + id);
+    const estaConsumida = consumidas.includes(id);
+
+    if (estaConsumida) {
+      if (card) {
+        card.style.display = 'none';
+        card.classList.remove('consumida-animando');
+      }
+
+      // Adiciona na gaveta de refeições concluídas hoje
+      if (listaConcluidasEl) {
+        const info = ROTINA_MEALS_CONFIG[id] || { nome: id, horario: '', prato: '' };
+        const item = document.createElement('div');
+        item.className = 'refeicao-concluida-item';
+        item.style.cssText = 'background:#121B2E; border:1px solid #1E293B; border-radius:10px; padding:10px 14px; display:flex; align-items:center; justify-content:space-between; gap:10px;';
+        item.innerHTML = `
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:16px;">${info.icon || '✓'}</span>
+            <div>
+              <strong style="color:#FFF; font-size:13px; display:block;">${info.nome} • <span style="color:#00E575; font-size:11px;">Consumido</span></strong>
+              <span style="color:#94A3B8; font-size:11px;">${info.prato} (${info.kcals} kcal)</span>
+            </div>
+          </div>
+          <button onclick="desmarcarRefeicaoRotina('${id}')" style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); color:#EF4444; font-size:11px; font-weight:700; padding:4px 10px; border-radius:6px; cursor:pointer;" title="Desfazer e reativar na lista de hoje">
+            Desfazer
+          </button>
+        `;
+        listaConcluidasEl.appendChild(item);
+      }
+    } else {
+      pendentesCount++;
+      if (card) {
+        card.style.display = '';
+        card.classList.remove('consumida-animando');
+      }
+    }
+  });
+
+  // Banner comemorativo de dia 100% concluído
+  const banner = document.getElementById('rotinaConcluidaBanner');
+  const timelineList = document.getElementById('refeicoesTimelineList');
+  if (banner && timelineList) {
+    if (pendentesCount === 0) {
+      banner.style.display = 'block';
+      timelineList.style.display = 'none';
+    } else {
+      banner.style.display = 'none';
+      timelineList.style.display = 'flex';
+    }
+  }
+
+  // Gaveta retrátil
+  const gaveta = document.getElementById('refeicoesConcluidasGaveta');
+  const textoGaveta = document.getElementById('textoGaveta');
+  if (gaveta) {
+    if (consumidas.length > 0) {
+      gaveta.style.display = 'block';
+      if (textoGaveta) {
+        textoGaveta.textContent = `Refeições consumidas hoje (${consumidas.length}/5)`;
+      }
+    } else {
+      gaveta.style.display = 'none';
+    }
+  }
+}
+
+function consumirRefeicaoRotina(mealId, btn) {
+  const card = document.getElementById('cardMeal_' + mealId) || (btn ? btn.closest('.refeicao-item-card') : null);
+
+  // [RPG RECOMPENSA] XP e Fogo do Herói
+  if (typeof adicionarXpHeroi === 'function') {
+    const nome = ROTINA_MEALS_CONFIG[mealId] ? ROTINA_MEALS_CONFIG[mealId].nome : 'Refeição';
+    adicionarXpHeroi(50, `🥩 ${nome} Consumido`, btn);
+    alimentarFogoHeroi('refeicoes');
+  }
+
+  if (card) {
+    card.classList.add('consumida-animando');
+  }
+
+  const state = getRotinaDiariaState();
+  if (!state.consumidas.includes(mealId)) {
+    state.consumidas.push(mealId);
+    salvarRotinaDiariaState(state);
+  }
+
+  const mealInfo = ROTINA_MEALS_CONFIG[mealId];
+  mostrarToastFeedback(`✨ ${mealInfo ? mealInfo.nome : 'Refeição'} consumido! Próxima refeição destacada.`);
+
+  setTimeout(() => {
+    aplicarEstadoRotinaRefeicoes();
+  }, 380);
+}
+
+function desmarcarRefeicaoRotina(mealId) {
+  const state = getRotinaDiariaState();
+  state.consumidas = state.consumidas.filter(id => id !== mealId);
+  salvarRotinaDiariaState(state);
+  aplicarEstadoRotinaRefeicoes();
+  const mealInfo = ROTINA_MEALS_CONFIG[mealId];
+  mostrarToastFeedback(`↩️ ${mealInfo ? mealInfo.nome : 'Refeição'} reativada na sua lista!`);
+}
+
+function toggleGavetaConcluidas() {
+  const lista = document.getElementById('listaRefeicoesConcluidas');
+  const icone = document.getElementById('iconeGaveta');
+  if (lista) {
+    const estaOculta = lista.style.display === 'none' || lista.style.display === '';
+    lista.style.display = estaOculta ? 'flex' : 'none';
+    if (icone) icone.textContent = estaOculta ? '▴' : '▾';
+  }
+}
+
+function verificarViradaDoDia() {
+  const hoje = getHojeDateString();
+  let state = {};
+  try {
+    state = JSON.parse(localStorage.getItem('saciara_rotina_diaria') || '{}');
+  } catch (e) {
+    state = {};
+  }
+
+  if (state.data && state.data !== hoje) {
+    // Meia-noite virou!
+    console.log('[Rotina Diária] Virada de dia detectada:', state.data, '->', hoje);
+    state = {
+      data: hoje,
+      consumidas: []
+    };
+    localStorage.setItem('saciara_rotina_diaria', JSON.stringify(state));
+    aplicarEstadoRotinaRefeicoes();
+    mostrarToastFeedback('🌅 Bom dia! Sua rotina alimentar de hoje foi atualizada com sucesso.');
+  }
+}
+
+// Fallback de compatibilidade caso toggleRefeicaoFeita seja chamado
+function toggleRefeicaoFeita(btn) {
+  const card = btn.closest('.refeicao-item-card');
+  const mealId = card ? card.getAttribute('data-meal-id') : 'cafe_manha';
+  consumirRefeicaoRotina(mealId, btn);
+}
+
 
 function abrirModalDicaPerdaPeso() {
   abrirModal("⚖️ Fisiologia da Perda de Peso Sem Estresse", `
