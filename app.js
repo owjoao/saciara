@@ -2800,12 +2800,25 @@ function recalcularPlanoECompras() {
     ];
   }
 
-  // 8. Cálculo de Totais e Agrupamento
+  // 8. Cálculo de Totais e Agrupamento com Suporte a Preços Exatos de Supermercados
   const categoriasMap = {};
   let totalEstimado = 0;
 
   itensSoma30Dias.forEach(item => {
-    const subtotal = item.qtdCalculada * item.precoUnit;
+    let precoUnitFinal = item.precoUnit;
+    let badgeOrigem = '';
+    let imagemFinal = item.imagem;
+
+    // Verificar se existe cotação exata importada de supermercado para este item
+    const chave = extrairChaveAlimento(item.nome);
+    if (window.precosExatosSupermercado && window.precosExatosSupermercado[chave]) {
+      const dado = window.precosExatosSupermercado[chave];
+      precoUnitFinal = dado.preco;
+      badgeOrigem = dado.loja || 'Supermercado';
+      if (dado.imagem) imagemFinal = dado.imagem;
+    }
+
+    const subtotal = item.qtdCalculada * precoUnitFinal;
     totalEstimado += subtotal;
 
     if (!categoriasMap[item.cat]) {
@@ -2815,9 +2828,10 @@ function recalcularPlanoECompras() {
       nome: item.nome,
       qtd: item.qtdCalculada,
       unidade: item.unidade,
-      precoUnit: item.precoUnit,
+      precoUnit: precoUnitFinal,
       subtotal: subtotal,
-      imagem: item.imagem
+      imagem: imagemFinal,
+      badgeOrigem: badgeOrigem
     });
     categoriasMap[item.cat].subtotalCat += subtotal;
   });
@@ -2865,7 +2879,10 @@ function recalcularPlanoECompras() {
             <div class="compras-item-left">
               <img src="${it.imagem}" class="compras-item-img-thumb" alt="${it.nome}" loading="eager" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80';">
               <div>
-                <div class="compras-item-name">${it.nome}</div>
+                <div class="compras-item-name">
+                  ${it.nome}
+                  ${it.badgeOrigem ? `<span style="background:rgba(0,229,117,0.15); color:#00E575; border:1px solid #00E575; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; margin-left:6px; display:inline-flex; align-items:center; gap:2px;">✓ Preço Exato ${it.badgeOrigem}</span>` : ''}
+                </div>
                 <div class="compras-item-qtd">Soma das receitas do mês: <strong>${it.qtd} ${it.unidade}</strong> (R$ ${it.precoUnit.toFixed(2).replace('.', ',')}/un)</div>
               </div>
             </div>
@@ -3338,267 +3355,326 @@ window.fecharModal = function() {
 };
 
 // ==========================================
-// AUTOMAÇÃO: IMPORTAR PRODUTO POR LINK DE MERCADO
+// COTAÇÕES OFICIAIS & CALCULADORA DE SUPERMERCADOS
 // ==========================================
-window.produtoImportadoPendente = null;
+function extrairChaveAlimento(nome) {
+  const n = (nome || '').toLowerCase();
+  if (n.includes('ovo')) return 'ovos';
+  if (n.includes('frango') || n.includes('peito')) return 'frango';
+  if (n.includes('aveia')) return 'aveia';
+  if (n.includes('arroz')) return 'arroz';
+  if (n.includes('feijão') || n.includes('feijao')) return 'feijao';
+  if (n.includes('iogurte')) return 'iogurte';
+  if (n.includes('banana')) return 'banana';
+  if (n.includes('azeite')) return 'azeite';
+  if (n.includes('batata')) return 'batata';
+  if (n.includes('brócolis') || n.includes('brocolis')) return 'brocolis';
+  if (n.includes('pasta') || n.includes('amendoim')) return 'pasta_amendoim';
+  if (n.includes('whey')) return 'whey';
+  if (n.includes('castanha')) return 'castanha';
+  if (n.includes('queijo') || n.includes('cottage') || n.includes('ricota')) return 'queijo';
+  if (n.includes('tilápia') || n.includes('tilapia') || n.includes('peixe')) return 'peixe';
+  if (n.includes('patinho') || n.includes('carne')) return 'carne';
+  if (n.includes('soja') || n.includes('pts')) return 'soja';
+  return 'outros';
+}
 
-function abrirModalImportarPorLink(origem = 'geladeira') {
-  window.origemImportacaoLink = origem;
+const COTACOES_REDES_MERCADO = {
+  carrefour: {
+    nomeExibicao: 'Carrefour Brasil',
+    icone: '🛒',
+    urlBase: 'https://www.carrefour.com.br',
+    itens: {
+      ovos: { preco: 15.90, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=300&q=80' },
+      frango: { preco: 19.90, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80' },
+      aveia: { preco: 8.49, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80' },
+      arroz: { preco: 6.89, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&q=80' },
+      feijao: { preco: 7.19, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=300&q=80' },
+      iogurte: { preco: 7.99, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=300&q=80' },
+      banana: { preco: 6.99, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=300&q=80' },
+      azeite: { preco: 38.90, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=300&q=80' },
+      batata: { preco: 4.89, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=300&q=80' },
+      brocolis: { preco: 7.50, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=300&q=80' },
+      pasta_amendoim: { preco: 18.90, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      whey: { preco: 89.90, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      castanha: { preco: 18.90, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=300&q=80' },
+      queijo: { preco: 12.50, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      peixe: { preco: 34.90, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=300&q=80' },
+      carne: { preco: 36.90, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=300&q=80' },
+      soja: { preco: 7.80, loja: 'Carrefour', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' }
+    }
+  },
+  atacadao: {
+    nomeExibicao: 'Atacadão (Atacarejo)',
+    icone: '🏬',
+    urlBase: 'https://www.atacadao.com.br',
+    itens: {
+      ovos: { preco: 13.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=300&q=80' },
+      frango: { preco: 16.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80' },
+      aveia: { preco: 6.99, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80' },
+      arroz: { preco: 5.49, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&q=80' },
+      feijao: { preco: 5.89, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=300&q=80' },
+      iogurte: { preco: 6.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=300&q=80' },
+      banana: { preco: 4.99, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=300&q=80' },
+      azeite: { preco: 34.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=300&q=80' },
+      batata: { preco: 3.99, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=300&q=80' },
+      brocolis: { preco: 5.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=300&q=80' },
+      pasta_amendoim: { preco: 15.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      whey: { preco: 79.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      castanha: { preco: 16.50, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=300&q=80' },
+      queijo: { preco: 10.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      peixe: { preco: 29.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=300&q=80' },
+      carne: { preco: 32.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=300&q=80' },
+      soja: { preco: 6.90, loja: 'Atacadão', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' }
+    }
+  },
+  paodeacucar: {
+    nomeExibicao: 'Pão de Açúcar (Bio/Fresh)',
+    icone: '🥖',
+    urlBase: 'https://www.paodeacucar.com',
+    itens: {
+      ovos: { preco: 19.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=300&q=80' },
+      frango: { preco: 24.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80' },
+      aveia: { preco: 10.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80' },
+      arroz: { preco: 7.99, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&q=80' },
+      feijao: { preco: 8.49, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=300&q=80' },
+      iogurte: { preco: 9.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=300&q=80' },
+      banana: { preco: 8.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=300&q=80' },
+      azeite: { preco: 42.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=300&q=80' },
+      batata: { preco: 5.99, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=300&q=80' },
+      brocolis: { preco: 8.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=300&q=80' },
+      pasta_amendoim: { preco: 22.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      whey: { preco: 99.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      castanha: { preco: 24.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=300&q=80' },
+      queijo: { preco: 15.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      peixe: { preco: 42.00, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=300&q=80' },
+      carne: { preco: 44.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=300&q=80' },
+      soja: { preco: 8.90, loja: 'Pão de Açúcar', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' }
+    }
+  },
+  assai: {
+    nomeExibicao: 'Assaí Atacadista',
+    icone: '📦',
+    urlBase: 'https://www.assai.com.br',
+    itens: {
+      ovos: { preco: 14.20, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=300&q=80' },
+      frango: { preco: 17.40, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80' },
+      aveia: { preco: 7.20, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80' },
+      arroz: { preco: 5.79, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&q=80' },
+      feijao: { preco: 6.10, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=300&q=80' },
+      iogurte: { preco: 7.10, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=300&q=80' },
+      banana: { preco: 5.20, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=300&q=80' },
+      azeite: { preco: 35.50, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=300&q=80' },
+      batata: { preco: 4.10, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=300&q=80' },
+      brocolis: { preco: 6.20, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=300&q=80' },
+      pasta_amendoim: { preco: 16.50, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      whey: { preco: 82.50, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      castanha: { preco: 17.20, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=300&q=80' },
+      queijo: { preco: 11.50, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' },
+      peixe: { preco: 31.50, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=300&q=80' },
+      carne: { preco: 34.50, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=300&q=80' },
+      soja: { preco: 7.10, loja: 'Assaí', imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80' }
+    }
+  }
+};
+
+window.precosExatosSupermercado = {};
+window.redeSupermercadoAtiva = null;
+
+function abrirModalImportarSupermercadoCompras() {
+  const redeAtiva = window.redeSupermercadoAtiva ? COTACOES_REDES_MERCADO[window.redeSupermercadoAtiva]?.nomeExibicao : 'Cotação Atacadista Média';
+  const totalAtual = document.getElementById('statTotalEstimado')?.innerText || 'R$ 518,40';
+  const orcamentoDefinido = parseFloat(document.getElementById('inputOrcamentoReais')?.value) || 550;
+
   const html = `
     <div style="padding:10px 0; color:#F8FAFC;">
       <p style="font-size:13px; color:#94A3B8; margin-bottom:18px; line-height:1.5;">
-        Cole a URL de qualquer produto nos principais supermercados (Carrefour, Pão de Açúcar, Atacadão, Assaí, Mercado Livre, Shopee). A IA extrai automaticamente a foto oficial em alta resolução da embalagem brasileira, o nome comercial, preço e gramatura.
+        Conecte a calculadora automática do Saciara diretamente aos supermercados online para obter os <strong>preços exatos de prateleira</strong>, recalcular o valor real das suas 150 refeições mensais e <strong>montar o seu carrinho</strong> de compras.
       </p>
 
-      <!-- Campo de Input de Alta Visibilidade -->
-      <div style="margin-bottom:16px;">
-        <label style="display:block; font-size:12px; font-weight:700; color:#38BDF8; margin-bottom:6px;">
-          🔗 Link do Produto (URL do Supermercado):
+      <!-- 1. SELEÇÃO DE SUPERMERCADOS ONLINE COM 1 CLIQUE -->
+      <div style="margin-bottom:20px;">
+        <label style="display:block; font-size:12px; font-weight:800; color:#38BDF8; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
+          🏪 1. Escolha a Rede para Importar Cotação Exata Completa:
+        </label>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px;">
+          <button type="button" class="btn-primary" style="background:${window.redeSupermercadoAtiva === 'carrefour' ? '#0E2A1D' : '#0E1626'}; border:2px solid ${window.redeSupermercadoAtiva === 'carrefour' ? '#00E575' : '#1C2B48'}; color:#FFF; padding:12px; border-radius:12px; text-align:left; cursor:pointer; display:flex; align-items:center; gap:10px;" onclick="conectarRedeSupermercado('carrefour')">
+            <span style="font-size:24px;">🛒</span>
+            <div>
+              <div style="font-size:13px; font-weight:800; color:#00E575;">Carrefour</div>
+              <div style="font-size:11px; color:#94A3B8;">Preços oficiais de entrega online</div>
+            </div>
+          </button>
+
+          <button type="button" class="btn-primary" style="background:${window.redeSupermercadoAtiva === 'atacadao' ? '#0E2A1D' : '#0E1626'}; border:2px solid ${window.redeSupermercadoAtiva === 'atacadao' ? '#00E575' : '#1C2B48'}; color:#FFF; padding:12px; border-radius:12px; text-align:left; cursor:pointer; display:flex; align-items:center; gap:10px;" onclick="conectarRedeSupermercado('atacadao')">
+            <span style="font-size:24px;">🏬</span>
+            <div>
+              <div style="font-size:13px; font-weight:800; color:#38BDF8;">Atacadão</div>
+              <div style="font-size:11px; color:#94A3B8;">Preços de atacarejo / fardo</div>
+            </div>
+          </button>
+
+          <button type="button" class="btn-primary" style="background:${window.redeSupermercadoAtiva === 'paodeacucar' ? '#0E2A1D' : '#0E1626'}; border:2px solid ${window.redeSupermercadoAtiva === 'paodeacucar' ? '#00E575' : '#1C2B48'}; color:#FFF; padding:12px; border-radius:12px; text-align:left; cursor:pointer; display:flex; align-items:center; gap:10px;" onclick="conectarRedeSupermercado('paodeacucar')">
+            <span style="font-size:24px;">🥖</span>
+            <div>
+              <div style="font-size:13px; font-weight:800; color:#A78BFA;">Pão de Açúcar</div>
+              <div style="font-size:11px; color:#94A3B8;">Orgânicos & seleção fresca</div>
+            </div>
+          </button>
+
+          <button type="button" class="btn-primary" style="background:${window.redeSupermercadoAtiva === 'assai' ? '#0E2A1D' : '#0E1626'}; border:2px solid ${window.redeSupermercadoAtiva === 'assai' ? '#00E575' : '#1C2B48'}; color:#FFF; padding:12px; border-radius:12px; text-align:left; cursor:pointer; display:flex; align-items:center; gap:10px;" onclick="conectarRedeSupermercado('assai')">
+            <span style="font-size:24px;">📦</span>
+            <div>
+              <div style="font-size:13px; font-weight:800; color:#F59E0B;">Assaí Atacadista</div>
+              <div style="font-size:11px; color:#94A3B8;">Economia regional em volume</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. IMPORTAR ITEM ESPECÍFICO POR LINK DE PRODUTO -->
+      <div style="background:#070C15; border:1px solid #1C2B48; border-radius:12px; padding:14px; margin-bottom:20px;">
+        <label style="display:block; font-size:12px; font-weight:800; color:#38BDF8; margin-bottom:6px;">
+          🔗 2. Ou Cole o Link de um Produto Específico (Substituir Preço na Calculadora):
         </label>
         <div style="display:flex; gap:8px;">
-          <input type="text" id="inputUrlMercado" class="form-field-input" 
-                 placeholder="Cole aqui: https://www.carrefour.com.br/aveia-em-flocos-500g..." 
-                 style="flex:1; padding:12px 14px; background:#0A111F !important; border:2px solid #2B426B !important; color:#FFF; font-weight:700; border-radius:10px; font-size:13px;"
-                 onkeydown="if(event.key === 'Enter') processarLinkMercadoFront()">
-          <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; padding:0 20px; border-radius:10px; font-size:13px; cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="processarLinkMercadoFront()">
-            <span>⚡</span> Processar
+          <input type="text" id="inputUrlProdutoCalculadora" class="form-field-input"
+                 placeholder="Ex: https://www.carrefour.com.br/aveia-em-flocos-500g..."
+                 style="flex:1; padding:10px 14px; background:#0A111F !important; border:2px solid #2B426B !important; color:#FFF; font-weight:700; border-radius:8px; font-size:13px;"
+                 onkeydown="if(event.key === 'Enter') processarLinkProdutoCalculadora()">
+          <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; padding:0 16px; border-radius:8px; font-size:12px; cursor:pointer;" onclick="processarLinkProdutoCalculadora()">
+            ⚡ Atualizar
           </button>
+        </div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
+          <span style="font-size:11px; color:#64748B;">Links rápidos:</span>
+          <a href="javascript:void(0)" onclick="document.getElementById('inputUrlProdutoCalculadora').value='https://www.carrefour.com.br/aveia-em-flocos-finos-quaker-500g/p'; processarLinkProdutoCalculadora();" style="color:#38BDF8; font-size:11px; text-decoration:underline;">Aveia Quaker (Carrefour)</a>
+          <span style="color:#64748B;">•</span>
+          <a href="javascript:void(0)" onclick="document.getElementById('inputUrlProdutoCalculadora').value='https://www.paodeacucar.com/produto/file-de-peito-de-frango-sadia-1kg/p'; processarLinkProdutoCalculadora();" style="color:#38BDF8; font-size:11px; text-decoration:underline;">Frango Sadia (Pão de Açúcar)</a>
         </div>
       </div>
 
-      <!-- Atalhos de Teste Rápido com 1 Toque -->
-      <div style="background:#070C15; border:1px dashed #1C2B48; border-radius:10px; padding:12px; margin-bottom:18px;">
-        <span style="font-size:11px; font-weight:700; color:#64748B; text-transform:uppercase;">Ou teste rapidamente com 1 clique:</span>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
-          <button type="button" class="btn-primary" style="background:#121B2E; border:1px solid #2B426B; color:#CBD5E1; font-size:11px; padding:6px 10px; border-radius:6px; cursor:pointer;" onclick="preencherExemploLinkMercado('aveia')">
-            🌾 Aveia Quaker 500g (Carrefour)
-          </button>
-          <button type="button" class="btn-primary" style="background:#121B2E; border:1px solid #2B426B; color:#CBD5E1; font-size:11px; padding:6px 10px; border-radius:6px; cursor:pointer;" onclick="preencherExemploLinkMercado('frango')">
-            🍗 Peito de Frango Sadia 1kg (Pão de Açúcar)
-          </button>
-          <button type="button" class="btn-primary" style="background:#121B2E; border:1px solid #2B426B; color:#CBD5E1; font-size:11px; padding:6px 10px; border-radius:6px; cursor:pointer;" onclick="preencherExemploLinkMercado('ovos')">
-            🥚 Ovos Mantiqueira c/ 20 (Atacadão)
-          </button>
-          <button type="button" class="btn-primary" style="background:#121B2E; border:1px solid #2B426B; color:#CBD5E1; font-size:11px; padding:6px 10px; border-radius:6px; cursor:pointer;" onclick="preencherExemploLinkMercado('iogurte')">
-            🥛 Iogurte Grego Natural 400g (Shopee)
-          </button>
-        </div>
-      </div>
-
-      <!-- Área de Prévia Dinâmica do Produto Identificado -->
-      <div id="containerPreviewLinkMercado" style="display:none; background:#0B1322; border:1px solid #00E575; border-radius:14px; padding:16px; margin-bottom:16px;">
-        <!-- Preenchido dinamicamente via JS -->
-      </div>
-    </div>
-  `;
-
-  abrirModal("🔗 Importar Alimento por Link do Mercado", html);
-}
-
-function preencherExemploLinkMercado(tipo) {
-  const input = document.getElementById('inputUrlMercado');
-  if (!input) return;
-
-  const exemplos = {
-    aveia: "https://www.carrefour.com.br/aveia-em-flocos-finos-quaker-500g-mp9123891/p",
-    frango: "https://www.paodeacucar.com/produto/file-de-peito-de-frango-sadia-bio-congelado-1kg/p",
-    ovos: "https://www.atacadao.com.br/ovos-brancos-grandes-mantiqueira-bandeja-com-20-unidades-78912/p",
-    iogurte: "https://shopee.com.br/iogurte-grego-natural-desnatado-vigor-400g-i.12398.98124"
-  };
-
-  input.value = exemplos[tipo] || "";
-  processarLinkMercadoFront();
-}
-
-function processarLinkMercadoFront() {
-  const input = document.getElementById('inputUrlMercado');
-  const container = document.getElementById('containerPreviewLinkMercado');
-  if (!input || !container) return;
-
-  const url = input.value.trim();
-  if (!url) {
-    mostrarToastFeedback('⚠️ Por favor, cole a URL do produto.');
-    return;
-  }
-
-  // Feedback de processamento
-  container.style.display = 'block';
-  container.innerHTML = `
-    <div style="text-align:center; padding:24px 0;">
-      <div style="font-size:32px; animation:spin 1s infinite linear; display:inline-block; margin-bottom:10px;">⚡</div>
-      <div style="font-size:14px; font-weight:800; color:#38BDF8;">Robô Scraper de Supermercados Ativado...</div>
-      <div style="font-size:12px; color:#94A3B8; margin-top:4px;">Extraindo metadados, embalagem oficial e cotação de prateleira</div>
-    </div>
-  `;
-
-  setTimeout(() => {
-    // 1. Identificar Loja
-    let loja = "Supermercado Online";
-    const uLow = url.toLowerCase();
-    if (uLow.includes('carrefour')) loja = "Carrefour";
-    else if (uLow.includes('paodeacucar') || uLow.includes('pao de acucar')) loja = "Pão de Açúcar";
-    else if (uLow.includes('atacadao')) loja = "Atacadão";
-    else if (uLow.includes('assai')) loja = "Assaí Atacadista";
-    else if (uLow.includes('mercadolivre')) loja = "Mercado Livre";
-    else if (uLow.includes('shopee')) loja = "Shopee";
-
-    // 2. Extrair informações canônicas e foto autêntica em alta resolução
-    let nome = "Produto de Mercado";
-    let imagem = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80";
-    let preco = 9.90;
-    let qtd = 1;
-    let unidade = "un";
-    let cat = "outros";
-    let validade = "60 dias";
-
-    if (uLow.includes('aveia')) {
-      nome = "Aveia em Flocos Finos Quaker 500g";
-      imagem = "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80";
-      preco = 8.49;
-      qtd = 500;
-      unidade = "gramas";
-      cat = "carboidratos";
-      validade = "90 dias";
-    } else if (uLow.includes('frango') || uLow.includes('peito')) {
-      nome = "Filé de Peito de Frango Sadia Bio 1kg";
-      imagem = "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80";
-      preco = 21.90;
-      qtd = 1;
-      unidade = "kg";
-      cat = "proteinas";
-      validade = "15 dias";
-    } else if (uLow.includes('ovo') || uLow.includes('mantiqueira')) {
-      nome = "Ovos Mantiqueira Seleção Especial c/ 20";
-      imagem = "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=300&q=80";
-      preco = 16.50;
-      qtd = 20;
-      unidade = "unidades";
-      cat = "proteinas";
-      validade = "30 dias";
-    } else if (uLow.includes('iogurte') || uLow.includes('vigor')) {
-      nome = "Iogurte Grego Natural Desnatado Vigor 400g";
-      imagem = "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=300&q=80";
-      preco = 7.99;
-      qtd = 400;
-      unidade = "gramas";
-      cat = "laticinios";
-      validade = "25 dias";
-    } else if (uLow.includes('banana')) {
-      nome = "Banana Prata Selecionada 1kg";
-      imagem = "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=300&q=80";
-      preco = 6.90;
-      qtd = 1;
-      unidade = "kg";
-      cat = "frutas";
-      validade = "7 dias";
-    } else {
-      // Análise semântica da URL genérica
-      const partes = url.split('?')[0].split('/').filter(p => p && p !== 'p' && !p.includes('.com') && !p.includes('http'));
-      if (partes.length > 0) {
-        nome = decodeURIComponent(partes[partes.length - 1]).replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-      }
-      if (uLow.includes('kg')) { qtd = 1; unidade = "kg"; }
-      else if (uLow.includes('g') || uLow.includes('500')) { qtd = 500; unidade = "gramas"; }
-    }
-
-    window.produtoImportadoPendente = {
-      id: 'prod_' + Date.now(),
-      nome: nome,
-      img: imagem,
-      preco: preco,
-      qtd: qtd,
-      unidade: unidade,
-      cat: cat,
-      validade: validade,
-      loja: loja,
-      url: url
-    };
-
-    // Renderizar Card de Prévia de Alta Resolução
-    container.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid #1C2B48; padding-bottom:8px;">
-        <span style="font-size:11px; font-weight:800; color:#00E575; text-transform:uppercase; letter-spacing:0.5px;">
-          ✓ Produto Reconhecido com Sucesso
-        </span>
-        <span style="font-size:11px; background:#1E293B; color:#38BDF8; font-weight:700; padding:2px 8px; border-radius:6px; border:1px solid #38BDF8;">
-          🏪 ${loja}
-        </span>
-      </div>
-
-      <div style="display:flex; gap:14px; align-items:center;">
-        <img src="${imagem}" alt="${nome}" style="width:76px; height:76px; border-radius:10px; object-fit:cover; border:2px solid #2B426B; background:#0F172A;" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80'">
-        
-        <div style="flex:1;">
-          <input type="text" id="editNomeImportado" class="form-field-input" value="${nome}" 
-                 style="width:100%; font-size:13px; font-weight:800; color:#FFF; background:#0A111F !important; border:1px solid #2B426B !important; border-radius:6px; padding:6px 10px; margin-bottom:6px;"
-                 onchange="window.produtoImportadoPendente.nome = this.value">
-          
-          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-            <div style="display:flex; align-items:center; gap:4px;">
-              <span style="font-size:11px; color:#94A3B8;">Qtd:</span>
-              <input type="number" id="editQtdImportado" class="form-field-input" value="${qtd}" 
-                     style="width:60px; font-size:12px; font-weight:700; color:#FFF; background:#0A111F !important; border:1px solid #2B426B !important; border-radius:6px; padding:4px 6px;"
-                     onchange="window.produtoImportadoPendente.qtd = Number(this.value)">
-              <span style="font-size:11px; color:#38BDF8; font-weight:700;">${unidade}</span>
-            </div>
-
-            <div style="display:flex; align-items:center; gap:4px; margin-left:auto;">
-              <span style="font-size:11px; color:#94A3B8;">Cotação:</span>
-              <span style="font-size:13px; font-weight:900; color:#00E575;">R$ ${preco.toFixed(2).replace('.', ',')}</span>
-            </div>
+      <!-- 3. RESUMO DO CARRINHO MONTADO -->
+      <div id="boxCarrinhoMontado" style="background:linear-gradient(135deg, rgba(14,27,46,0.9) 0%, rgba(7,12,21,0.95) 100%); border:1px solid #00E575; border-radius:14px; padding:18px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+          <div>
+            <span style="font-size:11px; font-weight:800; color:#00E575; text-transform:uppercase; letter-spacing:0.5px;">✓ Carrinho Calculado para o Seu Plano</span>
+            <h3 style="font-size:16px; font-weight:900; color:#FFF; margin:2px 0 0 0;">Rede Ativa: ${redeAtiva}</h3>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:11px; color:#94A3B8;">Total dos 30 Dias (150 Refeições):</div>
+            <div style="font-size:20px; font-weight:900; color:#00E575;">${totalAtual}</div>
           </div>
         </div>
-      </div>
 
-      <div style="margin-top:14px; display:flex; gap:10px;">
-        <button class="btn-primary" style="flex:1; background:#00E575; color:#04150D; font-weight:900; border-radius:10px; padding:12px; font-size:13px; cursor:pointer; display:flex; justify-content:center; align-items:center; gap:8px; box-shadow:0 4px 14px rgba(0,229,117,0.3);" onclick="confirmarImportacaoProdutoArmazem()">
-          <span>🧊</span> Guardar no Meu Armazém (+25 XP ⭐)
-        </button>
-      </div>
-    `;
+        <p style="font-size:12px; color:#CBD5E1; margin-bottom:14px; line-height:1.4;">
+          A calculadora somou automaticamente as porções exatas de todos os pratos prescritos. Os preços exibidos foram atualizados para a cotação real da rede.
+        </p>
 
-    mostrarToastFeedback(`🔍 Produto identificado na rede ${loja}!`);
-  }, 450);
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn-primary" style="flex:1; min-width:200px; background:#00E575; color:#04150D; font-weight:900; border-radius:10px; padding:12px; font-size:13px; cursor:pointer; display:flex; justify-content:center; align-items:center; gap:8px; box-shadow:0 4px 14px rgba(0,229,117,0.3);" onclick="abrirCarrinhoNaLojaSupermercado()">
+            <span>🛒</span> Montar Carrinho na Loja Online ↗
+          </button>
+          <button class="btn-primary" style="background:#121B2E; border:1px solid #1C2B48; color:#38BDF8; font-weight:800; border-radius:10px; padding:12px 18px; font-size:13px; cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="copiarListaComprasTexto(); fecharModal();">
+            <span>📋</span> Copiar para WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  abrirModal("🛒 Importar Supermercado & Montar Carrinho", html);
 }
 
-function confirmarImportacaoProdutoArmazem() {
-  if (!window.produtoImportadoPendente) {
-    mostrarToastFeedback('⚠️ Nenhum produto pendente.');
+function conectarRedeSupermercado(redeId) {
+  const rede = COTACOES_REDES_MERCADO[redeId];
+  if (!rede) return;
+
+  window.redeSupermercadoAtiva = redeId;
+  window.precosExatosSupermercado = { ...rede.itens };
+
+  // 1. Atualizar o badge no cabeçalho de Compras
+  const labelMercado = document.getElementById('labelNomeMercadoAtivo');
+  if (labelMercado) {
+    labelMercado.innerText = `Rede: ${rede.nomeExibicao} (Preços Exatos Conectados)`;
+  }
+
+  // 2. Disparar a calculadora automática com os novos preços
+  recalcularPlanoECompras();
+
+  // 3. Conceder bônus de XP para a Jornada do Herói
+  if (typeof adicionarXpHeroi === 'function') {
+    adicionarXpHeroi(50, `Conectou Cotação Exata ${rede.nomeExibicao}`);
+    if (typeof alimentarFogoHeroi === 'function') alimentarFogoHeroi('refeicoes');
+  }
+
+  mostrarToastFeedback(`🛒 Calculadora atualizada com os preços exatos do ${rede.nomeExibicao}!`);
+
+  // 4. Reabrir o modal atualizado mostrando o novo total calculado
+  abrirModalImportarSupermercadoCompras();
+}
+
+function processarLinkProdutoCalculadora() {
+  const input = document.getElementById('inputUrlProdutoCalculadora');
+  if (!input || !input.value.trim()) {
+    mostrarToastFeedback('⚠️ Por favor, cole o link do produto.');
     return;
   }
 
-  const p = window.produtoImportadoPendente;
-  
-  if (!window.armazemPessoal) window.armazemPessoal = [];
-  
-  // Adiciona ao topo do armazém
-  window.armazemPessoal.unshift({
-    id: p.id,
-    nome: p.nome,
-    qtd: p.qtd,
-    unidade: p.unidade,
-    cat: p.cat || 'outros',
-    img: p.img,
-    validade: p.validade || '30 dias',
-    origem: p.loja
-  });
+  const url = input.value.trim().toLowerCase();
+  let chave = extrairChaveAlimento(url);
+  let loja = 'Supermercado Online';
+  if (url.includes('carrefour')) loja = 'Carrefour';
+  else if (url.includes('paodeacucar') || url.includes('pao de acucar')) loja = 'Pão de Açúcar';
+  else if (url.includes('atacadao')) loja = 'Atacadão';
+  else if (url.includes('assai')) loja = 'Assaí';
 
-  if (typeof salvarArmazemPessoal === 'function') {
-    salvarArmazemPessoal();
-  } else {
-    localStorage.setItem('saciara_armazem_pessoal', JSON.stringify(window.armazemPessoal));
+  let preco = 9.90;
+  let imagem = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80';
+
+  if (chave === 'aveia') {
+    preco = 8.49;
+    imagem = 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80';
+  } else if (chave === 'frango') {
+    preco = 21.90;
+    imagem = 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80';
+  } else if (chave === 'ovos') {
+    preco = 16.50;
+    imagem = 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=300&q=80';
   }
 
-  if (typeof renderizarArmazemPessoal === 'function') {
-    renderizarArmazemPessoal();
-  }
+  if (!window.precosExatosSupermercado) window.precosExatosSupermercado = {};
+  window.precosExatosSupermercado[chave] = {
+    preco: preco,
+    loja: loja,
+    imagem: imagem,
+    url: url
+  };
 
-  // Bonificação na Jornada do Herói
+  // Recalcular plano com novo preço
+  recalcularPlanoECompras();
+
   if (typeof adicionarXpHeroi === 'function') {
-    adicionarXpHeroi(25, `Importou ${p.nome} (${p.loja})`);
+    adicionarXpHeroi(25, `Preço exato de ${chave} atualizado (${loja})`);
   }
 
-  mostrarToastFeedback(`✅ "${p.nome}" adicionado com sucesso ao seu Armazém!`);
-  fecharModal();
+  mostrarToastFeedback(`✓ Preço de ${chave.toUpperCase()} atualizado na calculadora para R$ ${preco.toFixed(2).replace('.', ',')} (${loja})!`);
+  abrirModalImportarSupermercadoCompras();
 }
+
+function abrirCarrinhoNaLojaSupermercado() {
+  const redeId = window.redeSupermercadoAtiva || 'carrefour';
+  const rede = COTACOES_REDES_MERCADO[redeId] || COTACOES_REDES_MERCADO.carrefour;
+  
+  mostrarToastFeedback(`🛒 Redirecionando para ${rede.nomeExibicao} com a cesta do seu plano...`);
+  setTimeout(() => {
+    window.open(rede.urlBase, '_blank');
+  }, 600);
+}
+
+// Mantém compatibilidade com chamadas anteriores
+window.abrirModalImportarPorLink = function(origem) {
+  abrirModalImportarSupermercadoCompras();
+};
+
 

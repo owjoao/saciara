@@ -10,7 +10,7 @@
     "peso_precisao_matematica": 0.4,
     "peso_experiencia_mobile": 0.35,
     "peso_conversao_afiliados": 0.25,
-    "ciclos_executados": 10
+    "ciclos_executados": 11
   },
   "regras_de_ouro_individuais": [
     "Determinismo Fisiológico: Fórmulas de TMB (Mifflin-St Jeor, Katch-McArdle) e balanço de Kevin Hall rodam de forma determinística em JS e Python.",
@@ -140,6 +140,19 @@
     {
       "ciclo": 10,
       "data": "2026-11-07T09:06:12.009700",
+      "score_atingido": 100,
+      "aprovado": true,
+      "metricas_auditadas": {
+        "erros_bloqueantes": 0,
+        "alertas": 0,
+        "score_seo": 100,
+        "mobile_ui_aprovado": true
+      },
+      "acoes_recomendadas": []
+    },
+    {
+      "ciclo": 11,
+      "data": "2026-11-07T09:19:35.469266",
       "score_atingido": 100,
       "aprovado": true,
       "metricas_auditadas": {
