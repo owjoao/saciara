@@ -4932,3 +4932,322 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==========================================================================
+   RPG DA VIDA REAL & FOGO DO DUOLINGO (ESTILOS & ANIMAÇÕES)
+   ========================================================================== */
+
+/* 1. Top Bar Global do Herói */
+.heroi-top-banner {
+  background: #0B111E;
+  border-bottom: 1px solid #1E293B;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.heroi-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+}
+
+/* 2. Widget do Fogo Vivo (Duolingo Style) */
+.fogo-duolingo-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #121B2E;
+  border: 1px solid #1E293B;
+  padding: 6px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(255, 69, 0, 0.15);
+}
+
+.fogo-duolingo-box:hover {
+  transform: translateY(-2px);
+  border-color: #FF8C00;
+  box-shadow: 0 6px 18px rgba(255, 140, 0, 0.3);
+}
+
+.fogo-flame-icon {
+  font-size: 24px;
+  animation: flameWiggle 1.4s infinite ease-in-out alternate;
+  filter: drop-shadow(0 0 8px rgba(255, 69, 0, 0.8));
+}
+
+@keyframes flameWiggle {
+  0% { transform: scale(0.95) rotate(-3deg); filter: drop-shadow(0 0 6px #FF4500); }
+  50% { transform: scale(1.1) rotate(4deg); filter: drop-shadow(0 0 12px #FF8C00); }
+  100% { transform: scale(1.02) rotate(-2deg); filter: drop-shadow(0 0 9px #FFD700); }
+}
+
+.fogo-duolingo-box.fogo-chama-azul {
+  border-color: #38BDF8;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, #121B2E 100%);
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
+}
+
+.fogo-duolingo-box.fogo-chama-azul .fogo-flame-icon {
+  filter: drop-shadow(0 0 10px #38BDF8);
+}
+
+.fogo-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.fogo-dias-val {
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFF;
+  line-height: 1;
+}
+
+.fogo-label-sub {
+  font-size: 10px;
+  font-weight: 700;
+  color: #FF8C00;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fogo-lenhas-indicators {
+  display: flex;
+  gap: 4px;
+  margin-left: 4px;
+  background: #0B111E;
+  padding: 3px 6px;
+  border-radius: 8px;
+  border: 1px solid #1E293B;
+}
+
+.lenha-dot {
+  font-size: 12px;
+  filter: grayscale(1) opacity(0.4);
+  transition: all 0.2s ease;
+}
+
+.lenha-dot.ativa {
+  filter: grayscale(0) opacity(1);
+  transform: scale(1.1);
+}
+
+/* 3. Nível do Herói & Barra de XP */
+.heroi-level-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 380px;
+}
+
+.heroi-nivel-pill {
+  font-size: 10px;
+  font-weight: 800;
+  color: #04150D;
+  background: #00E575;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.heroi-titulo-nome {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFF;
+}
+
+.heroi-xp-val {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94A3B8;
+}
+
+.heroi-xp-track {
+  width: 100%;
+  height: 7px;
+  background: #1E293B;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.heroi-xp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00E575 0%, #38BDF8 100%);
+  border-radius: 8px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 10px rgba(0, 229, 117, 0.5);
+}
+
+/* 4. Gemas Box */
+.heroi-gemas-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #121B2E;
+  border: 1px solid #1E293B;
+  padding: 6px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.heroi-gemas-box:hover {
+  border-color: #38BDF8;
+}
+
+/* 5. Efeito Flutuante de Número de XP (+XP) */
+.xp-float-indicator {
+  position: fixed;
+  font-size: 16px;
+  font-weight: 900;
+  color: #FFD700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 215, 0, 0.7);
+  pointer-events: none;
+  z-index: 9999;
+  animation: xpFloatUpFade 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes xpFloatUpFade {
+  0% { opacity: 0; transform: translateY(0) scale(0.7); }
+  20% { opacity: 1; transform: translateY(-15px) scale(1.15); }
+  80% { opacity: 1; transform: translateY(-40px) scale(1); }
+  100% { opacity: 0; transform: translateY(-65px) scale(0.9); }
+}
+
+/* 6. Portais da Jornada de Campbell */
+.portais-jornada-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.portal-jornada-card {
+  background: #121B2E;
+  border: 1px solid #1E293B;
+  border-radius: 18px;
+  padding: 18px 20px;
+  transition: transform 0.2s, border-color 0.2s;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.portal-jornada-card:hover {
+  transform: translateY(-2px);
+  border-color: #2D4268;
+}
+
+.portal-jornada-card.portal-completado {
+  border-color: #00E575;
+  background: linear-gradient(135deg, rgba(0, 229, 117, 0.08) 0%, #121B2E 100%);
+}
+
+.portal-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.portal-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #0F172A;
+  border: 1px solid #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.portal-title {
+  color: #FFF;
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.portal-desc {
+  color: #94A3B8;
+  font-size: 12px;
+  margin: 2px 0 0 0;
+}
+
+.portal-reward-badge {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  background: #0B111E;
+  border: 1px solid #1E293B;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.portal-progress-bar-wrap {
+  width: 100%;
+  height: 8px;
+  background: #0B111E;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.portal-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00E575, #38BDF8);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.portal-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portal-status-btn {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.portal-status-btn.completado {
+  background: rgba(0, 229, 117, 0.15);
+  color: #00E575;
+  border: 1px solid rgba(0, 229, 117, 0.3);
+}
+
+.portal-status-btn.ativo {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Responsividade Mobile para Top Bar */
+@media (max-width: 768px) {
+  .heroi-top-banner {
+    padding: 8px 14px;
+    flex-wrap: wrap;
+  }
+  .heroi-level-container {
+    max-width: 100%;
+    order: 3;
+    width: 100%;
+    margin-top: 6px;
+  }
+}

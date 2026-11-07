@@ -1,3 +1,288 @@
+
+// ==========================================================================
+// MOTOR CENTRAL DO RPG DA VIDA REAL & FOGO DO DUOLINGO (JORNADA DO HERÓI)
+// Cada refeição, cada água bebida e cada exercício gera XP imediato,
+// alimenta as chamas do Fogo Sagrado e evolui os Níveis de Joseph Campbell.
+// ==========================================================================
+
+const HEROI_NIVEIS = [
+  { nivel: 1, titulo: "O Recruta Desperto", xpMin: 0, xpMax: 250, cor: "#94A3B8", icone: "🌱" },
+  { nivel: 2, titulo: "O Guardião da Saciedade", xpMin: 250, xpMax: 600, cor: "#00E575", icone: "🛡️" },
+  { nivel: 3, titulo: "O Caçador de Hábitos", xpMin: 600, xpMax: 1200, cor: "#38BDF8", icone: "🏹" },
+  { nivel: 4, titulo: "O Alquimista da Forja", xpMin: 1200, xpMax: 2500, cor: "#A855F7", icone: "⚗️" },
+  { nivel: 5, titulo: "O Titã Metabólico Kevin Hall", xpMin: 2500, xpMax: 5000, cor: "#F59E0B", icone: "⚡" },
+  { nivel: 6, titulo: "A Lenda Imortal Saciara", xpMin: 5000, xpMax: 99999, cor: "#FF4500", icone: "👑" }
+];
+
+window.heroiState = {
+  xpTotal: 340,
+  diasStreak: 7,
+  fogoNivel: 2, // 1: Brasa, 2: Fogo Vivo, 3: Hiper-Chama Azul
+  lenhasHoje: {
+    agua: false,
+    refeicoes: false,
+    treino: false
+  },
+  gemas: 380,
+  portais: [
+    { id: 1, titulo: "Portal 1: A Batalha da Hidratação (7 Dias de Água)", desc: "Beber ao menos 2L de água por 7 dias seguidos", progresso: 5, meta: 7, concluiu: false, xpRecompensa: 150, gemasRecompensa: 50, icone: "💧" },
+    { id: 2, titulo: "Portal 2: O Domínio das Proteínas & Saciedade", desc: "Atingir 1,8g/kg de proteína diária por 5 dias", progresso: 3, meta: 5, concluiu: false, xpRecompensa: 250, gemasRecompensa: 80, icone: "🥩" },
+    { id: 3, titulo: "Portal 3: A Forja do Movimento (10 Treinos)", desc: "Completar 10 sessões de exercícios físicos ou caminhadas", progresso: 6, meta: 10, concluiu: false, xpRecompensa: 350, gemasRecompensa: 100, icone: "⚔️" },
+    { id: 4, titulo: "Portal 4: O Abismo da Tentação Noturna", desc: "Superar os ataques de ansiedade noturna com ceia planejada por 5 dias", progresso: 2, meta: 5, concluiu: false, xpRecompensa: 400, gemasRecompensa: 120, icone: "🌙" },
+    { id: 5, titulo: "Portal 5: A Grande Transformação (Retorno com o Elixir)", desc: "Atingir o 1º marco de peso com déficit Kevin Hall preservando massa magra", progresso: 1, meta: 1, concluiu: false, xpRecompensa: 1000, gemasRecompensa: 300, icone: "👑" }
+  ]
+};
+
+function carregarHeroiState() {
+  const salvo = localStorage.getItem('saciara_heroi_state');
+  if (salvo) {
+    try {
+      window.heroiState = { ...window.heroiState, ...JSON.parse(salvo) };
+    } catch (e) {}
+  }
+  atualizarBarraHeroiGlobal();
+}
+
+function salvarHeroiState() {
+  localStorage.setItem('saciara_heroi_state', JSON.stringify(window.heroiState));
+  atualizarBarraHeroiGlobal();
+}
+
+function obterDadosNivel(xp) {
+  for (let i = HEROI_NIVEIS.length - 1; i >= 0; i--) {
+    if (xp >= HEROI_NIVEIS[i].xpMin) {
+      return HEROI_NIVEIS[i];
+    }
+  }
+  return HEROI_NIVEIS[0];
+}
+
+// Disparo central de Ganho de XP com Efeito Flutuante e Som
+function adicionarXpHeroi(qtd, motivo, elementoOrigem) {
+  const nivelAnterior = obterDadosNivel(window.heroiState.xpTotal);
+  window.heroiState.xpTotal += qtd;
+  const nivelAtual = obterDadosNivel(window.heroiState.xpTotal);
+
+  // Efeito Visual de Número Flutuante (+XP)
+  criarEfeitoFlutuanteXP(qtd, elementoOrigem);
+
+  // Som Web Audio Sintetizado
+  if (motivo.includes('Água') || motivo.includes('Hidratação')) {
+    tocarSomGotaAgua();
+  } else if (motivo.includes('Treino') || motivo.includes('Forja')) {
+    tocarSomTreinoFanfarra();
+  } else {
+    tocarSomAcordeRefeicao();
+  }
+
+  // Notificação Toast
+  mostrarToastFeedback(`⭐ +${qtd} XP! ${motivo}`);
+
+  // Checa Level Up
+  if (nivelAtual.nivel > nivelAnterior.nivel) {
+    celebrarLevelUpHeroi(nivelAtual);
+  }
+
+  salvarHeroiState();
+}
+
+function criarEfeitoFlutuanteXP(qtd, elementoOrigem) {
+  const floatEl = document.createElement('div');
+  floatEl.className = 'xp-float-indicator';
+  floatEl.innerText = `+${qtd} XP ⭐`;
+
+  if (elementoOrigem && elementoOrigem.getBoundingClientRect) {
+    const rect = elementoOrigem.getBoundingClientRect();
+    floatEl.style.left = `${rect.left + rect.width / 2}px`;
+    floatEl.style.top = `${rect.top - 10}px`;
+  } else {
+    floatEl.style.left = '50%';
+    floatEl.style.top = '40%';
+    floatEl.style.transform = 'translate(-50%, -50%)';
+  }
+
+  document.body.appendChild(floatEl);
+  setTimeout(() => {
+    if (floatEl.parentNode) floatEl.parentNode.removeChild(floatEl);
+  }, 1400);
+}
+
+function alimentarFogoHeroi(tipoLenha) {
+  if (!window.heroiState.lenhasHoje) {
+    window.heroiState.lenhasHoje = { agua: false, refeicoes: false, treino: false };
+  }
+
+  window.heroiState.lenhasHoje[tipoLenha] = true;
+
+  const lenhas = window.heroiState.lenhasHoje;
+  const totalLenhas = (lenhas.agua ? 1 : 0) + (lenhas.refeicoes ? 1 : 0) + (lenhas.treino ? 1 : 0);
+
+  if (totalLenhas === 3) {
+    window.heroiState.fogoNivel = 3; // Hiper-Chama Azul
+    mostrarToastFeedback("🔥 CHAMA AZUL ATIVADA! Todas as 3 lenhas de hoje acesas! Bônus de XP dobrado!");
+    tocarSomVitoria();
+  } else if (totalLenhas >= 1) {
+    window.heroiState.fogoNivel = 2; // Fogo Vivo
+  }
+
+  salvarHeroiState();
+}
+
+function atualizarBarraHeroiGlobal() {
+  const state = window.heroiState;
+  const infoNivel = obterDadosNivel(state.xpTotal);
+
+  const xpNoNivel = state.xpTotal - infoNivel.xpMin;
+  const xpNecessario = infoNivel.xpMax - infoNivel.xpMin;
+  const pctNivel = Math.min(Math.round((xpNoNivel / xpNecessario) * 100), 100);
+
+  // Atualiza widgets na tela
+  const streakEl = document.getElementById('globalStreakDias');
+  const streakBox = document.getElementById('globalStreakBox');
+  const nivelTituloEl = document.getElementById('globalHeroiTitulo');
+  const nivelBadgeEl = document.getElementById('globalHeroiNivelBadge');
+  const xpTextoEl = document.getElementById('globalHeroiXpTexto');
+  const xpBarEl = document.getElementById('globalHeroiXpBar');
+  const gemasEl = document.getElementById('globalHeroiGemas');
+
+  if (streakEl) streakEl.innerText = `${state.diasStreak} dias`;
+  if (streakBox) {
+    streakBox.classList.toggle('fogo-chama-azul', state.fogoNivel === 3);
+  }
+  if (nivelTituloEl) nivelTituloEl.innerText = infoNivel.titulo;
+  if (nivelBadgeEl) {
+    nivelBadgeEl.innerText = `Nv. ${infoNivel.nivel}`;
+    nivelBadgeEl.style.background = infoNivel.cor;
+  }
+  if (xpTextoEl) xpTextoEl.innerText = `${state.xpTotal} / ${infoNivel.xpMax} XP`;
+  if (xpBarEl) xpBarEl.style.width = `${pctNivel}%`;
+  if (gemasEl) gemasEl.innerText = `${state.gemas}`;
+
+  // Atualiza também se a tela de Jornada estiver aberta
+  renderizarPortaisJornada();
+}
+
+function celebrarLevelUpHeroi(nivelInfo) {
+  window.heroiState.gemas += 100;
+  salvarHeroiState();
+  tocarSomVitoria();
+
+  abrirModal(`👑 SUBIDA DE NÍVEL: NÍVEL ${nivelInfo.nivel}!`, `
+    <div style="text-align:center; padding:20px 10px;">
+      <div style="font-size:56px; animation: pulseGlow 1.2s infinite; margin-bottom:12px;">
+        ${nivelInfo.icone}
+      </div>
+      <h2 style="color:#FFF; font-size:22px; font-weight:800; margin:0 0 6px 0;">
+        Você se tornou: <span style="color:${nivelInfo.cor};">${nivelInfo.titulo}</span>!
+      </h2>
+      <p style="color:#CBD5E1; font-size:14px; margin:0 0 16px 0;">
+        Sua disciplina no mundo real rendeu frutos. Seu corpo e metabolismo estão evoluindo com base no protocolo Kevin Hall.
+      </p>
+      <div style="background:#0F172A; border:1px solid #1E293B; border-radius:14px; padding:14px; margin-bottom:16px;">
+        <span style="font-size:12px; color:#94A3B8; font-weight:700;">Recompensa Conquistada:</span>
+        <div style="font-size:20px; font-weight:800; color:#38BDF8; margin-top:4px;">💎 +100 Gemas Saciara</div>
+      </div>
+      <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; border-radius:12px; padding:12px 24px; font-size:14px; cursor:pointer;" onclick="fecharModal()">
+        Continuar Minha Jornada 🚀
+      </button>
+    </div>
+  `);
+}
+
+function renderizarPortaisJornada() {
+  const container = document.getElementById('containerPortaisJornada');
+  if (!container) return;
+
+  container.innerHTML = window.heroiState.portais.map(p => {
+    const pct = Math.min(Math.round((p.progresso / p.meta) * 100), 100);
+    const completou = p.progresso >= p.meta;
+
+    return `
+      <div class="portal-jornada-card ${completou ? 'portal-completado' : ''}">
+        <div class="portal-header-row">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div class="portal-icon-box">${p.icone}</div>
+            <div>
+              <h4 class="portal-title">${p.titulo}</h4>
+              <p class="portal-desc">${p.desc}</p>
+            </div>
+          </div>
+          <div class="portal-reward-badge">
+            <span>⭐ +${p.xpRecompensa} XP</span>
+            <span style="color:#38BDF8;">💎 +${p.gemasRecompensa}</span>
+          </div>
+        </div>
+
+        <div class="portal-progress-bar-wrap">
+          <div class="portal-progress-bar" style="width: ${pct}%;"></div>
+        </div>
+
+        <div class="portal-footer-row">
+          <span style="font-size:12px; color:#94A3B8;">Progresso: <strong style="color:#FFF;">${p.progresso} de ${p.meta} dias/ações</strong> (${pct}%)</span>
+          ${completou 
+            ? '<span class="portal-status-btn completado">✓ Portal Conquistado!</span>' 
+            : '<span class="portal-status-btn ativo">Em Batalha ⚔️</span>'}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Sons Sintetizados Nativos via Web Audio API
+function tocarSomGotaAgua() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(400, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.12);
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.12);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.12);
+  } catch (e) {}
+}
+
+function tocarSomAcordeRefeicao() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    [523.25, 659.25, 783.99].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.15, ctx.currentTime + i * 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.05 + 0.3);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime + i * 0.05);
+      osc.stop(ctx.currentTime + i * 0.05 + 0.3);
+    });
+  } catch (e) {}
+}
+
+function tocarSomTreinoFanfarra() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    [440, 554.37, 659.25, 880].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.12, ctx.currentTime + i * 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.08 + 0.35);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime + i * 0.08);
+      osc.stop(ctx.currentTime + i * 0.08 + 0.35);
+    });
+  } catch (e) {}
+}
+
+
 // ==========================================================================
 // NUTRIPLUS / SACIARA — MOTOR INTERATIVO & CONTROLE DE ELEMENTOS (ESM)
 // ==========================================================================
@@ -37,6 +322,7 @@ const SeriesPeso = {
 // INICIALIZAÇÃO
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', async () => {
+  carregarHeroiState();
   carregarPerfilUsuario();
   inicializarArmazemPessoal();
   gerarReceitasComArmazem();
@@ -1006,7 +1292,13 @@ function adicionarAguaRapida(quantidadeMl) {
 function toggleRefeicaoFeita(btn) {
   btn.classList.toggle('checked');
   if (btn.classList.contains('checked')) {
-    btn.innerHTML = '<span>✓</span> <span>Consumido!</span>';
+    
+    // [RPG RECOMPENSA] Consumiu refeição saudável -> Ganha XP e alimenta Fogo!
+    if (typeof adicionarXpHeroi === 'function') {
+      adicionarXpHeroi(50, "🥩 Refeição Saudável Consumida", btn);
+      alimentarFogoHeroi('refeicoes');
+    }
+btn.innerHTML = '<span>✓</span> <span>Consumido!</span>';
     btn.style.background = '#00D070';
     btn.style.color = '#070B14';
   } else {

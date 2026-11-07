@@ -99,6 +99,50 @@
     </header>
 
     <!-- ======================================================================
+         TOP BAR GLOBAL DO HERÓI: FOGO VIVO DO DUOLINGO & XP EM TEMPO REAL
+         ====================================================================== -->
+    <div class="heroi-top-banner" id="globalHeroiBanner">
+      <div class="heroi-banner-left">
+        <!-- Widget do Fogo do Duolingo -->
+        <div class="fogo-duolingo-box" id="globalStreakBox" title="Chama Sagrada: Complete água, refeição e treino para manter o fogo aceso!">
+          <div class="fogo-flame-icon">🔥</div>
+          <div class="fogo-text-wrap">
+            <span class="fogo-dias-val" id="globalStreakDias">7 dias</span>
+            <span class="fogo-label-sub">Fogo Ativo</span>
+          </div>
+          <div class="fogo-lenhas-indicators" title="3 Lenhas Diárias: Água, Refeição e Treino">
+            <span class="lenha-dot" id="dotLenhaAgua" title="Água">💧</span>
+            <span class="lenha-dot" id="dotLenhaRef" title="Prato">🥩</span>
+            <span class="lenha-dot" id="dotLenhaTreino" title="Treino">⚔️</span>
+          </div>
+        </div>
+
+        <!-- Nível do Herói & Barra de XP Real -->
+        <div class="heroi-level-container">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span class="heroi-nivel-pill" id="globalHeroiNivelBadge">Nv. 2</span>
+              <span class="heroi-titulo-nome" id="globalHeroiTitulo">O Guardião da Saciedade</span>
+            </div>
+            <span class="heroi-xp-val" id="globalHeroiXpTexto">340 / 600 XP</span>
+          </div>
+          <div class="heroi-xp-track">
+            <div class="heroi-xp-fill" id="globalHeroiXpBar" style="width: 25%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroi-banner-right">
+        <!-- Gemas e Loja -->
+        <div class="heroi-gemas-box" onclick="abrirLojaGemas()" title="Gemas do Herói: Troque por congeladores de fogo e receitas secretas">
+          <span style="font-size:16px;">💎</span>
+          <span id="globalHeroiGemas" style="font-size:14px; font-weight:800; color:#38BDF8;">380</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ======================================================================
          SEÇÃO 1: ABA DE INÍCIO OTIMIZADA — ROTINA ESSENCIAL, ÁGUA & PERDA DE PESO
          (Foco 100% em Qualidade de Vida, Sem Gráficos, Praticidade Diária Máxima)
          ====================================================================== -->
