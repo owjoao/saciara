@@ -4508,13 +4508,146 @@ body {
   }
 }
 
+/* ==========================================================================
+   FAIXA DE ORÇAMENTO & DEMOCRATIZAÇÃO NUTRICIONAL (COMPRAS DO MÊS)
+   ========================================================================== */
+.orcamento-adaptativo-box {
+  background: #0E1626;
+  border: 1px solid #1C2B48;
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-top: 18px;
+}
+
+.orcamento-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.democracia-badge {
+  font-size: 11px;
+  font-weight: 800;
+  color: #00D070;
+  background: rgba(0, 208, 112, 0.12);
+  border: 1px solid rgba(0, 208, 112, 0.3);
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+.tier-presets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.tier-card-btn {
+  background: #121B2E;
+  border: 2px solid #1C2B48;
+  border-radius: 14px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.2s, background 0.2s;
+  outline: none;
+}
+
+.tier-card-btn:hover {
+  border-color: #2D4268;
+  background: #152238;
+}
+
+.tier-card-btn.active {
+  border-color: #00D070;
+  background: linear-gradient(180deg, rgba(0, 208, 112, 0.08) 0%, #121B2E 100%);
+  box-shadow: 0 4px 18px rgba(0, 208, 112, 0.18);
+}
+
+.tier-badge-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  align-self: flex-start;
+}
+
+.tier-price-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.tier-unit {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748B;
+}
+
+.tier-daily-val {
+  font-size: 12px;
+  font-weight: 700;
+  color: #00D070;
+  margin: 2px 0 8px 0;
+}
+
+.tier-desc {
+  font-size: 11px;
+  color: #94A3B8;
+  line-height: 1.4;
+}
+
+/* Slider Customizado */
+.slider-orcamento-wrap {
+  background: #121B2E;
+  border: 1px solid #1C2B48;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.custom-range-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #1C2B48;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  accent-color: #00D070;
+}
+
+.custom-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #00D070;
+  border: 3px solid #070B14;
+  box-shadow: 0 0 10px rgba(0, 208, 112, 0.6);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.custom-range-slider::-webkit-slider-thumb:active {
+  transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+  .tier-presets-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .highlight-pulse-anim {
   animation: highlightRefeicaoPulse 2s ease-out;
 }
 
-
-
-.highlight-pulse-anim {
-  animation: highlightRefeicaoPulse 2s ease-out;
-}
 

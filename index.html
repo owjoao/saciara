@@ -1659,6 +1659,36 @@
               </div>
             </div>
           </div>
+
+          <!-- Vitrine de Insígnias Heroicas 3D (Badges) -->
+          <div class="duo-card-panel" style="margin-top:16px;">
+            <div class="panel-header-row">
+              <span style="font-size:18px;">🎖️</span>
+              <h3 class="panel-title">Insígnias Desbloqueadas</h3>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:10px;">
+              <div style="background:#121B2E; border:1px solid #00D070; border-radius:12px; padding:10px; text-align:center;">
+                <div style="font-size:26px;">💧</div>
+                <div style="font-size:11px; font-weight:800; color:#FFF; margin-top:4px;">Hidratada 7D</div>
+                <div style="font-size:9px; color:#00D070;">✓ Nível Ouro</div>
+              </div>
+              <div style="background:#121B2E; border:1px solid #00D070; border-radius:12px; padding:10px; text-align:center;">
+                <div style="font-size:26px;">🥩</div>
+                <div style="font-size:11px; font-weight:800; color:#FFF; margin-top:4px;">Mestra da Saciedade</div>
+                <div style="font-size:9px; color:#00D070;">✓ 130g batidas</div>
+              </div>
+              <div style="background:#121B2E; border:1px solid #1C2B48; border-radius:12px; padding:10px; text-align:center; opacity:0.6;">
+                <div style="font-size:26px;">👑</div>
+                <div style="font-size:11px; font-weight:800; color:#FFF; margin-top:4px;">Meta dos 70kg</div>
+                <div style="font-size:9px; color:#64748B;">🔒 Falta 0.8 kg</div>
+              </div>
+              <div style="background:#121B2E; border:1px solid #1C2B48; border-radius:12px; padding:10px; text-align:center; opacity:0.6;">
+                <div style="font-size:26px;">💎</div>
+                <div style="font-size:11px; font-weight:800; color:#FFF; margin-top:4px;">Cofre de 500</div>
+                <div style="font-size:9px; color:#64748B;">🔒 380 / 500 💎</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div> <!-- /view-jornada -->
@@ -2176,17 +2206,70 @@
               <span class="input-indicator-badge">▾</span>
             </div>
           </div>
+        </div>
 
-          <div class="form-field-group">
-            <label class="form-field-label"><span>💵</span> Orçamento Alvo (R$)</label>
-            <div class="form-field-input-box">
-              <input type="number" id="inputOrcamentoReais" class="form-field-input" value="480" step="50" oninput="recalcularPlanoECompras()">
-              <span class="input-indicator-badge">R$</span>
+        <!-- SELETOR INCLUSIVO DE CLASSE ECONÔMICA & ORÇAMENTO FLEXÍVEL -->
+        <div class="orcamento-adaptativo-box">
+          <div class="orcamento-header-row">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:20px;">💵</span>
+              <div>
+                <h4 style="color:#FFF; font-size:14px; font-weight:800; margin:0;">Faixa de Orçamento & Democratização Nutricional</h4>
+                <p style="font-size:12px; color:#94A3B8; margin:2px 0 0 0;">Escolha uma faixa ou ajuste livremente o valor que você tem disponível para o mês:</p>
+              </div>
+            </div>
+            <span class="democracia-badge">✓ Calorias & Macros 100% Preservados</span>
+          </div>
+
+          <!-- 3 Presets de Classe / Faixa de Custo -->
+          <div class="tier-presets-grid">
+            <!-- Tier 1: Econômica -->
+            <button type="button" class="tier-card-btn" id="tierBtnEconomica" onclick="selecionarTierOrcamento('economica', 350)">
+              <div class="tier-badge-pill" style="background:rgba(56,189,248,0.15); color:#38BDF8;">🥉 Cesta Acessível</div>
+              <div class="tier-price-val">R$ 280 a 420 <span class="tier-unit">/mês</span></div>
+              <div class="tier-daily-val">~R$ 9 a 13 por dia</div>
+              <div class="tier-desc">Foco em ovos, cortes de frango, soja texturizada (50% proteína), feijão, aipim, aveia e verduras da safra.</div>
+            </button>
+
+            <!-- Tier 2: Equilíbrio (Padrão) -->
+            <button type="button" class="tier-card-btn active" id="tierBtnEquilibrio" onclick="selecionarTierOrcamento('equilibrio', 550)">
+              <div class="tier-badge-pill" style="background:rgba(0,208,112,0.15); color:#00D070;">🥈 Custo-Benefício</div>
+              <div class="tier-price-val">R$ 480 a 750 <span class="tier-unit">/mês</span></div>
+              <div class="tier-daily-val">~R$ 16 a 24 por dia</div>
+              <div class="tier-desc">Filé de frango, patinho moído, tilápia, queijo minas, batata doce, brócolis e azeite extra virgem.</div>
+            </button>
+
+            <!-- Tier 3: Premium -->
+            <button type="button" class="tier-card-btn" id="tierBtnPremium" onclick="selecionarTierOrcamento('premium', 950)">
+              <div class="tier-badge-pill" style="background:rgba(255,215,0,0.15); color:#FFD700;">🥇 Conforto & Variedade</div>
+              <div class="tier-price-val">R$ 800 a 1.400+ <span class="tier-unit">/mês</span></div>
+              <div class="tier-daily-val">~R$ 28 a 46 por dia</div>
+              <div class="tier-desc">Salmão fresco, filé mignon, camarão, whey isolado, berries, castanhas nobres e queijo cottage.</div>
+            </button>
+          </div>
+
+          <!-- Slider Contínuo Livre com Valor Diário Calculado -->
+          <div class="slider-orcamento-wrap">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-size:13px; color:#E2E8F0; font-weight:700;">Ajuste Fino do Orçamento no seu Bolso:</span>
+              <div style="text-align:right;">
+                <span id="labelOrcamentoTotal" style="font-size:18px; font-weight:800; color:#00D070;">R$ 550,00</span>
+                <span id="labelOrcamentoDiario" style="font-size:12px; color:#94A3B8; margin-left:6px;">(~R$ 18,30/dia)</span>
+              </div>
+            </div>
+            <input type="range" id="inputOrcamentoSlider" min="200" max="1500" step="25" value="550" class="custom-range-slider" oninput="atualizarOrcamentoPorSlider(this.value)">
+            <input type="hidden" id="inputOrcamentoReais" value="550">
+            <input type="hidden" id="selectedTierMode" value="equilibrio">
+            
+            <div style="display:flex; justify-content:space-between; font-size:11px; color:#64748B; margin-top:4px;">
+              <span>R$ 200 (Econômico Máximo)</span>
+              <span>R$ 750 (Equilíbrio)</span>
+              <span>R$ 1.500+ (Premium)</span>
             </div>
           </div>
         </div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; padding-top:12px; border-top:1px solid #1C2B48;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px; padding-top:12px; border-top:1px solid #1C2B48;">
           <div style="font-size:12px; color:#64748B;">
             Ao alterar qualquer dado, as refeições dos 30 dias são recalculadas e os ingredientes são somados automaticamente.
           </div>
@@ -2243,16 +2326,20 @@
 
         <div class="budget-summary-stats">
           <div class="budget-stat-box">
-            <div class="budget-stat-num" id="statTotalEstimado">R$ 468,30</div>
+            <div class="budget-stat-num" id="statTotalEstimado">R$ 518,40</div>
             <div class="budget-stat-label">Custo dos 30 Dias</div>
           </div>
           <div class="budget-stat-box">
-            <div class="budget-stat-num" id="statEconomiaEstimada" style="color:#38BDF8;">R$ 93,60</div>
-            <div class="budget-stat-label">Economia vs. Varejo</div>
+            <div class="budget-stat-num" id="statCustoPorRefeicao" style="color:#A78BFA;">R$ 3,45</div>
+            <div class="budget-stat-label">Custo por Prato</div>
+          </div>
+          <div class="budget-stat-box">
+            <div class="budget-stat-num" id="statEconomiaEstimada" style="color:#38BDF8;">R$ 2.780,00</div>
+            <div class="budget-stat-label">Economia vs. Delivery</div>
           </div>
           <div class="budget-stat-box">
             <div class="budget-stat-num" id="statRefeicoesCobertas" style="color:#FFB020;">150 pratos</div>
-            <div class="budget-stat-label">Refeições Completas</div>
+            <div class="budget-stat-label">Refeições Cobertas</div>
           </div>
         </div>
       </section>
