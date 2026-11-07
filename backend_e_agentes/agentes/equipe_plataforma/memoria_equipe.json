@@ -1,0 +1,133 @@
+{
+  "nome_equipe": "Equipe Autônoma de Engenharia & Deploy - Saciara Nutri",
+  "versao_protocolo": "2.0.0",
+  "meta_soberana": "Construir e manter no ar a plataforma científica de emagrecimento mais precisa, elegante e de alta conversão para o @saciara_",
+  "regras_de_ouro": [
+    "Matemática e Fisiologia são determinísticas: cálculos de TMB, Hall Model, Kalman e TDEE rodam em Python puro/JS sem depender de LLM.",
+    "Tolerância Zero para o déficit linear ingênuo de 7.700 kcal: modelar termogênese adaptativa e partição de Forbes.",
+    "Ruído de balança não é gordura: oscilações diárias devem ser filtradas por Kalman e EMA antes de qualquer ajuste de dieta.",
+    "Fidelidade e Veracidade: todas as receitas e utensílios recomendados devem existir e ter correspondência 100% real.",
+    "Mobile-First Absoluto: a interface deve parecer um aplicativo nativo no celular (iOS/Android) com navegação por abas na base.",
+    "Zero vazamento de credenciais: tokens de GitHub e chaves privadas nunca são expostos em commits ou logs públicos.",
+    "O somatório de RMR_0 + AEE_0 + TEF_0 no dia zero DEVE ser estritamente idêntico ao TDEE inicial antes de aplicar qualquer déficit.",
+    "A densidade energética do tecido perdido depende da fração de Forbes ponderada: delta_fm * 9400 + delta_ffm * 1800 DEVE somar exatamente o déficit calórico diário.",
+    "Execução 100% Silenciosa (Headless): Todo comando e subprocesso no Windows DEVE usar creationflags=CREATE_NO_WINDOW (0x08000000) para nunca abrir janelas na tela do usuário."
+  ],
+  "historico_erros_e_licoes": [
+    {
+      "id": 1,
+      "data": "2026-11-06",
+      "modulo": "Gatekeeper Visual / Vídeo UGC",
+      "erro_detectado": "Download de vídeo em 360p com barras desfocadas no topo/base gerando imagem estourada e produto não correspondente.",
+      "causa_raiz": "Falta de trava de resolução mínima no yt-dlp e filtro de escala com boxblur sem validação de nitidez.",
+      "correcao_adotada": "Implementada checagem técnica rígida (mínimo 720p/1080p, nitidez Laplacian > 50, smart-crop e correspondência de produto).",
+      "regra_aprendida": "Nunca aceitar mídia abaixo de 720p e sempre validar fidelidade exata com o anúncio oficial."
+    },
+    {
+      "id": 2,
+      "data": "2026-11-06 17:47:45",
+      "modulo": "core_fisiologico/hall_model.py",
+      "erro_detectado": "Sobrecontagem do TEF (Efeito Térmico) no balanço de manutenção inicial de Kevin Hall gerando gasto energético de 2614 kcal em vez de 2422 kcal.",
+      "causa_raiz": "AEE_0 não descontou a fração TEF_0 (10% de TDEE) da atividade basal ao calcular delta_atividade.",
+      "correcao_adotada": "Calibrar AEE_0 = 0.90 * TDEE_0 - RMR_0 e TEF = 0.10 * EI, garantindo que em t=0 o EE seja exatamente igual a TDEE_0.",
+      "regra_aprendida": "O somatório de RMR_0 + AEE_0 + TEF_0 no dia zero DEVE ser estritamente idêntico ao TDEE inicial antes de aplicar qualquer déficit."
+    },
+    {
+      "id": 3,
+      "data": "2026-11-06 17:50:36",
+      "modulo": "core_fisiologico/hall_model.py",
+      "erro_detectado": "Interpretação errônea da constante p de Forbes como fração de energia e não fração de massa corporal.",
+      "causa_raiz": "Dividir o balanço de energia diretamente por rho_L (1800) em vez de calcular a densidade energética mista do tecido rho_tecido = (1-p)*rho_F + p*rho_L.",
+      "correcao_adotada": "Aplicar a conservação estrita de energia: delta_bw = balanço / rho_tecido, delta_fm = (1-p)*delta_bw, delta_ffm = p*delta_bw.",
+      "regra_aprendida": "A densidade energética do tecido perdido depende da fração de Forbes ponderada: delta_fm * 9400 + delta_ffm * 1800 DEVE somar exatamente o déficit calórico diário."
+    },
+    {
+      "id": 4,
+      "data": "2026-11-06 18:09:25",
+      "modulo": "DevOps / Subprocessos Windows",
+      "erro_detectado": "Abertura de janela preta de terminal do node.exe / git na tela do usuário durante o deploy ou conversão de vídeo.",
+      "causa_raiz": "Chamadas a subprocess.run e subprocess.Popen no Windows sem a flag creationflags=subprocess.CREATE_NO_WINDOW (0x08000000).",
+      "correcao_adotada": "Configuração universal de NO_WINDOW (0x08000000) em todos os scripts de deploy, ffmpeg e git da workspace.",
+      "regra_aprendida": "Execução 100% Silenciosa (Headless): Todo comando e subprocesso no Windows DEVE usar creationflags=CREATE_NO_WINDOW (0x08000000) para nunca abrir janelas na tela do usuário."
+    },
+    {
+      "id": 5,
+      "modulo": "Interface & Dashboard NutriPlus Replicada",
+      "erro": "Seletores de teste Playwright usavam classes genéricas (.habit-item) em vez dos nomes estritos do design system NutriPlus (.habit-circle-item).",
+      "solucao": "Mapeamento fiel dos seletores de acordo com a semântica de componentes do design NutriPlus, com validação de renderização SVG, modais contextuais e links de afiliados da Shopee.",
+      "regra_gerada": "Testes de interface devem sempre espelhar com precisão os identificadores e classes dos componentes definidos no design system dark navy/emerald."
+    },
+    {
+      "id": 6,
+      "modulo": "Gráfico SVG & Aba Planos Alimentares",
+      "erro": "O badge de peso no gráfico SVG usava posicionamento absoluto CSS descalibrado fora do SVG, gerando número estranho/deslocado ao alternar períodos como 90D.",
+      "solucao": "Injeção de elemento nativo <g><rect/><text/></g> dentro da própria árvore do SVG com coordenadas cx/cy dinâmicas, mantendo o badge sempre cravado exatamente sobre o último ponto de dados em qualquer resolução.",
+      "regra_gerada": "Badges de métricas pontuais em gráficos vetoriais devem ser renderizados como nós SVG internos para garantir posicionamento relativo perfeito e imune a quebras de layout."
+    },
+    {
+      "id": 7,
+      "modulo": "Aba Atividades Físicas Replicada",
+      "erro": "Nenhum erro de execução. A transição de abas SPA via dataset.tab garantiu troca instantânea sem recarregamento da página.",
+      "solucao": "Arquitetura SPA modular com IDs view-inicio, view-planos e view-atividades controladas pelo bindSidebarNav().",
+      "regra_gerada": "Todas as novas telas do ecossistema NutriPlus devem ser encapsuladas em containers view-section para persistência de estado reativo e navegação veloz."
+    },
+    {
+      "id": 8,
+      "modulo": "Aba Relatório de Evolução Mensal Replicada",
+      "erro": "Nenhum erro de execução. A estrutura em 3 níveis (Cards topo + 2 colunas meio + 3 colunas base) reproduziu fielmente o relatório da imagem.",
+      "solucao": "Injeção do seletor de mês, gráfico de evolução com previsão/meta pontilhada, donut de composição e matriz de hábitos/insights/conquistas/próximos passos.",
+      "regra_gerada": "Relatórios mensais devem consolidar simultaneamente a vertente antropométrica (peso/gordura), nutricional (calorias/macros), comportamental (hábitos) e prescritiva (próximos passos)."
+    },
+    {
+      "id": 9,
+      "modulo": "Aba Início Otimizada (Qualidade de Vida)",
+      "erro": "A tela de início anterior possuía excesso de gráficos e cards dispersos, forçando o usuário a navegar por abas para tarefas básicas do dia a dia.",
+      "solucao": "Reestruturação focada em UX essencial: 3 Pilares no topo (Alimentação, Água e Perda de Peso sem gráficos) + Cronograma linear das 5 refeições do dia com botões de checkmark + Lembrete fisiológico anti-estresse.",
+      "regra_gerada": "A tela inicial de um app de saúde deve responder instantaneamente em menos de 5 segundos às 3 dúvidas fundamentais do usuário ao acordar: O que comer agora? Quanta água beber? Como está minha perda de peso?"
+    },
+    {
+      "id": 10,
+      "modulo": "Hierarquia por Horário & Orçamento de Compras Atacarejo",
+      "erro": "Nenhum erro de execução. As receitas tornaram-se nós clicáveis com event.stopPropagation() no botão de checkmark para evitar disparos acidentais.",
+      "solucao": "Injeção de lógica temporal baseada no relógio do cliente para destacar o prato da hora atual + motor de escalonamento proporcional de cestas de compras com base em preços médios populares de redes atacadistas.",
+      "regra_gerada": "Itens de listas de refeições devem sempre permitir visualização rica de preparo em 1 clique sem desmontar o estado diário de consumo do usuário."
+    },
+    {
+      "id": 11,
+      "modulo": "Catálogo Visual de Compras do Mês",
+      "erro": "Os itens da cesta de compras exibiam apenas títulos e quantidades em texto, sem apelo visual de supermercado.",
+      "solucao": "Injeção de fotos nítidas para cada um dos 17 alimentos monitorados com thumbnails estilizados (52x52px) e carregamento otimizado (loading=lazy).",
+      "regra_gerada": "Listas de compras e catálogos de alimentos devem sempre vir acompanhados de referências fotográficas de alta qualidade para facilitar o reconhecimento visual rápido pelo usuário."
+    },
+    {
+      "id": 12,
+      "modulo": "Motor Personalizado de Emagrecimento & Cesta Somada do Mês",
+      "erro": "A lista de compras anterior usava escalonamento arbitrário por valor financeiro, gerando distorções como comprar quantidades irreais de um único item.",
+      "solucao": "Implementação do pipeline biológico: Dados do usuário (peso, altura, idade, gênero, atividade, alergias) ➔ Cálculo de TMB/TDEE ➔ Prescrição de 150 refeições mensais (5 por dia) ➔ Soma matemática dos ingredientes exatos ➔ Cotação nos atacadistas.",
+      "regra_gerada": "Listas de compras em apps de nutrição devem ser o resultado determinístico da soma dos ingredientes das receitas prescritas para o período, nunca uma extrapolação linear cega."
+    },
+    {
+      "id": 13,
+      "modulo": "Acessibilidade & Aprimoramento Visual das Caixas de Preenchimento",
+      "erro": "Os inputs e selects possuíam fundo escuro plano sem bordas nítidas de contraste, dificultando para o usuário perceber que os campos eram editáveis.",
+      "solucao": "Aplicação dos princípios de Impeccable Design: criação do container form-field-input-box com borda de 1.5px (#223554), sombra interna inset, iluminação de foco em verde esmeralda com glow, ícones nos labels e badges laterais de unidade (kg, cm, anos, R$, ▾).",
+      "regra_gerada": "Campos de formulário devem possuir affordance visual inequívoco (profundidade tátil, borda destacada e feedback luminoso de foco) para que qualquer usuário compreenda imediatamente sua editabilidade."
+    }
+  ],
+  "metricas_qualidade": {
+    "total_ciclos_executados": 1,
+    "testes_passando": 53,
+    "testes_falhando": 0,
+    "deploy_status": "online_200_ok",
+    "url_publica": "https://saciara.vercel.app",
+    "github_repo": "https://github.com/owjoao/saciara",
+    "total_receitas_online": 156,
+    "total_testes_executados": 53
+  },
+  "censo_agentes": {
+    "builder": "Agente Construtor Científico & Frontend PWA",
+    "tester": "Agente de Testes e Validação Matemática / Fisiológica",
+    "revisor": "Agente Revisor de Rigor Científico, UX e Segurança",
+    "devops": "Agente de DevOps e Deploy (GitHub owjoao & Vercel vibes-br)"
+  }
+}
