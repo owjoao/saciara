@@ -5251,3 +5251,90 @@ body {
     margin-top: 6px;
   }
 }
+
+
+/* ==========================================================================
+   ALTA VISIBILIDADE DE CAMPOS DE ENTRADA (INPUTS, SELECTS E MODAIS)
+   Garante contraste absoluto e clareza visual para digitação
+   ========================================================================== */
+
+/* Todos os Inputs e Selects do Sistema */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+.form-field-input,
+.form-field-select {
+  background-color: #0A111F !important;
+  color: #FFFFFF !important;
+  border: 2px solid #2B426B !important;
+  border-radius: 10px !important;
+  padding: 12px 14px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Hover e Foco com Alto Destaque */
+input[type="text"]:hover,
+input[type="number"]:hover,
+select:hover,
+.form-field-input:hover,
+.form-field-select:hover {
+  border-color: #3B82F6 !important;
+  background-color: #0F1A2E !important;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+.form-field-input:focus,
+.form-field-select:focus {
+  border-color: #00E575 !important;
+  background-color: #0F1A2E !important;
+  box-shadow: 0 0 0 3px rgba(0, 229, 117, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Placeholder bem legível */
+input::placeholder,
+.form-field-input::placeholder {
+  color: #94A3B8 !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+/* Labels e Títulos de Campos */
+.form-field-label,
+label {
+  color: #E2E8F0 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  margin-bottom: 6px !important;
+  display: block !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* Badges e Unidades dentro do Box de Input */
+.form-field-input-box {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.input-indicator-badge {
+  position: absolute !important;
+  right: 12px !important;
+  color: #00E575 !important;
+  font-weight: 800 !important;
+  font-size: 12px !important;
+  pointer-events: none !important;
+  background: rgba(0, 229, 117, 0.12) !important;
+  padding: 2px 6px !important;
+  border-radius: 6px !important;
+}
+

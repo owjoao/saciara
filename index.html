@@ -1444,315 +1444,126 @@
     <!-- ======================================================================
          SEÇÃO JORNADA DO HERÓI (DUOLINGO DA NUTRIÇÃO • GAMIFICATION & RECOMPENSAS)
          ====================================================================== -->
+    
     <div id="view-jornada" class="view-section">
-      <!-- 1. Barra de Status Gamer estilo Duolingo -->
-      <section class="duonutri-top-bar">
-        <div class="duo-stat-pill" title="Dias seguidos registrando hábitos">
-          <span class="duo-stat-icon fire-anim">🔥</span>
-          <span class="duo-stat-val" id="duoStreakVal">14</span>
-          <span class="duo-stat-lbl">dias</span>
+      <!-- 1. CARD HERO DA MISSÃO DO MÊS (Estilo 4ª Imagem Duolingo) -->
+      <section class="missao-mes-hero-card" style="background: linear-gradient(135deg, #D946EF 0%, #EC4899 50%, #F43F5E 100%); border-radius: 24px; padding: 24px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(217, 70, 239, 0.35); position: relative; overflow: hidden;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 18px;">
+          <div>
+            <span style="background: #FFFFFF; color: #D946EF; font-size: 11px; font-weight: 900; text-transform: uppercase; padding: 4px 10px; border-radius: 8px; letter-spacing: 0.8px; display: inline-block; margin-bottom: 8px;">
+              NOVEMBRO
+            </span>
+            <h2 style="color: #FFFFFF; font-size: 24px; font-weight: 900; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+              Missão de Novembro
+            </h2>
+          </div>
+          <div style="background: rgba(0, 0, 0, 0.25); backdrop-filter: blur(8px); padding: 6px 12px; border-radius: 20px; color: #FFFFFF; font-size: 12px; font-weight: 800; display: flex; align-items: center; gap: 6px;">
+            <span>⏱️</span>
+            <span>23 DIAS RESTANTES</span>
+          </div>
         </div>
 
-        <div class="duo-stat-pill duo-gemas-pill" onclick="abrirLojaGemas()" style="cursor:pointer;" title="Loja de Recompensas: Trocar gemas">
-          <span class="duo-stat-icon">💎</span>
-          <span class="duo-stat-val" id="duoGemasVal">380</span>
-          <span class="duo-stat-lbl">gemas 🛍️</span>
-        </div>
+        <!-- Box Branco/Translúcido com a Barra de Progresso e Mascote -->
+        <div style="background: #FFFFFF; border-radius: 18px; padding: 18px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px;">
+            <span style="color: #1E293B; font-size: 15px; font-weight: 800;">
+              Complete 20 missões saudáveis no mês
+            </span>
+            <span id="labelMissoesMesProgresso" style="color: #D946EF; font-size: 14px; font-weight: 900;">
+              7 / 20
+            </span>
+          </div>
 
-        <div class="duo-stat-pill" title="Vidas de adesão à rotina">
-          <span class="duo-stat-icon heart-anim">❤️</span>
-          <span class="duo-stat-val">5/5</span>
-        </div>
-
-        <div class="duo-stat-pill duo-league-pill" onclick="abrirModalLiga()" title="Sua divisão atual">
-          <span class="duo-stat-icon">🛡️</span>
-          <span class="duo-stat-val" style="color:#FFD700;">Liga Ouro</span>
-          <span class="duo-stat-lbl">(Top 3)</span>
+          <div style="position: relative; width: 100%; height: 16px; background: #E2E8F0; border-radius: 20px; overflow: visible;">
+            <div id="barMissoesMes" style="width: 35%; height: 100%; background: linear-gradient(90deg, #D946EF, #EC4899); border-radius: 20px; transition: width 0.4s ease;"></div>
+            <!-- Mascote na ponta da barra -->
+            <div style="position: absolute; left: 35%; top: 50%; transform: translate(-50%, -50%); width: 34px; height: 34px; border-radius: 50%; background: #FFFFFF; border: 2px solid #D946EF; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: left 0.4s ease;">
+              🥑
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- 2. Mascote Carismático NutriBuddy com Balão de Fala -->
-      <section class="nutribuddy-card">
-        <div class="nutribuddy-avatar-wrap">
-          <svg class="nutribuddy-svg" width="76" height="76" viewBox="0 0 100 100">
-            <!-- Folhinha / Mascote Verde Esmeralda Carismático -->
-            <defs>
-              <linearGradient id="mascoteGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#00E57E" />
-                <stop offset="100%" stop-color="#00A855" />
-              </linearGradient>
-            </defs>
-            <circle cx="50" cy="50" r="46" fill="#13233D" stroke="#00D070" stroke-width="3" />
-            <!-- Corpo em formato de folha/semente viva -->
-            <path d="M 50 18 C 68 28, 80 50, 68 74 C 58 84, 42 84, 32 74 C 20 50, 32 28, 50 18 Z" fill="url(#mascoteGrad)" />
-            <!-- Olhinhos Brilhantes -->
-            <ellipse cx="43" cy="50" rx="5" ry="7" fill="#070B14" />
-            <ellipse cx="57" cy="50" rx="5" ry="7" fill="#070B14" />
-            <circle cx="41.5" cy="48" r="2" fill="#FFFFFF" />
-            <circle cx="55.5" cy="48" r="2" fill="#FFFFFF" />
-            <!-- Sorriso largo e feliz -->
-            <path d="M 44 62 Q 50 68, 56 62" stroke="#070B14" stroke-width="3" fill="none" stroke-linecap="round" />
-            <!-- Bochechas rosadas -->
-            <ellipse cx="36" cy="58" rx="4" ry="2.5" fill="#FF85A2" opacity="0.8" />
-            <ellipse cx="64" cy="58" rx="4" ry="2.5" fill="#FF85A2" opacity="0.8" />
-            <!-- Folha brotando no topo -->
-            <path d="M 50 18 Q 54 8, 62 10 Q 56 16, 50 18 Z" fill="#75F09C" />
-          </svg>
+      <!-- 2. SEÇÃO MISSÕES DO DIA (Estilo 4ª Imagem Duolingo) -->
+      <section style="background: #0E1626; border: 1px solid #1C2B48; border-radius: 24px; padding: 24px; margin-bottom: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; flex-wrap:wrap; gap:10px;">
+          <h3 style="color: #FFFFFF; font-size: 20px; font-weight: 900; margin: 0; display:flex; align-items:center; gap:8px;">
+            <span>Missões do dia</span>
+          </h3>
+          <div style="color: #F59E0B; font-size: 13px; font-weight: 800; display:flex; align-items:center; gap:6px; background: rgba(245,158,11,0.12); padding: 6px 12px; border-radius: 20px; border: 1px solid rgba(245,158,11,0.25);">
+            <span>⏱️</span>
+            <span>15 HORAS RESTANTES</span>
+          </div>
         </div>
 
-        <div class="nutribuddy-speech-bubble">
-          <div class="speech-tag">🌿 NUTRIBUDDY DIZ:</div>
-          <p class="speech-text">
-            “Oi, Ana! Você está no <strong>Nó 4 da Trilha</strong>. Aprenda como as fibras controlam a fome sem calorias e garanta +25 XP para subir de Liga!”
-          </p>
-          <button class="btn-start-lesson-bubble" onclick="iniciarLicaoDuolingo(4)">
-            <span>⚡ Fazer Lição de 1 Minuto</span>
-            <span>➔</span>
-          </button>
+        <!-- Lista de Cards de Missões Diárias -->
+        <div class="missoes-dia-lista" style="display:flex; flex-direction:column; gap: 14px;">
+          
+          <!-- Missão 1: Ganhe 50 XP (Raio Amarelo) -->
+          <div class="missao-card-item" id="missaoCardXp" style="background: #121B2E; border: 1px solid #1E293B; border-radius: 18px; padding: 18px; display: flex; align-items: center; gap: 16px; transition: transform 0.2s;">
+            <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0;">
+              ⚡
+            </div>
+            <div style="flex: 1;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
+                <span style="color: #FFFFFF; font-size: 15px; font-weight: 800;">Ganhe 50 XP com Hábitos Saudáveis</span>
+                <span id="progressoMissaoXpTexto" style="color: #F59E0B; font-size: 13px; font-weight: 800;">35 / 50</span>
+              </div>
+              <div style="width: 100%; height: 10px; background: #0B111E; border-radius: 10px; overflow: hidden;">
+                <div id="progressoMissaoXpBarra" style="width: 70%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FFD700); border-radius: 10px; transition: width 0.3s ease;"></div>
+              </div>
+            </div>
+            <!-- Baú de Recompensa -->
+            <div class="bau-recompensa-btn" onclick="abrirBauMissao('Missão de XP', 20)" style="width: 44px; height: 44px; border-radius: 12px; background: #0B111E; border: 1px solid #1E293B; display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" title="Baú de Recompensa: +20 Gemas">
+              📦
+            </div>
+          </div>
+
+          <!-- Missão 2: 2 Refeições Saudáveis (Alvo Verde) -->
+          <div class="missao-card-item" id="missaoCardRef" style="background: #121B2E; border: 1px solid #1E293B; border-radius: 18px; padding: 18px; display: flex; align-items: center; gap: 16px; transition: transform 0.2s;">
+            <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(0,229,117,0.15); border: 1px solid rgba(0,229,117,0.3); display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0;">
+              🎯
+            </div>
+            <div style="flex: 1;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
+                <span style="color: #FFFFFF; font-size: 15px; font-weight: 800;">Consuma 2 Refeições Prescritas sem Furar</span>
+                <span id="progressoMissaoRefTexto" style="color: #00E575; font-size: 13px; font-weight: 800;">1 / 2</span>
+              </div>
+              <div style="width: 100%; height: 10px; background: #0B111E; border-radius: 10px; overflow: hidden;">
+                <div id="progressoMissaoRefBarra" style="width: 50%; height: 100%; background: linear-gradient(90deg, #00E575, #10B981); border-radius: 10px; transition: width 0.3s ease;"></div>
+              </div>
+            </div>
+            <!-- Baú de Recompensa -->
+            <div class="bau-recompensa-btn" onclick="abrirBauMissao('Missão de Refeições', 30)" style="width: 44px; height: 44px; border-radius: 12px; background: #0B111E; border: 1px solid #1E293B; display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" title="Baú de Recompensa: +30 Gemas">
+              📦
+            </div>
+          </div>
+
+          <!-- Missão 3: Conclua o Treino de Hoje (Superbônus Raio Dourado) -->
+          <div class="missao-card-item" id="missaoCardTreino" style="background: #121B2E; border: 1px solid #1E293B; border-radius: 18px; padding: 18px; display: flex; align-items: center; gap: 16px; transition: transform 0.2s;">
+            <div style="width: 48px; height: 48px; border-radius: 14px; background: rgba(56,189,248,0.15); border: 1px solid rgba(56,189,248,0.3); display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0;">
+              ⚡
+            </div>
+            <div style="flex: 1;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
+                <span style="color: #FFFFFF; font-size: 15px; font-weight: 800;">Conclua a Forja do Treino de Hoje (Superbônus)</span>
+                <span id="progressoMissaoTreinoTexto" style="color: #38BDF8; font-size: 13px; font-weight: 800;">0 / 1</span>
+              </div>
+              <div style="width: 100%; height: 10px; background: #0B111E; border-radius: 10px; overflow: hidden;">
+                <div id="progressoMissaoTreinoBarra" style="width: 10%; height: 100%; background: linear-gradient(90deg, #38BDF8, #818CF8); border-radius: 10px; transition: width 0.3s ease;"></div>
+              </div>
+            </div>
+            <!-- Baú Dourado de Recompensa -->
+            <div class="bau-recompensa-btn" onclick="abrirBauMissao('Superbônus de Treino', 50)" style="width: 44px; height: 44px; border-radius: 12px; background: rgba(245,158,11,0.15); border: 1px solid #F59E0B; display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 4px 14px rgba(245,158,11,0.3);" title="Super Baú Dourado: +50 Gemas">
+              🎁
+            </div>
+          </div>
+
         </div>
       </section>
+    </div>
 
-      <!-- 3. Layout Principal: Trilha Duolingo (Esquerda) + Liga Semanal & Baú (Direita) -->
-      <div class="duonutri-main-layout">
-        <!-- A TRILHA SINUOSA DE NÓS (DUOLINGO PATH) -->
-        <div class="duonutri-path-column">
-          <div class="path-header-title">
-            <span>🗺️</span>
-            <span>Trilha do Metabolismo Científico</span>
-          </div>
 
-          <div class="duo-nodes-trail">
-            <!-- Nó 1: Proteína (Concluído) -->
-            <div class="duo-node-row align-center">
-              <button class="duo-node-btn node-completed" onclick="iniciarLicaoDuolingo(1)" title="Proteína & Saciedade (Completo)">
-                <span class="node-icon">🥚</span>
-                <span class="node-crown">👑</span>
-              </button>
-              <div class="node-label-box">
-                <span class="node-name">1. Proteína & Saciedade</span>
-                <span class="node-status">✓ 3/3 Estrelas</span>
-              </div>
-            </div>
-
-            <!-- Nó 2: Hidratação (Concluído) -->
-            <div class="duo-node-row align-right">
-              <button class="duo-node-btn node-completed" onclick="iniciarLicaoDuolingo(2)" title="Hidratação & Termogênese (Completo)">
-                <span class="node-icon">💧</span>
-                <span class="node-crown">👑</span>
-              </button>
-              <div class="node-label-box">
-                <span class="node-name">2. Hidratação 2.5L</span>
-                <span class="node-status">✓ 3/3 Estrelas</span>
-              </div>
-            </div>
-
-            <!-- Nó 3: Balanço Kevin Hall (Concluído) -->
-            <div class="duo-node-row align-left">
-              <button class="duo-node-btn node-completed" onclick="iniciarLicaoDuolingo(3)" title="Balanço Dinâmico Kevin Hall (Completo)">
-                <span class="node-icon">⚖️</span>
-                <span class="node-crown">👑</span>
-              </button>
-              <div class="node-label-box">
-                <span class="node-name">3. Balanço Dinâmico</span>
-                <span class="node-status">✓ 3/3 Estrelas</span>
-              </div>
-            </div>
-
-            <!-- Baú de Bônus da Trilha -->
-            <div class="duo-node-row align-center">
-              <button class="duo-chest-btn" onclick="abrirBauRecompensa()" title="Baú de Bônus: Abrir">
-                <span class="chest-icon">🎁</span>
-                <span class="chest-badge">+50 💎</span>
-              </button>
-            </div>
-
-            <!-- Nó 4: NÓ ATUAL ATIVO (Pulsando) -->
-            <div class="duo-node-row align-right">
-              <div class="active-node-ring">
-                <button class="duo-node-btn node-current" onclick="iniciarLicaoDuolingo(4)" title="Lição Ativa: Fibras & Fim da Fome">
-                  <span class="node-icon">🥗</span>
-                  <span class="node-pulse-star">⭐</span>
-                </button>
-              </div>
-              <div class="node-label-box current-box">
-                <span class="node-tag-active">LIÇÃO ATUAL</span>
-                <span class="node-name">4. Fibras & Saciedade</span>
-                <span class="node-reward-pill">+25 XP • +5 💎</span>
-              </div>
-            </div>
-
-            <!-- Nó 5: Gorduras & Hormônios (Bloqueado) -->
-            <div class="duo-node-row align-left">
-              <button class="duo-node-btn node-locked" onclick="mostrarToastFeedback('🔒 Conclua a Lição 4 para desbloquear este nó!')" title="Gorduras & Hormônios (Bloqueado)">
-                <span class="node-icon">🔒</span>
-              </button>
-              <div class="node-label-box locked-box">
-                <span class="node-name">5. Gorduras & Hormônios</span>
-                <span class="node-status">Bloqueado</span>
-              </div>
-            </div>
-
-            <!-- Nó 6: Mestre do Mercado (Bloqueado) -->
-            <div class="duo-node-row align-center">
-              <button class="duo-node-btn node-locked" onclick="mostrarToastFeedback('🔒 Conclua a Lição 5 para desbloquear!')" title="O Mestre do Mercado (Bloqueado)">
-                <span class="node-icon">🛒</span>
-              </button>
-              <div class="node-label-box locked-box">
-                <span class="node-name">6. Mestre do Mercado</span>
-                <span class="node-status">Bloqueado</span>
-              </div>
-            </div>
-
-            <!-- Nó 7: Chefe de Fase / Platô Vencido (Bloqueado) -->
-            <div class="duo-node-row align-center">
-              <button class="duo-node-btn node-boss" onclick="mostrarToastFeedback('🔒 Chefão Final da Fase 1!')" title="O Platô Vencido (Chefe de Fase)">
-                <span class="node-icon">👑</span>
-              </button>
-              <div class="node-label-box locked-box">
-                <span class="node-name">Chefão: O Platô Vencido</span>
-                <span class="node-status">Grande Recompensa</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- COLUNA LATERAL: LIGA SEMANAL (LEADERBOARD) & DESAFIOS -->
-        <div class="duonutri-side-column">
-          <!-- Ranking da Liga Semanal -->
-          <div class="duo-card-panel">
-            <div class="panel-header-row">
-              <div style="display:flex; align-items:center; gap:8px;">
-                <span style="font-size:20px;">🛡️</span>
-                <div>
-                  <h3 class="panel-title">Liga Ouro • Semana 45</h3>
-                  <div class="panel-sub">Termina em 2 dias • Top 3 sobem para Esmeralda</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="duo-leaderboard-list">
-              <!-- 1º Lugar -->
-              <div class="leaderboard-item">
-                <div class="lead-pos gold">1</div>
-                <div class="lead-avatar">👨‍🦰</div>
-                <div class="lead-info">
-                  <div class="lead-name">Carlos M.</div>
-                  <div class="lead-streak">🔥 22 dias</div>
-                </div>
-                <div class="lead-xp">2.140 XP</div>
-              </div>
-
-              <!-- 2º Lugar -->
-              <div class="leaderboard-item">
-                <div class="lead-pos silver">2</div>
-                <div class="lead-avatar">👩</div>
-                <div class="lead-info">
-                  <div class="lead-name">Juliana R.</div>
-                  <div class="lead-streak">🔥 19 dias</div>
-                </div>
-                <div class="lead-xp">1.990 XP</div>
-              </div>
-
-              <!-- 3º Lugar (VOCÊ) -->
-              <div class="leaderboard-item active-user">
-                <div class="lead-pos bronze">3</div>
-                <div class="lead-avatar user-lead-av">🌿</div>
-                <div class="lead-info">
-                  <div class="lead-name">Ana (Você)</div>
-                  <div class="lead-streak">🔥 14 dias</div>
-                </div>
-                <div class="lead-xp text-green" id="userCurrentXpVal">1.840 XP</div>
-              </div>
-
-              <!-- Linha de Corte de Promoção -->
-              <div class="league-promotion-cutoff">
-                <span>▲ ZONA DE PROMOÇÃO PARA A LIGA ESMERALDA</span>
-              </div>
-
-              <!-- 4º Lugar -->
-              <div class="leaderboard-item">
-                <div class="lead-pos">4</div>
-                <div class="lead-avatar">🧔</div>
-                <div class="lead-info">
-                  <div class="lead-name">Marcos V.</div>
-                  <div class="lead-streak">🔥 11 dias</div>
-                </div>
-                <div class="lead-xp">1.620 XP</div>
-              </div>
-
-              <!-- 5º Lugar -->
-              <div class="leaderboard-item">
-                <div class="lead-pos">5</div>
-                <div class="lead-avatar">👱‍♀️</div>
-                <div class="lead-info">
-                  <div class="lead-name">Beatriz S.</div>
-                  <div class="lead-streak">🔥 8 dias</div>
-                </div>
-                <div class="lead-xp">1.450 XP</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card de Missões Diárias estilo Duolingo -->
-          <div class="duo-card-panel" style="margin-top:16px;">
-            <div class="panel-header-row">
-              <span style="font-size:18px;">🎯</span>
-              <h3 class="panel-title">Missões de Hoje</h3>
-            </div>
-            <div class="duo-quests-mini">
-              <div class="mini-quest-item">
-                <div style="flex:1;">
-                  <div class="mini-quest-title">Fazer 1 Lição da Trilha</div>
-                  <div class="mini-quest-bar"><div class="mini-quest-fill" style="width:0%;"></div></div>
-                </div>
-                <span class="mini-quest-reward">+10 💎</span>
-              </div>
-              <div class="mini-quest-item">
-                <div style="flex:1;">
-                  <div class="mini-quest-title">Registrar 2.500ml de Água</div>
-                  <div class="mini-quest-bar"><div class="mini-quest-fill" style="width:84%;"></div></div>
-                </div>
-                <span class="mini-quest-reward">+10 💎</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Vitrine de Insígnias Heroicas 3D (Badges) -->
-          <div class="duo-card-panel" style="margin-top:16px;">
-            <div class="panel-header-row">
-              <span style="font-size:18px;">🎖️</span>
-              <h3 class="panel-title">Insígnias Desbloqueadas</h3>
-            </div>
-            <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:10px;">
-              <div style="background:#121B2E; border:1px solid #00D070; border-radius:12px; padding:10px; text-align:center;">
-                <div style="font-size:26px;">💧</div>
-                <div style="font-size:11px; font-weight:800; color:#FFF; margin-top:4px;">Hidratada 7D</div>
-                <div style="font-size:9px; color:#00D070;">✓ Nível Ouro</div>
-              </div>
-              <div style="background:#121B2E; border:1px solid #00D070; border-radius:12px; padding:10px; text-align:center;">
-                <div style="font-size:26px;">🥩</div>
-                <div style="font-size:11px; font-weight:800; color:#FFF; margin-top:4px;">Mestra da Saciedade</div>
-                <div style="font-size:9px; color:#00D070;">✓ 130g batidas</div>
-              </div>
-              <div style="background:#121B2E; border:1px solid #1C2B48; border-radius:12px; padding:10px; text-align:center; opacity:0.6;">
-                <div style="font-size:26px;">👑</div>
-                <div style="font-size:11px; font-weight:800; color:#FFF; margin-top:4px;">Meta dos 70kg</div>
-                <div style="font-size:9px; color:#64748B;">🔒 Falta 0.8 kg</div>
-              </div>
-              <div style="background:#121B2E; border:1px solid #1C2B48; border-radius:12px; padding:10px; text-align:center; opacity:0.6;">
-                <div style="font-size:26px;">💎</div>
-                <div style="font-size:11px; font-weight:800; color:#FFF; margin-top:4px;">Cofre de 500</div>
-                <div style="font-size:9px; color:#64748B;">🔒 380 / 500 💎</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> <!-- /view-jornada -->
-
-    <!-- ======================================================================
-         SEÇÃO 4: ABA DE RELATÓRIO DE EVOLUÇÃO MENSAL (RÉPLICA PIXEL-A-PIXEL DA IMAGEM 4)
-         ====================================================================== -->
     <div id="view-relatorios" class="view-section">
       <!-- 1. Header com Floresta/Natureza ao Fundo e Seletor de Mês -->
       <section class="relatorio-header">

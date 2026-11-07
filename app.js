@@ -1348,7 +1348,7 @@ const CatalogoReceitasDetalhes = {
       "Disponha as rodelas de banana por cima.",
       "Salpique canela a gosto para estimular o efeito termogênico natural e saboreie quente."
     ],
-    imagem: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=600&q=80",
+    imagem: "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=600&q=80",
     utensilio: "Balança Digital de Cozinha de Alta Precisão",
     utensilioLink: "https://s.shopee.com.br/10940561_saciara"
   },
@@ -1572,7 +1572,7 @@ const ItensPrecosSupermercados = [
     precoUnit: 6.20, 
     baseMes: 3, 
     unidade: "pcts",
-    imagem: "https://images.unsplash.com/photo-1614961908595-6b801a6104fa?auto=format&fit=crop&w=150&q=80"
+    imagem: "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80"
   },
   { 
     cat: "Carboidratos & Grãos Integrais", 
@@ -1664,7 +1664,7 @@ const ItensPrecosSupermercados = [
     precoUnit: 18.90, 
     baseMes: 1, 
     unidade: "pct",
-    imagem: "https://images.unsplash.com/photo-1536591375315-1b838421a153?auto=format&fit=crop&w=150&q=80"
+    imagem: "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=300&q=80"
   }
 ];
 
@@ -1760,7 +1760,7 @@ const ARMAZEM_DEFAULT = [
   { id: 1, nome: "Ovos de Granja Selecionados", qtd: 12, unidade: "unidades", categoria: "proteinas", imagem: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=150&q=80", validade: "7 dias" },
   { id: 2, nome: "Peito de Frango em Filé", qtd: 800, unidade: "gramas", categoria: "proteinas", imagem: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=150&q=80", validade: "3 dias" },
   { id: 3, nome: "Arroz Integral Tipo 1", qtd: 1.5, unidade: "kg", categoria: "carboidratos", imagem: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=150&q=80", validade: "60 dias" },
-  { id: 4, nome: "Aveia em Flocos Finos", qtd: 400, unidade: "gramas", categoria: "carboidratos", imagem: "https://images.unsplash.com/photo-1614961908595-6b801a6104fa?auto=format&fit=crop&w=150&q=80", validade: "45 dias" },
+  { id: 4, nome: "Aveia em Flocos Finos", qtd: 400, unidade: "gramas", categoria: "carboidratos", imagem: "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80", validade: "45 dias" },
   { id: 5, nome: "Banana Prata", qtd: 6, unidade: "unidades", categoria: "frutas", imagem: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=150&q=80", validade: "4 dias" },
   { id: 6, nome: "Brócolis Ninja Fresco", qtd: 1, unidade: "unidade", categoria: "legumes", imagem: "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=150&q=80", validade: "5 dias" },
   { id: 7, nome: "Iogurte Natural Desnatado", qtd: 3, unidade: "potes (170g)", categoria: "laticinios", imagem: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=150&q=80", validade: "12 dias" },
@@ -1813,7 +1813,7 @@ function renderizarArmazemPessoal() {
   container.innerHTML = window.armazemPessoal.map(item => `
     <div class="armazem-item-card" id="armazem-card-${item.id}">
       <div class="armazem-img-wrap">
-        <img src="${item.imagem}" alt="${item.nome}" loading="lazy">
+        <img src="${item.imagem}" alt="${item.nome}" loading="eager" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80';">
         <span class="armazem-validade-badge">⏱️ ${item.validade || 'Disponível'}</span>
       </div>
       <div class="armazem-item-body">
@@ -2119,7 +2119,7 @@ function gerarReceitasComArmazem() {
   container.innerHTML = receitas.map(r => `
     <div class="receita-chef-card">
       <div class="receita-chef-cover-wrap">
-        <img src="${r.imagem}" alt="${r.titulo}" loading="lazy">
+        <img src="${r.imagem}" alt="${r.titulo}" loading="eager" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80';">
         <span class="receita-chef-time-badge">⏱️ ${r.tempo}</span>
       </div>
       <div class="receita-chef-content">
@@ -2425,7 +2425,7 @@ function recalcularPlanoECompras() {
         precoUnit: restricoes === 'gluten' ? 4.90 : 4.80,
         qtdCalculada: Math.round(2.5 * escalaCalorica),
         unidade: 'pcts (cafés da manhã)',
-        imagem: 'https://images.unsplash.com/photo-1614961908595-6b801a6104fa?auto=format&fit=crop&w=150&q=80'
+        imagem: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80'
       },
       {
         cat: 'Carboidratos Densos & Saciedade (30 Almoços e Jantares)',
@@ -2458,7 +2458,7 @@ function recalcularPlanoECompras() {
         precoUnit: 2.90,
         qtdCalculada: Math.round((3.5 * escalaCalorica) * 10) / 10,
         unidade: 'kg',
-        imagem: 'https://images.unsplash.com/photo-1506917728037-b6fb01c42857?auto=format&fit=crop&w=150&q=80'
+        imagem: 'https://images.unsplash.com/photo-1570586435880-323ff6058d92?auto=format&fit=crop&w=300&q=80'
       },
       {
         cat: 'Hortifrúti da Feira & Fibras Sacietogênicas',
@@ -2475,7 +2475,7 @@ function recalcularPlanoECompras() {
         precoUnit: 8.90,
         qtdCalculada: 1,
         unidade: 'pct (fonte de gorduras boas)',
-        imagem: 'https://images.unsplash.com/photo-1536591375315-1b838421a153?auto=format&fit=crop&w=150&q=80'
+        imagem: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=300&q=80'
       },
       {
         cat: 'Gorduras Boas & Micronutrientes Acessíveis',
@@ -2561,7 +2561,7 @@ function recalcularPlanoECompras() {
         precoUnit: 14.50,
         qtdCalculada: Math.round(2.5 * escalaCalorica),
         unidade: 'pcts',
-        imagem: 'https://images.unsplash.com/photo-1614961908595-6b801a6104fa?auto=format&fit=crop&w=150&q=80'
+        imagem: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80'
       },
       {
         cat: 'Carboidratos Nobres & Grãos Ancestrais (30 Dias)',
@@ -2594,7 +2594,7 @@ function recalcularPlanoECompras() {
         precoUnit: 18.50,
         qtdCalculada: 2,
         unidade: 'maços (ação diurética natural)',
-        imagem: 'https://images.unsplash.com/photo-1515471204630-f16704e789a2?auto=format&fit=crop&w=150&q=80'
+        imagem: 'https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=300&q=80'
       },
       {
         cat: 'Hortifrúti Selecionado, Berries & Superfoods',
@@ -2635,7 +2635,7 @@ function recalcularPlanoECompras() {
         precoUnit: 34.90,
         qtdCalculada: 1,
         unidade: 'pote hermético',
-        imagem: 'https://images.unsplash.com/photo-1536591375315-1b838421a153?auto=format&fit=crop&w=150&q=80'
+        imagem: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=300&q=80'
       },
       {
         cat: 'Gorduras Nobres & Laticínios Premium',
@@ -2705,7 +2705,7 @@ function recalcularPlanoECompras() {
         precoUnit: restricoes === 'gluten' ? 11.90 : 6.20,
         qtdCalculada: Math.round(2.5 * escalaCalorica),
         unidade: 'pcts (para cafés da manhã)',
-        imagem: 'https://images.unsplash.com/photo-1614961908595-6b801a6104fa?auto=format&fit=crop&w=150&q=80'
+        imagem: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80'
       },
       {
         cat: 'Carboidratos Complexos & Fibras (30 Almoços e Jantares)',
@@ -2795,7 +2795,7 @@ function recalcularPlanoECompras() {
         precoUnit: 19.90,
         qtdCalculada: 1,
         unidade: 'pct (porções de 15g)',
-        imagem: 'https://images.unsplash.com/photo-1536591375315-1b838421a153?auto=format&fit=crop&w=150&q=80'
+        imagem: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=300&q=80'
       }
     ];
   }
@@ -2863,7 +2863,7 @@ function recalcularPlanoECompras() {
         ${dados.itens.map(it => `
           <div class="compras-item-row">
             <div class="compras-item-left">
-              <img src="${it.imagem}" class="compras-item-img-thumb" alt="${it.nome}" loading="lazy">
+              <img src="${it.imagem}" class="compras-item-img-thumb" alt="${it.nome}" loading="eager" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80';">
               <div>
                 <div class="compras-item-name">${it.nome}</div>
                 <div class="compras-item-qtd">Soma das receitas do mês: <strong>${it.qtd} ${it.unidade}</strong> (R$ ${it.precoUnit.toFixed(2).replace('.', ',')}/un)</div>
@@ -3026,7 +3026,7 @@ function abrirLojaGemas() {
     <div style="color:#CBD5E1; font-size:14px;">
       <div style="display:flex; justify-content:space-between; align-items:center; background:#121B2E; border:1px solid #1C2B48; padding:12px 16px; border-radius:12px; margin-bottom:18px;">
         <span>Seu Saldo:</span>
-        <strong style="color:#00D070; font-size:16px;">💎 ${duoUserGemas} Gemas</strong>
+        <strong style="color:#00D070; font-size:16px;">💎 ${window.heroiState ? window.heroiState.gemas : duoUserGemas} Gemas</strong>
       </div>
 
       <div style="display:flex; flex-direction:column; gap:12px;">
@@ -3077,16 +3077,22 @@ function abrirLojaGemas() {
 }
 
 function comprarItemLoja(nome, preco) {
-  if (duoUserGemas >= preco) {
-    duoUserGemas -= preco;
+  const saldoAtual = window.heroiState ? window.heroiState.gemas : duoUserGemas;
+  if (saldoAtual >= preco) {
+    if (window.heroiState) {
+      window.heroiState.gemas -= preco;
+      salvarHeroiState();
+    } else {
+      duoUserGemas -= preco;
+    }
     const gemasEl = document.getElementById('duoGemasVal');
-    if (gemasEl) gemasEl.innerText = duoUserGemas;
+    if (gemasEl) gemasEl.innerText = window.heroiState ? window.heroiState.gemas : duoUserGemas;
     tocarSomVitoria();
-    fecharModalGlobal();
+    fecharModal();
     mostrarToastFeedback(`🎉 Parabéns! Você adquiriu: ${nome}`);
   } else {
     tocarSomErro();
-    mostrarToastFeedback(`❌ Gemas insuficientes! Faltam ${preco - duoUserGemas} 💎.`);
+    mostrarToastFeedback(`❌ Gemas insuficientes! Faltam ${preco - saldoAtual} 💎.`);
   }
 }
 let duoUserGemas = 380;
@@ -3286,3 +3292,35 @@ document.addEventListener('DOMContentLoaded', () => {
   atualizarRefeicaoMomentoPorHorario();
   setInterval(atualizarRefeicaoMomentoPorHorario, 60000); // Checa a cada minuto
 });
+
+
+
+function abrirBauMissao(nomeMissao, gemasGanha) {
+  if (window.heroiState) {
+    window.heroiState.gemas += gemasGanha;
+    salvarHeroiState();
+  }
+  if (typeof tocarSomVitoria === 'function') {
+    tocarSomVitoria();
+  }
+  abrirModal(`🎁 Baú de Recompensa Desbloqueado!`, `
+    <div style="text-align:center; padding:20px 10px;">
+      <div style="font-size:52px; animation: pulseGlow 1.2s infinite; margin-bottom:12px;">
+        ✨ 🎁 ✨
+      </div>
+      <h3 style="color:#FFF; font-size:18px; font-weight:900; margin:0 0 6px 0;">
+        Recompensa de: ${nomeMissao}
+      </h3>
+      <p style="color:#CBD5E1; font-size:13px; margin:0 0 16px 0;">
+        Você concluiu sua meta diária com disciplina e foi recompensado pelo protocolo Saciara!
+      </p>
+      <div style="background:#0F172A; border:1px solid #1E293B; border-radius:14px; padding:12px; margin-bottom:18px;">
+        <span style="font-size:12px; color:#94A3B8; font-weight:700;">Recompensa Coletada:</span>
+        <div style="font-size:22px; font-weight:900; color:#38BDF8; margin-top:4px;">💎 +${gemasGanha} Gemas</div>
+      </div>
+      <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; border-radius:12px; padding:12px 24px; font-size:14px; cursor:pointer;" onclick="fecharModal()">
+        Coletar e Continuar 🚀
+      </button>
+    </div>
+  `);
+}
