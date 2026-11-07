@@ -267,9 +267,15 @@
             <span>🍽️</span>
             <span>Sua Rotina Alimentar de Hoje</span>
           </div>
-          <div class="rotina-header-badge">
-            <span>✓</span>
-            <span>Cardápio Fisiológico NutriPlus • Sem complicações</span>
+          <div class="rotina-header-actions">
+            <button class="btn-rotina-acao" onclick="sortearNovaRotinaDoDia()" title="Alternar e sortear novos pratos equilibrados para hoje">
+              <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              <span>Variar Cardápio</span>
+            </button>
+            <button class="btn-rotina-acao" onclick="abrirModalCatalogoReceitas()" title="Abrir catálogo completo com as 156 receitas saudáveis">
+              <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <span>156 Receitas</span>
+            </button>
           </div>
         </div>
 
@@ -277,21 +283,25 @@
           <!-- 1. Café da Manhã -->
           <div class="refeicao-item-card" id="cardMeal_cafe_manha" data-meal-id="cafe_manha">
             <div class="refeicao-timing-box">
-              <span class="refeicao-icon-tag">☕</span>
+              <span class="refeicao-icon-tag" id="iconMeal_cafe_manha">☕</span>
               <div>
                 <div class="refeicao-time-label">07:00 – 08:00</div>
                 <div class="refeicao-name-bold">Café da Manhã</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80" alt="Aveia com Banana" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+            <img class="refeicao-mini-thumb" id="imgMeal_cafe_manha" src="https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80" alt="Aveia com Banana" style="cursor:pointer;" onclick="abrirModalReceitaAtual('cafe_manha')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
             <div>
-              <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')">Aveia com Banana, Canela e Chia ↗</div>
-              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('aveia_banana')">
+              <div class="refeicao-prato-title" id="titleMeal_cafe_manha" style="cursor:pointer;" onclick="abrirModalReceitaAtual('cafe_manha')">Aveia com Banana, Canela e Chia ↗</div>
+              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaAtual('cafe_manha')">
                 <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 <span>Clique na imagem para ver a receita</span>
               </div>
             </div>
             <div class="refeicao-actions-box">
+              <button class="btn-trocar-meal" onclick="abrirModalTrocaRefeicao('cafe_manha')" title="Trocar por outra opção de café da manhã">
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M7 16V4m0 0L3 8m4-4l4 4m6 4v12m0 0l4-4m-4 4l-4-4"/></svg>
+                <span>Trocar</span>
+              </button>
               <button class="btn-check-meal" id="btnMeal_cafe_manha" onclick="consumirRefeicaoRotina('cafe_manha', this)">
                 <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Consumido</span>
@@ -302,21 +312,25 @@
           <!-- 2. Lanche da Manhã -->
           <div class="refeicao-item-card" id="cardMeal_lanche_manha" data-meal-id="lanche_manha">
             <div class="refeicao-timing-box">
-              <span class="refeicao-icon-tag">🍏</span>
+              <span class="refeicao-icon-tag" id="iconMeal_lanche_manha">🍏</span>
               <div>
                 <div class="refeicao-time-label">10:30 – 11:30</div>
                 <div class="refeicao-name-bold">Lanche da Manhã</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=200&q=80" alt="Iogurte com Frutas" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+            <img class="refeicao-mini-thumb" id="imgMeal_lanche_manha" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=200&q=80" alt="Iogurte com Frutas" style="cursor:pointer;" onclick="abrirModalReceitaAtual('lanche_manha')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
             <div>
-              <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')">Iogurte Natural com Frutas Vermelhas ↗</div>
-              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('iogurte_frutas')">
+              <div class="refeicao-prato-title" id="titleMeal_lanche_manha" style="cursor:pointer;" onclick="abrirModalReceitaAtual('lanche_manha')">Iogurte Natural com Frutas Vermelhas ↗</div>
+              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaAtual('lanche_manha')">
                 <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 <span>Clique na imagem para ver a receita</span>
               </div>
             </div>
             <div class="refeicao-actions-box">
+              <button class="btn-trocar-meal" onclick="abrirModalTrocaRefeicao('lanche_manha')" title="Trocar por outra opção de lanche da manhã">
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M7 16V4m0 0L3 8m4-4l4 4m6 4v12m0 0l4-4m-4 4l-4-4"/></svg>
+                <span>Trocar</span>
+              </button>
               <button class="btn-check-meal" id="btnMeal_lanche_manha" onclick="consumirRefeicaoRotina('lanche_manha', this)">
                 <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Consumido</span>
@@ -327,21 +341,25 @@
           <!-- 3. Almoço -->
           <div class="refeicao-item-card" id="cardMeal_almoco" data-meal-id="almoco">
             <div class="refeicao-timing-box">
-              <span class="refeicao-icon-tag">🍴</span>
+              <span class="refeicao-icon-tag" id="iconMeal_almoco">🍴</span>
               <div>
                 <div class="refeicao-time-label">12:30 – 14:00</div>
                 <div class="refeicao-name-bold">Almoço</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Frango com Arroz Integral" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+            <img class="refeicao-mini-thumb" id="imgMeal_almoco" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" alt="Frango com Arroz Integral" style="cursor:pointer;" onclick="abrirModalReceitaAtual('almoco')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
             <div>
-              <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')">Frango Grelhado, Arroz Integral & Salada Colorida ↗</div>
-              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('frango_arroz')">
+              <div class="refeicao-prato-title" id="titleMeal_almoco" style="cursor:pointer;" onclick="abrirModalReceitaAtual('almoco')">Frango Grelhado, Arroz Integral & Salada Colorida ↗</div>
+              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaAtual('almoco')">
                 <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 <span>Clique na imagem para ver a receita</span>
               </div>
             </div>
             <div class="refeicao-actions-box">
+              <button class="btn-trocar-meal" onclick="abrirModalTrocaRefeicao('almoco')" title="Trocar por outra opção de almoço">
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M7 16V4m0 0L3 8m4-4l4 4m6 4v12m0 0l4-4m-4 4l-4-4"/></svg>
+                <span>Trocar</span>
+              </button>
               <button class="btn-check-meal" id="btnMeal_almoco" onclick="consumirRefeicaoRotina('almoco', this)">
                 <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Consumido</span>
@@ -352,21 +370,25 @@
           <!-- 4. Lanche da Tarde -->
           <div class="refeicao-item-card" id="cardMeal_lanche_tarde" data-meal-id="lanche_tarde">
             <div class="refeicao-timing-box">
-              <span class="refeicao-icon-tag">🧁</span>
+              <span class="refeicao-icon-tag" id="iconMeal_lanche_tarde">🧁</span>
               <div>
                 <div class="refeicao-time-label">16:00 – 17:00</div>
                 <div class="refeicao-name-bold">Lanche da Tarde</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=200&q=80" alt="Castanhas e Maçã" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+            <img class="refeicao-mini-thumb" id="imgMeal_lanche_tarde" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=200&q=80" alt="Castanhas e Maçã" style="cursor:pointer;" onclick="abrirModalReceitaAtual('lanche_tarde')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
             <div>
-              <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')">Mix de Castanhas & Maçã Crocante ↗</div>
-              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('castanhas_maca')">
+              <div class="refeicao-prato-title" id="titleMeal_lanche_tarde" style="cursor:pointer;" onclick="abrirModalReceitaAtual('lanche_tarde')">Mix de Castanhas & Maçã Crocante ↗</div>
+              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaAtual('lanche_tarde')">
                 <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 <span>Clique na imagem para ver a receita</span>
               </div>
             </div>
             <div class="refeicao-actions-box">
+              <button class="btn-trocar-meal" onclick="abrirModalTrocaRefeicao('lanche_tarde')" title="Trocar por outra opção de lanche da tarde">
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M7 16V4m0 0L3 8m4-4l4 4m6 4v12m0 0l4-4m-4 4l-4-4"/></svg>
+                <span>Trocar</span>
+              </button>
               <button class="btn-check-meal" id="btnMeal_lanche_tarde" onclick="consumirRefeicaoRotina('lanche_tarde', this)">
                 <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Consumido</span>
@@ -377,21 +399,25 @@
           <!-- 5. Jantar -->
           <div class="refeicao-item-card" id="cardMeal_jantar" data-meal-id="jantar">
             <div class="refeicao-timing-box">
-              <span class="refeicao-icon-tag">🌙</span>
+              <span class="refeicao-icon-tag" id="iconMeal_jantar">🌙</span>
               <div>
                 <div class="refeicao-time-label">19:00 – 20:30</div>
                 <div class="refeicao-name-bold">Jantar</div>
               </div>
             </div>
-            <img class="refeicao-mini-thumb" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=200&q=80" alt="Salmão com Legumes" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+            <img class="refeicao-mini-thumb" id="imgMeal_jantar" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=200&q=80" alt="Salmão com Legumes" style="cursor:pointer;" onclick="abrirModalReceitaAtual('jantar')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
             <div>
-              <div class="refeicao-prato-title" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')">Salmão Grelhado com Legumes no Vapor ↗</div>
-              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaDetalhada('salmao_legumes')">
+              <div class="refeicao-prato-title" id="titleMeal_jantar" style="cursor:pointer;" onclick="abrirModalReceitaAtual('jantar')">Salmão Grelhado com Legumes no Vapor ↗</div>
+              <div class="refeicao-toque-dica" style="cursor:pointer;" onclick="abrirModalReceitaAtual('jantar')">
                 <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 <span>Clique na imagem para ver a receita</span>
               </div>
             </div>
             <div class="refeicao-actions-box">
+              <button class="btn-trocar-meal" onclick="abrirModalTrocaRefeicao('jantar')" title="Trocar por outra opção de jantar">
+                <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M7 16V4m0 0L3 8m4-4l4 4m6 4v12m0 0l4-4m-4 4l-4-4"/></svg>
+                <span>Trocar</span>
+              </button>
               <button class="btn-check-meal" id="btnMeal_jantar" onclick="consumirRefeicaoRotina('jantar', this)">
                 <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Consumido</span>
@@ -675,14 +701,29 @@
             </div>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn-np btn-np-outline-cyan" onclick="toggleGavetaItensFrequentes()">
+              <svg class="np-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+              <span>+ Itens Populares</span>
+            </button>
             <button class="btn-np btn-np-secondary" onclick="abrirModalAdicionarItemManual()">
               <svg class="np-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              <span>Adicionar Manualmente</span>
+              <span>Adicionar Manual</span>
             </button>
-            <button class="btn-np btn-np-outline-cyan" onclick="mostrarToastFeedback('🛒 Descontados R$ 85,00 em alimentos já existentes da sua Lista de Compras!')">
+            <button class="btn-np btn-np-secondary" onclick="mostrarToastFeedback('🛒 Descontados R$ 85,00 em alimentos já existentes da sua Lista de Compras!')">
               <svg class="np-icon" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-              <span>Abater da Cesta de Compras</span>
+              <span>Abater da Cesta</span>
             </button>
+          </div>
+        </div>
+
+        <!-- Gaveta de Adição Rápida de Itens Populares -->
+        <div id="gavetaItensPopulares" style="display:none; background:#0A101D; border:1px solid #1E2D4A; border-radius:14px; padding:14px; margin-bottom:18px;">
+          <div style="font-size:12px; color:#94A3B8; font-weight:700; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
+            <span>Toque para adicionar rapidamente à sua geladeira:</span>
+            <span style="cursor:pointer; color:#EF4444;" onclick="toggleGavetaItensFrequentes()">✕ Fechar</span>
+          </div>
+          <div class="itens-frequentes-chips" id="listaChipsItensFrequentes">
+            <!-- Gerado via script -->
           </div>
         </div>
 
@@ -702,6 +743,17 @@
               <p style="color:#94A3B8; font-size:12px; margin:2px 0 0 0;">Receitas inteligentes calculadas exclusivamente com os alimentos da sua geladeira acima.</p>
             </div>
           </div>
+          <button class="btn-np btn-np-secondary" onclick="abrirModalCatalogoReceitas()">
+            <svg class="np-icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Ver Catálogo (156 Receitas)</span>
+          </button>
+        </div>
+
+        <!-- Barra de Busca Rápida de Receitas por Ingrediente / Prato -->
+        <div class="chef-search-bar">
+          <svg class="np-icon np-icon-sm" viewBox="0 0 24 24" style="color:#94A3B8;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="chefBuscaRapida" class="chef-search-input" placeholder="Buscar por ingrediente (frango, ovo, banana, cacau, aveia) ou nome do prato..." oninput="filtrarReceitasChef(this.value)">
+          <span id="chefContadorFiltro" style="font-size:11px; color:#00E575; font-weight:700; white-space:nowrap;"></span>
         </div>
 
         <!-- Seletor em Pílulas de Nichos de Receita -->
@@ -1225,6 +1277,7 @@
   <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="fecharSidebarMobile()"></div>
 
   <script src="js/fisiologia_nutriplus.js"></script>
+  <script src="js/receitas_data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

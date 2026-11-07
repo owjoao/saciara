@@ -330,14 +330,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   atualizarHabitosUI();
   bindSidebarNav();
 
-  // Carrega base de receitas do Saciara
+  // Carrega base de receitas do NutriPlus / Saciara
+  if (window.BANCO_RECEITAS_156 && window.BANCO_RECEITAS_156.length > 0) {
+    AppState.recipes = window.BANCO_RECEITAS_156;
+  }
   try {
     const res = await fetch('receitas.json');
     if (res.ok) {
       AppState.recipes = await res.json();
     }
   } catch (e) {
-    console.log('Catálogo de receitas carregado localmente');
+    if (!AppState.recipes || AppState.recipes.length === 0) {
+      AppState.recipes = window.BANCO_RECEITAS_156 || [];
+    }
+    console.log('Catálogo de receitas carregado localmente:', AppState.recipes.length);
   }
 
   // Inicializa cálculo da Cesta do Mês Adaptativa
@@ -1330,13 +1336,625 @@ function concluirTreinoHoje(btn) {
 // - Ao virar o dia (meia-noite), reseta automaticamente e traz a nova rotina
 // ==========================================================================
 
-const ROTINA_MEALS_CONFIG = {
-  cafe_manha: { nome: 'Café da Manhã', horario: '07:00 – 08:00', prato: 'Aveia com Banana, Canela e Chia', kcals: 326, icon: '☕' },
-  lanche_manha: { nome: 'Lanche da Manhã', horario: '10:30 – 11:30', prato: 'Iogurte Natural com Frutas Vermelhas', kcals: 142, icon: '🍏' },
-  almoco: { nome: 'Almoço', horario: '12:30 – 14:00', prato: 'Frango Grelhado, Arroz Integral & Salada Colorida', kcals: 436, icon: '🍴' },
-  lanche_tarde: { nome: 'Lanche da Tarde', horario: '16:00 – 17:00', prato: 'Mix de Castanhas & Maçã Crocante', kcals: 198, icon: '🧁' },
-  jantar: { nome: 'Jantar', horario: '19:00 – 20:30', prato: 'Salmão Grelhado com Legumes no Vapor', kcals: 354, icon: '🌙' }
+// ==========================================================================
+// SISTEMA DINÂMICO DE VARIEDADE DA ROTINA ALIMENTAR DIÁRIA
+// ==========================================================================
+
+const CATALOGO_ROTINA_VARIEDADES = {
+  cafe_manha: [
+    {
+      id: 'aveia_banana',
+      titulo: 'Aveia com Banana, Canela e Chia',
+      horario: '07:00 – 08:00',
+      calorias: '326 kcal',
+      macros: 'P: 12g • C: 52g • G: 8g',
+      imagem: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '1 xícara de aveia em flocos finos (40g)',
+        '1 banana prata média fatiada',
+        '1 colher de chá de sementes de chia (5g)',
+        'Canela em pó a gosto',
+        '150ml de água morna ou leite desnatado'
+      ],
+      passos: [
+        'Hidrate a aveia e a chia com o líquido morno em um bowl.',
+        'Misture até obter consistência cremosa de mingau.',
+        'Disponha as rodelas de banana e finalize com canela em pó.'
+      ],
+      utensilio: 'Balança Digital de Alta Precisão',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'crepioca_ricota',
+      titulo: 'Crepioca Dourada de Ricota & Ervas',
+      horario: '07:00 – 08:00',
+      calorias: '240 kcal',
+      macros: 'P: 18g • C: 22g • G: 8g',
+      imagem: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '1 ovo inteiro + 1 clara',
+        '2 colheres de sopa de goma de tapioca (30g)',
+        '50g de ricota fresca esfarelada',
+        'Orégano, sal marinho e cebolinha a gosto'
+      ],
+      passos: [
+        'Bata os ovos com a goma e uma pitada de sal.',
+        'Despeje na frigideira untada em fogo baixo até firmar.',
+        'Recheie com a ricota e orégano, dobre ao meio e doure 1 minuto.'
+      ],
+      utensilio: 'Frigideira Antiaderente em Cerâmica',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'omelete_caipira',
+      titulo: 'Omelete Caipira com Tomate & Queijo Branco',
+      horario: '07:00 – 08:00',
+      calorias: '260 kcal',
+      macros: 'P: 22g • C: 4g • G: 16g',
+      imagem: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '3 ovos de granja selecionados',
+        '1/2 tomate picadinho sem sementes',
+        '30g de queijo minas frescal ou ricota em cubinhos',
+        'Folhas frescas de orégano e sal de ervas'
+      ],
+      passos: [
+        'Bata bem os ovos com um garfo até espumar suavemente.',
+        'Incorpore os cubinhos de tomate e queijo.',
+        'Leve à frigideira aquecida, tampe por 2 minutos e sirva macio.'
+      ],
+      utensilio: 'Espátula de Silicone Termorresistente',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'cuscuz_ovos',
+      titulo: 'Cuscuz Nordestino com Ovos Mexidos',
+      horario: '07:00 – 08:00',
+      calorias: '280 kcal',
+      macros: 'P: 16g • C: 36g • G: 9g',
+      imagem: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '50g de flocão de milho hidratado com sal e água',
+        '2 ovos mexidos com uma ponta de manteiga ou azeite',
+        '1 pitada de cúrcuma e cheiro-verde picadinho'
+      ],
+      passos: [
+        'Hidrate o flocão por 10 minutos e cozinhe no vapor por 8 minutos.',
+        'Prepare os ovos mexidos cremosos na frigideira.',
+        'Sirva o cuscuz soltinho com os ovos por cima.'
+      ],
+      utensilio: 'Cuscuzeira Individual em Inox',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'mingau_cacau',
+      titulo: 'Mingau Proteico de Aveia e Cacau 100%',
+      horario: '07:00 – 08:00',
+      calorias: '250 kcal',
+      macros: 'P: 20g • C: 32g • G: 6g',
+      imagem: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '40g de aveia em flocos finos',
+        '1 colher de sopa de cacau puro 100%',
+        '1 scoop (20g) de whey ou 1 clara misturada',
+        '150ml de água e gotinhas de estévia a gosto'
+      ],
+      passos: [
+        'Misture a aveia, água e cacau em uma panela pequena em fogo brando.',
+        'Mexa até engrossar. Desligue o fogo e incorpore a proteína.',
+        'Sirva aquecido polvilhado com raspas de chocolate amargo.'
+      ],
+      utensilio: 'Panela Antiaderente Compacta',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'panqueca_banana_fit',
+      titulo: 'Panqueca Americana Fit de Banana & Canela',
+      horario: '07:00 – 08:00',
+      calorias: '230 kcal',
+      macros: 'P: 14g • C: 34g • G: 5g',
+      imagem: 'https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '1 banana prata madura amassada',
+        '1 ovo inteiro',
+        '2 colheres de sopa de aveia em flocos finos',
+        'Canela em pó a gosto'
+      ],
+      passos: [
+        'Amasse a banana e misture com o ovo batido e aveia.',
+        'Doure na frigideira untada por 2 minutos de cada lado.',
+        'Finalize com canela polvilhada.'
+      ],
+      utensilio: 'Frigideira Antiaderente para Panquecas',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    }
+  ],
+  lanche_manha: [
+    {
+      id: 'iogurte_frutas',
+      titulo: 'Iogurte Natural com Frutas Vermelhas',
+      horario: '10:30 – 11:30',
+      calorias: '142 kcal',
+      macros: 'P: 10g • C: 14g • G: 4g',
+      imagem: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '1 pote de iogurte natural desnatado (170g)',
+        '50g de morangos picados frescos',
+        '1 colher de chá de chia'
+      ],
+      passos: [
+        'Coloque o iogurte natural em uma tigela.',
+        'Lave e pique as frutas vermelhas.',
+        'Cubra com as frutas e polvilhe a chia.'
+      ],
+      utensilio: 'Potes Herméticos de Vidro',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'maca_amendoim',
+      titulo: 'Maçã Fatiada com Pasta de Amendoim Integral',
+      horario: '10:30 – 11:30',
+      calorias: '180 kcal',
+      macros: 'P: 6g • C: 22g • G: 8g',
+      imagem: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '1 maçã nacional gala fatiada com casca',
+        '1 colher de sopa de pasta de amendoim 100% pura (15g)',
+        'Canela em pó para polvilhar'
+      ],
+      passos: [
+        'Lave e fatie a maçã em rodelas médias.',
+        'Passe uma camada fina de pasta de amendoim sobre as fatias.',
+        'Salpique canela e consuma crocante.'
+      ],
+      utensilio: 'Cortador Anatômico de Maçã em Inox',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'pao_queijo_frigideira',
+      titulo: 'Pão de Queijo de Frigideira com Chia',
+      horario: '10:30 – 11:30',
+      calorias: '165 kcal',
+      macros: 'P: 8g • C: 18g • G: 6g',
+      imagem: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '1 ovo',
+        '1 colher de sopa de polvilho azedo ou doce',
+        '1 colher de sopa de queijo cottage ou ricota',
+        '1 colher de café de chia'
+      ],
+      passos: [
+        'Misture todos os ingredientes com garfo até homogeneizar.',
+        'Despeje na frigideira pequena em fogo baixo.',
+        'Vire quando dourar a parte inferior e deixe firmar.'
+      ],
+      utensilio: 'Frigideira 14cm Antiaderente',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'vitamina_banana_aveia',
+      titulo: 'Vitamina Cremosa de Banana & Aveia',
+      horario: '10:30 – 11:30',
+      calorias: '190 kcal',
+      macros: 'P: 11g • C: 30g • G: 3g',
+      imagem: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '200ml de leite desnatado ou água bem gelada',
+        '1 banana congelada fatiada',
+        '1 colher de sopa de aveia em flocos finos',
+        'Gelo a gosto e canela'
+      ],
+      passos: [
+        'Bata tudo no liquidificador ou mixer por 1 minuto até ficar super cremoso.',
+        'Sirva imediatamente gelado.'
+      ],
+      utensilio: 'Mixer Portátil Recarregável',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    }
+  ],
+  almoco: [
+    {
+      id: 'frango_arroz',
+      titulo: 'Frango Grelhado, Arroz Integral & Salada Colorida',
+      horario: '12:30 – 14:00',
+      calorias: '436 kcal',
+      macros: 'P: 38g • C: 45g • G: 12g',
+      imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '120g de peito de frango limpo sem pele',
+        '100g de arroz integral cozido soltinho',
+        'Mix de folhas verdes (rúcula, alface e agrião)',
+        'Tomate cereja e cenoura ralada',
+        '1 fio de azeite extravirgem e limão'
+      ],
+      passos: [
+        'Grelhe o frango temperado com páprica, sal de ervas e alho.',
+        'Aqueça o arroz integral do armazém.',
+        'Monte o prato dividindo metade com salada e azeite extravirgem.'
+      ],
+      utensilio: 'Grelha Antiaderente Canelada',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'patinho_mandioca',
+      titulo: 'Patinho Moído com Purê de Mandioca & Brócolis',
+      horario: '12:30 – 14:00',
+      calorias: '460 kcal',
+      macros: 'P: 42g • C: 44g • G: 11g',
+      imagem: 'https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '130g de patinho bovino moído magro',
+        '120g de mandioca cozida amassada com garfo',
+        '1 xícara de brócolis ninja no vapor',
+        'Cebola roxa, alho picado, tomate e cheiro-verde'
+      ],
+      passos: [
+        'Refogue o patinho com cebola, alho e cheiro-verde até dourar e secar os sucos.',
+        'Amasse a mandioca quente com um toque de sal e ervas.',
+        'Sirva com o brócolis cozido al dente no vapor.'
+      ],
+      utensilio: 'Cesto de Cozimento a Vapor para Panela',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'tilapia_abobora',
+      titulo: 'Filé de Tilápia com Purê de Abóbora Cabotiá',
+      horario: '12:30 – 14:00',
+      calorias: '380 kcal',
+      macros: 'P: 36g • C: 32g • G: 8g',
+      imagem: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '140g de filé de tilápia fresco temperado com limão e alecrim',
+        '150g de abóbora cabotiá cozida e amassada',
+        'Salada verde farta com vinagre de maçã e azeite'
+      ],
+      passos: [
+        'Doure o filé de tilápia por 3 minutos de cada lado na frigideira untada.',
+        'Faça o purê de abóbora temperado com noz-moscada e sal marinho.',
+        'Sirva fumegante com a salada fresca.'
+      ],
+      utensilio: 'Amassador de Legumes em Inox',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'strogonoff_fit',
+      titulo: 'Strogonoff Fit de Frango com Iogurte Natural',
+      horario: '12:30 – 14:00',
+      calorias: '440 kcal',
+      macros: 'P: 44g • C: 38g • G: 9g',
+      imagem: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '140g de peito de frango em cubos',
+        '3 colheres de sopa de iogurte natural desnatado',
+        '2 colheres de sopa de molho de tomate caseiro',
+        '100g de arroz integral cozido'
+      ],
+      passos: [
+        'Doure os cubos de frango com alho, sal e páprica defumada.',
+        'Adicione o molho de tomate e baixe o fogo.',
+        'Desligue o fogo e incorpore o iogurte natural mexendo rapidamente para ficar cremoso.',
+        'Sirva com o arroz integral quente.'
+      ],
+      utensilio: 'Panela Wok Antiaderente',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    }
+  ],
+  lanche_tarde: [
+    {
+      id: 'castanhas_maca',
+      titulo: 'Mix de Castanhas & Maçã Crocante',
+      horario: '16:00 – 17:00',
+      calorias: '198 kcal',
+      macros: 'P: 3g • C: 25g • G: 10g',
+      imagem: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '15g de castanhas de caju e do pará (aprox. 5 unidades)',
+        '1 maçã fresca com casca cortada em fatias',
+        'Canela em pó a gosto'
+      ],
+      passos: [
+        'Lave a maçã e corte em lâminas finas.',
+        'Salpique canela e acompanhe com as castanhas crocantes.'
+      ],
+      utensilio: 'Marmita Hermética com Divisórias',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'mousse_abacate_cacau',
+      titulo: 'Mousse Funcional de Abacate com Cacau 100%',
+      horario: '16:00 – 17:00',
+      calorias: '175 kcal',
+      macros: 'P: 4g • C: 16g • G: 11g',
+      imagem: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '60g de abacate maduro',
+        '1 colher de sopa rasa de cacau 100% em pó',
+        '2 colheres de sopa de água ou leite desnatado',
+        'Gotinhas de adoçante natural estévia'
+      ],
+      passos: [
+        'Amasse o abacate com o cacau e líquido até obter creme aveludado estilo Danette.',
+        'Sirva geladinho para matar qualquer vontade de sobremesa calórica.'
+      ],
+      utensilio: 'Mini Processador Elétrico de Alimentos',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'smoothie_morango',
+      titulo: 'Smoothie Proteico de Morangos Gelados',
+      horario: '16:00 – 17:00',
+      calorias: '165 kcal',
+      macros: 'P: 15g • C: 20g • G: 2g',
+      imagem: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '100g de morangos congelados',
+        '1 pote de iogurte natural desnatado (170g)',
+        '1 colher de chá de chia e cubos de gelo'
+      ],
+      passos: [
+        'Coloque os morangos e o iogurte no liquidificador.',
+        'Bata em velocidade alta por 45 segundos.',
+        'Consuma na consistência de sorvete cremoso com uma colher.'
+      ],
+      utensilio: 'Copo Térmico Hermético',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    }
+  ],
+  jantar: [
+    {
+      id: 'salmao_legumes',
+      titulo: 'Salmão Grelhado com Legumes no Vapor',
+      horario: '19:00 – 20:30',
+      calorias: '354 kcal',
+      macros: 'P: 32g • C: 18g • G: 16g',
+      imagem: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '120g de filé de salmão fresco',
+        '1 xícara de brócolis em floretes e cenoura em rodelas',
+        'Suco de 1/2 limão siciliano, alho e alecrim',
+        '1 fio de azeite extravirgem'
+      ],
+      passos: [
+        'Cozinhe os legumes no vapor até ficarem tenros e coloridos.',
+        'Grelhe o filé com a pele virada para baixo por 4 minutos e vire delicadamente.',
+        'Regue com limão e alecrim e monte a travessa leve da noite.'
+      ],
+      utensilio: 'Forma de Silicone Antiaderente para Airfryer',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'sopa_abobora_frango',
+      titulo: 'Sopa Reconfortante de Abóbora com Frango Desfiado',
+      horario: '19:00 – 20:30',
+      calorias: '290 kcal',
+      macros: 'P: 34g • C: 24g • G: 6g',
+      imagem: 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '150g de abóbora cozida batida com caldo de legumes',
+        '100g de peito de frango pré-cozido desfiado',
+        'Gengibre ralado, alho-poró e orégano fresco'
+      ],
+      passos: [
+        'Bata a abóbora cozida no liquidificador com água do cozimento até virar creme aveludado.',
+        'Aqueça em panela média e acrescente o frango desfiado temperado.',
+        'Finalize com o gengibre ralado e cheiro-verde. Zero retenção de líquidos.'
+      ],
+      utensilio: 'Panela de Pressão Segura em Inox',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'omelete_forno_brocolis',
+      titulo: 'Omelete de Forno Leve com Brócolis & Ricota',
+      horario: '19:00 – 20:30',
+      calorias: '270 kcal',
+      macros: 'P: 28g • C: 6g • G: 12g',
+      imagem: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '3 ovos caipiras batidos com sal e noz-moscada',
+        '1 xícara de floretes picadinhos de brócolis cozido',
+        '40g de ricota fresca ou cottage',
+        'Tomatinhos cortados ao meio'
+      ],
+      passos: [
+        'Despeje os ovos batidos em refratário untado.',
+        'Espalhe o brócolis, ricota e tomatinhos.',
+        'Asse no forno ou airfryer a 180°C por 12 minutos até inflar e dourar.'
+      ],
+      utensilio: 'Travessa Refratária em Vidro Borossilicato',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    },
+    {
+      id: 'salada_atum_ovos',
+      titulo: 'Salada Mediterrânea com Atum & Ovos Cozidos',
+      horario: '19:00 – 20:30',
+      calorias: '310 kcal',
+      macros: 'P: 35g • C: 12g • G: 12g',
+      imagem: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80',
+      ingredientes: [
+        '1 lata de atum sólido em água escorrido (120g)',
+        '2 ovos cozidos com gema cremosa partidos em 4',
+        'Farta cama de folhas (alface americana, rúcula e manjericão)',
+        'Tomate, pepino japonês em lâminas e 1 colher de azeite'
+      ],
+      passos: [
+        'Higienize e rasgue as folhas frescas no prato.',
+        'Distribua o atum desmanchado e os quartos de ovos cozidos.',
+        'Tempere com azeite extravirgem, limão e flor de sal. Prato volumoso e saciante.'
+      ],
+      utensilio: 'Centrífuga Secadora de Saladas',
+      utensilioLink: 'https://s.shopee.com.br/10940561_saciara'
+    }
+  ]
 };
+
+// Configuração padrão dos 5 momentos
+const ROTINA_MEALS_CONFIG = {
+  cafe_manha: { nome: 'Café da Manhã', horario: '07:00 – 08:00', icon: '☕' },
+  lanche_manha: { nome: 'Lanche da Manhã', horario: '10:30 – 11:30', icon: '🍏' },
+  almoco: { nome: 'Almoço', horario: '12:30 – 14:00', icon: '🍴' },
+  lanche_tarde: { nome: 'Lanche da Tarde', horario: '16:00 – 17:00', icon: '🧁' },
+  jantar: { nome: 'Jantar', horario: '19:00 – 20:30', icon: '🌙' }
+};
+
+// Recupera o prato atualmente selecionado para uma refeição
+function getPratoAtualRefeicao(mealId) {
+  const state = getRotinaDiariaState();
+  const customizados = state.pratos_customizados || {};
+  const opcoes = CATALOGO_ROTINA_VARIEDADES[mealId] || [];
+  
+  if (customizados[mealId]) {
+    const encontrado = opcoes.find(p => p.id === customizados[mealId]);
+    if (encontrado) return encontrado;
+  }
+  return opcoes[0] || {
+    id: mealId,
+    titulo: 'Refeição Saudável Equilibrada',
+    calorias: '300 kcal',
+    macros: 'P: 25g • C: 30g • G: 8g',
+    imagem: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80',
+    ingredientes: ['Alimentos frescos da dieta'],
+    passos: ['Prepare com carinho e equilíbrio.']
+  };
+}
+
+// Atualiza os cards visuais da rotina alimentar de hoje
+function sincronizarCardsRotinaVisual() {
+  const mealIds = ['cafe_manha', 'lanche_manha', 'almoco', 'lanche_tarde', 'jantar'];
+  mealIds.forEach(mealId => {
+    const prato = getPratoAtualRefeicao(mealId);
+    const titleEl = document.getElementById('titleMeal_' + mealId);
+    const imgEl = document.getElementById('imgMeal_' + mealId);
+    
+    if (titleEl) {
+      titleEl.innerHTML = `${prato.titulo} ↗`;
+    }
+    if (imgEl) {
+      imgEl.src = prato.imagem;
+      imgEl.alt = prato.titulo;
+    }
+  });
+}
+
+// Modal ergonômico de troca de refeição por alternativas saudáveis
+function abrirModalTrocaRefeicao(mealId) {
+  const info = ROTINA_MEALS_CONFIG[mealId] || { nome: 'Refeição' };
+  const opcoes = CATALOGO_ROTINA_VARIEDADES[mealId] || [];
+  const pratoAtual = getPratoAtualRefeicao(mealId);
+
+  const cardsHtml = opcoes.map(p => {
+    const isAtivo = p.id === pratoAtual.id;
+    return `
+      <div class="troca-refeicao-card" style="${isAtivo ? 'border-color:#00E575; box-shadow:0 0 12px rgba(0,229,117,0.2);' : ''}">
+        <img class="troca-refeicao-thumb" src="${p.imagem}" alt="${p.titulo}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80';">
+        <div class="troca-refeicao-body">
+          <div class="troca-refeicao-title">${p.titulo} ${isAtivo ? '<span style="color:#00E575; font-size:11px;">(Atual)</span>' : ''}</div>
+          <div class="troca-refeicao-macros">
+            <span style="color:#00E575; font-weight:700;">🔥 ${p.calorias}</span>
+            <span>${p.macros}</span>
+          </div>
+          <button class="troca-refeicao-btn-select" onclick="selecionarPratoRefeicao('${mealId}', '${p.id}')">
+            ${isAtivo ? '✓ Prato Selecionado' : 'Escolher este Prato'}
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  abrirModal(`⇄ Escolher opção para ${info.nome}`, `
+    <div style="font-size:13px; color:#94A3B8; margin-bottom:12px;">
+      Alterne para o prato que melhor combina com a sua rotina e despensa hoje mantendo as mesmas metas energéticas.
+    </div>
+    <div class="troca-refeicao-grid">
+      ${cardsHtml}
+    </div>
+    <div style="margin-top:16px; text-align:center;">
+      <button class="btn-np btn-np-secondary btn-np-sm" onclick="abrirModalCatalogoReceitas()">
+        <svg class="np-icon np-icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span>Ver todas as 156 receitas do acervo completo</span>
+      </button>
+    </div>
+  `);
+}
+
+// Seleciona um novo prato para a refeição
+function selecionarPratoRefeicao(mealId, pratoId) {
+  const state = getRotinaDiariaState();
+  if (!state.pratos_customizados) state.pratos_customizados = {};
+  state.pratos_customizados[mealId] = pratoId;
+  salvarRotinaDiariaState(state);
+  sincronizarCardsRotinaVisual();
+  fecharModalGlobal();
+  const prato = getPratoAtualRefeicao(mealId);
+  mostrarToastFeedback(`✨ Refeição atualizada: ${prato.titulo}`);
+}
+
+// Sorteia aleatoriamente novas sugestões para todas as 5 refeições do dia
+function sortearNovaRotinaDoDia() {
+  const mealIds = ['cafe_manha', 'lanche_manha', 'almoco', 'lanche_tarde', 'jantar'];
+  const state = getRotinaDiariaState();
+  if (!state.pratos_customizados) state.pratos_customizados = {};
+
+  mealIds.forEach(mealId => {
+    const opcoes = CATALOGO_ROTINA_VARIEDADES[mealId] || [];
+    if (opcoes.length > 0) {
+      const randomIdx = Math.floor(Math.random() * opcoes.length);
+      state.pratos_customizados[mealId] = opcoes[randomIdx].id;
+    }
+  });
+
+  salvarRotinaDiariaState(state);
+  sincronizarCardsRotinaVisual();
+  mostrarToastFeedback('🎲 Novo cardápio variado gerado para o seu dia com sucesso!');
+}
+
+// Abre o modal de receita do prato selecionado atualmente
+function abrirModalReceitaAtual(mealId) {
+  const prato = getPratoAtualRefeicao(mealId);
+  const info = ROTINA_MEALS_CONFIG[mealId] || { nome: 'Refeição', horario: '' };
+
+  const listaIngredientes = prato.ingredientes.map(i => `<li style="margin-bottom:6px; color:#CBD5E1;">• ${i}</li>`).join('');
+  const listaPassos = prato.passos.map((p, idx) => `<li style="margin-bottom:8px; color:#CBD5E1;"><strong style="color:#00D070;">Passo ${idx+1}:</strong> ${p}</li>`).join('');
+
+  abrirModal(`📖 ${prato.titulo}`, `
+    <div style="font-size:14px;">
+      <div style="position:relative; width:100%; height:180px; border-radius:10px; overflow:hidden; margin-bottom:16px; border:1px solid #1C2B48;">
+        <img src="${prato.imagem}" style="width:100%; height:100%; object-fit:cover;" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+        <div style="position:absolute; bottom:10px; left:10px; background:rgba(7,11,20,0.85); padding:4px 10px; border-radius:6px; font-weight:800; color:#00D070; font-size:12px;">
+          ${info.nome} • ${prato.calorias}
+        </div>
+      </div>
+
+      <div style="background:#091220; padding:10px 14px; border-radius:8px; border:1px solid #1C2B48; margin-bottom:16px; font-weight:700; color:#38BDF8;">
+        Macronutrientes da Porção: ${prato.macros}
+      </div>
+
+      <h4 style="color:#FFFFFF; margin-bottom:8px;">🛒 Ingredientes Selecionados:</h4>
+      <ul style="list-style:none; padding-left:0; margin-bottom:16px;">
+        ${listaIngredientes}
+      </ul>
+
+      <h4 style="color:#FFFFFF; margin-bottom:8px;">👨‍🍳 Modo de Preparo Rápido:</h4>
+      <ol style="padding-left:18px; margin-bottom:18px; line-height:1.5;">
+        ${listaPassos}
+      </ol>
+
+      ${prato.utensilio ? `
+      <div style="background:#091220; padding:12px; border-radius:8px; border:1px solid #00D070; margin-bottom:14px;">
+        🛒 <strong>Utensílio que facilita:</strong> <a href="${prato.utensilioLink || 'https://shopee.com.br'}" target="_blank" style="color:#00D070; font-weight:700;">${prato.utensilio} na Shopee</a>
+      </div>
+      ` : ''}
+
+      <div style="display:flex; gap:10px; margin-top:14px;">
+        <button class="btn-trocar-meal" style="flex:1; justify-content:center; padding:12px; font-size:13px;" onclick="fecharModalGlobal(); abrirModalTrocaRefeicao('${mealId}');">
+          ⇄ Trocar por Outra Opção
+        </button>
+        <button style="flex:1.4; background:#00D070; color:#070B14; border:none; padding:12px; border-radius:8px; font-weight:800; cursor:pointer;" onclick="fecharModalGlobal()">
+          Pronto, entendi! ✓
+        </button>
+      </div>
+    </div>
+  `);
+}
 
 function getHojeDateString() {
   const d = new Date();
@@ -1384,6 +2002,9 @@ function formatarDataHojeVisual() {
 
 function aplicarEstadoRotinaRefeicoes() {
   formatarDataHojeVisual();
+  if (typeof sincronizarCardsRotinaVisual === 'function') {
+    sincronizarCardsRotinaVisual();
+  }
   const state = getRotinaDiariaState();
   const consumidas = state.consumidas || [];
   const mealIds = ['cafe_manha', 'lanche_manha', 'almoco', 'lanche_tarde', 'jantar'];
@@ -1404,7 +2025,8 @@ function aplicarEstadoRotinaRefeicoes() {
 
       // Adiciona na gaveta de refeições concluídas hoje
       if (listaConcluidasEl) {
-        const info = ROTINA_MEALS_CONFIG[id] || { nome: id, horario: '', prato: '' };
+        const info = ROTINA_MEALS_CONFIG[id] || { nome: id, horario: '' };
+        const pratoAtual = typeof getPratoAtualRefeicao === 'function' ? getPratoAtualRefeicao(id) : { titulo: id, calorias: '300 kcal' };
         const item = document.createElement('div');
         item.className = 'refeicao-concluida-item';
         item.style.cssText = 'background:#121B2E; border:1px solid #1E293B; border-radius:10px; padding:10px 14px; display:flex; align-items:center; justify-content:space-between; gap:10px;';
@@ -1413,7 +2035,7 @@ function aplicarEstadoRotinaRefeicoes() {
             <span style="font-size:16px;">${info.icon || '✓'}</span>
             <div>
               <strong style="color:#FFF; font-size:13px; display:block;">${info.nome} • <span style="color:#00E575; font-size:11px;">Consumido</span></strong>
-              <span style="color:#94A3B8; font-size:11px;">${info.prato} (${info.kcals} kcal)</span>
+              <span style="color:#94A3B8; font-size:11px;">${pratoAtual.titulo} (${pratoAtual.calorias})</span>
             </div>
           </div>
           <button onclick="desmarcarRefeicaoRotina('${id}')" style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); color:#EF4444; font-size:11px; font-weight:700; padding:4px 10px; border-radius:6px; cursor:pointer;" title="Desfazer e reativar na lista de hoje">
@@ -1751,150 +2373,57 @@ function atualizarRefeicaoMomentoPorHorario() {
 // Preços médios populares monitorados em Atacarejo, Assaí e Extra (Salvador/SP/RJ)
 // ==========================================================================
 const ItensPrecosSupermercados = [
-  // Proteínas
-  { 
-    cat: "Proteínas de Alto Valor", 
-    nome: "Peito de Frango Congelado (kg)", 
-    precoUnit: 17.90, 
-    baseMes: 4.5, 
-    unidade: "kg",
-    imagem: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Proteínas de Alto Valor", 
-    nome: "Ovos Brancos Grandes (Cartela c/ 30)", 
-    precoUnit: 16.50, 
-    baseMes: 2, 
-    unidade: "cartelas",
-    imagem: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Proteínas de Alto Valor", 
-    nome: "Filé de Tilápia / Peixe Fresco (kg)", 
-    precoUnit: 31.90, 
-    baseMes: 1.5, 
-    unidade: "kg",
-    imagem: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Proteínas de Alto Valor", 
-    nome: "Patinho Moído Bovino (kg)", 
-    precoUnit: 34.90, 
-    baseMes: 1.2, 
-    unidade: "kg",
-    imagem: "https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&w=150&q=80"
-  },
-  
-  // Carboidratos & Grãos
-  { 
-    cat: "Carboidratos & Grãos Integrais", 
-    nome: "Arroz Integral Tipo 1 (1kg)", 
-    precoUnit: 5.90, 
-    baseMes: 3, 
-    unidade: "pcts",
-    imagem: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Carboidratos & Grãos Integrais", 
-    nome: "Aveia em Flocos Finos (500g)", 
-    precoUnit: 6.20, 
-    baseMes: 3, 
-    unidade: "pcts",
-    imagem: "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=300&q=80"
-  },
-  { 
-    cat: "Carboidratos & Grãos Integrais", 
-    nome: "Batata Doce Roxa (kg)", 
-    precoUnit: 4.50, 
-    baseMes: 3.5, 
-    unidade: "kg",
-    imagem: "https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Carboidratos & Grãos Integrais", 
-    nome: "Feijão Carioca Tipo 1 (1kg)", 
-    precoUnit: 6.80, 
-    baseMes: 2, 
-    unidade: "pcts",
-    imagem: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=150&q=80"
-  },
+  // 🥩 PROTEÍNAS DE ALTO VALOR BIOLÓGICO (10 itens)
+  { cat: "Proteínas de Alto Valor", nome: "Peito de Frango Congelado (kg)", precoUnit: 17.90, baseMes: 4.5, unidade: "kg", imagem: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Proteínas de Alto Valor", nome: "Ovos Brancos Grandes (Cartela c/ 30)", precoUnit: 15.90, baseMes: 2, unidade: "cartelas", imagem: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Proteínas de Alto Valor", nome: "Patinho Moído Bovino Magro (kg)", precoUnit: 34.90, baseMes: 1.2, unidade: "kg", imagem: "https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Proteínas de Alto Valor", nome: "Filé de Tilápia Fresco (kg)", precoUnit: 31.90, baseMes: 1.5, unidade: "kg", imagem: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Proteínas de Alto Valor", nome: "Sardinha em Lata ao Natural (un)", precoUnit: 4.50, baseMes: 6, unidade: "latas", imagem: "https://images.unsplash.com/photo-1501595091296-3aa970afb3ff?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Proteínas de Alto Valor", nome: "Atum Sólido em Água (un)", precoUnit: 6.90, baseMes: 4, unidade: "latas", imagem: "https://images.unsplash.com/photo-1501595091296-3aa970afb3ff?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Proteínas de Alto Valor", nome: "Sobrecoxa de Frango Desossada (kg)", precoUnit: 14.50, baseMes: 2, unidade: "kg", imagem: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Proteínas de Alto Valor", nome: "Queijo Cottage / Ricota Fresca (500g)", precoUnit: 12.90, baseMes: 2, unidade: "potes", imagem: "https://images.unsplash.com/photo-1559561853-08451507cbe7?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Proteínas de Alto Valor", nome: "Proteína Texturizada de Soja PTS (500g)", precoUnit: 6.90, baseMes: 2, unidade: "pcts", imagem: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Proteínas de Alto Valor", nome: "Filé de Salmão Fresco (kg)", precoUnit: 58.00, baseMes: 0.8, unidade: "kg", imagem: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=150&q=80" },
 
-  // Hortifrúti & Fibras
-  { 
-    cat: "Hortifrúti, Legumes & Frutas", 
-    nome: "Banana Prata / Nanica (kg)", 
-    precoUnit: 4.90, 
-    baseMes: 5, 
-    unidade: "kg",
-    imagem: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Hortifrúti, Legumes & Frutas", 
-    nome: "Maçã Nacional (kg)", 
-    precoUnit: 7.90, 
-    baseMes: 2.5, 
-    unidade: "kg",
-    imagem: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Hortifrúti, Legumes & Frutas", 
-    nome: "Brócolis Ninja / Couve-Flor", 
-    precoUnit: 6.50, 
-    baseMes: 4, 
-    unidade: "unidades",
-    imagem: "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Hortifrúti, Legumes & Frutas", 
-    nome: "Cenoura & Abobrinha (kg)", 
-    precoUnit: 4.80, 
-    baseMes: 3, 
-    unidade: "kg",
-    imagem: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Hortifrúti, Legumes & Frutas", 
-    nome: "Mix de Folhas (Alface/Rúcula)", 
-    precoUnit: 3.50, 
-    baseMes: 6, 
-    unidade: "maços",
-    imagem: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=150&q=80"
-  },
+  // 🌾 CARBOIDRATOS & GRÃOS INTEGRAIS (10 itens)
+  { cat: "Carboidratos & Grãos Integrais", nome: "Arroz Integral Tipo 1 (1kg)", precoUnit: 5.90, baseMes: 3, unidade: "pcts", imagem: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Arroz Parboilizado Tipo 1 (1kg)", precoUnit: 5.20, baseMes: 2, unidade: "pcts", imagem: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Aveia em Flocos Finos (500g)", precoUnit: 5.80, baseMes: 3, unidade: "pcts", imagem: "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Feijão Carioca Tipo 1 (1kg)", precoUnit: 6.80, baseMes: 2, unidade: "pcts", imagem: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Feijão Preto Tipo 1 (1kg)", precoUnit: 6.50, baseMes: 2, unidade: "pcts", imagem: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Batata Doce Roxa (kg)", precoUnit: 4.50, baseMes: 3.5, unidade: "kg", imagem: "https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Mandioca / Aipim Fresco (kg)", precoUnit: 3.80, baseMes: 3, unidade: "kg", imagem: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Lentilha / Grão-de-Bico (500g)", precoUnit: 8.50, baseMes: 2, unidade: "pcts", imagem: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Flocão de Milho para Cuscuz (500g)", precoUnit: 3.20, baseMes: 3, unidade: "pcts", imagem: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Carboidratos & Grãos Integrais", nome: "Macarrão Integral Espaguete (500g)", precoUnit: 5.50, baseMes: 2, unidade: "pcts", imagem: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=150&q=80" },
 
-  // Gorduras & Laticínios
-  { 
-    cat: "Gorduras Boas & Laticínios", 
-    nome: "Iogurte Natural Integral/Desn (Pote 170g)", 
-    precoUnit: 3.20, 
-    baseMes: 15, 
-    unidade: "potes",
-    imagem: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Gorduras Boas & Laticínios", 
-    nome: "Sementes de Chia / Linhaça (200g)", 
-    precoUnit: 8.90, 
-    baseMes: 1, 
-    unidade: "pct",
-    imagem: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Gorduras Boas & Laticínios", 
-    nome: "Azeite de Oliva Extravirgem (500ml)", 
-    precoUnit: 36.90, 
-    baseMes: 1, 
-    unidade: "garrafa",
-    imagem: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=150&q=80"
-  },
-  { 
-    cat: "Gorduras Boas & Laticínios", 
-    nome: "Mix de Castanhas (200g)", 
-    precoUnit: 18.90, 
-    baseMes: 1, 
-    unidade: "pct",
-    imagem: "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=300&q=80"
-  }
+  // 🥦 HORTIFRÚTI, LEGUMES & FRUTAS (12 itens)
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Banana Prata / Nanica (kg)", precoUnit: 4.80, baseMes: 5, unidade: "kg", imagem: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Maçã Nacional Gala (kg)", precoUnit: 7.90, baseMes: 2.5, unidade: "kg", imagem: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Mamão Papaya (kg)", precoUnit: 6.90, baseMes: 3, unidade: "kg", imagem: "https://images.unsplash.com/photo-1517282009859-f000ec3b26fe?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Brócolis Ninja / Couve-Flor (un)", precoUnit: 6.50, baseMes: 4, unidade: "unidades", imagem: "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Cenoura Selecionada (kg)", precoUnit: 4.20, baseMes: 3, unidade: "kg", imagem: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Abobrinha Italiana (kg)", precoUnit: 4.50, baseMes: 3, unidade: "kg", imagem: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Abóbora Cabotiá (kg)", precoUnit: 3.50, baseMes: 4, unidade: "kg", imagem: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Mix de Folhas (Alface/Rúcula/Agrião)", precoUnit: 3.50, baseMes: 6, unidade: "maços", imagem: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Tomate Longa Vida / Italiano (kg)", precoUnit: 6.80, baseMes: 3, unidade: "kg", imagem: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Couve Manteiga Fresca (maço)", precoUnit: 2.80, baseMes: 4, unidade: "maços", imagem: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Limão Tahiti (kg)", precoUnit: 3.90, baseMes: 2, unidade: "kg", imagem: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Hortifrúti, Legumes & Frutas", nome: "Beterraba (kg)", precoUnit: 4.80, baseMes: 2, unidade: "kg", imagem: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=150&q=80" },
+
+  // 🥑 GORDURAS BOAS, TEMPEROS & LATICÍNIOS (10 itens)
+  { cat: "Gorduras Boas & Laticínios", nome: "Iogurte Natural Desnatado (Pote 170g)", precoUnit: 3.10, baseMes: 15, unidade: "potes", imagem: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Azeite de Oliva Extravirgem (500ml)", precoUnit: 36.90, baseMes: 1, unidade: "garrafa", imagem: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Sementes de Chia / Linhaça (200g)", precoUnit: 8.50, baseMes: 1, unidade: "pct", imagem: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Mix de Castanhas de Caju & Pará (200g)", precoUnit: 18.90, baseMes: 1, unidade: "pct", imagem: "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Pasta de Amendoim Integral 100% (500g)", precoUnit: 14.90, baseMes: 1, unidade: "pote", imagem: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Cacau Puro em Pó 100% (200g)", precoUnit: 11.50, baseMes: 1, unidade: "pct", imagem: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Canela em Pó Pura (100g)", precoUnit: 5.50, baseMes: 1, unidade: "pct", imagem: "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Leite Desnatado Pasteurizado (1L)", precoUnit: 4.80, baseMes: 6, unidade: "litros", imagem: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Orégano & Ervas Finas (100g)", precoUnit: 4.20, baseMes: 1, unidade: "pct", imagem: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=150&q=80" },
+  { cat: "Gorduras Boas & Laticínios", nome: "Sal Marinho com Ervas Naturais (500g)", precoUnit: 5.90, baseMes: 1, unidade: "pct", imagem: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=150&q=80" }
 ];
+
 
 // ==========================================================================
 // ABA DE COMPRAS DO MÊS: ALGORITMO CIENTÍFICO BASEADO NO PLANO PERSONALIZADO
@@ -1996,6 +2525,63 @@ const ARMAZEM_DEFAULT = [
 ];
 
 window.armazemPessoal = [];
+
+
+// Itens frequentes prontos para estocar em 1 clique na Geladeira
+const ITENS_FREQUENTES_ESTOQUE = [
+  { nome: "Ovos de Granja Selecionados", qtd: 12, unidade: "unidades", categoria: "proteinas", imagem: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=150&q=80", validade: "10 dias" },
+  { nome: "Peito de Frango em Filé", qtd: 1, unidade: "kg", categoria: "proteinas", imagem: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=150&q=80", validade: "4 dias" },
+  { nome: "Patinho Moído Magro", qtd: 500, unidade: "gramas", categoria: "proteinas", imagem: "https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&w=150&q=80", validade: "3 dias" },
+  { nome: "Filé de Tilápia Fresco", qtd: 500, unidade: "gramas", categoria: "proteinas", imagem: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=150&q=80", validade: "3 dias" },
+  { nome: "Arroz Integral Tipo 1", qtd: 1, unidade: "kg", categoria: "carboidratos", imagem: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=150&q=80", validade: "60 dias" },
+  { nome: "Aveia em Flocos Finos", qtd: 500, unidade: "gramas", categoria: "carboidratos", imagem: "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=150&q=80", validade: "45 dias" },
+  { nome: "Batata Doce Roxa", qtd: 1.5, unidade: "kg", categoria: "carboidratos", imagem: "https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&w=150&q=80", validade: "15 dias" },
+  { nome: "Banana Prata", qtd: 6, unidade: "unidades", categoria: "frutas", imagem: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=150&q=80", validade: "5 dias" },
+  { nome: "Maçã Gala", qtd: 4, unidade: "unidades", categoria: "frutas", imagem: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=150&q=80", validade: "12 dias" },
+  { nome: "Brócolis Ninja", qtd: 1, unidade: "unidade", categoria: "legumes", imagem: "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=150&q=80", validade: "6 dias" },
+  { nome: "Cenoura Selecionada", qtd: 500, unidade: "gramas", categoria: "legumes", imagem: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=150&q=80", validade: "14 dias" },
+  { nome: "Iogurte Natural Desnatado", qtd: 4, unidade: "potes (170g)", categoria: "laticinios", imagem: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=150&q=80", validade: "12 dias" },
+  { nome: "Azeite de Oliva Extravirgem", qtd: 1, unidade: "garrafa (500ml)", categoria: "gorduras", imagem: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=150&q=80", validade: "90 dias" },
+  { nome: "Sementes de Chia", qtd: 200, unidade: "gramas", categoria: "graos", imagem: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=150&q=80", validade: "60 dias" }
+];
+
+function toggleGavetaItensFrequentes() {
+  const gaveta = document.getElementById('gavetaItensPopulares');
+  const chipsContainer = document.getElementById('listaChipsItensFrequentes');
+  if (!gaveta) return;
+
+  const estaOculta = gaveta.style.display === 'none' || gaveta.style.display === '';
+  gaveta.style.display = estaOculta ? 'block' : 'none';
+
+  if (estaOculta && chipsContainer) {
+    chipsContainer.innerHTML = ITENS_FREQUENTES_ESTOQUE.map((item, idx) => `
+      <div class="chip-item-frequente" onclick="adicionarItemFrequenteAoArmazem(${idx})">
+        <span>➕ ${item.nome} (${item.qtd} ${item.unidade})</span>
+      </div>
+    `).join('');
+  }
+}
+
+function adicionarItemFrequenteAoArmazem(idx) {
+  const template = ITENS_FREQUENTES_ESTOQUE[idx];
+  if (!template) return;
+
+  const novoItem = {
+    id: Date.now() + Math.floor(Math.random() * 1000),
+    nome: template.nome,
+    qtd: template.qtd,
+    unidade: template.unidade,
+    categoria: template.categoria,
+    imagem: template.imagem,
+    validade: template.validade
+  };
+
+  if (!window.armazemPessoal) window.armazemPessoal = [];
+  window.armazemPessoal.unshift(novoItem);
+  salvarArmazemPessoal();
+  gerarReceitasComArmazem();
+  mostrarToastFeedback(`✓ ${novoItem.nome} adicionado à sua geladeira!`);
+}
 
 function inicializarArmazemPessoal() {
   const salvo = localStorage.getItem('saciara_armazem_pessoal');
@@ -2219,6 +2805,43 @@ function confirmarItensDetectados(itens) {
 }
 
 // --- 3. Chef IA por Nichos com os Alimentos Disponíveis ---
+
+// ==========================================================================
+// MOTOR GASTRONÔMICO AMPLIADO: CHEF IA, BUSCA EM TEMPO REAL & 156 RECEITAS
+// ==========================================================================
+
+// Mapeador Inteligente de Fotos Culinárias de Alta Qualidade (Unsplash HD)
+function obterImagemGastronomica(titulo, categoria) {
+  const t = (titulo || '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  
+  if (t.includes('crepioca') || t.includes('tapioca')) return 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('omelete') || t.includes('ovo')) return 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('frango')) return 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('peixe') || t.includes('tilapia')) return 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('salmao')) return 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('carne') || t.includes('patinho') || t.includes('almondega')) return 'https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('atum') || t.includes('sardinha')) return 'https://images.unsplash.com/photo-1501595091296-3aa970afb3ff?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('iogurte')) return 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('banana')) return 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('maca')) return 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('morango') || t.includes('frutas')) return 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('abacate')) return 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('abobora')) return 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('cenoura') || t.includes('legume')) return 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('brocolis') || t.includes('salada')) return 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('arroz') || t.includes('feijao')) return 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('lentilha') || t.includes('grao-de-bico')) return 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('cacau') || t.includes('chocolate')) return 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('aveia') || t.includes('mingau')) return 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('cuscuz')) return 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=500&q=80';
+  if (t.includes('agua') || t.includes('caminhada') || t.includes('pausa') || t.includes('atencao') || t.includes('organizacao')) return 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80';
+  
+  if (categoria === 'café da manhã') return 'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=500&q=80';
+  if (categoria === 'sobremesas fit') return 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=80';
+  return 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=500&q=80';
+}
+
+// Catálogo Consagrado do Chef IA com 50 Receitas (10 em cada nicho)
 const BANCO_RECEITAS_CHEF = {
   rapidas: [
     {
@@ -2232,9 +2855,9 @@ const BANCO_RECEITAS_CHEF = {
       ingredientesUsados: ["Ovos de Granja", "Peito de Frango", "Brócolis Ninja", "Azeite"],
       passos: [
         "Desfie ou corte em cubinhos 120g de frango já pré-cozido da geladeira.",
-        "Bata 3 ovos com uma pitada de sal, orégano e 2 floretes de brócolis picadinhos.",
-        "Aqueça a frigideira untada com um fio de azeite, despeje os ovos e adicione o frango no centro.",
-        "Dobre ao meio e tampe por 2 minutos até dourar. Sirva quentinho e suculento."
+        "Bata 3 ovos com sal marinho, orégano e 2 floretes de brócolis picadinhos.",
+        "Aqueça a frigideira untada com um fio de azeite e despeje a mistura.",
+        "Dobre ao meio e tampe por 2 minutos até dourar suculento."
       ]
     },
     {
@@ -2245,12 +2868,72 @@ const BANCO_RECEITAS_CHEF = {
       carbos: "22g",
       gorduras: "8g",
       imagem: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80",
-      ingredientesUsados: ["Ovos de Granja", "Peito de Frango", "Aveia em Flocos"],
+      ingredientesUsados: ["Ovos de Granja", "Peito de Frango", "Goma de Tapioca"],
       passos: [
-        "Bata 1 ovo inteiro com 2 colheres de aveia ou goma e 1 colher de água.",
+        "Bata 1 ovo inteiro com 2 colheres de sopa de goma e 1 colher de água.",
         "Despeje na frigideira antiaderente em fogo médio até soltar as bordas.",
         "Recheie com frango desfiado temperado com ervas e dobre.",
-        "Pronto para comer sem sujar panelas extras."
+        "Sirva quente sem sujar panelas extras."
+      ]
+    },
+    {
+      titulo: "Wrap Rápido de Ovos com Queijo Fresco & Tomate",
+      tempo: "7 min",
+      calorias: "270 kcal",
+      proteinas: "24g",
+      carbos: "8g",
+      gorduras: "14g",
+      imagem: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Ovos de Granja", "Tomate", "Queijo Minas/Ricota", "Orégano"],
+      passos: [
+        "Faça um disco fino de 2 ovos batidos na frigideira untada.",
+        "Espalhe cubinhos de tomate e fatias de queijo sobre o disco.",
+        "Enrole delicadamente como um canelone e sirva."
+      ]
+    },
+    {
+      titulo: "Frango Salteado com Cenoura & Molho Rápido de Limão",
+      tempo: "12 min",
+      calorias: "320 kcal",
+      proteinas: "36g",
+      carbos: "12g",
+      gorduras: "7g",
+      imagem: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Peito de Frango", "Cenoura", "Azeite de Oliva", "Limão"],
+      passos: [
+        "Corte o frango em iscas finas e a cenoura em lâminas finas.",
+        "Salteie em fogo bem alto na frigideira com azeite por 5 minutos.",
+        "Regue com suco de limão e cheiro-verde e desligue o fogo."
+      ]
+    },
+    {
+      titulo: "Taça Express de Iogurte com Aveia & Canela",
+      tempo: "4 min",
+      calorias: "210 kcal",
+      proteinas: "15g",
+      carbos: "28g",
+      gorduras: "4g",
+      imagem: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Iogurte Natural", "Aveia em Flocos", "Canela"],
+      passos: [
+        "Coloque o iogurte desnatado em uma tigela.",
+        "Cubra com aveia em flocos e abundante canela em pó.",
+        "Pronto em segundos para saciedade imediata."
+      ]
+    },
+    {
+      titulo: "Shakshuka Caipira de Frigideira (Ovos no Tomate)",
+      tempo: "11 min",
+      calorias: "280 kcal",
+      proteinas: "20g",
+      carbos: "10g",
+      gorduras: "16g",
+      imagem: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Ovos de Granja", "Tomate", "Cebola", "Azeite"],
+      passos: [
+        "Refogue tomate picado com alho e cebola até virar um molho rústico.",
+        "Abra 2 covas no molho e quebre 2 ovos inteiros.",
+        "Tampe por 4 minutos até as claras firmarem com a gema mole."
       ]
     }
   ],
@@ -2267,8 +2950,68 @@ const BANCO_RECEITAS_CHEF = {
       passos: [
         "Grelhe 150g de filé de frango em tiras com páprica defumada e alho.",
         "Aqueça 150g de arroz integral cozido do seu armazém.",
-        "Faça 2 ovos na frigideira com gema mole ou no ponto de sua preferência.",
-        "Monte o bowl equilibrando as proteínas para máxima síntese muscular pós-treino."
+        "Faça 2 ovos na frigideira com gema cremosa.",
+        "Monte o bowl para máxima síntese proteica pós-treino."
+      ]
+    },
+    {
+      titulo: "Patinho Moído Nobre com Ovos e Brócolis no Vapor",
+      tempo: "16 min",
+      calorias: "490 kcal",
+      proteinas: "46g",
+      carbos: "18g",
+      gorduras: "15g",
+      imagem: "https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Patinho Moído", "Ovos de Granja", "Brócolis Ninja", "Alho"],
+      passos: [
+        "Refogue o patinho com alho, sal e cheiro-verde.",
+        "Cozinhe o brócolis no vapor por 4 minutos.",
+        "Adicione 2 ovos cozidos partidos ao prato farto."
+      ]
+    },
+    {
+      titulo: "Filé de Tilápia com Quinoa & Espinafre Dourado",
+      tempo: "15 min",
+      calorias: "390 kcal",
+      proteinas: "42g",
+      carbos: "28g",
+      gorduras: "9g",
+      imagem: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Filé de Tilápia", "Quinoa/Arroz", "Azeite", "Limão"],
+      passos: [
+        "Tempere o peixe com raspas de limão e pimenta-do-reino.",
+        "Doure na frigideira antiaderente 3 minutos por lado.",
+        "Acompanhe com quinoa aquecida e folhas salteadas."
+      ]
+    },
+    {
+      titulo: "Omelete Gigante de Claras e Ovos com Frango Desfiado",
+      tempo: "10 min",
+      calorias: "380 kcal",
+      proteinas: "52g",
+      carbos: "4g",
+      gorduras: "12g",
+      imagem: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Ovos de Granja", "Peito de Frango", "Cebolinha", "Orégano"],
+      passos: [
+        "Bata 2 ovos inteiros com 2 claras adicionais.",
+        "Despeje na frigideira e adicione 140g de frango desfiado aquecido.",
+        "Dobre ao meio e sirva a bomba de aminoácidos essenciais."
+      ]
+    },
+    {
+      titulo: "Strogonoff Proteico de Frango com Iogurte Natural",
+      tempo: "18 min",
+      calorias: "440 kcal",
+      proteinas: "45g",
+      carbos: "36g",
+      gorduras: "8g",
+      imagem: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Peito de Frango", "Iogurte Natural", "Molho de Tomate", "Arroz Integral"],
+      passos: [
+        "Doure o frango com alho e cebola.",
+        "Incorpore 2 colheres de molho de tomate natural.",
+        "Desligue o fogo e misture 1 pote de iogurte natural desnatado."
       ]
     }
   ],
@@ -2281,12 +3024,56 @@ const BANCO_RECEITAS_CHEF = {
       carbos: "14g",
       gorduras: "8g",
       imagem: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80",
-      ingredientesUsados: ["Peito de Frango", "Brócolis Ninja", "Azeite de Oliva"],
+      ingredientesUsados: ["Peito de Frango", "Brócolis Ninja", "Mix de Folhas", "Azeite"],
       passos: [
-        "Cozinhe o brócolis no vapor por 4 minutos para manter a crocância e clorofila.",
-        "Misture com frango desfiado suculento e folhas frescas.",
-        "Tempere com emulsão de azeite extravirgem, limão e sal marinho.",
-        "Gera altíssimo volume gástrico suprimindo a grelina por horas."
+        "Cozinhe o brócolis no vapor para manter crocância e clorofila.",
+        "Misture com folhas verdes fartas e frango desfiado suculento.",
+        "Tempere com emulsão de azeite extravirgem e limão siciliano."
+      ]
+    },
+    {
+      titulo: "Creme Espesso de Abóbora Cabotiá com Frango Desfiado",
+      tempo: "20 min",
+      calorias: "260 kcal",
+      proteinas: "32g",
+      carbos: "24g",
+      gorduras: "4g",
+      imagem: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Abóbora", "Peito de Frango", "Gengibre", "Ervas"],
+      passos: [
+        "Cozinhe a abóbora até amaciar e bata com água do cozimento.",
+        "Junte o frango desfiado e aqueça na panela com gengibre ralado.",
+        "Gera grande distensão gástrica benéfica e saciedade prolongada."
+      ]
+    },
+    {
+      titulo: "Salada Colorida de Feijão Fradinho com Ovos & Pepino",
+      tempo: "10 min",
+      calorias: "310 kcal",
+      proteinas: "22g",
+      carbos: "38g",
+      gorduras: "7g",
+      imagem: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Feijão Fradinho", "Ovos", "Pepino", "Tomate"],
+      passos: [
+        "Misture 1 xícara de feijão fradinho cozido com pepino e tomate picados.",
+        "Adicione 2 ovos cozidos picados por cima.",
+        "Tempere com limão, sal e orégano fresco."
+      ]
+    },
+    {
+      titulo: "Prato Caipira de Abobrinha Refogada com Carne Magra",
+      tempo: "14 min",
+      calorias: "310 kcal",
+      proteinas: "35g",
+      carbos: "12g",
+      gorduras: "10g",
+      imagem: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Patinho Moído", "Abobrinha", "Cebola", "Azeite"],
+      passos: [
+        "Corte 1 abobrinha média em rodelas ou meias-luas.",
+        "Refogue junto com o patinho moído até ficar macia e suculenta.",
+        "Volume farto com baixíssima caloria por grama."
       ]
     }
   ],
@@ -2301,10 +3088,52 @@ const BANCO_RECEITAS_CHEF = {
       imagem: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=500&q=80",
       ingredientesUsados: ["Banana Prata", "Aveia em Flocos", "Ovos de Granja"],
       passos: [
-        "Amasse 1 banana prata bem madura em um prato.",
-        "Misture com 1 ovo e 3 colheres de sopa de aveia em flocos finos até formar massa homogênea.",
-        "Polvilhe bastante canela em pó (termogênico natural).",
-        "Doure 2 minutos de cada lado na frigideira untada com uma gota de azeite."
+        "Amasse 1 banana prata madura em um prato.",
+        "Misture com 1 ovo e 3 colheres de aveia em flocos finos.",
+        "Polvilhe canela em pó e doure 2 minutos por lado na frigideira untada."
+      ]
+    },
+    {
+      titulo: "Taça Vulcão de Cacau 100% com Iogurte & Banana",
+      tempo: "5 min",
+      calorias: "220 kcal",
+      proteinas: "12g",
+      carbos: "32g",
+      gorduras: "4g",
+      imagem: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Iogurte Natural", "Banana", "Cacau Puro 100%"],
+      passos: [
+        "Fatie a banana madura no fundo de uma taça de vidro.",
+        "Cubra com iogurte desnatado misturado com 1 colher de cacau 100%.",
+        "Mata a compulsão por doce instantaneamente sem açúcar refinado."
+      ]
+    },
+    {
+      titulo: "Banana Assada na Airfryer com Canela & Cravo",
+      tempo: "7 min",
+      calorias: "115 kcal",
+      proteinas: "2g",
+      carbos: "28g",
+      gorduras: "0.5g",
+      imagem: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Banana Prata", "Canela em Pó"],
+      passos: [
+        "Corte a banana com casca ao meio longitudinalmente.",
+        "Polvilhe bastante canela e asse a 180°C por 7 minutos até caramelizar naturalmente."
+      ]
+    },
+    {
+      titulo: "Mousse Cremoso de Abacate com Raspas de Cacau",
+      tempo: "6 min",
+      calorias: "190 kcal",
+      proteinas: "4g",
+      carbos: "16g",
+      gorduras: "12g",
+      imagem: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Abacate", "Cacau 100%", "Estévia"],
+      passos: [
+        "Bata 80g de abacate com 1 colher de cacau e 2 colheres de água gelada.",
+        "Sirva bem gelado com textura sedosa."
       ]
     }
   ],
@@ -2321,20 +3150,62 @@ const BANCO_RECEITAS_CHEF = {
       passos: [
         "Pique os talos do brócolis e sobras de vegetais da sua geladeira.",
         "Salteie na frigideira em fogo alto com um fio de azeite.",
-        "Acrescente o arroz e o frango desfiado, mexendo bem.",
-        "Abra um espaço no centro, quebre 2 ovos e envolva tudo estilo arroz oriental yakimeshi fit."
+        "Acrescente o arroz e o frango desfiado e incorpore 2 ovos no centro."
+      ]
+    },
+    {
+      titulo: "Arroz Frito Oriental Fit (Yakimeshi da Casa)",
+      tempo: "12 min",
+      calorias: "340 kcal",
+      proteinas: "22g",
+      carbos: "40g",
+      gorduras: "9g",
+      imagem: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Arroz Integral", "Ovos", "Cenoura", "Cheiro-Verde"],
+      passos: [
+        "Salteie cenoura ralada e sobras de arroz na frigideira com uma gota de azeite.",
+        "Abra um espaço e mexa 2 ovos até ficarem em flocos.",
+        "Misture tudo com cheiro-verde farto e shoyu light se desejar."
+      ]
+    },
+    {
+      titulo: "Farofa Funcional de Flocos de Aveia & Legumes",
+      tempo: "8 min",
+      calorias: "220 kcal",
+      proteinas: "10g",
+      carbos: "28g",
+      gorduras: "7g",
+      imagem: "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=500&q=80",
+      ingredientesUsados: ["Aveia em Flocos", "Cenoura", "Cebola", "Ovo"],
+      passos: [
+        "Doure cebola picadinha e cenoura ralada no azeite.",
+        "Adicione aveia em flocos grossos mexendo até tostar crocante.",
+        "Finalize com 1 ovo mexido para uma farofa rica em fibras."
       ]
     }
   ]
 };
 
 window.nichoChefAtivo = 'rapidas';
+window.filtroChefBusca = '';
 
 function selecionarNichoChef(nicho) {
   window.nichoChefAtivo = nicho;
+  window.filtroChefBusca = '';
+  const inputBusca = document.getElementById('chefBuscaRapida');
+  if (inputBusca) inputBusca.value = '';
+  const contador = document.getElementById('chefContadorFiltro');
+  if (contador) contador.innerText = '';
+
   document.querySelectorAll('.nicho-pill-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.nicho === nicho);
   });
+  gerarReceitasComArmazem();
+}
+
+// Filtro rápido de busca por texto no Chef IA
+function filtrarReceitasChef(termo) {
+  window.filtroChefBusca = (termo || '').trim().toLowerCase();
   gerarReceitasComArmazem();
 }
 
@@ -2342,9 +3213,66 @@ function gerarReceitasComArmazem() {
   const container = document.getElementById('gridReceitasChef');
   if (!container) return;
 
-  const receitas = BANCO_RECEITAS_CHEF[window.nichoChefAtivo] || BANCO_RECEITAS_CHEF['rapidas'];
+  const termo = window.filtroChefBusca;
+  let receitasParaExibir = [];
 
-  container.innerHTML = receitas.map(r => `
+  if (termo) {
+    // Busca em todo o banco do Chef IA
+    const todasChef = Object.values(BANCO_RECEITAS_CHEF).flat();
+    const filtradasChef = todasChef.filter(r => {
+      const matchTitulo = r.titulo.toLowerCase().includes(termo);
+      const matchIngredientes = r.ingredientesUsados.some(ing => ing.toLowerCase().includes(termo));
+      return matchTitulo || matchIngredientes;
+    });
+
+    // E busca também nas 156 receitas de receitas.json (AppState.recipes)
+    let filtradasCatalogo = [];
+    if (AppState.recipes && AppState.recipes.length > 0) {
+      filtradasCatalogo = AppState.recipes.filter(r => {
+        const matchTitulo = (r.titulo || '').toLowerCase().includes(termo);
+        const matchTags = (r.tags || []).some(t => t.toLowerCase().includes(termo));
+        const matchDesc = (r.descricao || '').toLowerCase().includes(termo);
+        return matchTitulo || matchTags || matchDesc;
+      }).slice(0, 8).map(r => ({
+        titulo: r.titulo,
+        tempo: (r.tempo_preparo_min || 15) + ' min',
+        calorias: (r.calorias || 280) + ' kcal',
+        proteinas: r.macros && r.macros.proteina_g ? r.macros.proteina_g + 'g' : '20g',
+        carbos: r.macros && r.macros.carboidrato_g ? r.macros.carboidrato_g + 'g' : '30g',
+        gorduras: r.macros && r.macros.gordura_g ? r.macros.gordura_g + 'g' : '8g',
+        imagem: obterImagemGastronomica(r.titulo, r.categoria),
+        ingredientesUsados: ['Ingredientes Selecionados NutriPlus'],
+        passos: r.instrucoes || ['Prepare com carinho e equilíbrio.']
+      }));
+    }
+
+    receitasParaExibir = [...filtradasChef, ...filtradasCatalogo];
+
+    const contador = document.getElementById('chefContadorFiltro');
+    if (contador) {
+      contador.innerText = `${receitasParaExibir.length} receitas encontradas`;
+    }
+  } else {
+    receitasParaExibir = BANCO_RECEITAS_CHEF[window.nichoChefAtivo] || BANCO_RECEITAS_CHEF['rapidas'];
+    const contador = document.getElementById('chefContadorFiltro');
+    if (contador) contador.innerText = '';
+  }
+
+  if (receitasParaExibir.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align:center; padding: 36px 20px; background: rgba(15,23,42,0.6); border: 2px dashed #1E293B; border-radius: 16px;">
+        <span style="font-size: 32px; display:block; margin-bottom: 8px;">🍳</span>
+        <h4 style="color:#FFF; font-size:15px; margin:0 0 4px 0;">Nenhuma receita encontrada para "${termo}"</h4>
+        <p style="color:#94A3B8; font-size:12px; margin:0 0 14px 0;">Tente outro alimento como 'frango', 'ovo', 'banana', 'aveia', 'iogurte' ou limpe a busca.</p>
+        <button class="btn-np btn-np-secondary btn-np-sm" onclick="selecionarNichoChef('rapidas')">
+          Ver Sugestões Rápidas
+        </button>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = receitasParaExibir.map(r => `
     <div class="receita-chef-card">
       <div class="receita-chef-cover-wrap">
         <img src="${r.imagem}" alt="${r.titulo}" loading="eager" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80';">
@@ -2359,15 +3287,121 @@ function gerarReceitasComArmazem() {
           <span class="macro-pill">🥑 ${r.gorduras}</span>
         </div>
         <div style="font-size:12px; color:#94A3B8; margin-bottom:10px;">
-          Ingredientes da sua geladeira: <strong style="color:#FFF;">${r.ingredientesUsados.join(', ')}</strong>
+          Ingredientes: <strong style="color:#FFF;">${r.ingredientesUsados.join(', ')}</strong>
         </div>
-        <button class="btn-primary" style="width:100%; padding:10px; font-size:12px; font-weight:800; background:#121B2E; border:1px solid #00E575; color:#00E575; border-radius:8px; cursor:pointer;" onclick="abrirModalReceitaPassos('${r.titulo}', ${JSON.stringify(r.passos).replace(/"/g, '&quot;')}, '${r.tempo}', '${r.calorias}')">
+        <button class="btn-primary" style="width:100%; padding:10px; font-size:12px; font-weight:800; background:#121B2E; border:1px solid #00E575; color:#00E575; border-radius:8px; cursor:pointer;" onclick="abrirModalReceitaPassos('${r.titulo.replace(/'/g, "\\'")}', ${JSON.stringify(r.passos).replace(/"/g, '&quot;')}, '${r.tempo}', '${r.calorias}')">
           👨‍🍳 Ver Modo de Preparo Passo a Passo
         </button>
       </div>
     </div>
   `).join('');
 }
+
+// ==========================================================================
+// CATÁLOGO GERAL DE 156 RECEITAS NUTRIPLUS / SACIARA
+// ==========================================================================
+window.categoriaCatalogoAtiva = 'todas';
+window.filtroBuscaCatalogo = '';
+
+function abrirModalCatalogoReceitas() {
+  if ((!AppState.recipes || AppState.recipes.length === 0) && window.BANCO_RECEITAS_156) {
+    AppState.recipes = window.BANCO_RECEITAS_156;
+  }
+  const todasReceitas = (AppState.recipes && AppState.recipes.length > 0) ? AppState.recipes : (window.BANCO_RECEITAS_156 || []);
+
+  abrirModal("📖 Catálogo Completo: 156 Receitas Saudáveis", `
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center;">
+        <input type="text" id="inputBuscaCatalogo" class="chef-search-input" style="background:#0F172A; border:1px solid #1C2B48; border-radius:10px; padding:10px 14px; width:100%; color:#FFF; font-size:13px;" placeholder="Buscar receita por nome, alimento ou tag (ex: crepioca, sem glúten, rápida)..." oninput="filtrarModalCatalogo(this.value)">
+      </div>
+
+      <div class="catalogo-chips-bar" id="chipsBarCatalogo">
+        <button class="catalogo-chip-btn active" onclick="filtrarCategoriaCatalogo('todas', this)">Todas (${todasReceitas.length || 156})</button>
+        <button class="catalogo-chip-btn" onclick="filtrarCategoriaCatalogo('café da manhã', this)">Café da Manhã (22)</button>
+        <button class="catalogo-chip-btn" onclick="filtrarCategoriaCatalogo('almoço & jantar', this)">Almoço & Jantar (51)</button>
+        <button class="catalogo-chip-btn" onclick="filtrarCategoriaCatalogo('lanches práticos', this)">Lanches Práticos (36)</button>
+        <button class="catalogo-chip-btn" onclick="filtrarCategoriaCatalogo('sobremesas fit', this)">Sobremesas Fit (47)</button>
+      </div>
+
+      <div class="catalogo-grid-cards" id="containerCatalogoGrid">
+        <!-- Renderizado dinamicamente -->
+      </div>
+    </div>
+  `);
+
+  window.categoriaCatalogoAtiva = 'todas';
+  window.filtroBuscaCatalogo = '';
+  renderizarCardsCatalogo();
+}
+
+function filtrarCategoriaCatalogo(cat, btn) {
+  window.categoriaCatalogoAtiva = cat;
+  document.querySelectorAll('#chipsBarCatalogo .catalogo-chip-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderizarCardsCatalogo();
+}
+
+function filtrarModalCatalogo(termo) {
+  window.filtroBuscaCatalogo = (termo || '').trim().toLowerCase();
+  renderizarCardsCatalogo();
+}
+
+function renderizarCardsCatalogo() {
+  const container = document.getElementById('containerCatalogoGrid');
+  if (!container) return;
+
+  const todas = (AppState.recipes && AppState.recipes.length > 0) ? AppState.recipes : (window.BANCO_RECEITAS_156 || []);
+  const cat = window.categoriaCatalogoAtiva;
+  const termo = window.filtroBuscaCatalogo;
+
+  let filtradas = todas.filter(r => {
+    const matchCat = (cat === 'todas') || (r.categoria && r.categoria.toLowerCase() === cat.toLowerCase());
+    if (!matchCat) return false;
+    if (!termo) return true;
+
+    const matchTitulo = (r.titulo || '').toLowerCase().includes(termo);
+    const matchTags = (r.tags || []).some(t => t.toLowerCase().includes(termo));
+    const matchDesc = (r.descricao || '').toLowerCase().includes(termo);
+    return matchTitulo || matchTags || matchDesc;
+  });
+
+  if (filtradas.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align:center; padding:30px 10px; color:#94A3B8;">
+        Nenhuma receita encontrada para os filtros selecionados.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtradas.map(r => {
+    const imgUrl = obterImagemGastronomica(r.titulo, r.categoria);
+    const tempo = (r.tempo_preparo_min || 10) + ' min';
+    const kcals = (r.calorias || 250) + ' kcal';
+    const prot = r.macros && r.macros.proteina_g ? r.macros.proteina_g + 'g' : '15g';
+    const carb = r.macros && r.macros.carboidrato_g ? r.macros.carboidrato_g + 'g' : '25g';
+    const passos = r.instrucoes || [r.descricao || 'Preparo prático com alimentos frescos.'];
+
+    return `
+      <div class="catalogo-card">
+        <img class="catalogo-card-thumb" src="${imgUrl}" alt="${r.titulo}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80';">
+        <div class="catalogo-card-body">
+          <span class="catalogo-card-cat-badge">${r.categoria || 'Receita'}</span>
+          <div class="catalogo-card-title">${r.titulo}</div>
+          <div class="catalogo-card-meta">
+            <span style="color:#00E575; font-weight:700;">🔥 ${kcals}</span>
+            <span>⏱️ ${tempo}</span>
+            <span>🥩 P: ${prot}</span>
+          </div>
+          <button class="catalogo-card-btn" onclick="abrirModalReceitaPassos('${r.titulo.replace(/'/g, "\\'")}', ${JSON.stringify(passos).replace(/"/g, '&quot;')}, '${tempo}', '${kcals}')">
+            📖 Ver Modo de Preparo
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
 
 function abrirModalReceitaPassos(titulo, passos, tempo, calorias) {
   abrirModal(`🍳 ${titulo}`, `
