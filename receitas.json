@@ -155,17 +155,17 @@
     "slug": "comer-com-aten-o",
     "titulo": "Comer com atenção",
     "categoria": "lanches práticos",
-    "tempo_preparo_min": 10,
+    "tempo_preparo_min": 15,
     "porcoes": 1,
-    "descricao": "Escolha uma refeição para experimentar comer sentado, com um pouco menos de distração. Se for possível, deixe o celular de lado. Observe os sabores e faça a refeição no seu ritmo.",
+    "descricao": "Escolha uma refeição para experimentar comer sentado, com um pouco menos de distração. Deixe o celular de lado e aprecie cada sabor.",
     "instrucoes": [
-      "Separe e pese os ingredientes frescos na balança culinária.",
-      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
-      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
-      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
-      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+      "Afaste telas, celular e notificações durante os primeiros 5 minutos da refeição.",
+      "Observe as cores, aromas e a montagem do prato antes da primeira garfada.",
+      "Mastigue devagar, pousando os talheres na mesa entre cada bocado.",
+      "Sinta o ponto de saciedade confortável no estômago antes de repetir.",
+      "Finalize com um copo de água fresca e a sensação de paz pós-refeição."
     ],
-    "calorias": 250,
+    "calorias": 0,
     "macros": {
       "proteina_g": 15.0,
       "carboidrato_g": 28.0,
@@ -173,8 +173,9 @@
       "fibras_g": 3.5
     },
     "tags": [
-      "equilibrada",
-      "prática"
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
     ],
     "utensilios_recomendados": [
       {
@@ -385,17 +386,17 @@
     "slug": "caminhada-poss-vel",
     "titulo": "Caminhada possível",
     "categoria": "lanches práticos",
-    "tempo_preparo_min": 10,
+    "tempo_preparo_min": 20,
     "porcoes": 1,
-    "descricao": "Pense em um trajeto conhecido, acessível e seguro para você. Comece com um percurso confortável e ajuste o tempo à sua condição e disponibilidade.",
+    "descricao": "Uma caminhada leve de 15 a 20 minutos após uma das refeições principais ajuda a regular a glicemia e ativa a circulação sem esforço exaustivo.",
     "instrucoes": [
-      "Separe e pese os ingredientes frescos na balança culinária.",
-      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
-      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
-      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
-      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+      "Calce um tênis confortável e vista roupas leves.",
+      "Faça um trajeto tranquilo pelo seu bairro ou parque próximo.",
+      "Mantenha um ritmo agradável onde ainda consiga respirar pelo nariz.",
+      "Aproveite para ouvir uma música suave ou apenas prestar atenção no ambiente.",
+      "Beba 300ml de água ao retornar para hidratar o organismo."
     ],
-    "calorias": 250,
+    "calorias": 120,
     "macros": {
       "proteina_g": 15.0,
       "carboidrato_g": 28.0,
@@ -403,8 +404,9 @@
       "fibras_g": 3.5
     },
     "tags": [
-      "equilibrada",
-      "prática"
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
     ],
     "utensilios_recomendados": [
       {
@@ -825,7 +827,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-11-09 - Mingau de cacau (revisar artes)/01.png"
+    "imagem_capa": "assets/receitas_flow/mingau_de_cacau.png"
   },
   {
     "id": 23,
@@ -834,15 +836,15 @@
     "categoria": "lanches práticos",
     "tempo_preparo_min": 10,
     "porcoes": 1,
-    "descricao": "Observe em qual momento você costuma seguir mesmo precisando de uma pausa. Se couber, reserve alguns minutos para uma atividade tranquila que você goste, sem transformar isso em obrigação.",
+    "descricao": "Pausas curtas ao longo do dia reduzem os picos de cortisol (hormônio do estresse), que frequentemente causam fome emocional e vontade de beliscar.",
     "instrucoes": [
-      "Separe e pese os ingredientes frescos na balança culinária.",
-      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
-      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
-      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
-      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+      "Afaste-se do computador ou mesa de trabalho por 10 minutos.",
+      "Feche os olhos e respire profundamente em 4 tempos (inspire em 4s, segure 2s, expire em 6s).",
+      "Alongue suavemente pescoço, ombros e coluna lombar.",
+      "Tome uma xícara de chá calmante (camomila ou hortelã) sem açúcar.",
+      "Retorne às atividades com a mente renovada e focada."
     ],
-    "calorias": 250,
+    "calorias": 0,
     "macros": {
       "proteina_g": 15.0,
       "carboidrato_g": 28.0,
@@ -850,8 +852,9 @@
       "fibras_g": 3.5
     },
     "tags": [
-      "equilibrada",
-      "prática"
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
     ],
     "utensilios_recomendados": [
       {
@@ -976,7 +979,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/tapioca_queijo_oregano.png"
   },
   {
     "id": 27,
@@ -1018,7 +1021,7 @@
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/arroz_frigideira_ovo.png"
   },
   {
     "id": 28,
@@ -1054,24 +1057,24 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/pera_cozida_canela.png"
   },
   {
     "id": 29,
     "slug": "compras-com-planejamento",
     "titulo": "Compras com planejamento",
     "categoria": "lanches práticos",
-    "tempo_preparo_min": 10,
+    "tempo_preparo_min": 25,
     "porcoes": 1,
-    "descricao": "Antes de sair, olhe a geladeira e a despensa. Anote o que já tem. Escolha algumas refeições e monte a lista com as quantidades que fazem sentido para sua casa.",
+    "descricao": "Nunca vá ao supermercado com fome. Uma lista organizada por setores evita compras por impulso de ultraprocessados e economiza seu dinheiro.",
     "instrucoes": [
-      "Separe e pese os ingredientes frescos na balança culinária.",
-      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
-      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
-      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
-      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+      "Confira o que ainda tem na sua geladeira e despensa antes de sair.",
+      "Faça uma refeição rica em proteínas e fibras antes das compras.",
+      "Siga rigorosamente a lista do NutriPlus dividida por hortifrúti, grãos e proteínas.",
+      "Priorize os corredores periféricos do mercado (onde ficam os alimentos frescos).",
+      "Guarde os alimentos higienizados em potes transparentes ao chegar em casa."
     ],
-    "calorias": 250,
+    "calorias": 0,
     "macros": {
       "proteina_g": 15.0,
       "carboidrato_g": 28.0,
@@ -1079,8 +1082,9 @@
       "fibras_g": 3.5
     },
     "tags": [
-      "equilibrada",
-      "prática"
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
     ],
     "utensilios_recomendados": [
       {
@@ -1162,7 +1166,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/panquequinha_banana_canela.png"
   },
   {
     "id": 32,
@@ -1247,7 +1251,7 @@
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/peixe_assado_tomate.png"
   },
   {
     "id": 34,
@@ -1298,15 +1302,15 @@
     "categoria": "lanches práticos",
     "tempo_preparo_min": 10,
     "porcoes": 1,
-    "descricao": "Quando sua rotina permitir, interrompa um período longo sentado. Levante, caminhe um pouco ou escolha movimentos confortáveis e adequados para você.",
+    "descricao": "Quebrar o sedentarismo prolongado a cada 90 minutos melhora a sensibilidade à insulina e reduz o inchaço nas pernas.",
     "instrucoes": [
-      "Separe e pese os ingredientes frescos na balança culinária.",
-      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
-      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
-      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
-      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+      "Levante-se da cadeira e dê 20 passos pelo ambiente.",
+      "Faça 10 rotações de ombros para trás e para frente.",
+      "Fique na ponta dos pés por 15 segundos para ativar a bomba muscular da panturrilha.",
+      "Aproveite para encher sua garrafa de água no filtro.",
+      "Sinta o corpo desperto e pronto para continuar o dia."
     ],
-    "calorias": 250,
+    "calorias": 50,
     "macros": {
       "proteina_g": 15.0,
       "carboidrato_g": 28.0,
@@ -1314,8 +1318,9 @@
       "fibras_g": 3.5
     },
     "tags": [
-      "equilibrada",
-      "prática"
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
     ],
     "utensilios_recomendados": [
       {
@@ -1368,7 +1373,7 @@
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/almondega_molho_tomate.png"
   },
   {
     "id": 37,
@@ -1533,17 +1538,17 @@
     "slug": "facilitar-o-acesso-gua",
     "titulo": "Facilitar o acesso à água",
     "categoria": "lanches práticos",
-    "tempo_preparo_min": 10,
+    "tempo_preparo_min": 5,
     "porcoes": 1,
-    "descricao": "Deixe água potável acessível nos lugares em que você passa o dia. Leve uma garrafa quando isso ajudar e aproveite as pausas para perceber sua sede.",
+    "descricao": "Manter uma garrafa bonita e cheia sempre ao alcance dos olhos faz você bater sua meta de hidratação sem esforço de memória.",
     "instrucoes": [
-      "Separe e pese os ingredientes frescos na balança culinária.",
-      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
-      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
-      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
-      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+      "Escolha uma garrafa térmica ou de inox de 500ml a 1L.",
+      "Abasteça pela manhã e mantenha sempre visível na sua mesa de trabalho.",
+      "Se desejar, adicione rodelas de limão ou folhas de hortelã para aromatizar.",
+      "Crie o hábito de dar 3 goles a cada vez que trocar de tarefa ou aba no computador.",
+      "Monitore a cor da urina ao longo do dia: amarelo bem clarinho indica hidratação ideal."
     ],
-    "calorias": 250,
+    "calorias": 0,
     "macros": {
       "proteina_g": 15.0,
       "carboidrato_g": 28.0,
@@ -1551,8 +1556,9 @@
       "fibras_g": 3.5
     },
     "tags": [
-      "equilibrada",
-      "prática"
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
     ],
     "utensilios_recomendados": [
       {
@@ -1991,17 +1997,17 @@
     "slug": "encontrar-uma-atividade-agrad-vel",
     "titulo": "Encontrar uma atividade agradável",
     "categoria": "lanches práticos",
-    "tempo_preparo_min": 10,
+    "tempo_preparo_min": 30,
     "porcoes": 1,
-    "descricao": "Liste atividades que você tem vontade de experimentar: caminhar, dançar ou outra opção acessível. Escolha uma que combine com seu espaço, condições e preferências. Comece em um ritmo confortável.",
+    "descricao": "O melhor exercício é aquele que você tem vontade de repetir amanhã. Dança, natação, caminhada, pilates ou musculação: o segredo é a constância sem sofrimento.",
     "instrucoes": [
-      "Separe e pese os ingredientes frescos na balança culinária.",
-      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
-      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
-      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
-      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+      "Escolha um movimento físico que traga prazer e não sensação de punição.",
+      "Comece com 20 a 30 minutos em intensidade moderada.",
+      "Celebre o fato de movimentar o corpo e oxigenar os músculos.",
+      "Hidrate-se bem antes, durante e após a prática.",
+      "Repare como o seu humor e disposição melhoram após o término."
     ],
-    "calorias": 250,
+    "calorias": 180,
     "macros": {
       "proteina_g": 15.0,
       "carboidrato_g": 28.0,
@@ -2009,8 +2015,9 @@
       "fibras_g": 3.5
     },
     "tags": [
-      "equilibrada",
-      "prática"
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
     ],
     "utensilios_recomendados": [
       {
@@ -2208,17 +2215,17 @@
     "slug": "organiza-o-do-fim-do-dia",
     "titulo": "Organização do fim do dia",
     "categoria": "lanches práticos",
-    "tempo_preparo_min": 10,
+    "tempo_preparo_min": 15,
     "porcoes": 1,
-    "descricao": "Observe o que costuma deixar sua noite mais corrida. Se puder, antecipe uma tarefa pequena, como separar a roupa ou organizar a cozinha.",
+    "descricao": "Deixar o café da manhã adiantado e a cozinha em ordem à noite reduz drasticamente o cansaço e a probabilidade de escolhas impulsivas pela manhã.",
     "instrucoes": [
-      "Separe e pese os ingredientes frescos na balança culinária.",
-      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
-      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
-      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
-      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+      "Deixe o bowl do mingau ou os potes de aveia pré-medidos na bancada.",
+      "Confira se as marmitas do almoço de amanhã estão prontas na geladeira.",
+      "Desligue luzes brancas e reduza o brilho do celular 1 hora antes de dormir.",
+      "Vá para a cama sabendo exatamente o que vai comer ao acordar.",
+      "Tenha uma noite de sono reparador (7 a 8 horas) para regular os hormônios da saciedade."
     ],
-    "calorias": 250,
+    "calorias": 0,
     "macros": {
       "proteina_g": 15.0,
       "carboidrato_g": 28.0,
@@ -2226,8 +2233,9 @@
       "fibras_g": 3.5
     },
     "tags": [
-      "equilibrada",
-      "prática"
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
     ],
     "utensilios_recomendados": [
       {
@@ -3578,17 +3586,17 @@
     "slug": "pausa-ao-ar-livre",
     "titulo": "Pausa ao ar livre",
     "categoria": "lanches práticos",
-    "tempo_preparo_min": 10,
+    "tempo_preparo_min": 15,
     "porcoes": 1,
-    "descricao": "Se houver um local seguro e acessível, experimente passar um intervalo fora do ambiente habitual. Pode ser uma caminhada confortável ou apenas sentar por alguns minutos.",
+    "descricao": "O contato com a luz natural e ar fresco pela manhã ou final da tarde sincroniza o ciclo circadiano e melhora a qualidade do sono noturno.",
     "instrucoes": [
-      "Separe e pese os ingredientes frescos na balança culinária.",
-      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
-      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
-      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
-      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+      "Saia para uma varanda, quintal ou rua por 10 a 15 minutos.",
+      "Deixe a luz solar natural atingir os olhos (sem olhar diretamente para o sol).",
+      "Respire profundamente o ar fresco e desconecte-se de cobranças imediatas.",
+      "Sinta o calor suave na pele ativando a síntese de vitamina D e energia.",
+      "Volte para o seu dia mais leve e centrado."
     ],
-    "calorias": 250,
+    "calorias": 40,
     "macros": {
       "proteina_g": 15.0,
       "carboidrato_g": 28.0,
@@ -3596,8 +3604,9 @@
       "fibras_g": 3.5
     },
     "tags": [
-      "equilibrada",
-      "prática"
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
     ],
     "utensilios_recomendados": [
       {
@@ -5857,17 +5866,17 @@
     "slug": "revisar-o-ano-sem-cobran-a",
     "titulo": "Revisar o ano sem cobrança",
     "categoria": "lanches práticos",
-    "tempo_preparo_min": 10,
+    "tempo_preparo_min": 20,
     "porcoes": 1,
-    "descricao": "Lembre de hábitos ou preparos que facilitaram sua rotina ao longo do ano. Escolha o que deseja manter e o que precisa adaptar à fase atual da sua vida.",
+    "descricao": "Olhe para a sua trajetória com acolhimento. Cada pequeno hábito saudável construído é uma vitória cumulativa que transforma a sua saúde a longo prazo.",
     "instrucoes": [
-      "Separe e pese os ingredientes frescos na balança culinária.",
-      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
-      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
-      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
-      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+      "Pegue um papel ou bloco de notas e liste 3 hábitos saudáveis que você conquistou.",
+      "Reconheça os dias difíceis como parte natural de qualquer processo humano de evolução.",
+      "Não busque perfeição obsessiva, mas sim consistência com gentileza.",
+      "Defina apenas uma pequena prioridade saudável para a próxima semana.",
+      "Agradeça ao seu corpo pelo que ele faz por você todos os dias."
     ],
-    "calorias": 250,
+    "calorias": 0,
     "macros": {
       "proteina_g": 15.0,
       "carboidrato_g": 28.0,
@@ -5875,8 +5884,9 @@
       "fibras_g": 3.5
     },
     "tags": [
-      "equilibrada",
-      "prática"
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
     ],
     "utensilios_recomendados": [
       {

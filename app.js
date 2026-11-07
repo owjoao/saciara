@@ -3346,6 +3346,19 @@ function filtrarModalCatalogo(termo) {
   renderizarCardsCatalogo();
 }
 
+function resolverImagemReceita(r) {
+  let capa = r.imagem_capa || '';
+  if (capa.startsWith('/')) capa = capa.substring(1);
+
+  // Se tiver imagem própria gerada ou oficial e não for placeholder genérico
+  if (capa && !capa.includes('placeholder')) {
+    return capa;
+  }
+
+  // Fallback estrito e gastronômico para receitas sem imagem
+  return obterImagemGastronomica(r.titulo, r.categoria);
+}
+
 function renderizarCardsCatalogo() {
   const container = document.getElementById('containerCatalogoGrid');
   if (!container) return;
@@ -3375,26 +3388,29 @@ function renderizarCardsCatalogo() {
   }
 
   container.innerHTML = filtradas.map(r => {
-    const imgUrl = obterImagemGastronomica(r.titulo, r.categoria);
+    const imgUrl = resolverImagemReceita(r);
+    const isHabito = (r.tags || []).includes('estilo de vida') || (r.tags || []).includes('mindfulness') || ['Comer com atenção', 'Caminhada possível', 'Uma pausa possível', 'Compras com planejamento', 'Pausas para se movimentar', 'Facilitar o acesso à água', 'Encontrar uma atividade agradável', 'Organização do fim do dia', 'Pausa ao ar livre', 'Revisar o ano sem cobrança'].includes(r.titulo);
+    
     const tempo = (r.tempo_preparo_min || 10) + ' min';
-    const kcals = (r.calorias || 250) + ' kcal';
-    const prot = r.macros && r.macros.proteina_g ? r.macros.proteina_g + 'g' : '15g';
-    const carb = r.macros && r.macros.carboidrato_g ? r.macros.carboidrato_g + 'g' : '25g';
-    const passos = r.instrucoes || [r.descricao || 'Preparo prático com alimentos frescos.'];
+    const kcals = isHabito ? 'Hábito Vital' : (r.calorias || 250) + ' kcal';
+    const prot = isHabito ? '-' : (r.macros && r.macros.proteina_g ? r.macros.proteina_g + 'g' : '15g');
+    const passos = r.instrucoes || [r.descricao || 'Prática recomendada para o seu bem-estar.'];
 
     return `
       <div class="catalogo-card">
-        <img class="catalogo-card-thumb" src="${imgUrl}" alt="${r.titulo}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80';">
+        <img class="catalogo-card-thumb" src="${imgUrl}" alt="${r.titulo}" loading="lazy" onerror="this.onerror=null; this.src='conteudo-saciara/2026-10-21 - Cuscuz com ovo (revisar artes)/01.png';">
         <div class="catalogo-card-body">
-          <span class="catalogo-card-cat-badge">${r.categoria || 'Receita'}</span>
+          <span class="catalogo-card-cat-badge" style="${isHabito ? 'color:#A78BFA;' : ''}">
+            ${isHabito ? '🧘 Hábito & Estilo de Vida' : (r.categoria || 'Receita')}
+          </span>
           <div class="catalogo-card-title">${r.titulo}</div>
           <div class="catalogo-card-meta">
-            <span style="color:#00E575; font-weight:700;">🔥 ${kcals}</span>
+            <span style="color:#00E575; font-weight:700;">${isHabito ? '🌿' : '🔥'} ${kcals}</span>
             <span>⏱️ ${tempo}</span>
-            <span>🥩 P: ${prot}</span>
+            ${!isHabito ? `<span>🥩 P: ${prot}</span>` : ''}
           </div>
-          <button class="catalogo-card-btn" onclick="abrirModalReceitaPassos('${r.titulo.replace(/'/g, "\\'")}', ${JSON.stringify(passos).replace(/"/g, '&quot;')}, '${tempo}', '${kcals}')">
-            📖 Ver Modo de Preparo
+          <button class="catalogo-card-btn" onclick="abrirModalReceitaPassos('${r.titulo.replace(/'/g, "\\'")}', ${JSON.stringify(passos).replace(/"/g, '&quot;')}, '${tempo}', '${kcals}', ${isHabito})">
+            ${isHabito ? '🧘 Ver Como Praticar este Hábito' : '📖 Ver Modo de Preparo'}
           </button>
         </div>
       </div>
@@ -3403,17 +3419,17 @@ function renderizarCardsCatalogo() {
 }
 
 
-function abrirModalReceitaPassos(titulo, passos, tempo, calorias) {
-  abrirModal(`🍳 ${titulo}`, `
+function abrirModalReceitaPassos(titulo, passos, tempo, calorias, isHabito = false) {
+  abrirModal(`${isHabito ? '🧘' : '🍳'} ${titulo}`, `
     <div style="display:flex; flex-direction:column; gap:14px;">
       <div style="display:flex; justify-content:space-between; align-items:center; background:#0F172A; padding:10px 14px; border-radius:10px;">
-        <span style="color:#94A3B8; font-size:13px;">Tempo de Preparo: <strong style="color:#FFF;">${tempo}</strong></span>
-        <span style="color:#00E575; font-size:13px; font-weight:800;">🔥 ${calorias}</span>
+        <span style="color:#94A3B8; font-size:13px;">${isHabito ? 'Tempo Sugerido' : 'Tempo de Preparo'}: <strong style="color:#FFF;">${tempo}</strong></span>
+        <span style="color:#00E575; font-size:13px; font-weight:800;">${isHabito ? '🌿 ' : '🔥 '}${calorias}</span>
       </div>
       <div style="display:flex; flex-direction:column; gap:10px;">
         ${passos.map((p, idx) => `
           <div style="display:flex; gap:12px; align-items:flex-start;">
-            <span style="width:24px; height:24px; border-radius:50%; background:#00E575; color:#04150D; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0;">${idx+1}</span>
+            <span style="width:24px; height:24px; border-radius:50%; background:${isHabito ? '#8B5CF6' : '#00E575'}; color:#04150D; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0;">${idx+1}</span>
             <p style="margin:0; font-size:13px; color:#E2E8F0; line-height:1.5;">${p}</p>
           </div>
         `).join('')}
