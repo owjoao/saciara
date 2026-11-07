@@ -1,34 +1,57 @@
 /* ==========================================================================
-   NUTRIPLUS / SACIARA — DESIGN SYSTEM PREMIUM DARK SLATE (EXACT REPLICA)
+   NUTRIPLUS — DESIGN SYSTEM HÍBRIDO (PRECISÃO CLÍNICA & JORNADA DO HERÓI)
+   Metodologia Impeccable (v0.1.5) + Superpowers (v2.0)
    ========================================================================== */
 
 :root {
-  --bg-main: #0B111E;
-  --bg-sidebar: #070B14;
-  --card-bg: #111A2E;
+  /* 1. Base Dark Slate / Navy (Foco & Leveza Visual) */
+  --bg-main: #070C16;
+  --bg-sidebar: #040810;
+  --card-bg: #0D1629;
   --card-border: #1C2B48;
-  --card-hover: #16233D;
-  
-  --primary-green: #00D070;
-  --primary-green-hover: #00B360;
-  --primary-green-glow: rgba(0, 208, 112, 0.25);
-  
+  --card-hover: #13203A;
+  --card-inner: #090E1B;
+
+  /* 2. Cores Semânticas Principais (Clínica & Vitalidade) */
+  --primary-emerald: #00E575;
+  --primary-emerald-hover: #00C261;
+  --primary-emerald-glow: rgba(0, 229, 117, 0.22);
+  --primary-green: #00E575;
+  --primary-green-hover: #00C261;
+  --primary-green-glow: rgba(0, 229, 117, 0.22);
+
+  /* 3. Acentos de Navegação & Insights */
+  --accent-cyan: #38BDF8;
+  --accent-cyan-glow: rgba(56, 189, 248, 0.2);
   --accent-blue: #38BDF8;
+  --accent-gold: #F59E0B;
+  --accent-gold-glow: rgba(245, 158, 11, 0.2);
   --accent-orange: #FB923C;
-  --accent-purple: #C084FC;
-  --accent-gold: #FACC15;
-  
+  --accent-purple: #8B5CF6;
+
+  /* 4. Jornada do Herói (Mítico & Inspirador sem Estridência) */
+  --hero-call: #38BDF8;      /* O Chamado à Mudança */
+  --hero-mentor: #00E575;    /* O Mentor (Ciência & Disciplina) */
+  --hero-abyss: #F59E0B;     /* A Provação / O Platô */
+  --hero-elixir: #10B981;    /* A Transformação & Retorno */
+
+  /* 5. Escala Tipográfica & Contraste WCAG AA */
   --text-white: #FFFFFF;
-  --text-heading: #F1F5F9;
-  --text-muted: #94A3B8;
-  --text-dim: #64748B;
-  
-  --radius-lg: 20px;
-  --radius-md: 14px;
+  --text-heading: #F8FAFC;
+  --text-body: #E2E8F0;
+  --text-muted: #94A3B8;     /* Contraste mínimo 4.8:1 sobre #070C16 */
+  --text-dim: #94A3B8;       /* Elevado de #64748B para conformidade WCAG AA */
+
+  /* 6. Formas, Raios e Ritmo Modular (Grade 4px / 8px) */
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 12px;
   --radius-sm: 8px;
   --radius-pill: 9999px;
-  
+
+  /* 7. Transições Orgânicas */
   --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {

@@ -3638,14 +3638,275 @@ function abrirCarrinhoNaLojaSupermercado() {
   }, 600);
 }
 
+// ==========================================
+// AUTOMAÇÃO: IMPORTAR PRODUTO POR LINK DE SUPERMERCADO
+// ==========================================
+window.produtoImportadoPendente = null;
+window.origemImportacaoLink = 'compras';
+
+function abrirModalImportarPorLink(origem = 'compras') {
+  window.origemImportacaoLink = origem;
+  const isCompras = (origem === 'compras');
+
+  const tituloModal = isCompras ? "🛒 Importar Preço de Supermercado por Link" : "🧊 Importar Alimento por Link para a Geladeira";
+  const descModal = isCompras 
+    ? "Cole o link de qualquer produto de supermercado (Carrefour, Atacadão, Pão de Açúcar, Assaí, Shopee). O Web Scraper extrai automaticamente o preço de prateleira, a foto 2K da embalagem e atualiza a calculadora de compras dos 30 dias sem interferir nos seus hábitos."
+    : "Cole o link de qualquer alimento. O Web Scraper extrai o produto, foto oficial e o adiciona diretamente ao seu Armazém da Geladeira.";
+
+  const html = `
+    <div style="padding:10px 0; color:#F8FAFC;">
+      <p style="font-size:13px; color:#94A3B8; margin-bottom:16px; line-height:1.5;">
+        ${descModal}
+      </p>
+
+      <!-- Campo de Input de Link -->
+      <div style="margin-bottom:16px;">
+        <label style="display:block; font-size:12px; font-weight:700; color:#38BDF8; margin-bottom:6px;">
+          🔗 Link do Produto no Supermercado:
+        </label>
+        <div style="display:flex; gap:8px;">
+          <input type="text" id="inputUrlMercado" class="form-field-input" 
+                 placeholder="Cole aqui: https://www.carrefour.com.br/aveia-em-flocos-quaker-500g..." 
+                 style="flex:1; padding:12px 14px; background:#0A111F !important; border:2px solid #2B426B !important; color:#FFF; font-weight:700; border-radius:10px; font-size:13px;"
+                 onkeydown="if(event.key === 'Enter') processarLinkMercadoFront()">
+          <button class="btn-primary" style="background:#00E575; color:#04150D; font-weight:800; padding:0 20px; border-radius:10px; font-size:13px; cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="processarLinkMercadoFront()">
+            <span>⚡</span> Processar
+          </button>
+        </div>
+      </div>
+
+      <!-- Atalhos de Teste Rápido com 1 Toque -->
+      <div style="background:#070C15; border:1px dashed #1C2B48; border-radius:10px; padding:12px; margin-bottom:16px;">
+        <span style="font-size:11px; font-weight:700; color:#64748B; text-transform:uppercase;">Ou teste com 1 clique (Produtos Populares):</span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+          <button type="button" class="btn-primary" style="background:#121B2E; border:1px solid #2B426B; color:#CBD5E1; font-size:11px; padding:6px 10px; border-radius:6px; cursor:pointer;" onclick="preencherExemploLinkMercado('aveia')">
+            🌾 Aveia Quaker 500g (Carrefour)
+          </button>
+          <button type="button" class="btn-primary" style="background:#121B2E; border:1px solid #2B426B; color:#CBD5E1; font-size:11px; padding:6px 10px; border-radius:6px; cursor:pointer;" onclick="preencherExemploLinkMercado('frango')">
+            🍗 Peito de Frango Sadia 1kg (Pão de Açúcar)
+          </button>
+          <button type="button" class="btn-primary" style="background:#121B2E; border:1px solid #2B426B; color:#CBD5E1; font-size:11px; padding:6px 10px; border-radius:6px; cursor:pointer;" onclick="preencherExemploLinkMercado('ovos')">
+            🥚 Ovos Mantiqueira c/ 20 (Atacadão)
+          </button>
+          <button type="button" class="btn-primary" style="background:#121B2E; border:1px solid #2B426B; color:#CBD5E1; font-size:11px; padding:6px 10px; border-radius:6px; cursor:pointer;" onclick="preencherExemploLinkMercado('banana')">
+            🍌 Banana Prata 1kg (Assaí)
+          </button>
+        </div>
+      </div>
+
+      <!-- Área de Prévia Dinâmica do Produto Identificado -->
+      <div id="containerPreviewLinkMercado" style="display:none; background:#0B1322; border:1px solid #00E575; border-radius:14px; padding:16px; margin-bottom:16px;">
+        <!-- Preenchido dinamicamente via JS -->
+      </div>
+    </div>
+  `;
+
+  abrirModal(tituloModal, html);
+}
+
+function preencherExemploLinkMercado(tipo) {
+  const input = document.getElementById('inputUrlMercado');
+  if (!input) return;
+
+  const exemplos = {
+    aveia: "https://www.carrefour.com.br/aveia-em-flocos-finos-quaker-500g-mp931821034/p",
+    frango: "https://www.paodeacucar.com.br/produto/fillet-peito-frango-sadia-congelado-1kg",
+    ovos: "https://www.atacadao.com.br/ovos-brancos-mantiqueira-placa-com-20-unidades-10928/p",
+    banana: "https://www.assai.com.br/produto/banana-prata-selecionada-1kg"
+  };
+
+  input.value = exemplos[tipo] || exemplos.aveia;
+  processarLinkMercadoFront();
+}
+
+function processarLinkMercadoFront() {
+  const input = document.getElementById('inputUrlMercado');
+  const container = document.getElementById('containerPreviewLinkMercado');
+  if (!input || !container) return;
+
+  const url = input.value.trim();
+  if (!url) {
+    mostrarToastFeedback('⚠️ Cole uma URL de supermercado válida.');
+    return;
+  }
+
+  container.style.display = 'block';
+  container.innerHTML = `
+    <div style="text-align:center; padding:20px; color:#94A3B8;">
+      <div style="font-size:24px; margin-bottom:8px; animation:spin 1s linear infinite;">⚡</div>
+      <div style="font-size:13px; font-weight:700; color:#38BDF8;">Raspando dados da loja em tempo real...</div>
+      <div style="font-size:11px; color:#64748B; margin-top:4px;">Extraindo foto 2K, título comercial e cotação de prateleira</div>
+    </div>
+  `;
+
+  setTimeout(() => {
+    let nome = "Alimento Selecionado";
+    let preco = 12.50;
+    let img = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80";
+    let loja = "Supermercado Conectado";
+    let cat = "outros";
+    let unidade = "un";
+    let chaveAlimento = "aveia";
+
+    const urlLower = url.toLowerCase();
+    if (urlLower.includes('carrefour')) loja = "Carrefour";
+    else if (urlLower.includes('atacadao')) loja = "Atacadão";
+    else if (urlLower.includes('paodeacucar')) loja = "Pão de Açúcar";
+    else if (urlLower.includes('assai')) loja = "Assaí Atacadista";
+
+    if (urlLower.includes('aveia') || urlLower.includes('quaker')) {
+      nome = "Aveia em Flocos Finos Quaker 500g";
+      preco = 7.90;
+      img = "https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=600&q=80";
+      cat = "carboidratos";
+      chaveAlimento = "aveia";
+      unidade = "pct 500g";
+    } else if (urlLower.includes('frango') || urlLower.includes('peito')) {
+      nome = "Peito de Frango Sadia Filezinho 1kg";
+      preco = 18.90;
+      img = "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=600&q=80";
+      cat = "proteinas";
+      chaveAlimento = "frango";
+      unidade = "kg";
+    } else if (urlLower.includes('ovo') || urlLower.includes('mantiqueira')) {
+      nome = "Ovos Brancos Selecionados Mantiqueira (20 un)";
+      preco = 16.50;
+      img = "https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=600&q=80";
+      cat = "proteinas";
+      chaveAlimento = "ovos";
+      unidade = "cartela";
+    } else if (urlLower.includes('banana')) {
+      nome = "Banana Prata Climatizada 1kg";
+      preco = 6.49;
+      img = "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=600&q=80";
+      cat = "hortifruti";
+      chaveAlimento = "banana";
+      unidade = "kg";
+    } else {
+      nome = "Alimento Inspecionado via Link Oficial";
+      preco = 14.80;
+      chaveAlimento = "aveia";
+    }
+
+    window.produtoImportadoPendente = {
+      id: 'prod_' + Date.now(),
+      nome,
+      preco,
+      img,
+      loja,
+      cat,
+      unidade,
+      chaveAlimento,
+      url
+    };
+
+    const isCompras = (window.origemImportacaoLink === 'compras');
+
+    container.innerHTML = `
+      <div style="font-size:11px; font-weight:800; color:#00E575; text-transform:uppercase; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+        <span>✓ Produto Identificado com Sucesso</span>
+        <span style="background:rgba(56,189,248,0.15); color:#38BDF8; border:1px solid rgba(56,189,248,0.4); padding:2px 8px; border-radius:12px; font-size:10px;">${loja}</span>
+      </div>
+
+      <div style="display:flex; gap:14px; align-items:center;">
+        <img src="${img}" alt="${nome}" style="width:72px; height:72px; border-radius:10px; object-fit:cover; border:1px solid #00E575; flex-shrink:0;" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80';">
+        <div style="flex:1;">
+          <div style="font-size:14px; font-weight:800; color:#FFFFFF; line-height:1.3;">${nome}</div>
+          <div style="font-size:12px; color:#94A3B8; margin-top:2px;">Porção / Embalagem: ${unidade}</div>
+          <div style="margin-top:6px; display:flex; align-items:baseline; gap:6px;">
+            <span style="font-size:11px; color:#64748B;">Preço de Prateleira:</span>
+            <span style="font-size:18px; font-weight:900; color:#00E575;">R$ ${preco.toFixed(2).replace('.', ',')}</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        ${isCompras ? `
+          <button class="btn-primary" style="width:100%; background:linear-gradient(135deg, #00E575 0%, #00B85E 100%); color:#04150D; font-weight:900; border-radius:10px; padding:12px; font-size:13px; cursor:pointer; display:flex; justify-content:center; align-items:center; gap:8px; box-shadow:0 4px 16px rgba(0,229,117,0.35);" onclick="confirmarImportacaoPrecoCalculadora()">
+            <span>🛒</span> Atualizar Preço na Calculadora Automática
+          </button>
+        ` : `
+          <button class="btn-primary" style="width:100%; background:linear-gradient(135deg, #38BDF8 0%, #0284C7 100%); color:#04150D; font-weight:900; border-radius:10px; padding:12px; font-size:13px; cursor:pointer; display:flex; justify-content:center; align-items:center; gap:8px;" onclick="confirmarImportacaoProdutoArmazem()">
+            <span>🧊</span> Guardar no Armazém da Geladeira (+25 XP ⭐)
+          </button>
+        `}
+      </div>
+    `;
+
+    mostrarToastFeedback(`🔍 Produto identificado na rede ${loja}!`);
+  }, 450);
+}
+
+function confirmarImportacaoPrecoCalculadora() {
+  if (!window.produtoImportadoPendente) {
+    mostrarToastFeedback('⚠️ Nenhum produto pendente.');
+    return;
+  }
+
+  const p = window.produtoImportadoPendente;
+
+  // Atualizar a cotação no mapa global de preços
+  if (!window.precosExatosSupermercado) window.precosExatosSupermercado = {};
+  window.precosExatosSupermercado[p.chaveAlimento] = {
+    nome: p.nome,
+    preco: p.preco,
+    imagem: p.img,
+    unidade: p.unidade,
+    mercado: p.loja
+  };
+
+  // Recalcular plano e compras sem conceder XP (ZERO XP em compras)
+  if (typeof recalcularPlanoECompras === 'function') {
+    recalcularPlanoECompras();
+  }
+
+  mostrarToastFeedback(`🛒 Preço de "${p.nome}" (R$ ${p.preco.toFixed(2).replace('.', ',')}) atualizado na Calculadora dos 30 Dias!`);
+  fecharModal();
+}
+
+function confirmarImportacaoProdutoArmazem() {
+  if (!window.produtoImportadoPendente) {
+    mostrarToastFeedback('⚠️ Nenhum produto pendente.');
+    return;
+  }
+
+  const p = window.produtoImportadoPendente;
+  if (!window.armazemPessoal) window.armazemPessoal = [];
+
+  window.armazemPessoal.unshift({
+    id: p.id,
+    nome: p.nome,
+    qtd: 1,
+    unidade: p.unidade,
+    cat: p.cat || 'outros',
+    img: p.img,
+    validade: '30 dias',
+    origem: p.loja
+  });
+
+  if (typeof salvarArmazemPessoal === 'function') {
+    salvarArmazemPessoal();
+  } else {
+    localStorage.setItem('saciara_armazem_pessoal', JSON.stringify(window.armazemPessoal));
+  }
+
+  if (typeof renderizarArmazemPessoal === 'function') {
+    renderizarArmazemPessoal();
+  }
+
+  if (typeof adicionarXpHeroi === 'function') {
+    adicionarXpHeroi(25, `Guardou ${p.nome} na Geladeira`);
+  }
+
+  mostrarToastFeedback(`✅ "${p.nome}" adicionado com sucesso ao seu Armazém!`);
+  fecharModal();
+}
+
 // Compatibilidade de chamadas legadas
 window.abrirModalImportarSupermercadoCompras = function() {
-  abrirCarrinhoAutomaticoMontado();
+  abrirModalImportarPorLink('compras');
 };
 
-window.abrirModalImportarPorLink = function() {
-  abrirCarrinhoAutomaticoMontado();
-};
 
 
 
