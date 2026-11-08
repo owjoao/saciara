@@ -4841,7 +4841,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/picole_de_mamao_e_coco.png"
   },
   {
     "id": 128,
@@ -4877,7 +4877,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/torrada_de_homus_e_pepino.png"
   },
   {
     "id": 129,
@@ -4919,7 +4919,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Zero óleo adicionado no cozimento."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/lentilha_com_batata.png"
   },
   {
     "id": 130,
