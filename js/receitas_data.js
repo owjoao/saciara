@@ -1532,7 +1532,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/taca_de_morango_com_aveia.png"
   },
   {
     "id": 41,
@@ -1611,7 +1611,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/arroz_feijao_e_couve.png"
   },
   {
     "id": 43,
@@ -1647,7 +1647,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/banana_assada_com_amendoim.png"
   },
   {
     "id": 44,
