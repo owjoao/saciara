@@ -4955,7 +4955,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/creme_de_abacate_com_manga.png"
   },
   {
     "id": 131,
@@ -4991,7 +4991,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/compartilhar_responsabilidades.png"
   },
   {
     "id": 132,
@@ -5034,7 +5034,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Zero óleo adicionado no cozimento."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/macarrao_com_frango_e_brocolis.png"
   },
   {
     "id": 133,
