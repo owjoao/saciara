@@ -639,7 +639,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-10-28 - Organizar a primeira refeição/01.png"
+    "imagem_capa": "assets/receitas_flow/organizar_a_primeira_refeicao.png"
   },
   {
     "id": 18,
@@ -676,7 +676,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-10-30 - Omelete de forno com brócolis (revisar artes)/01.png"
+    "imagem_capa": "assets/receitas_flow/omelete_de_forno_com_brocolis.png"
   },
   {
     "id": 19,
@@ -712,7 +712,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-11-02 - Morango com creme de ricota/01.png"
+    "imagem_capa": "assets/receitas_flow/morango_com_creme_de_ricota.png"
   },
   {
     "id": 20,
@@ -749,7 +749,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-11-04 - Iogurte com pera e aveia/01.png"
+    "imagem_capa": "assets/receitas_flow/iogurte_com_pera_e_aveia.png"
   },
   {
     "id": 21,
