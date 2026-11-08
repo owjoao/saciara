@@ -791,7 +791,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "assets/receitas_flow/creme_de_abobora_e_lentilha.png"
+    "imagem_capa": "/conteudo-saciara/2026-11-06 - Creme de abóbora e lentilha/01.png"
   },
   {
     "id": 22,
@@ -908,7 +908,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Zero óleo adicionado no cozimento."
       }
     ],
-    "imagem_capa": "assets/receitas_flow/batata_recheada_com_frango.png"
+    "imagem_capa": "/conteudo-saciara/2026-11-13 - Batata recheada com frango/01.png"
   },
   {
     "id": 25,
@@ -944,7 +944,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "assets/receitas_flow/iogurte_gelado_com_morango_imagens_incompletas.png"
+    "imagem_capa": "/conteudo-saciara/2026-11-16 - Iogurte gelado com morango (imagens incompletas)/01.png"
   },
   {
     "id": 26,
@@ -1131,7 +1131,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "assets/receitas_flow/grao_de_bico_com_pepino.png"
+    "imagem_capa": "/assets/placeholder_fit.jpg"
   },
   {
     "id": 31,
@@ -1209,7 +1209,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Praticidade para preparar comida de verdade todo dia."
       }
     ],
-    "imagem_capa": "assets/receitas_flow/pasta_de_ricota_com_ervas.png"
+    "imagem_capa": "/assets/placeholder_fit.jpg"
   },
   {
     "id": 33,
@@ -1294,7 +1294,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "assets/receitas_flow/abacaxi_grelhado_com_canela.png"
+    "imagem_capa": "/assets/placeholder_fit.jpg"
   },
   {
     "id": 35,
@@ -2064,7 +2064,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/macarrao_com_ricota_e_espinafre.png"
   },
   {
     "id": 55,
@@ -2100,7 +2100,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/chia_com_manga.png"
   },
   {
     "id": 56,
@@ -2136,7 +2136,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/sanduiche_de_atum_e_pepino.png"
   },
   {
     "id": 57,
@@ -2173,7 +2173,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/omelete_de_forno_com_cenoura.png"
   },
   {
     "id": 58,
@@ -2209,7 +2209,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/manga_com_creme_de_ricota.png"
   },
   {
     "id": 59,
@@ -2288,7 +2288,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/creme_de_cenoura_e_feijao.png"
   },
   {
     "id": 61,
@@ -2325,7 +2325,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/mingau_de_banana.png"
   },
   {
     "id": 62,
@@ -2361,7 +2361,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/vitamina_de_mamao_e_linhaca.png"
   },
   {
     "id": 63,
@@ -2403,7 +2403,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Zero óleo adicionado no cozimento."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/batata_recheada_com_ricota.png"
   },
   {
     "id": 64,
@@ -2439,7 +2439,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/iogurte_gelado_com_manga.png"
   },
   {
     "id": 65,
@@ -2475,7 +2475,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/refeicoes_que_funcionam.png"
   },
   {
     "id": 66,
@@ -2518,7 +2518,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/arroz_de_frigideira_com_frango.png"
   },
   {
     "id": 67,
@@ -5929,10 +5929,4 @@ window.BANCO_RECEITAS_156 = [
       {
         "nome": "Balança Digital de Precisão Culinária SF-400",
         "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
-        "link": "https://s.shopee.com.br/9zz6HcfAxu",
-        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
-      }
-    ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
-  }
-];
+        "link": "https://s.shopee.com.br/
