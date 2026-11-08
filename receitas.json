@@ -2553,7 +2553,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/pera_cozida_com_laranja.png"
   },
   {
     "id": 68,
@@ -2589,7 +2589,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/ovos_mexidos_com_espinafre.png"
   },
   {
     "id": 69,
@@ -2625,7 +2625,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/grao_de_bico_com_cenoura.png"
   },
   {
     "id": 70,
@@ -5928,4 +5928,10 @@
       {
         "nome": "Balança Digital de Precisão Culinária SF-400",
         "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
-        "link": "https://s.shopee.com.
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  }
+]
