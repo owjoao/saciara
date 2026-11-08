@@ -1913,7 +1913,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/torrada_de_abacate_e_limao.png"
   },
   {
     "id": 51,
@@ -1955,7 +1955,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/lentilha_com_cenoura.png"
   },
   {
     "id": 52,
@@ -1991,7 +1991,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/creme_de_abacate_com_limao.png"
   },
   {
     "id": 53,
