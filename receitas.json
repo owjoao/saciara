@@ -3091,7 +3091,7 @@
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/arroz_feijao_e_cenoura.png"
   },
   {
     "id": 82,
@@ -3127,7 +3127,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/banana_assada_com_cacau.png"
   },
   {
     "id": 83,
@@ -3163,7 +3163,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/comer_com_prazer.png"
   },
   {
     "id": 84,
