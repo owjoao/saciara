@@ -1,3 +1,4 @@
+// Banco de 156 receitas e hábitos do Saciara Fitness
 window.BANCO_RECEITAS_156 = [
   {
     "id": 1,
@@ -3321,7 +3322,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/salada_de_lentilha.png"
   },
   {
     "id": 88,
@@ -3357,7 +3358,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/picole_de_banana_e_cacau.png"
   },
   {
     "id": 89,
@@ -3393,7 +3394,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/desafio_de_uma_acao_possivel.png"
   },
   {
     "id": 90,
