@@ -4140,7 +4140,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/panquequinha_de_banana_e_coco.png"
   },
   {
     "id": 110,
@@ -4182,7 +4182,7 @@
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/pasta_de_feijao_branco.png"
   },
   {
     "id": 111,
@@ -4225,7 +4225,7 @@
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/peixe_assado_com_cenoura.png"
   },
   {
     "id": 112,
