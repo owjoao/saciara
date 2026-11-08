@@ -3919,7 +3919,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/iogurte_gelado_com_banana.png"
   },
   {
     "id": 104,
@@ -3955,7 +3955,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/tapioca_de_ricota_e_cenoura.png"
   },
   {
     "id": 105,
@@ -3997,7 +3997,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/arroz_de_frigideira_com_ervilha.png"
   },
   {
     "id": 106,
