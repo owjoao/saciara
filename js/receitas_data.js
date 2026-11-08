@@ -1799,7 +1799,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/dividir_o_preparo.png"
   },
   {
     "id": 48,
@@ -1841,7 +1841,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/salada_de_feijao_branco.png"
   },
   {
     "id": 49,
