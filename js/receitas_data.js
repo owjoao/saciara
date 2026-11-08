@@ -1,0 +1,5938 @@
+// Banco de 156 receitas e hábitos do Saciara Fitness
+window.BANCO_RECEITAS_156 = [
+  {
+    "id": 1,
+    "slug": "ta-a-de-banana-com-cacau",
+    "titulo": "Taça de banana com cacau",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Bateu vontade de doce? Essa taça leva banana, iogurte e cacau — e nem precisa de fogão. 🍌🍫",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/taca_banana_cacau.png"
+  },
+  {
+    "id": 2,
+    "slug": "crepioca-de-ricota",
+    "titulo": "Crepioca de ricota",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 7,
+    "porcoes": 1,
+    "descricao": "Crepioca de ricota para variar a rotina com ingredientes conhecidos. Confira as quantidades e o preparo no carrossel. Escorra ingredientes úmidos antes de rechear para a massa não encharcar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 240,
+    "macros": {
+      "proteina_g": 18.0,
+      "carboidrato_g": 22.0,
+      "gordura_g": 8.0,
+      "fibras_g": 2.5
+    },
+    "tags": [
+      "sem glúten",
+      "rápida",
+      "alta proteína"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/crepioca_de_ricota.png"
+  },
+  {
+    "id": 3,
+    "slug": "arroz-feij-o-e-ab-bora",
+    "titulo": "Arroz, feijão e abóbora",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Ainda pensando no que preparar? A ideia de hoje é arroz, feijão e abóbora. Salve o passo a passo para a próxima refeição.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/arroz_feijao_e_abobora.png"
+  },
+  {
+    "id": 4,
+    "slug": "banana-assada-com-canela",
+    "titulo": "Banana assada com canela",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Uma sobremesa para sair do automático: banana assada com canela. A receita está nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/banana_assada_com_canela.png"
+  },
+  {
+    "id": 5,
+    "slug": "comer-com-aten-o",
+    "titulo": "Comer com atenção",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 15,
+    "porcoes": 1,
+    "descricao": "Escolha uma refeição para experimentar comer sentado, com um pouco menos de distração. Deixe o celular de lado e aprecie cada sabor.",
+    "instrucoes": [
+      "Afaste telas, celular e notificações durante os primeiros 5 minutos da refeição.",
+      "Observe as cores, aromas e a montagem do prato antes da primeira garfada.",
+      "Mastigue devagar, pousando os talheres na mesa entre cada bocado.",
+      "Sinta o ponto de saciedade confortável no estômago antes de repetir.",
+      "Finalize com um copo de água fresca e a sensação de paz pós-refeição."
+    ],
+    "calorias": 0,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/conteudo-saciara/2026-09-30 - Comer com atenção/01.png"
+  },
+  {
+    "id": 6,
+    "slug": "frango-assado-com-cenoura",
+    "titulo": "Frango assado com cenoura",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Comida de casa para uma rotina real: frango assado com cenoura. Confira o preparo e veja o que já tem na cozinha.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 360,
+    "macros": {
+      "proteina_g": 38.0,
+      "carboidrato_g": 18.0,
+      "gordura_g": 9.0,
+      "fibras_g": 4.5
+    },
+    "tags": [
+      "marmita",
+      "alta proteína",
+      "airfryer"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/frango_assado_cenoura.png"
+  },
+  {
+    "id": 7,
+    "slug": "ma-cozida-com-canela",
+    "titulo": "Maçã cozida com canela",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Tem espaço para experimentar um sabor novo na semana? Comece com maçã cozida com canela.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/maca_cozida_com_canela.png"
+  },
+  {
+    "id": 8,
+    "slug": "omelete-de-tomate",
+    "titulo": "Omelete de tomate",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 8,
+    "porcoes": 1,
+    "descricao": "Pensar no café antes da correria pode facilitar o dia. Que tal colocar omelete de tomate na sua lista?",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 210,
+    "macros": {
+      "proteina_g": 19.5,
+      "carboidrato_g": 4.0,
+      "gordura_g": 12.0,
+      "fibras_g": 2.0
+    },
+    "tags": [
+      "low carb",
+      "cetogênica",
+      "alta proteína"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/omelete_de_tomate.png"
+  },
+  {
+    "id": 9,
+    "slug": "salada-de-feij-o-fradinho",
+    "titulo": "Salada de feijão-fradinho",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Para mudar um pouco o prato da semana, experimente salada de feijão-fradinho. A receita está no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/salada_de_feijao_fradinho.png"
+  },
+  {
+    "id": 10,
+    "slug": "picol-de-morango-e-iogurte",
+    "titulo": "Picolé de morango e iogurte",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Doce de casa, no seu ritmo. Veja como preparar picolé de morango e iogurte e guarde a receita.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/picole_de_morango_e_iogurte.png"
+  },
+  {
+    "id": 11,
+    "slug": "caminhada-poss-vel",
+    "titulo": "Caminhada possível",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 20,
+    "porcoes": 1,
+    "descricao": "Uma caminhada leve de 15 a 20 minutos após uma das refeições principais ajuda a regular a glicemia e ativa a circulação sem esforço exaustivo.",
+    "instrucoes": [
+      "Calce um tênis confortável e vista roupas leves.",
+      "Faça um trajeto tranquilo pelo seu bairro ou parque próximo.",
+      "Mantenha um ritmo agradável onde ainda consiga respirar pelo nariz.",
+      "Aproveite para ouvir uma música suave ou apenas prestar atenção no ambiente.",
+      "Beba 300ml de água ao retornar para hidratar o organismo."
+    ],
+    "calorias": 120,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/conteudo-saciara/2026-10-14 - Caminhada possível/01.png"
+  },
+  {
+    "id": 12,
+    "slug": "lentilha-com-ab-bora",
+    "titulo": "Lentilha com abóbora",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Não precisa inventar tudo de uma vez. Guarde esta ideia de lentilha com abóbora para quando quiser variar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/lentilha_com_abobora.png"
+  },
+  {
+    "id": 13,
+    "slug": "creme-de-abacate-com-cacau",
+    "titulo": "Creme de abacate com cacau",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Para variar o doce de sempre: creme de abacate com cacau. Ingredientes e preparo estão no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/creme_de_abacate_com_cacau.png"
+  },
+  {
+    "id": 14,
+    "slug": "cuscuz-com-ovo",
+    "titulo": "Cuscuz com ovo",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Quando faltar ideia para o lanche, volte a este post: cuscuz com ovo, com o preparo nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/cuscuz_com_ovo.png"
+  },
+  {
+    "id": 15,
+    "slug": "macarr-o-com-atum-e-tomate",
+    "titulo": "Macarrão com atum e tomate",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Almoço ou jantar? Você escolhe a ocasião para preparar macarrão com atum e tomate. Veja as quantidades nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/macarrao_com_atum_e_tomate.png"
+  },
+  {
+    "id": 16,
+    "slug": "chia-com-morango",
+    "titulo": "Chia com morango",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma ideia para o próximo momento de sobremesa: chia com morango. Você escolhe a ocasião.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/chia_com_morango.png"
+  },
+  {
+    "id": 17,
+    "slug": "organizar-a-primeira-refei-o",
+    "titulo": "Organizar a primeira refeição",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Escolha hoje o que gostaria de comer amanhã de manhã. Confira o que já tem e deixe separados os utensílios. Alimentos perecíveis ficam na geladeira.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/organizar_a_primeira_refeicao.png"
+  },
+  {
+    "id": 18,
+    "slug": "omelete-de-forno-com-br-colis",
+    "titulo": "Omelete de forno com brócolis",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 8,
+    "porcoes": 1,
+    "descricao": "Uma sugestão para entrar na sua lista de receitas: omelete de forno com brócolis. Salve para consultar na hora de cozinhar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 210,
+    "macros": {
+      "proteina_g": 19.5,
+      "carboidrato_g": 4.0,
+      "gordura_g": 12.0,
+      "fibras_g": 2.0
+    },
+    "tags": [
+      "low carb",
+      "cetogênica",
+      "alta proteína"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/omelete_de_forno_com_brocolis.png"
+  },
+  {
+    "id": 19,
+    "slug": "morango-com-creme-de-ricota",
+    "titulo": "Morango com creme de ricota",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Cozinhar também pode ser um jeito de descobrir sabores. A sugestão de hoje é morango com creme de ricota.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/morango_com_creme_de_ricota.png"
+  },
+  {
+    "id": 20,
+    "slug": "iogurte-com-pera-e-aveia",
+    "titulo": "Iogurte com pera e aveia",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Para variar a primeira refeição ou o lanche: iogurte com pera e aveia. Escolha o momento que fizer sentido para você.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 220,
+    "macros": {
+      "proteina_g": 10.0,
+      "carboidrato_g": 35.0,
+      "gordura_g": 4.5,
+      "fibras_g": 6.0
+    },
+    "tags": [
+      "rica em fibras",
+      "saciedade",
+      "conforto"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/iogurte_com_pera_e_aveia.png"
+  },
+  {
+    "id": 21,
+    "slug": "creme-de-ab-bora-e-lentilha",
+    "titulo": "Creme de abóbora e lentilha",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "A próxima refeição pode começar com uma ideia simples: creme de abóbora e lentilha. Confira o passo a passo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "/conteudo-saciara/2026-11-06 - Creme de abóbora e lentilha/01.png"
+  },
+  {
+    "id": 22,
+    "slug": "mingau-de-cacau",
+    "titulo": "Mingau de cacau",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Já decidiu o doce da semana? Salve o passo a passo de mingau de cacau para quando quiser preparar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 220,
+    "macros": {
+      "proteina_g": 10.0,
+      "carboidrato_g": 35.0,
+      "gordura_g": 4.5,
+      "fibras_g": 6.0
+    },
+    "tags": [
+      "rica em fibras",
+      "saciedade",
+      "conforto"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/mingau_de_cacau.png"
+  },
+  {
+    "id": 23,
+    "slug": "uma-pausa-poss-vel",
+    "titulo": "Uma pausa possível",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Pausas curtas ao longo do dia reduzem os picos de cortisol (hormônio do estresse), que frequentemente causam fome emocional e vontade de beliscar.",
+    "instrucoes": [
+      "Afaste-se do computador ou mesa de trabalho por 10 minutos.",
+      "Feche os olhos e respire profundamente em 4 tempos (inspire em 4s, segure 2s, expire em 6s).",
+      "Alongue suavemente pescoço, ombros e coluna lombar.",
+      "Tome uma xícara de chá calmante (camomila ou hortelã) sem açúcar.",
+      "Retorne às atividades com a mente renovada e focada."
+    ],
+    "calorias": 0,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/conteudo-saciara/2026-11-11 - Uma pausa possível (revisar artes)/01.png"
+  },
+  {
+    "id": 24,
+    "slug": "batata-recheada-com-frango",
+    "titulo": "Batata recheada com frango",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Quer renovar o repertório da cozinha? Hoje tem batata recheada com frango. Use o carrossel para acompanhar o preparo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 360,
+    "macros": {
+      "proteina_g": 38.0,
+      "carboidrato_g": 18.0,
+      "gordura_g": 9.0,
+      "fibras_g": 4.5
+    },
+    "tags": [
+      "marmita",
+      "alta proteína",
+      "airfryer"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Forma Antiaderente de Silicone para Airfryer",
+        "motivo": "Assar frango, batatas e bolinhos sem sujar nada e sem pingar óleo.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Zero óleo adicionado no cozimento."
+      }
+    ],
+    "imagem_capa": "/conteudo-saciara/2026-11-13 - Batata recheada com frango/01.png"
+  },
+  {
+    "id": 25,
+    "slug": "iogurte-gelado-com-morango-imagens-incompletas",
+    "titulo": "Iogurte gelado com morango (imagens incompletas)",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Bateu vontade de doce? Hoje a ideia é iogurte gelado com morango. Confira o preparo e salve para experimentar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/conteudo-saciara/2026-11-16 - Iogurte gelado com morango (imagens incompletas)/01.png"
+  },
+  {
+    "id": 26,
+    "slug": "tapioca-de-queijo-e-or-gano",
+    "titulo": "Tapioca de queijo e orégano",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Seu café da manhã pode ganhar uma opção diferente: tapioca de queijo e orégano. Confira o passo a passo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/tapioca_queijo_oregano.png"
+  },
+  {
+    "id": 27,
+    "slug": "arroz-de-frigideira-com-ovo",
+    "titulo": "Arroz de frigideira com ovo",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Ainda pensando no que preparar? A ideia de hoje é arroz de frigideira com ovo. Salve o passo a passo para a próxima refeição.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/arroz_frigideira_ovo.png"
+  },
+  {
+    "id": 28,
+    "slug": "pera-cozida-com-canela",
+    "titulo": "Pera cozida com canela",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma sobremesa para sair do automático: pera cozida com canela. A receita está nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/pera_cozida_canela.png"
+  },
+  {
+    "id": 29,
+    "slug": "compras-com-planejamento",
+    "titulo": "Compras com planejamento",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Nunca vá ao supermercado com fome. Uma lista organizada por setores evita compras por impulso de ultraprocessados e economiza seu dinheiro.",
+    "instrucoes": [
+      "Confira o que ainda tem na sua geladeira e despensa antes de sair.",
+      "Faça uma refeição rica em proteínas e fibras antes das compras.",
+      "Siga rigorosamente a lista do NutriPlus dividida por hortifrúti, grãos e proteínas.",
+      "Priorize os corredores periféricos do mercado (onde ficam os alimentos frescos).",
+      "Guarde os alimentos higienizados em potes transparentes ao chegar em casa."
+    ],
+    "calorias": 0,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 30,
+    "slug": "gr-o-de-bico-com-pepino",
+    "titulo": "Grão-de-bico com pepino",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Comida de casa para uma rotina real: grão-de-bico com pepino. Confira o preparo e veja o que já tem na cozinha.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 31,
+    "slug": "panquequinha-de-banana-e-canela",
+    "titulo": "Panquequinha de banana e canela",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Tem espaço para experimentar um sabor novo na semana? Comece com panquequinha de banana e canela.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/panquequinha_banana_canela.png"
+  },
+  {
+    "id": 32,
+    "slug": "pasta-de-ricota-com-ervas",
+    "titulo": "Pasta de ricota com ervas",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Pensar no café antes da correria pode facilitar o dia. Que tal colocar pasta de ricota com ervas na sua lista?",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Mini Processador Manual de Alimentos",
+        "motivo": "Picar temperos, alho, cebola e recheios em 5 segundos.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Praticidade para preparar comida de verdade todo dia."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 33,
+    "slug": "peixe-assado-com-tomate",
+    "titulo": "Peixe assado com tomate",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 20,
+    "porcoes": 1,
+    "descricao": "Para mudar um pouco o prato da semana, experimente peixe assado com tomate. A receita está no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 310,
+    "macros": {
+      "proteina_g": 32.0,
+      "carboidrato_g": 12.0,
+      "gordura_g": 8.0,
+      "fibras_g": 3.0
+    },
+    "tags": [
+      "ômega 3",
+      "leve",
+      "jantar"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/peixe_assado_tomate.png"
+  },
+  {
+    "id": 34,
+    "slug": "abacaxi-grelhado-com-canela",
+    "titulo": "Abacaxi grelhado com canela",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Doce de casa, no seu ritmo. Veja como preparar abacaxi grelhado com canela e guarde a receita.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 35,
+    "slug": "pausas-para-se-movimentar",
+    "titulo": "Pausas para se movimentar",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Quebrar o sedentarismo prolongado a cada 90 minutos melhora a sensibilidade à insulina e reduz o inchaço nas pernas.",
+    "instrucoes": [
+      "Levante-se da cadeira e dê 20 passos pelo ambiente.",
+      "Faça 10 rotações de ombros para trás e para frente.",
+      "Fique na ponta dos pés por 15 segundos para ativar a bomba muscular da panturrilha.",
+      "Aproveite para encher sua garrafa de água no filtro.",
+      "Sinta o corpo desperto e pronto para continuar o dia."
+    ],
+    "calorias": 50,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 36,
+    "slug": "alm-ndega-com-molho-de-tomate",
+    "titulo": "Almôndega com molho de tomate",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 30,
+    "porcoes": 1,
+    "descricao": "Não precisa inventar tudo de uma vez. Guarde esta ideia de almôndega com molho de tomate para quando quiser variar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 380,
+    "macros": {
+      "proteina_g": 34.0,
+      "carboidrato_g": 24.0,
+      "gordura_g": 11.0,
+      "fibras_g": 4.0
+    },
+    "tags": [
+      "congelável",
+      "marmita",
+      "rico em ferro"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/almondega_molho_tomate.png"
+  },
+  {
+    "id": 37,
+    "slug": "bolinha-de-t-mara-e-cacau",
+    "titulo": "Bolinha de tâmara e cacau",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Para variar o doce de sempre: bolinha de tâmara e cacau. Ingredientes e preparo estão no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/bolinha_de_tamara_e_cacau.png"
+  },
+  {
+    "id": 38,
+    "slug": "salada-de-frutas-com-aveia",
+    "titulo": "Salada de frutas com aveia",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Quando faltar ideia para o lanche, volte a este post: salada de frutas com aveia, com o preparo nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 220,
+    "macros": {
+      "proteina_g": 10.0,
+      "carboidrato_g": 35.0,
+      "gordura_g": 4.5,
+      "fibras_g": 6.0
+    },
+    "tags": [
+      "rica em fibras",
+      "saciedade",
+      "conforto"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/salada_de_frutas_com_aveia.png"
+  },
+  {
+    "id": 39,
+    "slug": "abobrinha-recheada-com-lentilha",
+    "titulo": "Abobrinha recheada com lentilha",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Uma sugestão para entrar na sua lista de receitas: abobrinha recheada com lentilha. Salve para consultar na hora de cozinhar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/abobrinha_recheada_com_lentilha.png"
+  },
+  {
+    "id": 40,
+    "slug": "ta-a-de-morango-com-aveia",
+    "titulo": "Taça de morango com aveia",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Cozinhar também pode ser um jeito de descobrir sabores. A sugestão de hoje é taça de morango com aveia.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 220,
+    "macros": {
+      "proteina_g": 10.0,
+      "carboidrato_g": 35.0,
+      "gordura_g": 4.5,
+      "fibras_g": 6.0
+    },
+    "tags": [
+      "rica em fibras",
+      "saciedade",
+      "conforto"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/taca_de_morango_com_aveia.png"
+  },
+  {
+    "id": 41,
+    "slug": "facilitar-o-acesso-gua",
+    "titulo": "Facilitar o acesso à água",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Manter uma garrafa bonita e cheia sempre ao alcance dos olhos faz você bater sua meta de hidratação sem esforço de memória.",
+    "instrucoes": [
+      "Escolha uma garrafa térmica ou de inox de 500ml a 1L.",
+      "Abasteça pela manhã e mantenha sempre visível na sua mesa de trabalho.",
+      "Se desejar, adicione rodelas de limão ou folhas de hortelã para aromatizar.",
+      "Crie o hábito de dar 3 goles a cada vez que trocar de tarefa ou aba no computador.",
+      "Monitore a cor da urina ao longo do dia: amarelo bem clarinho indica hidratação ideal."
+    ],
+    "calorias": 0,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 42,
+    "slug": "arroz-feij-o-e-couve",
+    "titulo": "Arroz, feijão e couve",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "A próxima refeição pode começar com uma ideia simples: arroz, feijão e couve. Confira o passo a passo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/arroz_feijao_e_couve.png"
+  },
+  {
+    "id": 43,
+    "slug": "banana-assada-com-amendoim",
+    "titulo": "Banana assada com amendoim",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Já decidiu o doce da semana? Salve o passo a passo de banana assada com amendoim para quando quiser preparar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/banana_assada_com_amendoim.png"
+  },
+  {
+    "id": 44,
+    "slug": "aveia-de-v-spera-com-banana",
+    "titulo": "Aveia de véspera com banana",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Uma receita a mais para o seu repertório: aveia de véspera com banana. Ingredientes e preparo estão no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 220,
+    "macros": {
+      "proteina_g": 10.0,
+      "carboidrato_g": 35.0,
+      "gordura_g": 4.5,
+      "fibras_g": 6.0
+    },
+    "tags": [
+      "rica em fibras",
+      "saciedade",
+      "conforto"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/aveia_de_vespera_com_banana.png"
+  },
+  {
+    "id": 45,
+    "slug": "frango-assado-com-abobrinha",
+    "titulo": "Frango assado com abobrinha",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Quer renovar o repertório da cozinha? Hoje tem frango assado com abobrinha. Use o carrossel para acompanhar o preparo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 360,
+    "macros": {
+      "proteina_g": 38.0,
+      "carboidrato_g": 18.0,
+      "gordura_g": 9.0,
+      "fibras_g": 4.5
+    },
+    "tags": [
+      "marmita",
+      "alta proteína",
+      "airfryer"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/frango_assado_com_abobrinha.png"
+  },
+  {
+    "id": 46,
+    "slug": "ma-cozida-com-passas",
+    "titulo": "Maçã cozida com passas",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Bateu vontade de doce? Hoje a ideia é maçã cozida com passas. Confira o preparo e salve para experimentar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/maca_cozida_com_passas.png"
+  },
+  {
+    "id": 47,
+    "slug": "dividir-o-preparo",
+    "titulo": "Dividir o preparo",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Escolha uma refeição simples para preparar com alguém da casa, se isso for possível. Uma pessoa pode separar os ingredientes; outra organiza a mesa. Combinem tarefas de forma justa.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/dividir_o_preparo.png"
+  },
+  {
+    "id": 48,
+    "slug": "salada-de-feij-o-branco",
+    "titulo": "Salada de feijão-branco",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Ainda pensando no que preparar? A ideia de hoje é salada de feijão-branco. Salve o passo a passo para a próxima refeição.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/salada_de_feijao_branco.png"
+  },
+  {
+    "id": 49,
+    "slug": "picol-de-manga-e-iogurte",
+    "titulo": "Picolé de manga e iogurte",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma sobremesa para sair do automático: picolé de manga e iogurte. A receita está nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/picole_de_manga_e_iogurte.png"
+  },
+  {
+    "id": 50,
+    "slug": "torrada-de-abacate-e-lim-o",
+    "titulo": "Torrada de abacate e limão",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma ideia para o lanche que você ainda não decidiu: torrada de abacate e limão. Salve para lembrar depois.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/torrada_de_abacate_e_limao.png"
+  },
+  {
+    "id": 51,
+    "slug": "lentilha-com-cenoura",
+    "titulo": "Lentilha com cenoura",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Comida de casa para uma rotina real: lentilha com cenoura. Confira o preparo e veja o que já tem na cozinha.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/lentilha_com_cenoura.png"
+  },
+  {
+    "id": 52,
+    "slug": "creme-de-abacate-com-lim-o",
+    "titulo": "Creme de abacate com limão",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Tem espaço para experimentar um sabor novo na semana? Comece com creme de abacate com limão.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/creme_de_abacate_com_limao.png"
+  },
+  {
+    "id": 53,
+    "slug": "encontrar-uma-atividade-agrad-vel",
+    "titulo": "Encontrar uma atividade agradável",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 30,
+    "porcoes": 1,
+    "descricao": "O melhor exercício é aquele que você tem vontade de repetir amanhã. Dança, natação, caminhada, pilates ou musculação: o segredo é a constância sem sofrimento.",
+    "instrucoes": [
+      "Escolha um movimento físico que traga prazer e não sensação de punição.",
+      "Comece com 20 a 30 minutos em intensidade moderada.",
+      "Celebre o fato de movimentar o corpo e oxigenar os músculos.",
+      "Hidrate-se bem antes, durante e após a prática.",
+      "Repare como o seu humor e disposição melhoram após o término."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 54,
+    "slug": "macarr-o-com-ricota-e-espinafre",
+    "titulo": "Macarrão com ricota e espinafre",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Para mudar um pouco o prato da semana, experimente macarrão com ricota e espinafre. A receita está no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/macarrao_com_ricota_e_espinafre.png"
+  },
+  {
+    "id": 55,
+    "slug": "chia-com-manga",
+    "titulo": "Chia com manga",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Doce de casa, no seu ritmo. Veja como preparar chia com manga e guarde a receita.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/chia_com_manga.png"
+  },
+  {
+    "id": 56,
+    "slug": "sandu-che-de-atum-e-pepino",
+    "titulo": "Sanduíche de atum e pepino",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Hoje tem sanduíche de atum e pepino. Uma opção para você experimentar e adaptar à sua rotina.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/sanduiche_de_atum_e_pepino.png"
+  },
+  {
+    "id": 57,
+    "slug": "omelete-de-forno-com-cenoura",
+    "titulo": "Omelete de forno com cenoura",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 8,
+    "porcoes": 1,
+    "descricao": "Não precisa inventar tudo de uma vez. Guarde esta ideia de omelete de forno com cenoura para quando quiser variar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 210,
+    "macros": {
+      "proteina_g": 19.5,
+      "carboidrato_g": 4.0,
+      "gordura_g": 12.0,
+      "fibras_g": 2.0
+    },
+    "tags": [
+      "low carb",
+      "cetogênica",
+      "alta proteína"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/omelete_de_forno_com_cenoura.png"
+  },
+  {
+    "id": 58,
+    "slug": "manga-com-creme-de-ricota",
+    "titulo": "Manga com creme de ricota",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Para variar o doce de sempre: manga com creme de ricota. Ingredientes e preparo estão no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/manga_com_creme_de_ricota.png"
+  },
+  {
+    "id": 59,
+    "slug": "organiza-o-do-fim-do-dia",
+    "titulo": "Organização do fim do dia",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 15,
+    "porcoes": 1,
+    "descricao": "Deixar o café da manhã adiantado e a cozinha em ordem à noite reduz drasticamente o cansaço e a probabilidade de escolhas impulsivas pela manhã.",
+    "instrucoes": [
+      "Deixe o bowl do mingau ou os potes de aveia pré-medidos na bancada.",
+      "Confira se as marmitas do almoço de amanhã estão prontas na geladeira.",
+      "Desligue luzes brancas e reduza o brilho do celular 1 hora antes de dormir.",
+      "Vá para a cama sabendo exatamente o que vai comer ao acordar.",
+      "Tenha uma noite de sono reparador (7 a 8 horas) para regular os hormônios da saciedade."
+    ],
+    "calorias": 0,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 60,
+    "slug": "creme-de-cenoura-e-feij-o",
+    "titulo": "Creme de cenoura e feijão",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Almoço ou jantar? Você escolhe a ocasião para preparar creme de cenoura e feijão. Veja as quantidades nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/creme_de_cenoura_e_feijao.png"
+  },
+  {
+    "id": 61,
+    "slug": "mingau-de-banana",
+    "titulo": "Mingau de banana",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Uma ideia para o próximo momento de sobremesa: mingau de banana. Você escolhe a ocasião.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 220,
+    "macros": {
+      "proteina_g": 10.0,
+      "carboidrato_g": 35.0,
+      "gordura_g": 4.5,
+      "fibras_g": 6.0
+    },
+    "tags": [
+      "rica em fibras",
+      "saciedade",
+      "conforto"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/mingau_de_banana.png"
+  },
+  {
+    "id": 62,
+    "slug": "vitamina-de-mam-o-e-linha-a",
+    "titulo": "Vitamina de mamão e linhaça",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "O café de sempre pode ganhar outro preparo. Veja como fazer vitamina de mamão e linhaça.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/vitamina_de_mamao_e_linhaca.png"
+  },
+  {
+    "id": 63,
+    "slug": "batata-recheada-com-ricota",
+    "titulo": "Batata recheada com ricota",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma sugestão para entrar na sua lista de receitas: batata recheada com ricota. Salve para consultar na hora de cozinhar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Forma Antiaderente de Silicone para Airfryer",
+        "motivo": "Assar frango, batatas e bolinhos sem sujar nada e sem pingar óleo.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Zero óleo adicionado no cozimento."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/batata_recheada_com_ricota.png"
+  },
+  {
+    "id": 64,
+    "slug": "iogurte-gelado-com-manga",
+    "titulo": "Iogurte gelado com manga",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Cozinhar também pode ser um jeito de descobrir sabores. A sugestão de hoje é iogurte gelado com manga.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/iogurte_gelado_com_manga.png"
+  },
+  {
+    "id": 65,
+    "slug": "refei-es-que-funcionam",
+    "titulo": "Refeições que funcionam",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Anote três preparos simples que você gosta e consegue fazer. Use essa lista nos dias corridos. Troque um acompanhamento quando quiser variar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/refeicoes_que_funcionam.png"
+  },
+  {
+    "id": 66,
+    "slug": "arroz-de-frigideira-com-frango",
+    "titulo": "Arroz de frigideira com frango",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "A próxima refeição pode começar com uma ideia simples: arroz de frigideira com frango. Confira o passo a passo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 360,
+    "macros": {
+      "proteina_g": 38.0,
+      "carboidrato_g": 18.0,
+      "gordura_g": 9.0,
+      "fibras_g": 4.5
+    },
+    "tags": [
+      "marmita",
+      "alta proteína",
+      "airfryer"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/arroz_de_frigideira_com_frango.png"
+  },
+  {
+    "id": 67,
+    "slug": "pera-cozida-com-laranja",
+    "titulo": "Pera cozida com laranja",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Já decidiu o doce da semana? Salve o passo a passo de pera cozida com laranja para quando quiser preparar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/pera_cozida_com_laranja.png"
+  },
+  {
+    "id": 68,
+    "slug": "ovos-mexidos-com-espinafre",
+    "titulo": "Ovos mexidos com espinafre",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma receita a mais para o seu repertório: ovos mexidos com espinafre. Ingredientes e preparo estão no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/ovos_mexidos_com_espinafre.png"
+  },
+  {
+    "id": 69,
+    "slug": "gr-o-de-bico-com-cenoura",
+    "titulo": "Grão-de-bico com cenoura",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Quer renovar o repertório da cozinha? Hoje tem grão-de-bico com cenoura. Use o carrossel para acompanhar o preparo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/grao_de_bico_com_cenoura.png"
+  },
+  {
+    "id": 70,
+    "slug": "panquequinha-de-banana-e-cacau",
+    "titulo": "Panquequinha de banana e cacau",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Bateu vontade de doce? Hoje a ideia é panquequinha de banana e cacau. Confira o preparo e salve para experimentar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "assets/receitas_flow/panquequinha_de_banana_e_cacau.png"
+  },
+  {
+    "id": 71,
+    "slug": "const-ncia-sem-competi-o",
+    "titulo": "Constância sem competição",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Olhe para o que cabe na sua rotina hoje, considerando tempo, dinheiro e responsabilidades. Escolha uma pequena ação que você quer repetir esta semana.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 72,
+    "slug": "peixe-assado-com-abobrinha",
+    "titulo": "Peixe assado com abobrinha",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 20,
+    "porcoes": 1,
+    "descricao": "Ainda pensando no que preparar? A ideia de hoje é peixe assado com abobrinha. Salve o passo a passo para a próxima refeição.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 310,
+    "macros": {
+      "proteina_g": 32.0,
+      "carboidrato_g": 12.0,
+      "gordura_g": 8.0,
+      "fibras_g": 3.0
+    },
+    "tags": [
+      "ômega 3",
+      "leve",
+      "jantar"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 73,
+    "slug": "abacaxi-grelhado-com-coco",
+    "titulo": "Abacaxi grelhado com coco",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma sobremesa para sair do automático: abacaxi grelhado com coco. A receita está nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 74,
+    "slug": "panquequinha-salgada-de-abobrinha",
+    "titulo": "Panquequinha salgada de abobrinha",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma ideia para o lanche que você ainda não decidiu: panquequinha salgada de abobrinha. Salve para lembrar depois.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 75,
+    "slug": "alm-ndega-com-cenoura-no-molho",
+    "titulo": "Almôndega com cenoura no molho",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 30,
+    "porcoes": 1,
+    "descricao": "Comida de casa para uma rotina real: almôndega com cenoura no molho. Confira o preparo e veja o que já tem na cozinha.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 380,
+    "macros": {
+      "proteina_g": 34.0,
+      "carboidrato_g": 24.0,
+      "gordura_g": 11.0,
+      "fibras_g": 4.0
+    },
+    "tags": [
+      "congelável",
+      "marmita",
+      "rico em ferro"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 76,
+    "slug": "bolinha-de-t-mara-e-coco",
+    "titulo": "Bolinha de tâmara e coco",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Tem espaço para experimentar um sabor novo na semana? Comece com bolinha de tâmara e coco.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 77,
+    "slug": "organizar-sem-complicar",
+    "titulo": "Organizar sem complicar",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Confira os alimentos que precisam ser usados primeiro e coloque-os em lugar visível. Mantenha os recipientes tampados e identifique datas quando preparar alimentos.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 78,
+    "slug": "abobrinha-recheada-com-frango",
+    "titulo": "Abobrinha recheada com frango",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Não precisa inventar tudo de uma vez. Guarde esta ideia de abobrinha recheada com frango para quando quiser variar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 360,
+    "macros": {
+      "proteina_g": 38.0,
+      "carboidrato_g": 18.0,
+      "gordura_g": 9.0,
+      "fibras_g": 4.5
+    },
+    "tags": [
+      "marmita",
+      "alta proteína",
+      "airfryer"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Forma Antiaderente de Silicone para Airfryer",
+        "motivo": "Assar frango, batatas e bolinhos sem sujar nada e sem pingar óleo.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Zero óleo adicionado no cozimento."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 79,
+    "slug": "ta-a-de-manga-com-coco",
+    "titulo": "Taça de manga com coco",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Para variar o doce de sempre: taça de manga com coco. Ingredientes e preparo estão no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 80,
+    "slug": "crepioca-de-cenoura",
+    "titulo": "Crepioca de cenoura",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 7,
+    "porcoes": 1,
+    "descricao": "Quando faltar ideia para o lanche, volte a este post: crepioca de cenoura, com o preparo nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 240,
+    "macros": {
+      "proteina_g": 18.0,
+      "carboidrato_g": 22.0,
+      "gordura_g": 8.0,
+      "fibras_g": 2.5
+    },
+    "tags": [
+      "sem glúten",
+      "rápida",
+      "alta proteína"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 81,
+    "slug": "arroz-feij-o-e-cenoura",
+    "titulo": "Arroz, feijão e cenoura",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Almoço ou jantar? Você escolhe a ocasião para preparar arroz, feijão e cenoura. Veja as quantidades nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 82,
+    "slug": "banana-assada-com-cacau",
+    "titulo": "Banana assada com cacau",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Uma ideia para o próximo momento de sobremesa: banana assada com cacau. Você escolhe a ocasião.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 83,
+    "slug": "comer-com-prazer",
+    "titulo": "Comer com prazer",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Pense em uma receita de que você gosta e que faz parte da sua história. Reserve uma ocasião para prepará-la ou compartilhar essa lembrança com alguém.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 84,
+    "slug": "frango-assado-com-ab-bora",
+    "titulo": "Frango assado com abóbora",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Uma sugestão para entrar na sua lista de receitas: frango assado com abóbora. Salve para consultar na hora de cozinhar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 360,
+    "macros": {
+      "proteina_g": 38.0,
+      "carboidrato_g": 18.0,
+      "gordura_g": 9.0,
+      "fibras_g": 4.5
+    },
+    "tags": [
+      "marmita",
+      "alta proteína",
+      "airfryer"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 85,
+    "slug": "ma-cozida-com-gengibre",
+    "titulo": "Maçã cozida com gengibre",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Cozinhar também pode ser um jeito de descobrir sabores. A sugestão de hoje é maçã cozida com gengibre.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 86,
+    "slug": "omelete-de-abobrinha",
+    "titulo": "Omelete de abobrinha",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 8,
+    "porcoes": 1,
+    "descricao": "Para variar a primeira refeição ou o lanche: omelete de abobrinha. Escolha o momento que fizer sentido para você.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 210,
+    "macros": {
+      "proteina_g": 19.5,
+      "carboidrato_g": 4.0,
+      "gordura_g": 12.0,
+      "fibras_g": 2.0
+    },
+    "tags": [
+      "low carb",
+      "cetogênica",
+      "alta proteína"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 87,
+    "slug": "salada-de-lentilha",
+    "titulo": "Salada de lentilha",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "A próxima refeição pode começar com uma ideia simples: salada de lentilha. Confira o passo a passo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 88,
+    "slug": "picol-de-banana-e-cacau",
+    "titulo": "Picolé de banana e cacau",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Já decidiu o doce da semana? Salve o passo a passo de picolé de banana e cacau para quando quiser preparar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 89,
+    "slug": "desafio-de-uma-a-o-poss-vel",
+    "titulo": "Desafio de uma ação possível",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Escolha uma ação: planejar um lanche, separar a garrafa ou organizar uma refeição. Experimente ao longo de sete dias. Observe o que facilitou e o que atrapalhou.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 90,
+    "slug": "lentilha-com-espinafre",
+    "titulo": "Lentilha com espinafre",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Quer renovar o repertório da cozinha? Hoje tem lentilha com espinafre. Use o carrossel para acompanhar o preparo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 91,
+    "slug": "creme-de-abacate-com-banana",
+    "titulo": "Creme de abacate com banana",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Bateu vontade de doce? Hoje a ideia é creme de abacate com banana. Confira o preparo e salve para experimentar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 92,
+    "slug": "cuscuz-com-ricota",
+    "titulo": "Cuscuz com ricota",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Seu café da manhã pode ganhar uma opção diferente: cuscuz com ricota. Confira o passo a passo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 93,
+    "slug": "macarr-o-com-gr-o-de-bico",
+    "titulo": "Macarrão com grão-de-bico",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Ainda pensando no que preparar? A ideia de hoje é macarrão com grão-de-bico. Salve o passo a passo para a próxima refeição.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 94,
+    "slug": "chia-com-banana",
+    "titulo": "Chia com banana",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Uma sobremesa para sair do automático: chia com banana. A receita está nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 95,
+    "slug": "pausa-ao-ar-livre",
+    "titulo": "Pausa ao ar livre",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 15,
+    "porcoes": 1,
+    "descricao": "O contato com a luz natural e ar fresco pela manhã ou final da tarde sincroniza o ciclo circadiano e melhora a qualidade do sono noturno.",
+    "instrucoes": [
+      "Saia para uma varanda, quintal ou rua por 10 a 15 minutos.",
+      "Deixe a luz solar natural atingir os olhos (sem olhar diretamente para o sol).",
+      "Respire profundamente o ar fresco e desconecte-se de cobranças imediatas.",
+      "Sinta o calor suave na pele ativando a síntese de vitamina D e energia.",
+      "Volte para o seu dia mais leve e centrado."
+    ],
+    "calorias": 40,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 96,
+    "slug": "omelete-de-forno-com-abobrinha",
+    "titulo": "Omelete de forno com abobrinha",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 8,
+    "porcoes": 1,
+    "descricao": "Comida de casa para uma rotina real: omelete de forno com abobrinha. Confira o preparo e veja o que já tem na cozinha.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 210,
+    "macros": {
+      "proteina_g": 19.5,
+      "carboidrato_g": 4.0,
+      "gordura_g": 12.0,
+      "fibras_g": 2.0
+    },
+    "tags": [
+      "low carb",
+      "cetogênica",
+      "alta proteína"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 97,
+    "slug": "uva-com-creme-de-ricota",
+    "titulo": "Uva com creme de ricota",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Tem espaço para experimentar um sabor novo na semana? Comece com uva com creme de ricota.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 98,
+    "slug": "iogurte-com-kiwi-e-chia",
+    "titulo": "Iogurte com kiwi e chia",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Pensar no café antes da correria pode facilitar o dia. Que tal colocar iogurte com kiwi e chia na sua lista?",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 99,
+    "slug": "creme-de-ervilha-e-batata",
+    "titulo": "Creme de ervilha e batata",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Para mudar um pouco o prato da semana, experimente creme de ervilha e batata. A receita está no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Forma Antiaderente de Silicone para Airfryer",
+        "motivo": "Assar frango, batatas e bolinhos sem sujar nada e sem pingar óleo.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Zero óleo adicionado no cozimento."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 100,
+    "slug": "mingau-de-ma",
+    "titulo": "Mingau de maçã",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Doce de casa, no seu ritmo. Veja como preparar mingau de maçã e guarde a receita.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 220,
+    "macros": {
+      "proteina_g": 10.0,
+      "carboidrato_g": 35.0,
+      "gordura_g": 4.5,
+      "fibras_g": 6.0
+    },
+    "tags": [
+      "rica em fibras",
+      "saciedade",
+      "conforto"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 101,
+    "slug": "variedade-que-cabe-no-or-amento",
+    "titulo": "Variedade que cabe no orçamento",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Observe quais frutas e vegetais estão disponíveis por um preço que cabe no seu bolso. Escolha uma opção conhecida e, se quiser, outra para experimentar em um preparo simples.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 102,
+    "slug": "batata-recheada-com-atum",
+    "titulo": "Batata recheada com atum",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Não precisa inventar tudo de uma vez. Guarde esta ideia de batata recheada com atum para quando quiser variar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Forma Antiaderente de Silicone para Airfryer",
+        "motivo": "Assar frango, batatas e bolinhos sem sujar nada e sem pingar óleo.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Zero óleo adicionado no cozimento."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 103,
+    "slug": "iogurte-gelado-com-banana",
+    "titulo": "Iogurte gelado com banana",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Para variar o doce de sempre: iogurte gelado com banana. Ingredientes e preparo estão no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 104,
+    "slug": "tapioca-de-ricota-e-cenoura",
+    "titulo": "Tapioca de ricota e cenoura",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Quando faltar ideia para o lanche, volte a este post: tapioca de ricota e cenoura, com o preparo nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 105,
+    "slug": "arroz-de-frigideira-com-ervilha",
+    "titulo": "Arroz de frigideira com ervilha",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Almoço ou jantar? Você escolhe a ocasião para preparar arroz de frigideira com ervilha. Veja as quantidades nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 106,
+    "slug": "pera-cozida-com-gengibre",
+    "titulo": "Pera cozida com gengibre",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma ideia para o próximo momento de sobremesa: pera cozida com gengibre. Você escolhe a ocasião.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 107,
+    "slug": "preparar-um-lanche-para-sair",
+    "titulo": "Preparar um lanche para sair",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Pense no tempo que ficará fora e escolha uma opção que consiga transportar. Frutas inteiras podem ser práticas. Preparações perecíveis precisam de conservação adequada.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 108,
+    "slug": "gr-o-de-bico-com-beterraba",
+    "titulo": "Grão-de-bico com beterraba",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma sugestão para entrar na sua lista de receitas: grão-de-bico com beterraba. Salve para consultar na hora de cozinhar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 109,
+    "slug": "panquequinha-de-banana-e-coco",
+    "titulo": "Panquequinha de banana e coco",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Cozinhar também pode ser um jeito de descobrir sabores. A sugestão de hoje é panquequinha de banana e coco.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 110,
+    "slug": "pasta-de-feij-o-branco",
+    "titulo": "Pasta de feijão-branco",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Para variar a primeira refeição ou o lanche: pasta de feijão-branco. Escolha o momento que fizer sentido para você.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 111,
+    "slug": "peixe-assado-com-cenoura",
+    "titulo": "Peixe assado com cenoura",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 20,
+    "porcoes": 1,
+    "descricao": "A próxima refeição pode começar com uma ideia simples: peixe assado com cenoura. Confira o passo a passo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 310,
+    "macros": {
+      "proteina_g": 32.0,
+      "carboidrato_g": 12.0,
+      "gordura_g": 8.0,
+      "fibras_g": 3.0
+    },
+    "tags": [
+      "ômega 3",
+      "leve",
+      "jantar"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 112,
+    "slug": "abacaxi-grelhado-com-hortel",
+    "titulo": "Abacaxi grelhado com hortelã",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Já decidiu o doce da semana? Salve o passo a passo de abacaxi grelhado com hortelã para quando quiser preparar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 113,
+    "slug": "retomar-depois-de-um-imprevisto",
+    "titulo": "Retomar depois de um imprevisto",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma semana corrida não precisa encerrar suas tentativas de cuidar da rotina. Retome uma ação simples na próxima oportunidade, sem tentar compensar tudo de uma vez.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 114,
+    "slug": "alm-ndega-com-abobrinha-no-molho",
+    "titulo": "Almôndega com abobrinha no molho",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 30,
+    "porcoes": 1,
+    "descricao": "Quer renovar o repertório da cozinha? Hoje tem almôndega com abobrinha no molho. Use o carrossel para acompanhar o preparo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 380,
+    "macros": {
+      "proteina_g": 34.0,
+      "carboidrato_g": 24.0,
+      "gordura_g": 11.0,
+      "fibras_g": 4.0
+    },
+    "tags": [
+      "congelável",
+      "marmita",
+      "rico em ferro"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 115,
+    "slug": "bolinha-de-t-mara-e-amendoim",
+    "titulo": "Bolinha de tâmara e amendoim",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Bateu vontade de doce? Hoje a ideia é bolinha de tâmara e amendoim. Confira o preparo e salve para experimentar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 116,
+    "slug": "salada-de-frutas-com-coco",
+    "titulo": "Salada de frutas com coco",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Seu café da manhã pode ganhar uma opção diferente: salada de frutas com coco. Confira o passo a passo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 117,
+    "slug": "abobrinha-recheada-com-ricota",
+    "titulo": "Abobrinha recheada com ricota",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Comida de casa para uma rotina real: abobrinha recheada com ricota. Confira o preparo e veja o que já tem na cozinha.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 118,
+    "slug": "ta-a-de-mam-o-com-canela",
+    "titulo": "Taça de mamão com canela",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Tem espaço para experimentar um sabor novo na semana? Comece com taça de mamão com canela.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 119,
+    "slug": "comer-em-companhia",
+    "titulo": "Comer em companhia",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Se for possível e agradável para você, combine uma refeição com alguém. Dividam o preparo ou escolham uma comida simples que ambos gostem.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 120,
+    "slug": "arroz-feij-o-e-abobrinha",
+    "titulo": "Arroz, feijão e abobrinha",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Para mudar um pouco o prato da semana, experimente arroz, feijão e abobrinha. A receita está no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 121,
+    "slug": "banana-assada-com-coco",
+    "titulo": "Banana assada com coco",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Doce de casa, no seu ritmo. Veja como preparar banana assada com coco e guarde a receita.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 122,
+    "slug": "aveia-de-v-spera-com-ma",
+    "titulo": "Aveia de véspera com maçã",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Hoje tem aveia de véspera com maçã. Uma opção para você experimentar e adaptar à sua rotina.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 220,
+    "macros": {
+      "proteina_g": 10.0,
+      "carboidrato_g": 35.0,
+      "gordura_g": 4.5,
+      "fibras_g": 6.0
+    },
+    "tags": [
+      "rica em fibras",
+      "saciedade",
+      "conforto"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 123,
+    "slug": "frango-assado-com-br-colis",
+    "titulo": "Frango assado com brócolis",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Não precisa inventar tudo de uma vez. Guarde esta ideia de frango assado com brócolis para quando quiser variar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 360,
+    "macros": {
+      "proteina_g": 38.0,
+      "carboidrato_g": 18.0,
+      "gordura_g": 9.0,
+      "fibras_g": 4.5
+    },
+    "tags": [
+      "marmita",
+      "alta proteína",
+      "airfryer"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 124,
+    "slug": "ma-cozida-com-cravo",
+    "titulo": "Maçã cozida com cravo",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Para variar o doce de sempre: maçã cozida com cravo. Ingredientes e preparo estão no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 125,
+    "slug": "facilitar-o-que-voc-quer-repetir",
+    "titulo": "Facilitar o que você quer repetir",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Escolha uma pequena mudança no ambiente: liberar a bancada ou deixar a tigela acessível. Organize apenas o que ajuda o próximo preparo. Não precisa arrumar a casa inteira.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 126,
+    "slug": "salada-de-feij-o-carioca",
+    "titulo": "Salada de feijão-carioca",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Almoço ou jantar? Você escolhe a ocasião para preparar salada de feijão-carioca. Veja as quantidades nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 127,
+    "slug": "picol-de-mam-o-e-coco",
+    "titulo": "Picolé de mamão e coco",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma ideia para o próximo momento de sobremesa: picolé de mamão e coco. Você escolhe a ocasião.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 128,
+    "slug": "torrada-de-homus-e-pepino",
+    "titulo": "Torrada de homus e pepino",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "O café de sempre pode ganhar outro preparo. Veja como fazer torrada de homus e pepino.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 129,
+    "slug": "lentilha-com-batata",
+    "titulo": "Lentilha com batata",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Uma sugestão para entrar na sua lista de receitas: lentilha com batata. Salve para consultar na hora de cozinhar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Forma Antiaderente de Silicone para Airfryer",
+        "motivo": "Assar frango, batatas e bolinhos sem sujar nada e sem pingar óleo.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Zero óleo adicionado no cozimento."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 130,
+    "slug": "creme-de-abacate-com-manga",
+    "titulo": "Creme de abacate com manga",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Cozinhar também pode ser um jeito de descobrir sabores. A sugestão de hoje é creme de abacate com manga.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 131,
+    "slug": "compartilhar-responsabilidades",
+    "titulo": "Compartilhar responsabilidades",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Observe quais tarefas da alimentação estão concentradas em uma só pessoa. Quando houver com quem dividir, combinem compras, preparo e limpeza de forma clara.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 132,
+    "slug": "macarr-o-com-frango-e-br-colis",
+    "titulo": "Macarrão com frango e brócolis",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "A próxima refeição pode começar com uma ideia simples: macarrão com frango e brócolis. Confira o passo a passo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 360,
+    "macros": {
+      "proteina_g": 38.0,
+      "carboidrato_g": 18.0,
+      "gordura_g": 9.0,
+      "fibras_g": 4.5
+    },
+    "tags": [
+      "marmita",
+      "alta proteína",
+      "airfryer"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Forma Antiaderente de Silicone para Airfryer",
+        "motivo": "Assar frango, batatas e bolinhos sem sujar nada e sem pingar óleo.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Zero óleo adicionado no cozimento."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 133,
+    "slug": "chia-com-kiwi",
+    "titulo": "Chia com kiwi",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Já decidiu o doce da semana? Salve o passo a passo de chia com kiwi para quando quiser preparar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 134,
+    "slug": "sandu-che-de-gr-o-de-bico",
+    "titulo": "Sanduíche de grão-de-bico",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma receita a mais para o seu repertório: sanduíche de grão-de-bico. Ingredientes e preparo estão no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 135,
+    "slug": "omelete-de-forno-com-espinafre",
+    "titulo": "Omelete de forno com espinafre",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 8,
+    "porcoes": 1,
+    "descricao": "Quer renovar o repertório da cozinha? Hoje tem omelete de forno com espinafre. Use o carrossel para acompanhar o preparo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 210,
+    "macros": {
+      "proteina_g": 19.5,
+      "carboidrato_g": 4.0,
+      "gordura_g": 12.0,
+      "fibras_g": 2.0
+    },
+    "tags": [
+      "low carb",
+      "cetogênica",
+      "alta proteína"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 136,
+    "slug": "p-ssego-com-creme-de-ricota",
+    "titulo": "Pêssego com creme de ricota",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Bateu vontade de doce? Hoje a ideia é pêssego com creme de ricota. Confira o preparo e salve para experimentar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 137,
+    "slug": "cozinhar-com-o-que-voc-tem",
+    "titulo": "Cozinhar com o que você tem",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Escolha uma receita compatível com os utensílios e o espaço disponíveis. Antes de começar, separe ingredientes e organize a ordem do preparo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 138,
+    "slug": "creme-de-abobrinha-e-gr-o-de-bico",
+    "titulo": "Creme de abobrinha e grão-de-bico",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Ainda pensando no que preparar? A ideia de hoje é creme de abobrinha e grão-de-bico. Salve o passo a passo para a próxima refeição.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 139,
+    "slug": "mingau-de-coco",
+    "titulo": "Mingau de coco",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Uma sobremesa para sair do automático: mingau de coco. A receita está nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 220,
+    "macros": {
+      "proteina_g": 10.0,
+      "carboidrato_g": 35.0,
+      "gordura_g": 4.5,
+      "fibras_g": 6.0
+    },
+    "tags": [
+      "rica em fibras",
+      "saciedade",
+      "conforto"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 140,
+    "slug": "vitamina-de-morango-e-banana",
+    "titulo": "Vitamina de morango e banana",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Uma ideia para o lanche que você ainda não decidiu: vitamina de morango e banana. Salve para lembrar depois.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 141,
+    "slug": "batata-recheada-com-br-colis",
+    "titulo": "Batata recheada com brócolis",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Comida de casa para uma rotina real: batata recheada com brócolis. Confira o preparo e veja o que já tem na cozinha.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Forma Antiaderente de Silicone para Airfryer",
+        "motivo": "Assar frango, batatas e bolinhos sem sujar nada e sem pingar óleo.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Zero óleo adicionado no cozimento."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 142,
+    "slug": "iogurte-gelado-com-abacaxi",
+    "titulo": "Iogurte gelado com abacaxi",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Tem espaço para experimentar um sabor novo na semana? Comece com iogurte gelado com abacaxi.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 143,
+    "slug": "planejar-sem-ocupar-cada-minuto",
+    "titulo": "Planejar sem ocupar cada minuto",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Olhe a agenda e identifique o que realmente precisa ser feito. Se for possível, deixe algum espaço sem tarefa marcada para descanso ou imprevistos.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 144,
+    "slug": "arroz-de-frigideira-com-lentilha",
+    "titulo": "Arroz de frigideira com lentilha",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 25,
+    "porcoes": 1,
+    "descricao": "Para mudar um pouco o prato da semana, experimente arroz de frigideira com lentilha. A receita está no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 290,
+    "macros": {
+      "proteina_g": 16.0,
+      "carboidrato_g": 44.0,
+      "gordura_g": 3.0,
+      "fibras_g": 11.0
+    },
+    "tags": [
+      "super fibras",
+      "saúde intestinal"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 145,
+    "slug": "pera-cozida-com-baunilha",
+    "titulo": "Pera cozida com baunilha",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Doce de casa, no seu ritmo. Veja como preparar pera cozida com baunilha e guarde a receita.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 146,
+    "slug": "ovos-mexidos-com-milho",
+    "titulo": "Ovos mexidos com milho",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Hoje tem ovos mexidos com milho. Uma opção para você experimentar e adaptar à sua rotina.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 147,
+    "slug": "gr-o-de-bico-com-ab-bora",
+    "titulo": "Grão-de-bico com abóbora",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Não precisa inventar tudo de uma vez. Guarde esta ideia de grão-de-bico com abóbora para quando quiser variar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 148,
+    "slug": "panquequinha-de-banana-e-amendoim",
+    "titulo": "Panquequinha de banana e amendoim",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 5,
+    "porcoes": 1,
+    "descricao": "Para variar o doce de sempre: panquequinha de banana e amendoim. Ingredientes e preparo estão no carrossel.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 180,
+    "macros": {
+      "proteina_g": 8.0,
+      "carboidrato_g": 29.0,
+      "gordura_g": 3.5,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "mata vontade de doce",
+      "antioxidante"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 149,
+    "slug": "ganhar-autonomia-na-cozinha",
+    "titulo": "Ganhar autonomia na cozinha",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Escolha uma habilidade útil: cozinhar arroz, preparar ovos ou temperar legumes. Siga um passo a passo, observe o resultado e anote o que ajustaria.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 150,
+    "slug": "peixe-assado-com-piment-o",
+    "titulo": "Peixe assado com pimentão",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 20,
+    "porcoes": 1,
+    "descricao": "Almoço ou jantar? Você escolhe a ocasião para preparar peixe assado com pimentão. Veja as quantidades nas próximas telas.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 310,
+    "macros": {
+      "proteina_g": 32.0,
+      "carboidrato_g": 12.0,
+      "gordura_g": 8.0,
+      "fibras_g": 3.0
+    },
+    "tags": [
+      "ômega 3",
+      "leve",
+      "jantar"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 151,
+    "slug": "abacaxi-grelhado-com-gengibre",
+    "titulo": "Abacaxi grelhado com gengibre",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Uma ideia para o próximo momento de sobremesa: abacaxi grelhado com gengibre. Você escolhe a ocasião.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Galheteiro Borrifador & Dosador 2 em 1 de Vidro",
+        "motivo": "Para untar frigideiras e temperar saladas economizando 80% do óleo.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 152,
+    "slug": "panquequinha-salgada-de-milho",
+    "titulo": "Panquequinha salgada de milho",
+    "categoria": "café da manhã",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "O café de sempre pode ganhar outro preparo. Veja como fazer panquequinha salgada de milho.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 153,
+    "slug": "alm-ndega-com-ervilha-no-molho",
+    "titulo": "Almôndega com ervilha no molho",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 30,
+    "porcoes": 1,
+    "descricao": "Uma sugestão para entrar na sua lista de receitas: almôndega com ervilha no molho. Salve para consultar na hora de cozinhar.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 380,
+    "macros": {
+      "proteina_g": 34.0,
+      "carboidrato_g": 24.0,
+      "gordura_g": 11.0,
+      "fibras_g": 4.0
+    },
+    "tags": [
+      "congelável",
+      "marmita",
+      "rico em ferro"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      },
+      {
+        "nome": "Kit Marmitas Herméticas de Vidro com Divisórias",
+        "motivo": "Organização do cronograma semanal (meal prep) sem estragar a comida.",
+        "link": "https://s.shopee.com.br/7fbBlr9zK9",
+        "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 154,
+    "slug": "bolinha-de-t-mara-e-castanha",
+    "titulo": "Bolinha de tâmara e castanha",
+    "categoria": "sobremesas fit",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Cozinhar também pode ser um jeito de descobrir sabores. A sugestão de hoje é bolinha de tâmara e castanha.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 155,
+    "slug": "revisar-o-ano-sem-cobran-a",
+    "titulo": "Revisar o ano sem cobrança",
+    "categoria": "lanches práticos",
+    "tempo_preparo_min": 20,
+    "porcoes": 1,
+    "descricao": "Olhe para a sua trajetória com acolhimento. Cada pequeno hábito saudável construído é uma vitória cumulativa que transforma a sua saúde a longo prazo.",
+    "instrucoes": [
+      "Pegue um papel ou bloco de notas e liste 3 hábitos saudáveis que você conquistou.",
+      "Reconheça os dias difíceis como parte natural de qualquer processo humano de evolução.",
+      "Não busque perfeição obsessiva, mas sim consistência com gentileza.",
+      "Defina apenas uma pequena prioridade saudável para a próxima semana.",
+      "Agradeça ao seu corpo pelo que ele faz por você todos os dias."
+    ],
+    "calorias": 0,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "estilo de vida",
+      "mindfulness",
+      "saúde mental"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  },
+  {
+    "id": 156,
+    "slug": "abobrinha-recheada-com-gr-o-de-bico",
+    "titulo": "Abobrinha recheada com grão-de-bico",
+    "categoria": "almoço & jantar",
+    "tempo_preparo_min": 10,
+    "porcoes": 1,
+    "descricao": "Quer renovar o repertório da cozinha? Hoje tem abobrinha recheada com grão-de-bico. Use o carrossel para acompanhar o preparo.",
+    "instrucoes": [
+      "Separe e pese os ingredientes frescos na balança culinária.",
+      "Aqueça a frigideira antiaderente (use o borrifador para economizar azeite) ou forno.",
+      "Misture os ingredientes com suavidade até obter ponto homogêneo.",
+      "Finalize o preparo em fogo médio por 3 a 5 minutos até dourar.",
+      "Sirva ainda quente ou armazene nas marmitas herméticas de vidro."
+    ],
+    "calorias": 250,
+    "macros": {
+      "proteina_g": 15.0,
+      "carboidrato_g": 28.0,
+      "gordura_g": 7.0,
+      "fibras_g": 3.5
+    },
+    "tags": [
+      "equilibrada",
+      "prática"
+    ],
+    "utensilios_recomendados": [
+      {
+        "nome": "Balança Digital de Precisão Culinária SF-400",
+        "motivo": "Para acertar as gramas exatas de proteínas e fibras sem neura.",
+        "link": "https://s.shopee.com.br/9zz6HcfAxu",
+        "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
+      }
+    ],
+    "imagem_capa": "/assets/placeholder_fit.jpg"
+  }
+];
