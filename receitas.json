@@ -112,7 +112,7 @@
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-09-25 - Arroz, feijão e abóbora (revisar artes)/01.png"
+    "imagem_capa": "assets/receitas_flow/arroz_feijao_e_abobora.png"
   },
   {
     "id": 4,
@@ -148,7 +148,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-09-28 - Banana assada com canela/01.png"
+    "imagem_capa": "assets/receitas_flow/banana_assada_com_canela.png"
   },
   {
     "id": 5,
@@ -264,7 +264,7 @@
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-10-05 - Maçã cozida com canela (revisar artes)/01.png"
+    "imagem_capa": "assets/receitas_flow/maca_cozida_com_canela.png"
   },
   {
     "id": 8,
@@ -343,7 +343,7 @@
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/conteudo-saciara/2026-10-09 - Salada de feijão-fradinho/01.png"
+    "imagem_capa": "assets/receitas_flow/salada_de_feijao_fradinho.png"
   },
   {
     "id": 10,
