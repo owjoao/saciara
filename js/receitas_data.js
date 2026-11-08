@@ -791,7 +791,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "assets/receitas_flow/creme_de_abobora_e_lentilha.png"
+    "imagem_capa": "/conteudo-saciara/2026-11-06 - Creme de abóbora e lentilha/01.png"
   },
   {
     "id": 22,
@@ -908,7 +908,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Zero óleo adicionado no cozimento."
       }
     ],
-    "imagem_capa": "assets/receitas_flow/batata_recheada_com_frango.png"
+    "imagem_capa": "/conteudo-saciara/2026-11-13 - Batata recheada com frango/01.png"
   },
   {
     "id": 25,
@@ -944,7 +944,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "assets/receitas_flow/iogurte_gelado_com_morango_imagens_incompletas.png"
+    "imagem_capa": "/conteudo-saciara/2026-11-16 - Iogurte gelado com morango (imagens incompletas)/01.png"
   },
   {
     "id": 26,
@@ -1410,7 +1410,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/bolinha_de_tamara_e_cacau.png"
   },
   {
     "id": 38,
@@ -1453,7 +1453,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/salada_de_frutas_com_aveia.png"
   },
   {
     "id": 39,
@@ -1495,7 +1495,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/abobrinha_recheada_com_lentilha.png"
   },
   {
     "id": 40,
@@ -1532,7 +1532,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/taca_de_morango_com_aveia.png"
   },
   {
     "id": 41,
@@ -1611,7 +1611,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/arroz_feijao_e_couve.png"
   },
   {
     "id": 43,
@@ -1647,7 +1647,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/banana_assada_com_amendoim.png"
   },
   {
     "id": 44,
