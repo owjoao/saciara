@@ -4268,7 +4268,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Corta até 150 kcal por dia só no óleo da preparação."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/abacaxi_grelhado_com_hortela.png"
   },
   {
     "id": 113,
@@ -4304,7 +4304,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Evita o erro de comer 30% a mais de calorias sem perceber."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/retomar_depois_de_um_imprevisto.png"
   },
   {
     "id": 114,
@@ -4347,7 +4347,7 @@ window.BANCO_RECEITAS_156 = [
         "beneficio_dieta": "Garante consistência na dieta quando a rotina aperta."
       }
     ],
-    "imagem_capa": "/assets/placeholder_fit.jpg"
+    "imagem_capa": "assets/receitas_flow/almondega_com_abobrinha_no_molho.png"
   },
   {
     "id": 115,
